@@ -30,6 +30,10 @@ public class Player : MonoBehaviour
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
 
+    public PlayerDodgeState DodgeState { get; private set; }
+    public float DodgeCooldownTimer { get; private set; }
+    public bool IsInvincible { get; private set; }
+
     public int FacingDirection { get; private set; } = 1;
 
     private void Awake()
@@ -48,6 +52,8 @@ public class Player : MonoBehaviour
 
         JumpState = new PlayerJumpState(this, StateMachine, playerData, "jump");
         FallState = new PlayerFallState(this, StateMachine, playerData, "fall");
+
+        DodgeState = new PlayerDodgeState(this, StateMachine, playerData, "dodge");
     }
 
     private void Start()
@@ -58,6 +64,11 @@ public class Player : MonoBehaviour
     private void Update()
     {
         StateMachine.CurrentState.LogicUpdate();
+
+        if (DodgeCooldownTimer > 0)
+        {
+            DodgeCooldownTimer -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
@@ -81,6 +92,8 @@ public class Player : MonoBehaviour
             transform.localScale = scale;
         }
     }
+    public void ResetDodgeCooldown() => DodgeCooldownTimer = playerData.DodgeCooldown;
+    public void SetInvincible(bool invincible) => IsInvincible = invincible;
 
     private void OnDrawGizmos()
     {

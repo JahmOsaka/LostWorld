@@ -11,7 +11,9 @@ public class PlayerJumpState : PlayerState
     {
         base.Enter();
         isJumpCut = false;
-        
+
+        player.InputHandler.UseJumpInput();
+
         player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.maxJumpVelocity);
     }
 
@@ -19,7 +21,12 @@ public class PlayerJumpState : PlayerState
     {
         base.LogicUpdate();
 
-        if (!player.InputHandler.JumpInput && !isJumpCut && player.RB.linearVelocity.y > 0)
+        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
+        {
+            stateMachine.ChangeState(player.DodgeState);
+        }
+
+        if (!player.InputHandler.IsJumpHolding && !isJumpCut && player.RB.linearVelocity.y > 0)
         {
             player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, player.RB.linearVelocity.y * playerData.minJumpMultiplier);
             isJumpCut = true;

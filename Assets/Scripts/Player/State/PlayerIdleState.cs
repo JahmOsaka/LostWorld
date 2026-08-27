@@ -15,17 +15,24 @@ public class PlayerIdleState : PlayerState
     {
         base.LogicUpdate();
 
-        if (player.InputHandler.RawMovementInput.x != 0)
-        {
-            stateMachine.ChangeState(player.MoveState);
-        }
-        else if (player.InputHandler.JumpInput && player.CheckIfGrounded())
+        if (player.InputHandler.JumpInput && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.JumpState);
         }
+
+        else if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
+        {
+            stateMachine.ChangeState(player.DodgeState);
+        }
+
         else if (!player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.FallState);
+        }
+
+        else if (player.InputHandler.RawMovementInput.x != 0)
+        {
+            stateMachine.ChangeState(player.MoveState);
         }
     }
 }

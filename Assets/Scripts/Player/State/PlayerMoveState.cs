@@ -9,17 +9,24 @@ public class PlayerMoveState : PlayerState
     {
         base.LogicUpdate();
 
-        if (player.InputHandler.RawMovementInput.x == 0)
+        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
         {
-            stateMachine.ChangeState(player.IdleState);
+            stateMachine.ChangeState(player.DodgeState);
         }
+
         else if (player.InputHandler.JumpInput && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.JumpState);
         }
+
         else if (!player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.FallState);
+        }
+
+        else if (player.InputHandler.RawMovementInput.x == 0)
+        {
+            stateMachine.ChangeState(player.IdleState);
         }
     }
 

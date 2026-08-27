@@ -6,6 +6,7 @@ public class PlayerInputHandler : MonoBehaviour
     public Vector2 RawMovementInput { get; private set; }
     public bool JumpInput { get; private set; }
     public bool DodgeInput { get; private set; }
+    public bool IsJumpHolding { get; private set; }
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
@@ -14,8 +15,16 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
-        if (context.started) JumpInput = true;
-        if (context.canceled) JumpInput = false;
+        if (context.started)
+        {
+            JumpInput = true;
+            IsJumpHolding = true;
+        }
+        if (context.canceled)
+        {
+            JumpInput = false;
+            IsJumpHolding = false;
+        }
     }
 
     public void OnDodgeInput(InputAction.CallbackContext context)

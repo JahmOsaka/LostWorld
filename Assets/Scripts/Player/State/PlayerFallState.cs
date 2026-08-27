@@ -9,6 +9,11 @@ public class PlayerFallState : PlayerState
     {
         base.LogicUpdate();
 
+        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
+        {
+            stateMachine.ChangeState(player.DodgeState);
+        }
+
         if (player.CheckIfGrounded())
         {
             if (player.InputHandler.RawMovementInput.x == 0)
