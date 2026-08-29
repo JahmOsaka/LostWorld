@@ -14,6 +14,8 @@ public class PlayerJumpState : PlayerState
 
         player.InputHandler.UseJumpInput();
 
+        player.ResetCoyoteTime();
+
         player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.maxJumpVelocity);
     }
 

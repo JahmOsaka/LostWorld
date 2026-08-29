@@ -17,5 +17,5 @@ MonoBehaviour:
   minJumpMultiplier: 0.5
   maxJumpTime: 0.25
   dodgeSpeed: 30
-  dodgeDuration: 0.3
+  dodgeDuration: 0.2
   dodgeCooldown: 1

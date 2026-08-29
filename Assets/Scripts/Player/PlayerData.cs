@@ -20,6 +20,11 @@ public class PlayerData : ScriptableObject
     public float maxJumpTime = 0.25f;
 
     [Space(10)]
+    [Header("Assist Settings")]
+    [Tooltip("The time window allowed to jump after walking off a ledge (in seconds).")]
+    public float coyoteTime = 0.15f;
+
+    [Space(10)]
     [Header("Dodge Settings")]
     [Tooltip("The speed of the dodge roll.")]
     [SerializeField] private float dodgeSpeed = 12f;

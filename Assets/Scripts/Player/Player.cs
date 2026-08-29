@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
 
     public int FacingDirection { get; private set; } = 1;
 
+    public float CoyoteTimeCounter { get; private set; }
+
     private void Awake()
     {
         RB = GetComponent<Rigidbody2D>();
@@ -69,6 +71,15 @@ public class Player : MonoBehaviour
         {
             DodgeCooldownTimer -= Time.deltaTime;
         }
+
+        if (CheckIfGrounded())
+        {
+            CoyoteTimeCounter = playerData.coyoteTime;
+        }
+        else
+        {
+            CoyoteTimeCounter -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
@@ -94,6 +105,7 @@ public class Player : MonoBehaviour
     }
     public void ResetDodgeCooldown() => DodgeCooldownTimer = playerData.DodgeCooldown;
     public void SetInvincible(bool invincible) => IsInvincible = invincible;
+    public void ResetCoyoteTime() => CoyoteTimeCounter = 0f;
 
     private void OnDrawGizmos()
     {
