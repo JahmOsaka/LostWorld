@@ -4,12 +4,20 @@ public class PlayerMoveState : PlayerState
 {
     public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
-
+    public override void Enter()
+    {
+        base.Enter();
+        player.ResetCombo();
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if (player.InputHandler.AttackInput)
+        {
+            stateMachine.ChangeState(player.AttackState);
+        }
 
-        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
+        else if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
         {
             stateMachine.ChangeState(player.DodgeState);
         }

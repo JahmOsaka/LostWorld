@@ -35,6 +35,11 @@ public class PlayerData : ScriptableObject
     [Tooltip("The cooldown time before the player can dodge again.")]
     [SerializeField] private float dodgeCooldown = 1f;
 
+    [Space(10)]
+    [Header("Combat Settings")]
+    public int attackDamage = 10;
+    public float comboWindow = 0.2f;
+
     // Getters for Read-only access
     public float DodgeSpeed => dodgeSpeed;
     public float DodgeDuration => dodgeDuration;

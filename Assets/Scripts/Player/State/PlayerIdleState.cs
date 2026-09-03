@@ -14,12 +14,14 @@ public class PlayerIdleState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if (player.InputHandler.JumpInput && player.CheckIfGrounded())
+        if (player.InputHandler.AttackInput)
+        {
+            stateMachine.ChangeState(player.AttackState);
+        }
+        else if (player.InputHandler.JumpInput && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.JumpState);
         }
-
         else if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
         {
             stateMachine.ChangeState(player.DodgeState);

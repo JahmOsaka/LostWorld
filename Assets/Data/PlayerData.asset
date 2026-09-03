@@ -16,6 +16,9 @@ MonoBehaviour:
   maxJumpVelocity: 20
   minJumpMultiplier: 0.5
   maxJumpTime: 0.25
+  coyoteTime: 0.15
   dodgeSpeed: 30
   dodgeDuration: 0.2
   dodgeCooldown: 1
+  attackDamage: 10
+  comboWindow: 0.2

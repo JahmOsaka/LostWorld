@@ -8,6 +8,9 @@ public class PlayerInputHandler : MonoBehaviour
     public bool DodgeInput { get; private set; }
     public bool IsJumpHolding { get; private set; }
 
+    [Header("Combat Inputs")]
+    public bool AttackInput { get; private set; }
+
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
@@ -33,6 +36,12 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.canceled) DodgeInput = false;
     }
 
+    public void OnAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.started) AttackInput = true;
+    }
+
     public void UseJumpInput() => JumpInput = false;
     public void UseDodgeInput() => DodgeInput = false;
+    public void UseAttackInput() => AttackInput = false;
 }

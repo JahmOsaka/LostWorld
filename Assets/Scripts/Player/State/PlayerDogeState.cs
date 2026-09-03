@@ -12,6 +12,7 @@ public class PlayerDodgeState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.ResetCombo();
 
         player.InputHandler.UseDodgeInput();
 

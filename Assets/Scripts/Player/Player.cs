@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
     [Tooltip("The distance of the box cast below the player.")]
     public float boxCastDistance = 0.1f;
 
+    [Header("Combat Hitbox")]
+    [SerializeField] private BoxCollider2D whipHitbox;
+
     // Components
     public Rigidbody2D RB { get; private set; }
     public BoxCollider2D Collider { get; private set; }
@@ -33,10 +36,16 @@ public class Player : MonoBehaviour
     public PlayerDodgeState DodgeState { get; private set; }
     public float DodgeCooldownTimer { get; private set; }
     public bool IsInvincible { get; private set; }
-
     public int FacingDirection { get; private set; } = 1;
-
     public float CoyoteTimeCounter { get; private set; }
+
+    public PlayerAttackState AttackState { get; private set; }
+
+    public CoreHealth Health { get; private set; }
+
+    [Header("Combat Tracking")]
+    public int ComboCounter { get; private set; }
+    public float LastAttackTime { get; private set; }
 
     private void Awake()
     {
@@ -45,6 +54,7 @@ public class Player : MonoBehaviour
         InputHandler = GetComponent<PlayerInputHandler>();
         Anim = GetComponent<Animator>();
         StateMachine = new PlayerStateMachine();
+        Health = GetComponent<CoreHealth>();
 
         RB.freezeRotation = true;
 
@@ -56,6 +66,8 @@ public class Player : MonoBehaviour
         FallState = new PlayerFallState(this, StateMachine, playerData, "fall");
 
         DodgeState = new PlayerDodgeState(this, StateMachine, playerData, "dodge");
+
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
     }
 
     private void Start()
@@ -104,8 +116,47 @@ public class Player : MonoBehaviour
         }
     }
     public void ResetDodgeCooldown() => DodgeCooldownTimer = playerData.DodgeCooldown;
-    public void SetInvincible(bool invincible) => IsInvincible = invincible;
+    public void SetInvincible(bool invincible)
+    {
+        if (Health != null)
+        {
+            Health.SetInvincible(invincible);
+        }
+    }
     public void ResetCoyoteTime() => CoyoteTimeCounter = 0f;
+    
+    public void RecordAttack()
+    {
+        ComboCounter++;
+        if (ComboCounter > 3) ComboCounter = 1;
+    }
+
+    public void ResetCombo()
+    {
+        ComboCounter = 0;
+    
+    }
+
+    public void FinishAttack()
+    {
+        LastAttackTime = Time.time;
+        StateMachine.ChangeState(IdleState);
+    }
+
+    public void EnableHitbox()
+    {
+        if (whipHitbox != null)
+        {
+            whipHitbox.gameObject.SetActive(true);
+        }
+    }
+    public void DisableHitbox()
+    {
+        if (whipHitbox != null)
+        {
+            whipHitbox.gameObject.SetActive(false);
+        }
+    }
 
     private void OnDrawGizmos()
     {
