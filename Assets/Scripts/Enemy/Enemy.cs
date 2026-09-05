@@ -26,6 +26,9 @@ public class Enemy : MonoBehaviour
     private EnemyAttackState attackState;
     private EnemyReturnState returnState;
     public EnemyReturnState ReturnState => returnState;
+
+    public Vector3 SpawnPosition => spawnPosition;
+    public EnemyRangedAttackState RangedAttackState => rangedAttackState;
     public bool HasPatrolPoints => patrolPoints != null && patrolPoints.Length > 0;
 
     public SpriteRenderer spriteRenderer { get; private set; }
@@ -51,27 +54,6 @@ public class Enemy : MonoBehaviour
         returnState = new EnemyReturnState(this, stateMachine, enemyData, "move");
     }
 
-    public Vector3 SpawnPosition => spawnPosition;
-    public EnemyRangedAttackState RangedAttackState => rangedAttackState;
-
-    public void SpawnProjectile()
-    {
-        if (projectilePrefab == null || throwPoint == null) return;
-
-        GameObject proj = Instantiate(projectilePrefab, throwPoint.position, Quaternion.identity);
-
-        if (enemyData.useArcProjectile)
-        {
-            proj.GetComponent<EnemyArcProjectile>()
-                .Init(throwPoint.position, playerTransform.position, enemyData.arcHeight, enemyData.damage, enemyData.arcSpeedMultiplier);
-        }
-        else
-        {
-            Vector2 dir = (playerTransform.position - throwPoint.position).normalized;
-            proj.GetComponent<EnemyProjectile>().Init(dir, enemyData.projectileSpeed, enemyData.damage);
-        }
-    }
-
     private void Start()
     {
         if (patrolPoints.Length > 0)
@@ -89,6 +71,23 @@ public class Enemy : MonoBehaviour
     public void SwitchPatrolPoint()
     {
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+    }
+    public void SpawnProjectile()
+    {
+        if (projectilePrefab == null || throwPoint == null) return;
+
+        GameObject proj = Instantiate(projectilePrefab, throwPoint.position, Quaternion.identity);
+
+        if (enemyData.useArcProjectile)
+        {
+            proj.GetComponent<EnemyArcProjectile>()
+                .Init(throwPoint.position, playerTransform.position, enemyData.arcHeight, enemyData.damage, enemyData.arcSpeedMultiplier);
+        }
+        else
+        {
+            Vector2 dir = (playerTransform.position - throwPoint.position).normalized;
+            proj.GetComponent<EnemyProjectile>().Init(dir, enemyData.projectileSpeed, enemyData.damage);
+        }
     }
 
     public void NotifyThrowAnimationEnd()
