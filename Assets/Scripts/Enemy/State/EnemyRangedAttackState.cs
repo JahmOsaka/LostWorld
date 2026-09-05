@@ -12,7 +12,7 @@ public class EnemyRangedAttackState : EnemyState
     {
         base.Enter();
         enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
-        // ไม่ reset cooldownTimer แล้ว ปล่อยให้นับต่อจากค่าที่ค้างไว้
+
     }
 
     public override void LogicUpdate()
@@ -21,7 +21,7 @@ public class EnemyRangedAttackState : EnemyState
 
         FacePlayer();
 
-        if (dist > enemyData.throwRange * 1.2f)  // เพิ่ม buffer กันเด้งเข้า-ออกถี่
+        if (dist > enemyData.throwRange * 1.2f)
         {
             stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.ReturnState);
             return;
@@ -35,8 +35,6 @@ public class EnemyRangedAttackState : EnemyState
             cooldownTimer = enemyData.throwCooldown;
         }
     }
-
-    // เรียกจาก Animation Event ตัวที่ 2 ที่วางไว้เฟรมสุดท้ายของ clip EnemyThrow
     public void OnThrowAnimationEnd()
     {
         isThrowing = false;

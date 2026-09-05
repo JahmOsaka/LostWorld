@@ -32,10 +32,8 @@ public class EnemyData : ScriptableObject
     public float arcHeight = 2f;
     public float arcSpeedMultiplier = 1f;
 
-    [Header("Combat")]
+    [Header("Melee - Combo Attack")]
     public int damage = 1;
     public float attackCooldown = 1.5f;
-
-    [Header("Melee - Combo Attack")]
     public float comboInterval = 0.1f;
 }

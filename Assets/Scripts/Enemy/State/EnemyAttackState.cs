@@ -2,45 +2,47 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyState
 {
-    private float comboTimer;
-    private bool secondHitPending;
+    private float cooldownTimer;
+    private bool isAttacking;
 
     public EnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName)
         : base(enemy, stateMachine, enemyData, animBoolName) { }
 
     public override void Enter()
     {
-        base.Enter();
         enemy.rb.linearVelocity = Vector2.zero;
-
-        DealHit();                          
-        comboTimer = enemyData.comboInterval;
-        secondHitPending = true;
+        cooldownTimer = 0f;
     }
 
     public override void LogicUpdate()
     {
-        if (secondHitPending)
-        {
-            comboTimer -= Time.deltaTime;
-            if (comboTimer <= 0f)
-            {
-                DealHit();                  
-                secondHitPending = false;
-            }
-        }
+        float dist = enemy.DistanceToPlayer();
 
-        if (enemy.DistanceToPlayer() > enemyData.attackRange)
+        if (dist > enemyData.attackRange * 1.2f)
         {
             stateMachine.ChangeState(enemy.ChaseState);
+            return;
+        }
+
+        cooldownTimer -= Time.deltaTime;
+        if (cooldownTimer <= 0f && !isAttacking)
+        {
+            isAttacking = true;
+            enemy.anim.SetTrigger("attack");
+            cooldownTimer = enemyData.attackCooldown;
         }
     }
 
-    private void DealHit()
+    public void DealHit()
     {
         if (enemy.DistanceToPlayer() <= enemyData.attackRange)
         {
             enemy.playerTransform.GetComponent<IDamageable>()?.TakeDamage(enemyData.damage);
         }
+    }
+
+    public void OnAttackAnimationEnd()
+    {
+        isAttacking = false;
     }
 }

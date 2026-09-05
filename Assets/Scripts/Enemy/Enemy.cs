@@ -95,6 +95,16 @@ public class Enemy : MonoBehaviour
         rangedAttackState.OnThrowAnimationEnd();
     }
 
+    public void NotifyAttackHit()
+    {
+        attackState.DealHit();
+    }
+
+    public void NotifyAttackAnimationEnd()
+    {
+        attackState.OnAttackAnimationEnd();
+    }
+
 
 
     public EnemyIdleState IdleState => idleState;
