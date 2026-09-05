@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96968c9e2cca0394aa4897254693196b, type: 3}
-  m_Name: EnemyData
+  m_Name: Myce
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   isStationary: 0
   canDetectPlayer: 1
