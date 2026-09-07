@@ -9,6 +9,7 @@ public class PlayerAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.Anim.speed = playerData.AttackSpeedMultiplier;
 
         player.InputHandler.UseAttackInput();
         player.RB.linearVelocity = Vector2.zero;

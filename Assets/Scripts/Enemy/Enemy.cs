@@ -1,8 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(Animator))]
 public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
@@ -29,7 +28,8 @@ public class Enemy : MonoBehaviour
 
     public Vector3 SpawnPosition => spawnPosition;
     public EnemyRangedAttackState RangedAttackState => rangedAttackState;
-    public bool HasPatrolPoints => patrolPoints != null && patrolPoints.Length > 0;
+    // เปลี่ยนบรรทัดนี้
+    public bool HasPatrolPoints => patrolPoints != null && patrolPoints.Length > 0 && patrolPoints[0] != null;
 
     public SpriteRenderer spriteRenderer { get; private set; }
     public Animator anim { get; private set; }
@@ -38,8 +38,8 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         spawnPosition = transform.position;
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        if (patrolPoints.Length > 0)
+        if (HasPatrolPoints)
             stateMachine.Initialize(patrolState);
         else
             stateMachine.Initialize(idleState);

@@ -7,11 +7,14 @@ public class PlayerDodgeState : PlayerState
     private float defaultGravity;
 
     public PlayerDodgeState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
-        : base(player, stateMachine, playerData, animBoolName) { }
+        : base(player, stateMachine, playerData, animBoolName)
+    {
+    }
 
     public override void Enter()
     {
         base.Enter();
+        player.Collider.isTrigger = true;
         player.ResetCombo();
 
         player.InputHandler.UseDodgeInput();
@@ -61,6 +64,7 @@ public class PlayerDodgeState : PlayerState
     public override void Exit()
     {
         base.Exit();
+        player.Collider.isTrigger = false;
 
         player.SetInvincible(false);
         player.ResetDodgeCooldown();

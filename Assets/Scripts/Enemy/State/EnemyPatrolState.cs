@@ -68,7 +68,7 @@ public class EnemyPatrolState : EnemyState
         }
 
         Transform target = enemy.GetCurrentPatrolPoint();
-        float dist = Vector2.Distance(enemy.transform.position, target.position);
+        float dist = Mathf.Abs(enemy.transform.position.x - target.position.x);
 
         if (dist < 0.2f)
         {

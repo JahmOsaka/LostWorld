@@ -39,9 +39,11 @@ public class PlayerData : ScriptableObject
     [Header("Combat Settings")]
     public int attackDamage = 10;
     public float comboWindow = 0.2f;
+    [SerializeField] private float attackSpeedMultiplier = 1f;
 
     // Getters for Read-only access
     public float DodgeSpeed => dodgeSpeed;
     public float DodgeDuration => dodgeDuration;
     public float DodgeCooldown => dodgeCooldown;
+    public float AttackSpeedMultiplier => attackSpeedMultiplier;
 }

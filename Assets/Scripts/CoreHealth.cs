@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.Processors;
 
@@ -46,5 +46,25 @@ public class CoreHealth : MonoBehaviour, IDamageable
         isDead = true;
         OnDeath?.Invoke();
         Debug.Log($"{gameObject.name} is Dead!");
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.simulated = false;
+        }
+
+        Player player = GetComponent<Player>();
+        if (player != null)
+        {
+            player.enabled = false;
+            if (player.InputHandler != null) player.InputHandler.enabled = false;
+        }
+
+        Enemy enemy = GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.enabled = false;
+        }
     }
 }

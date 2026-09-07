@@ -3,7 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(PlayerInputHandler))]
-[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
     public PlayerData playerData;
@@ -52,7 +51,7 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
         InputHandler = GetComponent<PlayerInputHandler>();
-        Anim = GetComponent<Animator>();
+        Anim = GetComponentInChildren<Animator>();
         StateMachine = new PlayerStateMachine();
         Health = GetComponent<CoreHealth>();
 

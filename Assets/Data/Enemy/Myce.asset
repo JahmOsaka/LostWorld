@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Myce
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   isStationary: 0
-  canDetectPlayer: 0
+  canDetectPlayer: 1
   patrolSpeed: 2
   idleTimeAtPoint: 1.5
   chaseRange: 5
