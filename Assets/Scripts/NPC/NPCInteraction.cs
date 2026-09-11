@@ -2,18 +2,23 @@
 
 public class NPCInteraction : MonoBehaviour
 {
-    [Header("NPC Dialogue Info")]
-    [SerializeField] private string npcName = "Mushroom Girl";
-    [TextArea(2, 5)]
-    [SerializeField] private string dialogueSentence = "";
+    [Header("Dialogue Sets")]
+    [Tooltip("Default dialogues to play when the condition is not met.")]
+    [SerializeField] private DialogueLine[] defaultDialogues;
+
+    [Tooltip("Alternate dialogues to play once the condition is met.")]
+    [SerializeField] private DialogueLine[] alternateDialogues;
 
     [Header("Portraits")]
     [SerializeField] private Sprite playerSprite;
     [SerializeField] private Sprite npcSprite;
 
+    [Header("Conditions")]
+    [Tooltip("Check this to simulate that the condition is met for testing purposes.")]
+    public bool isConditionMet = false;
+
     private PlayerInputHandler playerInput;
     private bool playerIsClose = false;
-    private bool isTalking = false;
 
     private void Update()
     {
@@ -21,15 +26,24 @@ public class NPCInteraction : MonoBehaviour
         {
             playerInput.UseInteractInput();
 
-            if (!isTalking)
+            if (!DialogueManager.Instance.isOpen)
             {
-                DialogueManager.Instance.StartDialogue(npcName, dialogueSentence, playerSprite, npcSprite);
-                isTalking = true;
+                DialogueLine[] dialogueToPlay;
+
+                if (isConditionMet)
+                {
+                    dialogueToPlay = alternateDialogues;
+                }
+                else
+                {
+                    dialogueToPlay = defaultDialogues;
+                }
+
+                DialogueManager.Instance.StartDialogue(dialogueToPlay, playerSprite, npcSprite);
             }
             else
             {
-                DialogueManager.Instance.EndDialogue();
-                isTalking = false;
+                DialogueManager.Instance.DisplayNextSentence();
             }
         }
     }
@@ -50,11 +64,25 @@ public class NPCInteraction : MonoBehaviour
             playerIsClose = false;
             playerInput = null;
 
-            if (isTalking)
+            if (DialogueManager.Instance.isOpen)
             {
                 DialogueManager.Instance.EndDialogue();
-                isTalking = false;
             }
         }
+    }
+    private void OnEnable()
+    {
+        ItemPickup.OnItemCollected += CompleteQuestCondition;
+    }
+
+    private void OnDisable()
+    {
+        ItemPickup.OnItemCollected -= CompleteQuestCondition;
+    }
+
+    private void CompleteQuestCondition()
+    {
+        isConditionMet = true;
+        Debug.Log(gameObject.name + ": Condition Met! Ready for new dialogue.");
     }
 }

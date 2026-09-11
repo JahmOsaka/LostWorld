@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 74f227c35e2aada43acf36c7e619366c
+guid: e300739bcf862fe46bd97ca0add0255a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5738161756558752870
-    second: Text2_0
-  - first:
-      213: 1206068901449417228
-    second: Text2_1
+      213: 829362594514696918
+    second: Dialogue Panel Right_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Text2_0
+      name: Dialogue Panel Right_0
       rect:
         serializedVersion: 2
-        x: 601
-        y: 1370
-        width: 1075
-        height: 307
+        x: 291
+        y: 270
+        width: 3507
+        height: 1187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a938594d844fd50b0800000000000000
-      internalID: -5738161756558752870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Text2_1
-      rect:
-        serializedVersion: 2
-        x: 1583
-        y: 1672
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c02c98d9641dcb010800000000000000
-      internalID: 1206068901449417228
+      spriteID: 6da7b04b2ec728b00800000000000000
+      internalID: 829362594514696918
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Text2_0: -5738161756558752870
-      Text2_1: 1206068901449417228
+      Dialogue Panel Right_0: 829362594514696918
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

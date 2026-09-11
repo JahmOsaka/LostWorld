@@ -12,7 +12,13 @@ public class PlayerInputHandler : MonoBehaviour
 
     [Header("Combat Inputs")]
     public bool AttackInput { get; private set; }
+    void Start()
+    {
+        int playerLayer = LayerMask.NameToLayer("Player");
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
 
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+    }
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
