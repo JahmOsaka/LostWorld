@@ -7,6 +7,7 @@ public class EnemyChaseState : EnemyState
 
     public override void LogicUpdate()
     {
+        enemy.FacePlayer();
         float dist = enemy.DistanceToPlayer();
         float triggerRange = enemyData.isRangedEnemy ? enemyData.throwRange : enemyData.attackRange;
 

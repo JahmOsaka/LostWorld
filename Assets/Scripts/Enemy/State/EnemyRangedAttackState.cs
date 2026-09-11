@@ -16,7 +16,7 @@ public class EnemyRangedAttackState : EnemyState
     }
 
     public override void LogicUpdate()
-    {
+    { 
         float dist = enemy.DistanceToPlayer();
 
         FacePlayer();

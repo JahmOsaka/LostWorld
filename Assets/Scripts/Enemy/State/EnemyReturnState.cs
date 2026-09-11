@@ -7,7 +7,6 @@ public class EnemyReturnState : EnemyState
 
     public override void LogicUpdate()
     {
-        // ถ้าเจอ player ระหว่างทางกลับ ให้ไล่ต่อได้เลย
         if (enemy.DistanceToPlayer() <= enemyData.chaseRange)
         {
             stateMachine.ChangeState(enemy.ChaseState);

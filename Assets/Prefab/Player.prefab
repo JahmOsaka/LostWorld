@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3901702963766238246}
   - component: {fileID: 3114217934519336121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.495, y: 0.296, z: -1}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.25, y: 0.083, z: 0.25}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8070273964345352837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 8815986915462865779}
   - component: {fileID: 3173419442666312354}
   - component: {fileID: 831591605139798008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -203,7 +203,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 3}
   m_EdgeRadius: 0
 --- !u!114 &2202049385663698167
 MonoBehaviour:
@@ -346,6 +346,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7a2b0880-eab5-4892-b13a-3e527b118235
     m_ActionName: 'Player/Attack[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 000a733a-12a0-4e39-b0f9-49cbf563aee8
+    m_ActionName: 'Player/Interact[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -424,7 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8934066931616372846}
   - component: {fileID: 3786628098680946381}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Whip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4263399314204471649}
   - component: {fileID: 7707803697349454664}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Whip (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +613,7 @@ GameObject:
   - component: {fileID: 8063810419092582632}
   - component: {fileID: 4142366149432382527}
   - component: {fileID: 9117282417096178437}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WhipHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +669,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.5907698, y: 0.0034911633}
+  m_Offset: {x: 1.5907698, y: 0.5071691}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -675,7 +679,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.81846046, y: 0.9790535}
+  m_Size: {x: 0.81846046, y: 1.9864094}
   m_EdgeRadius: 0
 --- !u!114 &9117282417096178437
 MonoBehaviour:
@@ -703,7 +707,7 @@ GameObject:
   - component: {fileID: 3540399915313790792}
   - component: {fileID: 2283254726327349493}
   - component: {fileID: 1278018544631925865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,8 +723,8 @@ Transform:
   m_GameObject: {fileID: 6109365457505568432}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3901702963766238246}
@@ -844,7 +848,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7724010608583613001}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WhipVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -880,7 +884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7117749852447132868}
   - component: {fileID: 8003386886074346417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Whip (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3001978041122565065}
   - component: {fileID: 2769731484156295108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Whip (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

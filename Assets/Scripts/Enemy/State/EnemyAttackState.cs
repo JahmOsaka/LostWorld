@@ -16,6 +16,7 @@ public class EnemyAttackState : EnemyState
 
     public override void LogicUpdate()
     {
+        enemy.FacePlayer();
         float dist = enemy.DistanceToPlayer();
 
         if (dist > enemyData.attackRange * 1.2f)
