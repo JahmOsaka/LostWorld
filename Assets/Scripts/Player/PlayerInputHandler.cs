@@ -8,6 +8,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool DodgeInput { get; private set; }
     public bool IsJumpHolding { get; private set; }
 
+    public bool InteractInput { get; private set; }
+
     [Header("Combat Inputs")]
     public bool AttackInput { get; private set; }
 
@@ -41,7 +43,18 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started) AttackInput = true;
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            InteractInput = true;
+        }
+    }
+
+    public void UseInteractInput() => InteractInput = false;
     public void UseJumpInput() => JumpInput = false;
     public void UseDodgeInput() => DodgeInput = false;
     public void UseAttackInput() => AttackInput = false;
+
+
 }

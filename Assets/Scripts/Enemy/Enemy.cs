@@ -105,7 +105,17 @@ public class Enemy : MonoBehaviour
         attackState.OnAttackAnimationEnd();
     }
 
-
+    public void FacePlayer()
+    {
+        if (playerTransform != null)
+        {
+            float dirX = playerTransform.position.x - transform.position.x;
+            if (dirX > 0)
+                spriteRenderer.flipX = true;
+            else if (dirX < 0)
+                spriteRenderer.flipX =  false;
+        }
+    }
 
     public EnemyIdleState IdleState => idleState;
     public EnemyPatrolState PatrolState => patrolState;
