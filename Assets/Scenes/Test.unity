@@ -1383,6 +1383,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076136674}
   m_CullTransparentMesh: 1
+--- !u!1 &1089076684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4473217849596222109, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
+  m_PrefabInstance: {fileID: 1213333199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1089076686
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089076684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 81baa881dab559c4ab82182d1c0c262e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1131570737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,7 +1668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4473217849596222109, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8334316978053283536, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1686,7 +1713,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4473217849596222109, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1089076686}
   m_SourcePrefab: {fileID: 100100000, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
 --- !u!1 &1295662648
 GameObject:
@@ -2299,6 +2329,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6100445818434788676, guid: 4a29c126b95f93041b9891994b95e862, type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788186296501413050, guid: 4a29c126b95f93041b9891994b95e862, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7801827078342501664, guid: 4a29c126b95f93041b9891994b95e862, type: 3}

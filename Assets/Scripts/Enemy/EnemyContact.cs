@@ -6,14 +6,16 @@ public class EnemyContact : MonoBehaviour
 
     private void Awake()
     {
-        enemy = GetComponent<Enemy>();
+        enemy = GetComponentInParent<Enemy>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        CoreHealth playerHealth = collision.GetComponentInParent<CoreHealth>();
+
+        if(playerHealth != null)
         {
-            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(enemy.enemyData.damage);
+            playerHealth.TakeDamage(enemy.enemyData.damage);
         }
     }
 }

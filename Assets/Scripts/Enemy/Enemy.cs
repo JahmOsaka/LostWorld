@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
 
     public Vector3 SpawnPosition => spawnPosition;
     public EnemyRangedAttackState RangedAttackState => rangedAttackState;
-    // เปลี่ยนบรรทัดนี้
     public bool HasPatrolPoints => patrolPoints != null && patrolPoints.Length > 0 && patrolPoints[0] != null;
 
     public SpriteRenderer spriteRenderer { get; private set; }
