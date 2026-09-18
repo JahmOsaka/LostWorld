@@ -22,24 +22,25 @@ public class PlayerAttackState : PlayerState
         player.RecordAttack();
 
         player.Anim.SetInteger("Combo", player.ComboCounter);
-
-        failsafeTimer = 0.5f;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        failsafeTimer -= Time.deltaTime;
-        if (failsafeTimer <= 0)
+        if (player.InputHandler.RawMovementInput.x != 0)
         {
-            stateMachine.ChangeState(player.IdleState);
+            stateMachine.ChangeState(player.MoveState);
+        }
+
+        else if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
+        {
+            stateMachine.ChangeState(player.DodgeState);
         }
     }
 
     public override void Exit()
     {
         base.Exit();
-
         player.DisableHitbox();
     }
 }

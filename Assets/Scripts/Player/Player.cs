@@ -24,6 +24,13 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     public Animator Anim { get; private set; }
 
+    public CoreHealth Health { get; private set; }
+
+    [Header("Combat Settings")]
+    public float combatIdleDuration = 4f;
+    public int ComboCounter { get; private set; }
+    public float LastAttackTime { get; set; }
+
     // State Machine
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
@@ -39,12 +46,6 @@ public class Player : MonoBehaviour
     public float CoyoteTimeCounter { get; private set; }
 
     public PlayerAttackState AttackState { get; private set; }
-
-    public CoreHealth Health { get; private set; }
-
-    [Header("Combat Tracking")]
-    public int ComboCounter { get; private set; }
-    public float LastAttackTime { get; private set; }
 
     private void Awake()
     {
@@ -155,6 +156,11 @@ public class Player : MonoBehaviour
         {
             whipHitbox.gameObject.SetActive(false);
         }
+    }
+
+    public void TriggerCombatState()
+    {
+        LastAttackTime = Time.time;
     }
 
     private void OnDrawGizmos()

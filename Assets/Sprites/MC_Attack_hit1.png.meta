@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 504b2b602a560a744ad3fdc528d7f26b
+guid: 081d5c882c661374b84f888a563947da
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8419268942039905
-    second: MC_Idle_8f_0
+      213: -2547901199077626487
+    second: MC_Attack_hit1_0
   - first:
-      213: 5352613837483827929
-    second: MC_Idle_8f_1
+      213: 8544096334022195074
+    second: MC_Attack_hit1_1
   - first:
-      213: -4732797723004836801
-    second: MC_Idle_8f_2
+      213: 5868370497664938507
+    second: MC_Attack_hit1_2
   - first:
-      213: 3365576616218992947
-    second: MC_Idle_8f_3
+      213: -4844393172087972741
+    second: MC_Attack_hit1_3
   - first:
-      213: -7063500304032834981
-    second: MC_Idle_8f_4
+      213: 5582306589598004384
+    second: MC_Attack_hit1_4
   - first:
-      213: 2724310870145802011
-    second: MC_Idle_8f_5
+      213: 621485662508066650
+    second: MC_Attack_hit1_5
   - first:
-      213: 9117927817110077291
-    second: MC_Idle_8f_6
+      213: -1529518944378114037
+    second: MC_Attack_hit1_6
   - first:
-      213: -5332214856029719079
-    second: MC_Idle_8f_7
+      213: -6390573657066545743
+    second: MC_Attack_hit1_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,177 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_Idle_8f_0
+      name: MC_Attack_hit1_0
       rect:
         serializedVersion: 2
-        x: 309
-        y: 110
-        width: 412
-        height: 1648
+        x: 0
+        y: 14336
+        width: 7168
+        height: 2048
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16b0f8ec749ed1000800000000000000
-      internalID: 8419268942039905
+      spriteID: 98daf2adb5904acd0800000000000000
+      internalID: -2547901199077626487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_1
+      name: MC_Attack_hit1_1
       rect:
         serializedVersion: 2
-        x: 1331
-        y: 110
-        width: 412
-        height: 1648
+        x: 0
+        y: 12288
+        width: 7168
+        height: 2048
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d260130ded484a40800000000000000
-      internalID: 5352613837483827929
+      spriteID: 2873c14e85ab29670800000000000000
+      internalID: 8544096334022195074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_2
+      name: MC_Attack_hit1_2
       rect:
         serializedVersion: 2
-        x: 2352
-        y: 110
-        width: 412
-        height: 1650
+        x: 0
+        y: 10240
+        width: 7168
+        height: 2048
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f34e48edb89b15eb0800000000000000
-      internalID: -4732797723004836801
+      spriteID: b0273bb20e3a07150800000000000000
+      internalID: 5868370497664938507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_3
+      name: MC_Attack_hit1_3
       rect:
         serializedVersion: 2
-        x: 3379
-        y: 86
-        width: 412
-        height: 1652
+        x: 0
+        y: 8192
+        width: 7168
+        height: 2048
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3312812d91ee4be20800000000000000
-      internalID: 3365576616218992947
+      spriteID: b7c5e51a31245ccb0800000000000000
+      internalID: -4844393172087972741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_4
+      name: MC_Attack_hit1_4
       rect:
         serializedVersion: 2
-        x: 4402
-        y: 111
-        width: 412
-        height: 1649
+        x: 0
+        y: 6144
+        width: 7168
+        height: 2048
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5a5243c5e769fd90800000000000000
-      internalID: -7063500304032834981
+      spriteID: 0a4bf445446587d40800000000000000
+      internalID: 5582306589598004384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_5
+      name: MC_Attack_hit1_5
       rect:
         serializedVersion: 2
-        x: 5426
-        y: 111
-        width: 412
-        height: 1647
+        x: 0
+        y: 4096
+        width: 7168
+        height: 2048
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1f96c86d42bec520800000000000000
-      internalID: 2724310870145802011
+      spriteID: a57aac2dae5ff9800800000000000000
+      internalID: 621485662508066650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_6
+      name: MC_Attack_hit1_6
       rect:
         serializedVersion: 2
-        x: 6448
-        y: 111
-        width: 412
-        height: 1647
+        x: 0
+        y: 2048
+        width: 7168
+        height: 2048
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6fbf727a03698e70800000000000000
-      internalID: 9117927817110077291
+      spriteID: b00bc13bf9e06cae0800000000000000
+      internalID: -1529518944378114037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_7
+      name: MC_Attack_hit1_7
       rect:
         serializedVersion: 2
-        x: 7476
-        y: 111
-        width: 412
-        height: 1647
+        x: 0
+        y: 0
+        width: 7168
+        height: 2048
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d5b948f6da2006b0800000000000000
-      internalID: -5332214856029719079
+      spriteID: 1bd549b1e1f1057a0800000000000000
+      internalID: -6390573657066545743
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f7cbbb95d7532b84fb60262034ec33ed
     internalID: 0
     vertices: []
     indices: 
@@ -308,16 +308,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":8.0},"gridSpriteSize":{"x":7168.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      MC_Idle_8f_0: 8419268942039905
-      MC_Idle_8f_1: 5352613837483827929
-      MC_Idle_8f_2: -4732797723004836801
-      MC_Idle_8f_3: 3365576616218992947
-      MC_Idle_8f_4: -7063500304032834981
-      MC_Idle_8f_5: 2724310870145802011
-      MC_Idle_8f_6: 9117927817110077291
-      MC_Idle_8f_7: -5332214856029719079
+      MC_Attack_hit1_0: -2547901199077626487
+      MC_Attack_hit1_1: 8544096334022195074
+      MC_Attack_hit1_2: 5868370497664938507
+      MC_Attack_hit1_3: -4844393172087972741
+      MC_Attack_hit1_4: 5582306589598004384
+      MC_Attack_hit1_5: 621485662508066650
+      MC_Attack_hit1_6: -1529518944378114037
+      MC_Attack_hit1_7: -6390573657066545743
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

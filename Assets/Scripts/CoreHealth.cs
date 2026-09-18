@@ -39,6 +39,12 @@ public class CoreHealth : MonoBehaviour, IDamageable
         {
             Die();
         }
+
+        Player player = GetComponentInParent<Player>();
+        if (player != null)
+        {
+            player.TriggerCombatState();
+        }
     }
 
    public void Die()

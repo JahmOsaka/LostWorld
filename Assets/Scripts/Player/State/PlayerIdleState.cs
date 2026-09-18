@@ -14,6 +14,16 @@ public class PlayerIdleState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if (Time.time - player.LastAttackTime < player.combatIdleDuration)
+        {
+            player.Anim.SetBool("isCombatIdle", true);
+        }
+        else
+        {
+            player.Anim.SetBool("isCombatIdle", false);
+        }
+
+
         if (player.InputHandler.AttackInput)
         {
             stateMachine.ChangeState(player.AttackState);
@@ -36,5 +46,10 @@ public class PlayerIdleState : PlayerState
         {
             stateMachine.ChangeState(player.MoveState);
         }
+    }
+    public override void Exit()
+    {
+        base.Exit();
+        player.Anim.SetBool("isCombatIdle", false);
     }
 }

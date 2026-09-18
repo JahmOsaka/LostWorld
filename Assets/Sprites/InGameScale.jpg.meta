@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: c7d74f29be139f64ebddb8975e907f2e
+guid: dbd5c01f42205814d8483f310dadab56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8798375979398204229
-    second: IMG_1444_0
-  - first:
-      213: -8709000172147798339
-    second: IMG_1444_1
+      213: -1256143219109105782
+    second: InGameScale_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_1444_0
+      name: InGameScale_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 127
-        width: 997
-        height: 1715
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54b0c54665c1a1a70800000000000000
-      internalID: 8798375979398204229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_1444_1
-      rect:
-        serializedVersion: 2
-        x: 1130
-        y: 157
-        width: 829
-        height: 1693
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dbe80565c7a632780800000000000000
-      internalID: -8709000172147798339
+      spriteID: a8f6cf5c568419ee0800000000000000
+      internalID: -1256143219109105782
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IMG_1444_0: 8798375979398204229
-      IMG_1444_1: -8709000172147798339
+      InGameScale_0: -1256143219109105782
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
