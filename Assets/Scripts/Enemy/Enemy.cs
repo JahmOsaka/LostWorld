@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
+
+    public GameObject orbPrefab;
+    private List<GameObject> activeOrbs = new List<GameObject>();
 
     [Header("Ranged Attack")]
     public GameObject projectilePrefab;
@@ -102,6 +106,26 @@ public class Enemy : MonoBehaviour
     public void NotifyAttackAnimationEnd()
     {
         attackState.OnAttackAnimationEnd();
+    }
+
+    public void NotifySpawnOrbs()
+    {
+        if (!enemyData.hasOrbAttack || orbPrefab == null) return;
+
+        foreach (var orb in activeOrbs)
+        {
+            if (orb != null) Destroy(orb);
+        }
+        activeOrbs.Clear();
+
+        for (int i = 0; i < enemyData.orbCount; i++)
+        {
+            GameObject orbObj = Instantiate(orbPrefab, transform.position, Quaternion.identity);
+            float startAngle = (360f / enemyData.orbCount) * i;
+            orbObj.GetComponent<OrbitingDamageOrb>()
+                .Init(transform, enemyData.orbitRadius, enemyData.orbitSpeed, startAngle, enemyData.orbDuration, enemyData.damage);
+            activeOrbs.Add(orbObj);
+        }
     }
 
     public void FacePlayer()

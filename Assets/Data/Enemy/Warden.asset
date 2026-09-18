@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96968c9e2cca0394aa4897254693196b, type: 3}
+  m_Name: Warden
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  isStationary: 0
+  canDetectPlayer: 1
+  patrolSpeed: 0.5
+  idleTimeAtPoint: 1.5
+  chaseRange: 5
+  attackRange: 1.5
+  moveSpeed: 2
+  isRangedEnemy: 0
+  throwRange: 6
+  throwCooldown: 2
+  projectileSpeed: 8
+  useArcProjectile: 0
+  arcHeight: 2
+  arcSpeedMultiplier: 1
+  damage: 1
+  attackCooldown: 3
+  comboInterval: 0.1
+  hasOrbAttack: 1
+  orbCount: 2
+  orbitRadius: 1.2
+  orbitSpeed: 200
+  orbDuration: 2
