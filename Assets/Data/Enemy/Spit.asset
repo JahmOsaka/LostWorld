@@ -26,6 +26,6 @@ MonoBehaviour:
   useArcProjectile: 1
   arcHeight: 2
   arcSpeedMultiplier: 3
-  damage: 1
+  damage: 10
   attackCooldown: 1.5
   comboInterval: 0.1

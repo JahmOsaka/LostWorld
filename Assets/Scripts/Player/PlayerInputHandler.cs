@@ -10,6 +10,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool InteractInput { get; private set; }
 
+    public bool PotionInput { get; private set; }
+
     [Header("Combat Inputs")]
     public bool AttackInput { get; private set; }
     void Start()
@@ -57,10 +59,17 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void OnPotionInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            PotionInput = true;
+        }
+    }
     public void UseInteractInput() => InteractInput = false;
     public void UseJumpInput() => JumpInput = false;
     public void UseDodgeInput() => DodgeInput = false;
     public void UseAttackInput() => AttackInput = false;
-
+    public void UsePotionInput() => PotionInput = false;
 
 }

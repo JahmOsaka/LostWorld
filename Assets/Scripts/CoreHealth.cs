@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.Processors;
+using System;
 
 public class CoreHealth : MonoBehaviour, IDamageable
 {
@@ -15,7 +16,8 @@ public class CoreHealth : MonoBehaviour, IDamageable
     private bool isDead;
     private bool isInvincible;
 
-    private void Start()
+    public static event Action OnHealthChanged;
+    private void Awake()
     {
         currentHealth = maxHealth;
         isDead = false;
@@ -25,7 +27,19 @@ public class CoreHealth : MonoBehaviour, IDamageable
     {
         isInvincible = invincible;
     }
+    public void Heal(int amount)
+    {
+        if (isDead) return;
 
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        OnHealthChanged?.Invoke();
+        Debug.Log($"{gameObject.name} healed {amount} HP! Current HP: {currentHealth}");
+    }
     public void TakeDamage(int amount)
     {
         if (isInvincible || isDead) return;
@@ -45,6 +59,7 @@ public class CoreHealth : MonoBehaviour, IDamageable
         {
             player.TriggerCombatState();
         }
+        OnHealthChanged?.Invoke();
     }
 
    public void Die()
