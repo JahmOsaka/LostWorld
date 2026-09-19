@@ -767,6 +767,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1278018544631925865, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
+      propertyPath: flashColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278018544631925865, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
+      propertyPath: flashColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278018544631925865, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
+      propertyPath: flashColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1873264935103288477, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 16
@@ -3076,6 +3088,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5064516160156491723, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
+      propertyPath: flashColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064516160156491723, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
+      propertyPath: flashColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064516160156491723, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
+      propertyPath: flashColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5299372370324674456, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.83
@@ -4671,11 +4695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8334316978053283536, guid: 4a29c126b95f93041b9891994b95e862, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.46
+      value: 5.51
       objectReference: {fileID: 0}
     - target: {fileID: 8334316978053283536, guid: 4a29c126b95f93041b9891994b95e862, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.169
+      value: -2.91
       objectReference: {fileID: 0}
     - target: {fileID: 8334316978053283536, guid: 4a29c126b95f93041b9891994b95e862, type: 3}
       propertyPath: m_LocalPosition.z
