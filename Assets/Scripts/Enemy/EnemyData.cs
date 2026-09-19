@@ -36,4 +36,11 @@ public class EnemyData : ScriptableObject
     public int damage = 1;
     public float attackCooldown = 1.5f;
     public float comboInterval = 0.1f;
+
+    [Header("Orb Attack (Warden)")]
+    public bool hasOrbAttack = false;
+    public int orbCount = 2;
+    public float orbitRadius = 1.2f;
+    public float orbitSpeed = 180f;
+    public float orbDuration = 3f;
 }

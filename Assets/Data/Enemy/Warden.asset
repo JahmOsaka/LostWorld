@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96968c9e2cca0394aa4897254693196b, type: 3}
-  m_Name: Myce
+  m_Name: Warden
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   isStationary: 0
-  canDetectPlayer: 0
-  patrolSpeed: 2
+  canDetectPlayer: 1
+  patrolSpeed: 0.5
   idleTimeAtPoint: 1.5
   chaseRange: 5
   attackRange: 1.5
@@ -27,5 +27,10 @@ MonoBehaviour:
   arcHeight: 2
   arcSpeedMultiplier: 1
   damage: 1
-  attackCooldown: 1.5
+  attackCooldown: 3
   comboInterval: 0.1
+  hasOrbAttack: 1
+  orbCount: 2
+  orbitRadius: 1.2
+  orbitSpeed: 200
+  orbDuration: 2
