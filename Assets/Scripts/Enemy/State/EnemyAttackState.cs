@@ -16,6 +16,8 @@ public class EnemyAttackState : EnemyState
 
     public override void LogicUpdate()
     {
+        if (isAttacking) return;
+
         enemy.FacePlayer();
         float dist = enemy.DistanceToPlayer();
 
@@ -45,5 +47,9 @@ public class EnemyAttackState : EnemyState
     public void OnAttackAnimationEnd()
     {
         isAttacking = false;
+        if (enemyData.retreatsAfterAttack)
+        {
+            stateMachine.ChangeState(enemy.RetreatState);
+        }
     }
 }

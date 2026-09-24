@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Warden
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   isStationary: 0
+  retreatsAfterAttack: 1
+  retreatDistance: 4
+  retreatSpeed: 2
   canDetectPlayer: 1
   patrolSpeed: 0.5
   idleTimeAtPoint: 1.5

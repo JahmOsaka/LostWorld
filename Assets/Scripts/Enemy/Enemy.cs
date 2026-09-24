@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     public Transform throwPoint;
 
     private EnemyRangedAttackState rangedAttackState;
+   
+    private EnemyRetreatState retreatState;
+    public EnemyRetreatState RetreatState => retreatState;
 
     private CoreHealth health;
 
@@ -55,6 +58,7 @@ public class Enemy : MonoBehaviour
         attackState = new EnemyAttackState(this, stateMachine, enemyData, "attack");
         rangedAttackState = new EnemyRangedAttackState(this, stateMachine, enemyData, "throw");
         returnState = new EnemyReturnState(this, stateMachine, enemyData, "move");
+        retreatState = new EnemyRetreatState(this, stateMachine, enemyData, "retreat");
     }
 
     private void Start()

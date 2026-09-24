@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Spit
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   isStationary: 0
+  retreatsAfterAttack: 1
+  retreatDistance: 2
+  retreatSpeed: 10
   canDetectPlayer: 1
   patrolSpeed: 1.5
   idleTimeAtPoint: 1.5
@@ -29,3 +32,8 @@ MonoBehaviour:
   damage: 10
   attackCooldown: 1.5
   comboInterval: 0.1
+  hasOrbAttack: 0
+  orbCount: 2
+  orbitRadius: 1.2
+  orbitSpeed: 180
+  orbDuration: 3
