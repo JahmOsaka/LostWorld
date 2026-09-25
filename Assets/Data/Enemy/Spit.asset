@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   isStationary: 0
   retreatsAfterAttack: 1
-  retreatDistance: 2
-  retreatSpeed: 10
+  retreatDistance: 5
+  retreatSpeed: 2.25
   canDetectPlayer: 1
   patrolSpeed: 1.5
   idleTimeAtPoint: 1.5
