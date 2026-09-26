@@ -13,6 +13,10 @@ public class PlayerAnimationTriggers : MonoBehaviour
     {
         player.FinishAttack();
     }
+    public void TriggerDodgeFinishEvent()
+    {
+        player.TriggerDodgeFinishEvent();
+    }
 
     private void EnableHitbox()
     {

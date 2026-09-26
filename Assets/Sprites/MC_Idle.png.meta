@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 1c16aabeed002954e8a881b439fbff7e
+guid: f3bc936294260844e9c0782261dd8f21
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7077710290190301794
-    second: Mushroom_Girl_0
+      213: -2917795296415379658
+    second: MC_Idle_0
   - first:
-      213: 5388158396458593332
-    second: Mushroom_Girl_1
+      213: -7724441180785323211
+    second: MC_Idle_1
   - first:
-      213: -8543348135410852066
-    second: Mushroom_Girl_2
+      213: -432137160559841275
+    second: MC_Idle_2
   - first:
-      213: -4102291866492176639
-    second: Mushroom_Girl_3
+      213: -1896584886585014848
+    second: MC_Idle_3
   - first:
-      213: 1640532384166446848
-    second: Mushroom_Girl_4
+      213: -9121561885224084992
+    second: MC_Idle_4
   - first:
-      213: -6577090230336820295
-    second: Mushroom_Girl_5
+      213: 4739629609466142924
+    second: MC_Idle_5
   - first:
-      213: -8161482111894642092
-    second: Mushroom_Girl_6
+      213: 7285677226599639539
+    second: MC_Idle_6
   - first:
-      213: -940389661165486770
-    second: Mushroom_Girl_7
+      213: -4229862747956520799
+    second: MC_Idle_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mushroom_Girl_0
+      name: MC_Idle_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 112
-        width: 908
-        height: 1708
+        x: 0
+        y: 240
+        width: 1024
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26a7be57204193260800000000000000
-      internalID: 7077710290190301794
+      spriteID: 63f0bd513a8e187d0800000000000000
+      internalID: -2917795296415379658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_1
+      name: MC_Idle_1
       rect:
         serializedVersion: 2
-        x: 1087
-        y: 112
-        width: 908
-        height: 1708
+        x: 1025
+        y: 240
+        width: 1024
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43ce37e838596ca40800000000000000
-      internalID: 5388158396458593332
+      spriteID: 53354e20ca54dc490800000000000000
+      internalID: -7724441180785323211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_2
+      name: MC_Idle_2
       rect:
         serializedVersion: 2
-        x: 2107
-        y: 109
-        width: 908
-        height: 1712
+        x: 2048
+        y: 240
+        width: 1024
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1f175ca22eef6980800000000000000
-      internalID: -8543348135410852066
+      spriteID: 500b592ca8db00af0800000000000000
+      internalID: -432137160559841275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_3
+      name: MC_Idle_3
       rect:
         serializedVersion: 2
-        x: 3136
-        y: 106
-        width: 908
-        height: 1715
+        x: 3074
+        y: 240
+        width: 1024
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10772c4484bb117c0800000000000000
-      internalID: -4102291866492176639
+      spriteID: 0c5c9bc181afda5e0800000000000000
+      internalID: -1896584886585014848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_4
+      name: MC_Idle_4
       rect:
         serializedVersion: 2
-        x: 4150
-        y: 106
-        width: 908
-        height: 1715
+        x: 4096
+        y: 240
+        width: 1024
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00704c0f28754c610800000000000000
-      internalID: 1640532384166446848
+      spriteID: 00ad9722bc3b96180800000000000000
+      internalID: -9121561885224084992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_5
+      name: MC_Idle_5
       rect:
         serializedVersion: 2
-        x: 5187
-        y: 109
-        width: 908
-        height: 1712
+        x: 5120
+        y: 240
+        width: 1024
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,20 +246,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9bbe41d484b79b4a0800000000000000
-      internalID: -6577090230336820295
+      spriteID: cc02727a40c86c140800000000000000
+      internalID: 4739629609466142924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_6
+      name: MC_Idle_6
       rect:
         serializedVersion: 2
-        x: 6201
-        y: 112
-        width: 908
-        height: 1708
+        x: 6144
+        y: 240
+        width: 1024
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +268,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 452a0d7b2479cbe80800000000000000
-      internalID: -8161482111894642092
+      spriteID: 3f9ef9f16dceb1560800000000000000
+      internalID: 7285677226599639539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_7
+      name: MC_Idle_7
       rect:
         serializedVersion: 2
-        x: 7233
-        y: 112
-        width: 908
-        height: 1708
+        x: 7168
+        y: 240
+        width: 1024
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4df7c7e59013f2f0800000000000000
-      internalID: -940389661165486770
+      spriteID: 1a8d463dd328c45c0800000000000000
+      internalID: -4229862747956520799
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7e876f7332281d9428a9aa640694bcfd
+    spriteID: 43f5492b123810145a91ba390d4183a9
     internalID: 0
     vertices: []
     indices: 
@@ -310,16 +310,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":1024.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":1024.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Mushroom_Girl_0: 7077710290190301794
-      Mushroom_Girl_1: 5388158396458593332
-      Mushroom_Girl_2: -8543348135410852066
-      Mushroom_Girl_3: -4102291866492176639
-      Mushroom_Girl_4: 1640532384166446848
-      Mushroom_Girl_5: -6577090230336820295
-      Mushroom_Girl_6: -8161482111894642092
-      Mushroom_Girl_7: -940389661165486770
+      MC_Idle_0: -2917795296415379658
+      MC_Idle_1: -7724441180785323211
+      MC_Idle_2: -432137160559841275
+      MC_Idle_3: -1896584886585014848
+      MC_Idle_4: -9121561885224084992
+      MC_Idle_5: 4739629609466142924
+      MC_Idle_6: 7285677226599639539
+      MC_Idle_7: -4229862747956520799
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

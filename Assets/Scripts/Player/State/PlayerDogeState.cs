@@ -2,7 +2,7 @@
 
 public class PlayerDodgeState : PlayerState
 {
-    private float dodgeTimer;
+    private bool isDodgeFinished;
     private int dodgeDirection;
     private float defaultGravity;
 
@@ -15,11 +15,10 @@ public class PlayerDodgeState : PlayerState
     {
         base.Enter();
         player.ResetCombo();
-
         player.InputHandler.UseDodgeInput();
-
         player.SetInvincible(true);
-        dodgeTimer = playerData.DodgeDuration;
+
+        isDodgeFinished = false;
 
         if (player.InputHandler.RawMovementInput.x != 0)
             dodgeDirection = (int)Mathf.Sign(player.InputHandler.RawMovementInput.x);
@@ -36,9 +35,7 @@ public class PlayerDodgeState : PlayerState
     {
         base.LogicUpdate();
 
-        dodgeTimer -= Time.deltaTime;
-
-        if (dodgeTimer <= 0)
+        if (isDodgeFinished)
         {
             if (player.CheckIfGrounded())
             {
@@ -63,9 +60,13 @@ public class PlayerDodgeState : PlayerState
     public override void Exit()
     {
         base.Exit();
-
         player.SetInvincible(false);
         player.ResetDodgeCooldown();
         player.RB.gravityScale = defaultGravity;
+    }
+
+    public void FinishDodgeAnimation()
+    {
+        isDodgeFinished = true;
     }
 }

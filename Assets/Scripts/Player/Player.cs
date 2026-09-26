@@ -163,6 +163,13 @@ public class Player : MonoBehaviour
         LastAttackTime = Time.time;
     }
 
+    public void TriggerDodgeFinishEvent()
+    {
+        if (StateMachine.CurrentState == DodgeState)
+        {
+            DodgeState.FinishDodgeAnimation();
+        }
+    }
     private void OnDrawGizmos()
     {
         if (GetComponent<BoxCollider2D>() != null)

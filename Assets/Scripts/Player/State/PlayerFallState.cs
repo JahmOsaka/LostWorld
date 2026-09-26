@@ -9,11 +9,7 @@ public class PlayerFallState : PlayerState
     {
         base.LogicUpdate();
 
-        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
-        {
-            stateMachine.ChangeState(player.DodgeState);
-        }
-        else if (player.InputHandler.JumpInput && player.CoyoteTimeCounter > 0f)
+        if (player.InputHandler.JumpInput && player.CoyoteTimeCounter > 0f)
         {
             stateMachine.ChangeState(player.JumpState);
         }

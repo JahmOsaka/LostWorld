@@ -23,11 +23,6 @@ public class PlayerJumpState : PlayerState
     {
         base.LogicUpdate();
 
-        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
-        {
-            stateMachine.ChangeState(player.DodgeState);
-        }
-
         if (!player.InputHandler.IsJumpHolding && !isJumpCut && player.RB.linearVelocity.y > 0)
         {
             player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, player.RB.linearVelocity.y * playerData.minJumpMultiplier);

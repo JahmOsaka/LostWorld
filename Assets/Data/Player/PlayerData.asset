@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   moveSpeed: 8
-  maxJumpVelocity: 40
+  maxJumpVelocity: 32
   minJumpMultiplier: 0.5
   maxJumpTime: 0.25
   coyoteTime: 0.15
-  dodgeSpeed: 30
-  dodgeDuration: 0.2
+  dodgeSpeed: 10
+  dodgeDuration: 0.35
   dodgeCooldown: 1
   attackDamage: 10
   comboWindow: 0.2

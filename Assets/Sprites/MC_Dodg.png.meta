@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 504b2b602a560a744ad3fdc528d7f26b
+guid: aec17690a7eca7f4dbe56e1ecb772183
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8419268942039905
-    second: MC_Idle_8f_0
+      213: 5017469031208118532
+    second: MC_Dodg_0
   - first:
-      213: 5352613837483827929
-    second: MC_Idle_8f_1
+      213: -1751408888304444647
+    second: MC_Dodg_1
   - first:
-      213: -4732797723004836801
-    second: MC_Idle_8f_2
+      213: -5818123751078555099
+    second: MC_Dodg_2
   - first:
-      213: 3365576616218992947
-    second: MC_Idle_8f_3
+      213: 1065703648863686156
+    second: MC_Dodg_3
   - first:
-      213: -7063500304032834981
-    second: MC_Idle_8f_4
+      213: -7656772999442620498
+    second: MC_Dodg_4
   - first:
-      213: 2724310870145802011
-    second: MC_Idle_8f_5
+      213: 8109615170074507182
+    second: MC_Dodg_5
   - first:
-      213: 9117927817110077291
-    second: MC_Idle_8f_6
+      213: -293168638516817695
+    second: MC_Dodg_6
   - first:
-      213: -5332214856029719079
-    second: MC_Idle_8f_7
+      213: -3787668164245618281
+    second: MC_Dodg_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,177 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_Idle_8f_0
+      name: MC_Dodg_0
       rect:
         serializedVersion: 2
-        x: 309
-        y: 110
-        width: 412
-        height: 1648
+        x: 100
+        y: 240
+        width: 830
+        height: 1808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16b0f8ec749ed1000800000000000000
-      internalID: 8419268942039905
+      spriteID: 409eeac0081a1a540800000000000000
+      internalID: 5017469031208118532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_1
+      name: MC_Dodg_1
       rect:
         serializedVersion: 2
-        x: 1331
-        y: 110
-        width: 412
-        height: 1648
+        x: 1094
+        y: 240
+        width: 1411
+        height: 1808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d260130ded484a40800000000000000
-      internalID: 5352613837483827929
+      spriteID: 91bd62c35eeb1b7e0800000000000000
+      internalID: -1751408888304444647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_2
+      name: MC_Dodg_2
       rect:
         serializedVersion: 2
-        x: 2352
-        y: 110
-        width: 412
-        height: 1650
+        x: 2676
+        y: 240
+        width: 1195
+        height: 1808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f34e48edb89b15eb0800000000000000
-      internalID: -4732797723004836801
+      spriteID: 52213bd264fd14fa0800000000000000
+      internalID: -5818123751078555099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_3
+      name: MC_Dodg_3
       rect:
         serializedVersion: 2
-        x: 3379
-        y: 86
-        width: 412
-        height: 1652
+        x: 4156
+        y: 240
+        width: 906
+        height: 1808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3312812d91ee4be20800000000000000
-      internalID: 3365576616218992947
+      spriteID: c0e8b5282d32ace00800000000000000
+      internalID: 1065703648863686156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_4
+      name: MC_Dodg_4
       rect:
         serializedVersion: 2
-        x: 4402
-        y: 111
-        width: 412
-        height: 1649
+        x: 5203
+        y: 240
+        width: 856
+        height: 1808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5a5243c5e769fd90800000000000000
-      internalID: -7063500304032834981
+      spriteID: eaf9b6a368dadb590800000000000000
+      internalID: -7656772999442620498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_5
+      name: MC_Dodg_5
       rect:
         serializedVersion: 2
-        x: 5426
-        y: 111
-        width: 412
-        height: 1647
+        x: 6149
+        y: 247
+        width: 1005
+        height: 1801
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1f96c86d42bec520800000000000000
-      internalID: 2724310870145802011
+      spriteID: ea7f865d7042b8070800000000000000
+      internalID: 8109615170074507182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_6
+      name: MC_Dodg_6
       rect:
         serializedVersion: 2
-        x: 6448
-        y: 111
-        width: 412
-        height: 1647
+        x: 7224
+        y: 240
+        width: 912
+        height: 1808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6fbf727a03698e70800000000000000
-      internalID: 9117927817110077291
+      spriteID: 1e09be13da47eebf0800000000000000
+      internalID: -293168638516817695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_8f_7
+      name: MC_Dodg_7
       rect:
         serializedVersion: 2
-        x: 7476
-        y: 111
-        width: 412
-        height: 1647
+        x: 8413
+        y: 240
+        width: 586
+        height: 1808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d5b948f6da2006b0800000000000000
-      internalID: -5332214856029719079
+      spriteID: 791851f5fdf7f6bc0800000000000000
+      internalID: -3787668164245618281
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0a551f27910999043b229fcb0c7e02e5
     internalID: 0
     vertices: []
     indices: 
@@ -310,14 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MC_Idle_8f_0: 8419268942039905
-      MC_Idle_8f_1: 5352613837483827929
-      MC_Idle_8f_2: -4732797723004836801
-      MC_Idle_8f_3: 3365576616218992947
-      MC_Idle_8f_4: -7063500304032834981
-      MC_Idle_8f_5: 2724310870145802011
-      MC_Idle_8f_6: 9117927817110077291
-      MC_Idle_8f_7: -5332214856029719079
+      MC_Dodg_0: 5017469031208118532
+      MC_Dodg_1: -1751408888304444647
+      MC_Dodg_2: -5818123751078555099
+      MC_Dodg_3: 1065703648863686156
+      MC_Dodg_4: -7656772999442620498
+      MC_Dodg_5: 8109615170074507182
+      MC_Dodg_6: -293168638516817695
+      MC_Dodg_7: -3787668164245618281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

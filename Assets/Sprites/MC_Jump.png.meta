@@ -125,9 +125,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 240
         width: 1024
-        height: 2048
+        height: 1801
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,9 +147,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 0
+        y: 240
         width: 1024
-        height: 2048
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,9 +169,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2048
-        y: 0
+        y: 240
         width: 1024
-        height: 2048
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: MC_Jump_3
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 0
+        x: 3071
+        y: 240
         width: 1024
-        height: 2048
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,9 +213,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4096
-        y: 0
+        y: 240
         width: 1024
-        height: 2048
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,9 +235,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5120
-        y: 0
+        y: 240
         width: 1024
-        height: 2048
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,9 +257,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 6144
-        y: 0
+        y: 240
         width: 1024
-        height: 2048
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,9 +279,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 7168
-        y: 0
+        y: 240
         width: 1024
-        height: 2048
+        height: 1808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
