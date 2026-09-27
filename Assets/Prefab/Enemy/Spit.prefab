@@ -111,9 +111,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 491147479
+  m_SortingLayer: 7
+  m_SortingOrder: 7
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.050980397, g: 0.14901961, b: 0.3254902, a: 1}
@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyData: {fileID: 11400000, guid: eef9b93b2e523564d822cd5b0909e567, type: 2}
+  orbPrefab: {fileID: 0}
   projectilePrefab: {fileID: 4405633380316195933, guid: fb809a0112b13ce478dfa2107cfced3c, type: 3}
   throwPoint: {fileID: 435597593014003342}
   spawnPosition: {x: 0, y: 0, z: 0}
