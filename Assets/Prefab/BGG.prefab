@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000211413609472934}
   - component: {fileID: 3399051614103873334}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: BGG
   m_TagString: Untagged
   m_Icon: {fileID: 0}

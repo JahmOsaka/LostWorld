@@ -28,6 +28,8 @@ public class ProceduralSeamlessParallax : MonoBehaviour
     [Tooltip("The thickness (Y scale) of the background ground. It will grow downwards from the surface.")]
     public float bgGroundThickness = 10f;
 
+    public string bgGroundSortingLayerName = "Default";
+
     [Tooltip("Order in Layer for the ground. Set this higher than the trees' sorting order to make it render in front.")]
     public int bgGroundSortingOrder = 10;
 
@@ -79,6 +81,7 @@ public class ProceduralSeamlessParallax : MonoBehaviour
             SpriteRenderer sr = ground.GetComponent<SpriteRenderer>();
             if (sr != null)
             {
+                sr.sortingLayerName = bgGroundSortingLayerName;
                 sr.sortingOrder = bgGroundSortingOrder;
             }
         }

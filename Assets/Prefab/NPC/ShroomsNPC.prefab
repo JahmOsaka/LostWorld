@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7077710290190301794, guid: 1c16aabeed002954e8a881b439fbff7e, type: 3}
+  m_Sprite: {fileID: 6804925498275177161, guid: c871e871da198634885c96690e59e138, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -207,7 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1743b295389272f46a0255b5d6272869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  npcName: Mushroom Girl
-  dialogueSentence: Hello MC giga chad?
+  defaultDialogues: []
+  alternateDialogues: []
   playerSprite: {fileID: 6863246505373101655, guid: 454b79c20ed6f2f4bb340b3be6124f5a, type: 3}
   npcSprite: {fileID: 21300000, guid: 7504204675f2f3b4b8def9f508ea5af0, type: 3}
+  isConditionMet: 0
