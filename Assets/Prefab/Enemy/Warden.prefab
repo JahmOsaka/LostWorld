@@ -437,10 +437,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdb21e8f90bac048aad1f5d2952cc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  enemyData: {fileID: 11400000, guid: eef9b93b2e523564d822cd5b0909e567, type: 2}
+  enemyData: {fileID: 11400000, guid: 4479aee4100b162409ad864a4b3936b7, type: 2}
   orbPrefab: {fileID: 0}
-  projectilePrefab: {fileID: 4405633380316195933, guid: fb809a0112b13ce478dfa2107cfced3c, type: 3}
-  throwPoint: {fileID: 3372696692760516044}
+  projectilePrefab: {fileID: 0}
+  throwPoint: {fileID: 0}
   spawnPosition: {x: 0, y: 0, z: 0}
   patrolPoints: []
 --- !u!114 &5883250956192072963

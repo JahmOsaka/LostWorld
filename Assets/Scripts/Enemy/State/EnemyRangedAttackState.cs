@@ -16,7 +16,9 @@ public class EnemyRangedAttackState : EnemyState
     }
 
     public override void LogicUpdate()
-    { 
+    {
+        if (isThrowing) return;
+
         float dist = enemy.DistanceToPlayer();
 
         FacePlayer();
@@ -38,6 +40,11 @@ public class EnemyRangedAttackState : EnemyState
     public void OnThrowAnimationEnd()
     {
         isThrowing = false;
+
+        if (enemyData.retreatsAfterAttack)
+        {
+            stateMachine.ChangeState(enemy.RetreatState);
+        }
     }
 
     private void FacePlayer()

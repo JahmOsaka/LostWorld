@@ -6,6 +6,11 @@ public class EnemyData : ScriptableObject
     [Header("Stationary Enemy")]
     public bool isStationary = false;
 
+    [Header("Retreat")]
+    public bool retreatsAfterAttack = false;
+    public float retreatDistance = 2f;
+    public float retreatSpeed = 3f;
+
     [Header("Detection Override")]
     public bool canDetectPlayer = false;
 
