@@ -23,6 +23,7 @@ public class EnemyRangedAttackState : EnemyState
 
         FacePlayer();
 
+
         if (dist > enemyData.throwRange * 1.2f)
         {
             stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.ReturnState);

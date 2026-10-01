@@ -7,6 +7,11 @@ public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
 
+    [Header("Edge Detection")]
+    public float edgeCheckDistance = 1f;
+    public float edgeCheckForwardOffset = 0.4f;
+    public LayerMask groundLayer;
+
     public GameObject orbPrefab;
     private List<GameObject> activeOrbs = new List<GameObject>();
 
@@ -142,6 +147,23 @@ public class Enemy : MonoBehaviour
             else if (dirX < 0)
                 spriteRenderer.flipX =  false;
         }
+    }
+
+    public bool IsGroundAheadOf(float dirX)
+    {
+        if (Mathf.Approximately(dirX, 0f)) return true;
+
+        Vector2 origin = (Vector2)transform.position + new Vector2(Mathf.Sign(dirX) * edgeCheckForwardOffset, 0f);
+        return Physics2D.Raycast(origin, Vector2.down, edgeCheckDistance, groundLayer);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Vector2 rightOrigin = (Vector2)transform.position + new Vector2(edgeCheckForwardOffset, 0f);
+        Vector2 leftOrigin = (Vector2)transform.position + new Vector2(-edgeCheckForwardOffset, 0f);
+        Gizmos.DrawLine(rightOrigin, rightOrigin + Vector2.down * edgeCheckDistance);
+        Gizmos.DrawLine(leftOrigin, leftOrigin + Vector2.down * edgeCheckDistance);
     }
 
     public EnemyIdleState IdleState => idleState;

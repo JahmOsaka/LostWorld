@@ -24,7 +24,7 @@ public class EnemyRetreatState : EnemyState
         float dist = enemy.DistanceToPlayer();
         if (dist >= enemyData.retreatDistance)
         {
-            stateMachine.ChangeState(enemy.ChaseState);
+            stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.IdleState);
         }
     }
 }

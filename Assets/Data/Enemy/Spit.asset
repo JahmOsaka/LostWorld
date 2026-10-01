@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96968c9e2cca0394aa4897254693196b, type: 3}
   m_Name: Spit
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  isStationary: 0
+  isStationary: 1
   retreatsAfterAttack: 1
   retreatDistance: 5
   retreatSpeed: 2.25
@@ -23,12 +23,12 @@ MonoBehaviour:
   attackRange: 1.5
   moveSpeed: 2
   isRangedEnemy: 1
-  throwRange: 6
+  throwRange: 10
   throwCooldown: 3
   projectileSpeed: 10
   useArcProjectile: 1
-  arcHeight: 2
-  arcSpeedMultiplier: 3
+  arcHeight: 3
+  arcSpeedMultiplier: 2
   damage: 10
   attackCooldown: 1.5
   comboInterval: 0.1
