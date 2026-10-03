@@ -20,6 +20,6 @@ MonoBehaviour:
   dodgeSpeed: 10
   dodgeDuration: 0.35
   dodgeCooldown: 1
-  attackDamage: 10
+  attackDamage: 35
   comboWindow: 0.2
   attackSpeedMultiplier: 1

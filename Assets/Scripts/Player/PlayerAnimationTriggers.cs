@@ -17,7 +17,10 @@ public class PlayerAnimationTriggers : MonoBehaviour
     {
         player.TriggerDodgeFinishEvent();
     }
-
+    public void TriggerLandFinishEvent()
+    {
+        player.StateMachine.CurrentState.AnimationFinishTrigger();
+    }
     private void EnableHitbox()
     {
         player.EnableHitbox();

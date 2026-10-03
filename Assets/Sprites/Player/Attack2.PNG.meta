@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: c871e871da198634885c96690e59e138
+guid: ca76fe937874b9e44acbc295045ec6af
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6804925498275177161
-    second: Mushroom Girl_0
+      213: 7441861488978599509
+    second: Attack2_0
   - first:
-      213: -80508552379580927
-    second: Mushroom Girl_1
+      213: 8288915215451595207
+    second: Attack2_1
   - first:
-      213: 688947463952804742
-    second: Mushroom Girl_2
+      213: 4668938655123782945
+    second: Attack2_2
   - first:
-      213: -8196953873307168178
-    second: Mushroom Girl_3
+      213: 5683539909772271658
+    second: Attack2_3
   - first:
-      213: 3724454783811468895
-    second: Mushroom Girl_4
+      213: 5764228812365489207
+    second: Attack2_4
   - first:
-      213: -5491769735288926218
-    second: Mushroom Girl_5
+      213: -1191510351576865934
+    second: Attack2_5
   - first:
-      213: 8039728515604014226
-    second: Mushroom Girl_6
+      213: -8937499057154260928
+    second: Attack2_6
   - first:
-      213: 2787824862206504986
-    second: Mushroom Girl_7
+      213: 5293088307283036655
+    second: Attack2_7
+  - first:
+      213: 1817195990524489003
+    second: Attack2_8
+  - first:
+      213: 9220252021294270350
+    second: Attack2_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 650
+  spritePixelsToUnits: 325
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mushroom Girl_0
+      name: Attack2_1
       rect:
         serializedVersion: 2
-        x: 61
-        y: 109
-        width: 911
-        height: 1939
+        x: 0
+        y: 10936
+        width: 3584
+        height: 1040
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c2a0b7cfa3ff6e50800000000000000
-      internalID: 6804925498275177161
+      spriteID: 7c1a25ec874280370800000000000000
+      internalID: 8288915215451595207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_1
+      name: Attack2_2
       rect:
         serializedVersion: 2
-        x: 1086
-        y: 110
-        width: 911
-        height: 1938
+        x: 0
+        y: 9391
+        width: 3584
+        height: 713
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10eb80ee5e9f1eef0800000000000000
-      internalID: -80508552379580927
+      spriteID: 12d3eb048f66bc040800000000000000
+      internalID: 4668938655123782945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_2
+      name: Attack2_3
       rect:
         serializedVersion: 2
-        x: 2107
-        y: 105
-        width: 910
-        height: 1943
+        x: 0
+        y: 7851
+        width: 3584
+        height: 712
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68b20d97112af8900800000000000000
-      internalID: 688947463952804742
+      spriteID: a206bbc6f6dffde40800000000000000
+      internalID: 5683539909772271658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_3
+      name: Attack2_5
       rect:
         serializedVersion: 2
-        x: 3136
-        y: 101
-        width: 909
-        height: 1947
+        x: 0
+        y: 6328
+        width: 3584
+        height: 725
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e42934da1e19e3e80800000000000000
-      internalID: -8196953873307168178
+      spriteID: 2736f0ce5a7e67fe0800000000000000
+      internalID: -1191510351576865934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_4
+      name: Attack2_6
       rect:
         serializedVersion: 2
-        x: 4150
-        y: 100
-        width: 906
-        height: 1948
+        x: 0
+        y: 4778
+        width: 3584
+        height: 737
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5e361394ebefa330800000000000000
-      internalID: 3724454783811468895
+      spriteID: 0408eedd5ff97f380800000000000000
+      internalID: -8937499057154260928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_5
+      name: Attack2_7
       rect:
         serializedVersion: 2
-        x: 5183
-        y: 102
-        width: 910
-        height: 1946
+        x: 0
+        y: 3242
+        width: 3584
+        height: 886
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,20 +252,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ffccdbb58059c3b0800000000000000
-      internalID: -5491769735288926218
+      spriteID: fe9016085c3d47940800000000000000
+      internalID: 5293088307283036655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_6
+      name: Attack2_8
       rect:
         serializedVersion: 2
-        x: 6199
-        y: 108
-        width: 911
-        height: 1940
+        x: 0
+        y: 1716
+        width: 3584
+        height: 790
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 294e7271d7ad29f60800000000000000
-      internalID: 8039728515604014226
+      spriteID: b2de97e102af73910800000000000000
+      internalID: 1817195990524489003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_7
+      name: Attack2_9
       rect:
         serializedVersion: 2
-        x: 7232
-        y: 108
-        width: 911
-        height: 1940
+        x: 0
+        y: 166
+        width: 3584
+        height: 1014
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,8 +296,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1032df01f750b620800000000000000
-      internalID: 2787824862206504986
+      spriteID: e8782d4cc5ae4ff70800000000000000
+      internalID: 9220252021294270350
       vertices: []
       indices: 
       edges: []
@@ -300,7 +306,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: da4275cc158bfab48947bf75f908ccff
+    spriteID: 96fc0fc3d201c4d438ff8502563be1f9
     internalID: 0
     vertices: []
     indices: 
@@ -310,14 +316,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mushroom Girl_0: 6804925498275177161
-      Mushroom Girl_1: -80508552379580927
-      Mushroom Girl_2: 688947463952804742
-      Mushroom Girl_3: -8196953873307168178
-      Mushroom Girl_4: 3724454783811468895
-      Mushroom Girl_5: -5491769735288926218
-      Mushroom Girl_6: 8039728515604014226
-      Mushroom Girl_7: 2787824862206504986
+      Attack2_0: 7441861488978599509
+      Attack2_1: 8288915215451595207
+      Attack2_2: 4668938655123782945
+      Attack2_3: 5683539909772271658
+      Attack2_4: 5764228812365489207
+      Attack2_5: -1191510351576865934
+      Attack2_6: -8937499057154260928
+      Attack2_7: 5293088307283036655
+      Attack2_8: 1817195990524489003
+      Attack2_9: 9220252021294270350
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

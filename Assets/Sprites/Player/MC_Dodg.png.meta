@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 081d5c882c661374b84f888a563947da
+guid: aec17690a7eca7f4dbe56e1ecb772183
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2547901199077626487
-    second: MC_Attack_hit1_0
+      213: 5017469031208118532
+    second: MC_Dodg_0
   - first:
-      213: 8544096334022195074
-    second: MC_Attack_hit1_1
+      213: -1751408888304444647
+    second: MC_Dodg_1
   - first:
-      213: 5868370497664938507
-    second: MC_Attack_hit1_2
+      213: -5818123751078555099
+    second: MC_Dodg_2
   - first:
-      213: -4844393172087972741
-    second: MC_Attack_hit1_3
+      213: 1065703648863686156
+    second: MC_Dodg_3
   - first:
-      213: 5582306589598004384
-    second: MC_Attack_hit1_4
+      213: -7656772999442620498
+    second: MC_Dodg_4
   - first:
-      213: 621485662508066650
-    second: MC_Attack_hit1_5
+      213: 8109615170074507182
+    second: MC_Dodg_5
   - first:
-      213: -1529518944378114037
-    second: MC_Attack_hit1_6
+      213: -293168638516817695
+    second: MC_Dodg_6
   - first:
-      213: -6390573657066545743
-    second: MC_Attack_hit1_7
+      213: -3787668164245618281
+    second: MC_Dodg_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 800
+  spritePixelsToUnits: 650
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,177 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_Attack_hit1_0
+      name: MC_Dodg_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 14575
-        width: 7168
-        height: 1809
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 98daf2adb5904acd0800000000000000
-      internalID: -2547901199077626487
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Attack_hit1_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 12531
-        width: 7168
-        height: 1805
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2873c14e85ab29670800000000000000
-      internalID: 8544096334022195074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Attack_hit1_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 10480
-        width: 7168
-        height: 1808
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b0273bb20e3a07150800000000000000
-      internalID: 5868370497664938507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Attack_hit1_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 8430
-        width: 7168
-        height: 1810
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b7c5e51a31245ccb0800000000000000
-      internalID: -4844393172087972741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Attack_hit1_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 6385
-        width: 7168
-        height: 1825
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0a4bf445446587d40800000000000000
-      internalID: 5582306589598004384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Attack_hit1_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 4336
-        width: 7168
-        height: 1808
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a57aac2dae5ff9800800000000000000
-      internalID: 621485662508066650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Attack_hit1_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2284
-        width: 7168
-        height: 1812
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b00bc13bf9e06cae0800000000000000
-      internalID: -1529518944378114037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Attack_hit1_7
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 100
         y: 240
-        width: 7168
+        width: 830
         height: 1808
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1bd549b1e1f1057a0800000000000000
-      internalID: -6390573657066545743
+      spriteID: 409eeac0081a1a540800000000000000
+      internalID: 5017469031208118532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Dodg_1
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 240
+        width: 1411
+        height: 1808
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bd62c35eeb1b7e0800000000000000
+      internalID: -1751408888304444647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Dodg_2
+      rect:
+        serializedVersion: 2
+        x: 2676
+        y: 240
+        width: 1195
+        height: 1808
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52213bd264fd14fa0800000000000000
+      internalID: -5818123751078555099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Dodg_3
+      rect:
+        serializedVersion: 2
+        x: 4156
+        y: 240
+        width: 906
+        height: 1808
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e8b5282d32ace00800000000000000
+      internalID: 1065703648863686156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Dodg_4
+      rect:
+        serializedVersion: 2
+        x: 5203
+        y: 240
+        width: 856
+        height: 1808
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf9b6a368dadb590800000000000000
+      internalID: -7656772999442620498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Dodg_5
+      rect:
+        serializedVersion: 2
+        x: 6149
+        y: 247
+        width: 1005
+        height: 1801
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7f865d7042b8070800000000000000
+      internalID: 8109615170074507182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Dodg_6
+      rect:
+        serializedVersion: 2
+        x: 7224
+        y: 240
+        width: 912
+        height: 1808
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e09be13da47eebf0800000000000000
+      internalID: -293168638516817695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Dodg_7
+      rect:
+        serializedVersion: 2
+        x: 8413
+        y: 240
+        width: 586
+        height: 1808
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 791851f5fdf7f6bc0800000000000000
+      internalID: -3787668164245618281
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f7cbbb95d7532b84fb60262034ec33ed
+    spriteID: 0a551f27910999043b229fcb0c7e02e5
     internalID: 0
     vertices: []
     indices: 
@@ -308,18 +308,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":8.0},"gridSpriteSize":{"x":7168.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      MC_Attack_hit1_0: -2547901199077626487
-      MC_Attack_hit1_1: 8544096334022195074
-      MC_Attack_hit1_2: 5868370497664938507
-      MC_Attack_hit1_3: -4844393172087972741
-      MC_Attack_hit1_4: 5582306589598004384
-      MC_Attack_hit1_5: 621485662508066650
-      MC_Attack_hit1_6: -1529518944378114037
-      MC_Attack_hit1_7: -6390573657066545743
+      MC_Dodg_0: 5017469031208118532
+      MC_Dodg_1: -1751408888304444647
+      MC_Dodg_2: -5818123751078555099
+      MC_Dodg_3: 1065703648863686156
+      MC_Dodg_4: -7656772999442620498
+      MC_Dodg_5: 8109615170074507182
+      MC_Dodg_6: -293168638516817695
+      MC_Dodg_7: -3787668164245618281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

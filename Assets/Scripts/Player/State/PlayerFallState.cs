@@ -9,16 +9,15 @@ public class PlayerFallState : PlayerState
     {
         base.LogicUpdate();
 
+        base.LogicUpdate();
+
         if (player.InputHandler.JumpInput && player.CoyoteTimeCounter > 0f)
         {
             stateMachine.ChangeState(player.JumpState);
         }
         else if (player.CheckIfGrounded())
         {
-            if (player.InputHandler.RawMovementInput.x == 0)
-                stateMachine.ChangeState(player.IdleState);
-            else
-                stateMachine.ChangeState(player.MoveState);
+            stateMachine.ChangeState(player.LandState);
         }
     }
 

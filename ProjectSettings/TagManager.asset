@@ -15,11 +15,11 @@ TagManager:
   - Ground
   - Enemy
   - Player
-  - BG Tree Back
-  - BG Tree Mid
-  - BG Tree Front
-  - BG Ground
-  - Platform
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -42,20 +42,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BG Tree Back
+  - name: Parallax
     uniqueID: 3675216121
-    locked: 0
-  - name: BG Tree Mid
-    uniqueID: 2314681511
-    locked: 0
-  - name: BG Tree Front
-    uniqueID: 343167605
-    locked: 0
-  - name: BG Ground
-    uniqueID: 3461229911
     locked: 0
   - name: Ground
     uniqueID: 3768297091
+    locked: 0
+  - name: Decor
+    uniqueID: 2381995419
     locked: 0
   - name: NPC
     uniqueID: 2295297067

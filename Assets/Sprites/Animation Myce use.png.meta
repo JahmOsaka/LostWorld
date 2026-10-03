@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 1c16aabeed002954e8a881b439fbff7e
+guid: 9f6df8abfc965b44a8d07376acdc2491
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7077710290190301794
-    second: Mushroom_Girl_0
+      213: -4492583289160381506
+    second: Animation Myce use_0
   - first:
-      213: 5388158396458593332
-    second: Mushroom_Girl_1
+      213: 8329000747420878873
+    second: Animation Myce use_1
   - first:
-      213: -8543348135410852066
-    second: Mushroom_Girl_2
+      213: 4563522818183123550
+    second: Animation Myce use_2
   - first:
-      213: -4102291866492176639
-    second: Mushroom_Girl_3
+      213: -5046078259192255906
+    second: Animation Myce use_3
   - first:
-      213: 1640532384166446848
-    second: Mushroom_Girl_4
+      213: 2663733657884895724
+    second: Animation Myce use_4
   - first:
-      213: -6577090230336820295
-    second: Mushroom_Girl_5
+      213: -7183025188110053088
+    second: Animation Myce use_5
   - first:
-      213: -8161482111894642092
-    second: Mushroom_Girl_6
+      213: 2159099405209870470
+    second: Animation Myce use_6
   - first:
-      213: -940389661165486770
-    second: Mushroom_Girl_7
+      213: 3704307046139868274
+    second: Animation Myce use_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 800
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,177 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mushroom_Girl_0
+      name: Animation Myce use_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 112
-        width: 908
-        height: 1708
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 7222
+        width: 2192
+        height: 838
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26a7be57204193260800000000000000
-      internalID: 7077710290190301794
+      spriteID: ebb4dbd1d4327a1c0800000000000000
+      internalID: -4492583289160381506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_1
+      name: Animation Myce use_1
       rect:
         serializedVersion: 2
-        x: 1087
-        y: 112
-        width: 908
-        height: 1708
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 6244
+        width: 2192
+        height: 959
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43ce37e838596ca40800000000000000
-      internalID: 5388158396458593332
+      spriteID: 9180cf30d0e869370800000000000000
+      internalID: 8329000747420878873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_2
+      name: Animation Myce use_2
       rect:
         serializedVersion: 2
-        x: 2107
-        y: 109
-        width: 908
-        height: 1712
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 5320
+        width: 2192
+        height: 826
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1f175ca22eef6980800000000000000
-      internalID: -8543348135410852066
+      spriteID: e52d13613d3e45f30800000000000000
+      internalID: 4563522818183123550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_3
+      name: Animation Myce use_3
       rect:
         serializedVersion: 2
-        x: 3136
-        y: 106
-        width: 908
-        height: 1715
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 4248
+        width: 2192
+        height: 811
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10772c4484bb117c0800000000000000
-      internalID: -4102291866492176639
+      spriteID: e5a260cfe8ab8f9b0800000000000000
+      internalID: -5046078259192255906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_4
+      name: Animation Myce use_4
       rect:
         serializedVersion: 2
-        x: 4150
-        y: 106
-        width: 908
-        height: 1715
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 3164
+        width: 2192
+        height: 808
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00704c0f28754c610800000000000000
-      internalID: 1640532384166446848
+      spriteID: ce92b7616ab77f420800000000000000
+      internalID: 2663733657884895724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_5
+      name: Animation Myce use_5
       rect:
         serializedVersion: 2
-        x: 5187
-        y: 109
-        width: 908
-        height: 1712
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 2106
+        width: 2192
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9bbe41d484b79b4a0800000000000000
-      internalID: -6577090230336820295
+      spriteID: 021540216a4c05c90800000000000000
+      internalID: -7183025188110053088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_6
+      name: Animation Myce use_6
       rect:
         serializedVersion: 2
-        x: 6201
-        y: 112
-        width: 908
-        height: 1708
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 1080
+        width: 2192
+        height: 790
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 452a0d7b2479cbe80800000000000000
-      internalID: -8161482111894642092
+      spriteID: 680aa4a3879a6fd10800000000000000
+      internalID: 2159099405209870470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom_Girl_7
+      name: Animation Myce use_7
       rect:
         serializedVersion: 2
-        x: 7233
-        y: 112
-        width: 908
-        height: 1708
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 61
+        width: 2192
+        height: 823
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4df7c7e59013f2f0800000000000000
-      internalID: -940389661165486770
+      spriteID: 274b428d1a7586330800000000000000
+      internalID: 3704307046139868274
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7e876f7332281d9428a9aa640694bcfd
+    spriteID: 0232f33f703992f489b4ad1ddf895b12
     internalID: 0
     vertices: []
     indices: 
@@ -308,18 +308,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":1024.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Mushroom_Girl_0: 7077710290190301794
-      Mushroom_Girl_1: 5388158396458593332
-      Mushroom_Girl_2: -8543348135410852066
-      Mushroom_Girl_3: -4102291866492176639
-      Mushroom_Girl_4: 1640532384166446848
-      Mushroom_Girl_5: -6577090230336820295
-      Mushroom_Girl_6: -8161482111894642092
-      Mushroom_Girl_7: -940389661165486770
+      Animation Myce use_0: -4492583289160381506
+      Animation Myce use_1: 8329000747420878873
+      Animation Myce use_2: 4563522818183123550
+      Animation Myce use_3: -5046078259192255906
+      Animation Myce use_4: 2663733657884895724
+      Animation Myce use_5: -7183025188110053088
+      Animation Myce use_6: 2159099405209870470
+      Animation Myce use_7: 3704307046139868274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

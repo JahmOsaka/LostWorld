@@ -1,31 +1,34 @@
 fileFormatVersion: 2
-guid: c871e871da198634885c96690e59e138
+guid: c19adff552146be4d93df8f913092efd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6804925498275177161
-    second: Mushroom Girl_0
+      213: 6397211387787717414
+    second: MC Jump_0
   - first:
-      213: -80508552379580927
-    second: Mushroom Girl_1
+      213: 8594420881345634455
+    second: MC Jump_1
   - first:
-      213: 688947463952804742
-    second: Mushroom Girl_2
+      213: 5934904454145388900
+    second: MC Jump_2
   - first:
-      213: -8196953873307168178
-    second: Mushroom Girl_3
+      213: -6769074771252066812
+    second: MC Jump_3
   - first:
-      213: 3724454783811468895
-    second: Mushroom Girl_4
+      213: -6964724829702197130
+    second: MC Jump_4
   - first:
-      213: -5491769735288926218
-    second: Mushroom Girl_5
+      213: -3587161147285448716
+    second: MC Jump_5
   - first:
-      213: 8039728515604014226
-    second: Mushroom Girl_6
+      213: 6188381838520409302
+    second: MC Jump_6
   - first:
-      213: 2787824862206504986
-    second: Mushroom Girl_7
+      213: -8063468072235122065
+    second: MC Jump_7
+  - first:
+      213: 4259325247598863605
+    second: MC Jump_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mushroom Girl_0
+      name: MC Jump_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 109
-        width: 911
-        height: 1939
+        x: 171
+        y: 239
+        width: 646
+        height: 1809
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c2a0b7cfa3ff6e50800000000000000
-      internalID: 6804925498275177161
+      spriteID: 62bab220dd577c850800000000000000
+      internalID: 6397211387787717414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_1
+      name: MC Jump_1
       rect:
         serializedVersion: 2
-        x: 1086
-        y: 110
-        width: 911
-        height: 1938
+        x: 1287
+        y: 239
+        width: 606
+        height: 1809
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10eb80ee5e9f1eef0800000000000000
-      internalID: -80508552379580927
+      spriteID: 7906ec2a144854770800000000000000
+      internalID: 8594420881345634455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_2
+      name: MC Jump_2
       rect:
         serializedVersion: 2
-        x: 2107
-        y: 105
-        width: 910
-        height: 1943
+        x: 2226
+        y: 239
+        width: 637
+        height: 1809
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68b20d97112af8900800000000000000
-      internalID: 688947463952804742
+      spriteID: 461383518240d5250800000000000000
+      internalID: 5934904454145388900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_3
+      name: MC Jump_3
       rect:
         serializedVersion: 2
-        x: 3136
-        y: 101
-        width: 909
-        height: 1947
+        x: 3239
+        y: 239
+        width: 666
+        height: 1809
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e42934da1e19e3e80800000000000000
-      internalID: -8196953873307168178
+      spriteID: 40646711c5a6f02a0800000000000000
+      internalID: -6769074771252066812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_4
+      name: MC Jump_4
       rect:
         serializedVersion: 2
-        x: 4150
-        y: 100
-        width: 906
-        height: 1948
+        x: 4183
+        y: 239
+        width: 743
+        height: 1809
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5e361394ebefa330800000000000000
-      internalID: 3724454783811468895
+      spriteID: 670f1470ba3585f90800000000000000
+      internalID: -6964724829702197130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_5
+      name: MC Jump_5
       rect:
         serializedVersion: 2
-        x: 5183
-        y: 102
-        width: 910
-        height: 1946
+        x: 5261
+        y: 239
+        width: 745
+        height: 1809
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ffccdbb58059c3b0800000000000000
-      internalID: -5491769735288926218
+      spriteID: 4f7d7ff21f7d73ec0800000000000000
+      internalID: -3587161147285448716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_6
+      name: MC Jump_6
       rect:
         serializedVersion: 2
-        x: 6199
-        y: 108
-        width: 911
-        height: 1940
+        x: 6284
+        y: 239
+        width: 743
+        height: 1809
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 294e7271d7ad29f60800000000000000
-      internalID: 8039728515604014226
+      spriteID: 6dcdc73ae7c81e550800000000000000
+      internalID: 6188381838520409302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_7
+      name: MC Jump_7
       rect:
         serializedVersion: 2
-        x: 7232
-        y: 108
-        width: 911
-        height: 1940
+        x: 7349
+        y: 239
+        width: 698
+        height: 1809
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,8 +293,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1032df01f750b620800000000000000
-      internalID: 2787824862206504986
+      spriteID: f62c8b8a28ec81090800000000000000
+      internalID: -8063468072235122065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC Jump_8
+      rect:
+        serializedVersion: 2
+        x: 8397
+        y: 239
+        width: 646
+        height: 1809
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f4abfdeeb92c1b30800000000000000
+      internalID: 4259325247598863605
       vertices: []
       indices: 
       edges: []
@@ -300,7 +325,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: da4275cc158bfab48947bf75f908ccff
+    spriteID: 0651bfddfebc564469ef9a0234f8eaa7
     internalID: 0
     vertices: []
     indices: 
@@ -310,14 +335,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mushroom Girl_0: 6804925498275177161
-      Mushroom Girl_1: -80508552379580927
-      Mushroom Girl_2: 688947463952804742
-      Mushroom Girl_3: -8196953873307168178
-      Mushroom Girl_4: 3724454783811468895
-      Mushroom Girl_5: -5491769735288926218
-      Mushroom Girl_6: 8039728515604014226
-      Mushroom Girl_7: 2787824862206504986
+      MC Jump_0: 6397211387787717414
+      MC Jump_1: 8594420881345634455
+      MC Jump_2: 5934904454145388900
+      MC Jump_3: -6769074771252066812
+      MC Jump_4: -6964724829702197130
+      MC Jump_5: -3587161147285448716
+      MC Jump_6: 6188381838520409302
+      MC Jump_7: -8063468072235122065
+      MC Jump_8: 4259325247598863605
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

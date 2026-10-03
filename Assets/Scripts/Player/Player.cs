@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
-
+    public PlayerLandState LandState { get; private set; }
     public PlayerDodgeState DodgeState { get; private set; }
     public float DodgeCooldownTimer { get; private set; }
     public bool IsInvincible { get; private set; }
@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
 
         JumpState = new PlayerJumpState(this, StateMachine, playerData, "jump");
         FallState = new PlayerFallState(this, StateMachine, playerData, "fall");
+        LandState = new PlayerLandState(this, StateMachine, playerData, "land");
 
         DodgeState = new PlayerDodgeState(this, StateMachine, playerData, "dodge");
 
