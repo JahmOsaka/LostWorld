@@ -16,6 +16,13 @@ public class EnemyRetreatState : EnemyState
 
     public override void PhysicsUpdate()
     {
+
+        if (!enemy.IsGroundAheadOf(retreatDir.x))
+        {
+            enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
+            stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.IdleState);
+            return;
+        }
         enemy.rb.linearVelocity = new Vector2(retreatDir.x * enemyData.retreatSpeed, enemy.rb.linearVelocity.y);
     }
 
@@ -24,7 +31,7 @@ public class EnemyRetreatState : EnemyState
         float dist = enemy.DistanceToPlayer();
         if (dist >= enemyData.retreatDistance)
         {
-            stateMachine.ChangeState(enemy.ChaseState);
+            stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.IdleState);
         }
     }
 }

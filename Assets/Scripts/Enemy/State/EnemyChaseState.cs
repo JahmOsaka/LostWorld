@@ -25,6 +25,11 @@ public class EnemyChaseState : EnemyState
     public override void PhysicsUpdate()
     {
         Vector2 dir = (enemy.playerTransform.position - enemy.transform.position).normalized;
+        if (!enemy.IsGroundAheadOf(dir.x))
+        {
+            enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
+            return;
+        }
         enemy.rb.linearVelocity = new Vector2(dir.x * enemyData.moveSpeed, enemy.rb.linearVelocity.y);
     }
 }
