@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: 42793b79af478ad48afa3214d5b12ec7
+guid: 5f864d9284c92ab45895c39d45b2a328
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4164306868104060520
-    second: Myce idle Fixed 2_0
+      213: -1840513205444322639
+    second: Myce idle Fixed Aligned_0
   - first:
-      213: -1966371696320541628
-    second: Myce idle Fixed 2_1
+      213: -1177467460828026139
+    second: Myce idle Fixed Aligned_1
   - first:
-      213: -1866913651288535445
-    second: Myce idle Fixed 2_2
+      213: 595788403350085410
+    second: Myce idle Fixed Aligned_2
   - first:
-      213: -665784853019517809
-    second: Myce idle Fixed 2_3
+      213: -4615364553597852917
+    second: Myce idle Fixed Aligned_3
   - first:
-      213: -8232381852579151607
-    second: Myce idle Fixed 2_4
+      213: -6006477465543416524
+    second: Myce idle Fixed Aligned_4
   - first:
-      213: -3733929675400892874
-    second: Myce idle Fixed 2_5
+      213: -7740347595430434481
+    second: Myce idle Fixed Aligned_5
   - first:
-      213: -5689927984465321895
-    second: Myce idle Fixed 2_6
+      213: 3421884312846332872
+    second: Myce idle Fixed Aligned_6
   - first:
-      213: 365299788097047218
-    second: Myce idle Fixed 2_7
+      213: -8256443591155096849
+    second: Myce idle Fixed Aligned_7
   - first:
-      213: -1067917085125031603
-    second: Myce idle Fixed 2_8
+      213: -8106343238671950615
+    second: Myce idle Fixed Aligned_8
   - first:
-      213: -1725629085932709498
-    second: Myce idle Fixed 2_9
+      213: -7810555890728642188
+    second: Myce idle Fixed Aligned_9
   - first:
-      213: 7897058979456541421
-    second: Myce idle Fixed 2_10
+      213: 2458544224307635778
+    second: Myce idle Fixed Aligned_10
   - first:
-      213: -545551780989801495
-    second: Myce idle Fixed 2_11
+      213: 893988810536885097
+    second: Myce idle Fixed Aligned_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -133,12 +133,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Myce idle Fixed 2_0
+      name: Myce idle Fixed Aligned_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 9224
-        width: 1553
+        y: 9213
+        width: 2300
         height: 912
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -148,19 +148,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86edf0978079ac930800000000000000
-      internalID: 4164306868104060520
+      spriteID: 1ba5319bdfe2576e0800000000000000
+      internalID: -1840513205444322639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Myce idle Fixed 2_1
+      name: Myce idle Fixed Aligned_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 8201
-        width: 1553
+        y: 8189
+        width: 2300
         height: 874
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -170,19 +170,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44c8e684c5b06b4e0800000000000000
-      internalID: -1966371696320541628
+      spriteID: 5eaa3c6359bc8afe0800000000000000
+      internalID: -1177467460828026139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Myce idle Fixed 2_2
+      name: Myce idle Fixed Aligned_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 7175
-        width: 1553
+        y: 7164
+        width: 2300
         height: 906
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -192,19 +192,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6e8e9cece36716e0800000000000000
-      internalID: -1866913651288535445
+      spriteID: 22f9afe656aa44800800000000000000
+      internalID: 595788403350085410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Myce idle Fixed 2_4
+      name: Myce idle Fixed Aligned_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 6151
-        width: 1553
+        y: 6141
+        width: 2300
         height: 927
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -214,19 +214,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 901c5a57254b0cd80800000000000000
-      internalID: -8232381852579151607
+      spriteID: 43565ea9194b4aca0800000000000000
+      internalID: -6006477465543416524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Myce idle Fixed 2_5
+      name: Myce idle Fixed Aligned_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 5132
-        width: 1553
+        y: 5116
+        width: 2300
         height: 824
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -236,19 +236,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63ea0715eba6e2cc0800000000000000
-      internalID: -3733929675400892874
+      spriteID: f49e1504fd2c49490800000000000000
+      internalID: -7740347595430434481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Myce idle Fixed 2_6
+      name: Myce idle Fixed Aligned_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 4104
-        width: 1553
+        y: 4094
+        width: 2300
         height: 843
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -258,19 +258,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 950e36805a05901b0800000000000000
-      internalID: -5689927984465321895
+      spriteID: 8c3ffa117a9fc7f20800000000000000
+      internalID: 3421884312846332872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Myce idle Fixed 2_7
+      name: Myce idle Fixed Aligned_7
       rect:
         serializedVersion: 2
         x: 0
-        y: 3077
-        width: 1553
+        y: 3069
+        width: 2300
         height: 953
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -280,19 +280,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bacc0ac83ec11500800000000000000
-      internalID: 365299788097047218
+      spriteID: fe266216c483b6d80800000000000000
+      internalID: -8256443591155096849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Myce idle Fixed 2_8
+      name: Myce idle Fixed Aligned_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 2056
-        width: 1553
+        y: 2047
+        width: 2300
         height: 930
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -302,19 +302,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d494d83b11ffd21f0800000000000000
-      internalID: -1067917085125031603
+      spriteID: 9ec919f06cb708f80800000000000000
+      internalID: -8106343238671950615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Myce idle Fixed 2_10
+      name: Myce idle Fixed Aligned_10
       rect:
         serializedVersion: 2
         x: 0
-        y: 1034
-        width: 1553
+        y: 1023
+        width: 2300
         height: 900
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -324,20 +324,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de2e0d82d4df79d60800000000000000
-      internalID: 7897058979456541421
+      spriteID: 246e17232f08e1220800000000000000
+      internalID: 2458544224307635778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Myce idle Fixed 2_11
+      name: Myce idle Fixed Aligned_11
       rect:
         serializedVersion: 2
         x: 0
-        y: 17
-        width: 1553
-        height: 886
+        y: 0
+        width: 2300
+        height: 884
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,8 +346,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9eb658fab8fcd68f0800000000000000
-      internalID: -545551780989801495
+      spriteID: 96b993d2616186c00800000000000000
+      internalID: 893988810536885097
       vertices: []
       indices: 
       edges: []
@@ -356,7 +356,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 69a1cce9c71cd204ca952761c014a6f1
+    spriteID: 842460961308fbe46ac3f42d646179c8
     internalID: 0
     vertices: []
     indices: 
@@ -366,18 +366,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Myce idle Fixed 2_0: 4164306868104060520
-      Myce idle Fixed 2_1: -1966371696320541628
-      Myce idle Fixed 2_10: 7897058979456541421
-      Myce idle Fixed 2_11: -545551780989801495
-      Myce idle Fixed 2_2: -1866913651288535445
-      Myce idle Fixed 2_3: -665784853019517809
-      Myce idle Fixed 2_4: -8232381852579151607
-      Myce idle Fixed 2_5: -3733929675400892874
-      Myce idle Fixed 2_6: -5689927984465321895
-      Myce idle Fixed 2_7: 365299788097047218
-      Myce idle Fixed 2_8: -1067917085125031603
-      Myce idle Fixed 2_9: -1725629085932709498
+      Myce idle Fixed Aligned_0: -1840513205444322639
+      Myce idle Fixed Aligned_1: -1177467460828026139
+      Myce idle Fixed Aligned_10: 2458544224307635778
+      Myce idle Fixed Aligned_11: 893988810536885097
+      Myce idle Fixed Aligned_2: 595788403350085410
+      Myce idle Fixed Aligned_3: -4615364553597852917
+      Myce idle Fixed Aligned_4: -6006477465543416524
+      Myce idle Fixed Aligned_5: -7740347595430434481
+      Myce idle Fixed Aligned_6: 3421884312846332872
+      Myce idle Fixed Aligned_7: -8256443591155096849
+      Myce idle Fixed Aligned_8: -8106343238671950615
+      Myce idle Fixed Aligned_9: -7810555890728642188
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
