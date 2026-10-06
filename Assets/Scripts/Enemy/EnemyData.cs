@@ -10,6 +10,7 @@ public class EnemyData : ScriptableObject
     public bool retreatsAfterAttack = false;
     public float retreatDistance = 2f;
     public float retreatSpeed = 3f;
+    public float retreatTriggerRange = 2f;
 
     [Header("Detection Override")]
     public bool canDetectPlayer = false;

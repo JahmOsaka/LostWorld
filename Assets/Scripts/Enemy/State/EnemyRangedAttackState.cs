@@ -42,7 +42,7 @@ public class EnemyRangedAttackState : EnemyState
     {
         isThrowing = false;
 
-        if (enemyData.retreatsAfterAttack)
+        if (enemyData.retreatsAfterAttack && enemy.DistanceToPlayer() <= enemyData.retreatTriggerRange)
         {
             stateMachine.ChangeState(enemy.RetreatState);
         }
@@ -51,6 +51,6 @@ public class EnemyRangedAttackState : EnemyState
     private void FacePlayer()
     {
         float dirX = enemy.playerTransform.position.x - enemy.transform.position.x;
-        enemy.spriteRenderer.flipX = dirX < 0;
+        enemy.FlipX = dirX > 0;
     }
 }
