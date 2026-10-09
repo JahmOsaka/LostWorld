@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3173419442666312354}
   - component: {fileID: 8596653904048946542}
   - component: {fileID: 831591605139798008}
+  - component: {fileID: 9218278369501562890}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -371,6 +372,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSkillController
   currentSkill: {fileID: 0}
+--- !u!114 &9218278369501562890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255730908677199951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d6834426e03db4091d941529614c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
+  inputHandler: {fileID: 2202049385663698167}
 --- !u!1 &5798649617289289013
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +561,7 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 8
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3344084327779749891, guid: 1e56c1bf39ac66947a73f281c44b175f, type: 3}
+  m_Sprite: {fileID: 8085337866675114585, guid: 8e26e81ddfe4ae843869e508613c1440, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

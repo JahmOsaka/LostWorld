@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: c871e871da198634885c96690e59e138
+guid: f21b5a37bfc3e0f42adb862ed183b4f2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6804925498275177161
-    second: Mushroom Girl_0
+      213: -6698200000348494304
+    second: Combat Main Character 1_0
   - first:
-      213: -80508552379580927
-    second: Mushroom Girl_1
+      213: -3589825603081810596
+    second: Combat Main Character 1_1
   - first:
-      213: 688947463952804742
-    second: Mushroom Girl_2
+      213: 158684663921265742
+    second: Combat Main Character 1_2
   - first:
-      213: -8196953873307168178
-    second: Mushroom Girl_3
+      213: -4880210967037062921
+    second: Combat Main Character 1_3
   - first:
-      213: 3724454783811468895
-    second: Mushroom Girl_4
+      213: -7474374743340847362
+    second: Combat Main Character 1_4
   - first:
-      213: -5491769735288926218
-    second: Mushroom Girl_5
+      213: -719440188996867447
+    second: Combat Main Character 1_5
   - first:
-      213: 8039728515604014226
-    second: Mushroom Girl_6
+      213: -707462360867773506
+    second: Combat Main Character 1_6
   - first:
-      213: 2787824862206504986
-    second: Mushroom Girl_7
+      213: -5995929423759784702
+    second: Combat Main Character 1_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,177 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mushroom Girl_0
+      name: Combat Main Character 1_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 109
-        width: 911
-        height: 1939
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 191
+        y: 238
+        width: 641
+        height: 1610
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c2a0b7cfa3ff6e50800000000000000
-      internalID: 6804925498275177161
+      spriteID: 026e4b896963b03a0800000000000000
+      internalID: -6698200000348494304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_1
+      name: Combat Main Character 1_1
       rect:
         serializedVersion: 2
-        x: 1086
-        y: 110
-        width: 911
-        height: 1938
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1215
+        y: 238
+        width: 641
+        height: 1606
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10eb80ee5e9f1eef0800000000000000
-      internalID: -80508552379580927
+      spriteID: c5dc4ba32a06e2ec0800000000000000
+      internalID: -3589825603081810596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_2
+      name: Combat Main Character 1_2
       rect:
         serializedVersion: 2
-        x: 2107
-        y: 105
-        width: 910
-        height: 1943
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2239
+        y: 238
+        width: 642
+        height: 1594
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68b20d97112af8900800000000000000
-      internalID: 688947463952804742
+      spriteID: e4c44507cd2c33200800000000000000
+      internalID: 158684663921265742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_3
+      name: Combat Main Character 1_3
       rect:
         serializedVersion: 2
-        x: 3136
-        y: 101
-        width: 909
-        height: 1947
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3262
+        y: 238
+        width: 643
+        height: 1595
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e42934da1e19e3e80800000000000000
-      internalID: -8196953873307168178
+      spriteID: 7f05ac06bf1064cb0800000000000000
+      internalID: -4880210967037062921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_4
+      name: Combat Main Character 1_4
       rect:
         serializedVersion: 2
-        x: 4150
-        y: 100
-        width: 906
-        height: 1948
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 4287
+        y: 238
+        width: 642
+        height: 1594
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5e361394ebefa330800000000000000
-      internalID: 3724454783811468895
+      spriteID: efe640995cfa54890800000000000000
+      internalID: -7474374743340847362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_5
+      name: Combat Main Character 1_5
       rect:
         serializedVersion: 2
-        x: 5183
-        y: 102
-        width: 910
-        height: 1946
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 5311
+        y: 238
+        width: 641
+        height: 1606
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ffccdbb58059c3b0800000000000000
-      internalID: -5491769735288926218
+      spriteID: 98aa3b9b5f80406f0800000000000000
+      internalID: -719440188996867447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_6
+      name: Combat Main Character 1_6
       rect:
         serializedVersion: 2
-        x: 6199
-        y: 108
-        width: 911
-        height: 1940
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 6335
+        y: 238
+        width: 641
+        height: 1610
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 294e7271d7ad29f60800000000000000
-      internalID: 8039728515604014226
+      spriteID: eb364882bb69e26f0800000000000000
+      internalID: -707462360867773506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom Girl_7
+      name: Combat Main Character 1_7
       rect:
         serializedVersion: 2
-        x: 7232
-        y: 108
-        width: 911
-        height: 1940
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 7359
+        y: 238
+        width: 641
+        height: 1610
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1032df01f750b620800000000000000
-      internalID: 2787824862206504986
+      spriteID: 2054c76f4fd2acca0800000000000000
+      internalID: -5995929423759784702
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: da4275cc158bfab48947bf75f908ccff
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -310,14 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mushroom Girl_0: 6804925498275177161
-      Mushroom Girl_1: -80508552379580927
-      Mushroom Girl_2: 688947463952804742
-      Mushroom Girl_3: -8196953873307168178
-      Mushroom Girl_4: 3724454783811468895
-      Mushroom Girl_5: -5491769735288926218
-      Mushroom Girl_6: 8039728515604014226
-      Mushroom Girl_7: 2787824862206504986
+      Combat Main Character 1_0: -6698200000348494304
+      Combat Main Character 1_1: -3589825603081810596
+      Combat Main Character 1_2: 158684663921265742
+      Combat Main Character 1_3: -4880210967037062921
+      Combat Main Character 1_4: -7474374743340847362
+      Combat Main Character 1_5: -719440188996867447
+      Combat Main Character 1_6: -707462360867773506
+      Combat Main Character 1_7: -5995929423759784702
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

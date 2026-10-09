@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 
-public class NPCInteraction : MonoBehaviour
+public class NPCInteraction : MonoBehaviour, IInteractable
 {
-    [Header("Dialogue Sets")]
-    [Tooltip("Default dialogues to play when the condition is not met.")]
-    [SerializeField] private DialogueLine[] defaultDialogues;
+    [Header("UI Prompt & Highlight")]
+    public GameObject interactPrompt;
 
-    [Tooltip("Alternate dialogues to play once the condition is met.")]
+    [Tooltip("The highlight effect script attached to this object.")]
+    public SpriteHighlight highlightEffect;
+
+    [Header("Dialogue Sets")]
+    [SerializeField] private DialogueLine[] defaultDialogues;
     [SerializeField] private DialogueLine[] alternateDialogues;
 
     [Header("Portraits")]
@@ -14,62 +17,34 @@ public class NPCInteraction : MonoBehaviour
     [SerializeField] private Sprite npcSprite;
 
     [Header("Conditions")]
-    [Tooltip("Check this to simulate that the condition is met for testing purposes.")]
     public bool isConditionMet = false;
 
-    private PlayerInputHandler playerInput;
-    private bool playerIsClose = false;
-
-    private void Update()
+    public void ShowInteractPrompt()
     {
-        if (playerIsClose && playerInput != null && playerInput.InteractInput)
+        if (interactPrompt != null) interactPrompt.SetActive(true);
+        if (highlightEffect != null) highlightEffect.TurnOnHighlight();
+    }
+
+    public void HideInteractPrompt()
+    {
+        if (interactPrompt != null) interactPrompt.SetActive(false);
+        if (highlightEffect != null) highlightEffect.TurnOffHighlight();
+    }
+
+    public void Interact()
+    {
+        if (!DialogueManager.Instance.isOpen)
         {
-            playerInput.UseInteractInput();
-
-            if (!DialogueManager.Instance.isOpen)
-            {
-                DialogueLine[] dialogueToPlay;
-
-                if (isConditionMet)
-                {
-                    dialogueToPlay = alternateDialogues;
-                }
-                else
-                {
-                    dialogueToPlay = defaultDialogues;
-                }
-
-                DialogueManager.Instance.StartDialogue(dialogueToPlay, playerSprite, npcSprite);
-            }
-            else
-            {
-                DialogueManager.Instance.DisplayNextSentence();
-            }
+            DialogueLine[] dialogueToPlay = isConditionMet ? alternateDialogues : defaultDialogues;
+            DialogueManager.Instance.StartDialogue(dialogueToPlay, playerSprite, npcSprite);
+            HideInteractPrompt();
+        }
+        else
+        {
+            DialogueManager.Instance.DisplayNextSentence();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerIsClose = true;
-            playerInput = other.GetComponent<PlayerInputHandler>();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerIsClose = false;
-            playerInput = null;
-
-            if (DialogueManager.Instance.isOpen)
-            {
-                DialogueManager.Instance.EndDialogue();
-            }
-        }
-    }
     private void OnEnable()
     {
         ItemPickup.OnItemCollected += CompleteQuestCondition;
@@ -83,6 +58,5 @@ public class NPCInteraction : MonoBehaviour
     private void CompleteQuestCondition()
     {
         isConditionMet = true;
-        Debug.Log(gameObject.name + ": Condition Met! Ready for new dialogue.");
     }
 }
