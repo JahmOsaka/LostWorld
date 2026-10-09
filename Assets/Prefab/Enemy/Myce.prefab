@@ -298,7 +298,7 @@ Transform:
   m_GameObject: {fileID: 4473217849596222109}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.46, y: -3.47, z: 0}
+  m_LocalPosition: {x: 0.95, y: -8.277693, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 6100445818434788676}
   - component: {fileID: 6842223043306055183}
   - component: {fileID: 3391847674591662950}
+  - component: {fileID: 1115327753244630346}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -559,7 +560,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39075208, y: 0.3229319}
+  m_Offset: {x: 0.05077207, y: 0.3229319}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -569,7 +570,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0374999, y: 0.6239369}
+  m_Size: {x: 1.9205482, y: 0.6239369}
   m_EdgeRadius: 0
 --- !u!114 &6842223043306055183
 MonoBehaviour:
@@ -584,6 +585,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyData: {fileID: 11400000, guid: 4e398cea97615d54d95634094bafb93d, type: 2}
+  hitboxCollider: {fileID: 5681447469185159381}
+  edgeCheckDistance: 1
+  edgeCheckForwardOffset: 0.4
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   orbPrefab: {fileID: 0}
   projectilePrefab: {fileID: 0}
   throwPoint: {fileID: 0}
@@ -634,3 +641,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1115327753244630346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406653713664756089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1ad2d055e08f249aa5cf98f0770e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyContact

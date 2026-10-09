@@ -88,8 +88,8 @@ public class EnemyPatrolState : EnemyState
 
     private void FlipTowards(float dirX)
     {
-        if (dirX > 0) enemy.spriteRenderer.flipX = true;
-        else if (dirX < 0) enemy.spriteRenderer.flipX = false;
+        if (dirX > 0) enemy.FlipX = true;
+        else if (dirX < 0) enemy.FlipX = false;
 
     }
 }

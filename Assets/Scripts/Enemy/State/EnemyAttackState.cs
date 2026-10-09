@@ -47,7 +47,7 @@ public class EnemyAttackState : EnemyState
     public void OnAttackAnimationEnd()
     {
         isAttacking = false;
-        if (enemyData.retreatsAfterAttack)
+        if (enemyData.retreatsAfterAttack && enemy.DistanceToPlayer() <= enemyData.retreatTriggerRange)
         {
             stateMachine.ChangeState(enemy.RetreatState);
         }

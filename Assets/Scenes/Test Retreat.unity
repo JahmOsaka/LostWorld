@@ -2745,10 +2745,13 @@ MonoBehaviour:
   playerHealth: {fileID: 813850876}
   playerStats: {fileID: 813850882}
   healthBarFill: {fileID: 821807160}
-  energyCircleFill: {fileID: 38266883}
+  energyBarFill: {fileID: 0}
+  currentSkillIcon: {fileID: 0}
   potionIcons:
   - {fileID: 184326098}
   - {fileID: 167165475}
+  gemFullSprite: {fileID: 0}
+  gemEmptySprite: {fileID: 0}
   currencyText: {fileID: 1318984880}
 --- !u!1 &1076136674
 GameObject:

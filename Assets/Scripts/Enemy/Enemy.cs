@@ -7,6 +7,10 @@ public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
 
+    [Header("Hitbox Flip")]
+    public BoxCollider2D hitboxCollider;
+    private Vector2 originalColliderOffset;
+
     [Header("Edge Detection")]
     public float edgeCheckDistance = 1f;
     public float edgeCheckForwardOffset = 0.4f;
@@ -55,6 +59,10 @@ public class Enemy : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         spawnPosition = transform.position;
         health = GetComponent<CoreHealth>();
+        if (hitboxCollider != null)
+        {
+            originalColliderOffset = hitboxCollider.offset;
+        }
 
         stateMachine = new EnemyStateMachine();
         idleState = new EnemyIdleState(this, stateMachine, enemyData, "idle");
@@ -143,9 +151,23 @@ public class Enemy : MonoBehaviour
         {
             float dirX = playerTransform.position.x - transform.position.x;
             if (dirX > 0)
-                spriteRenderer.flipX = true;
+                FlipX = false;
             else if (dirX < 0)
-                spriteRenderer.flipX =  false;
+                FlipX =  true;
+        }
+    }
+
+    public bool FlipX
+    {
+        get => spriteRenderer.flipX;
+        set
+        {
+            spriteRenderer.flipX = value;
+            if (hitboxCollider != null)
+            {
+                float sign = value ? 1f : -1f;
+                hitboxCollider.offset = new Vector2(Mathf.Abs(originalColliderOffset.x) * sign, originalColliderOffset.y);
+            }
         }
     }
 
