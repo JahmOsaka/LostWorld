@@ -34,7 +34,11 @@ public class PlayerDodgeState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
+        if (!player.CheckIfGrounded())
+        {
+            stateMachine.ChangeState(player.FallState);
+            return;
+        }
         if (isDodgeFinished)
         {
             if (player.CheckIfGrounded())

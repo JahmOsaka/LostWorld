@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     public bool IsInvincible { get; private set; }
     public int FacingDirection { get; private set; } = 1;
     public float CoyoteTimeCounter { get; private set; }
+    public float FallDuration { get; set; }
 
     public PlayerAttackState AttackState { get; private set; }
 
@@ -104,6 +105,23 @@ public class Player : MonoBehaviour
     {
         Vector2 origin = new Vector2(Collider.bounds.center.x, Collider.bounds.min.y);
         RaycastHit2D hit = Physics2D.BoxCast(origin, boxCastSize, 0f, Vector2.down, boxCastDistance, groundLayer);
+        return hit.collider != null;
+    }
+    public bool CheckIfTouchingCeiling()
+    {
+        Vector2 origin = new Vector2(Collider.bounds.center.x, Collider.bounds.max.y);
+        Vector2 ceilingBoxSize = new Vector2(Collider.bounds.size.x - 0.02f, 0.1f);
+
+        RaycastHit2D hit = Physics2D.BoxCast(origin, ceilingBoxSize, 0f, Vector2.up, boxCastDistance, groundLayer);
+        return hit.collider != null;
+    }
+    public bool CheckIfTouchingWall()
+    {
+        Vector2 boxSize = new Vector2(0.1f, Collider.bounds.size.y * 0.8f);
+
+        Vector2 direction = FacingDirection == 1 ? Vector2.right : Vector2.left;
+
+        RaycastHit2D hit = Physics2D.BoxCast(Collider.bounds.center, boxSize, 0f, direction, 0.1f, groundLayer);
         return hit.collider != null;
     }
     public void CheckIfShouldFlip(float xInput)
@@ -175,10 +193,16 @@ public class Player : MonoBehaviour
     {
         if (GetComponent<BoxCollider2D>() != null)
         {
-            Gizmos.color = Color.red;
             BoxCollider2D col = GetComponent<BoxCollider2D>();
-            Vector2 origin = new Vector2(col.bounds.center.x, col.bounds.min.y) + (Vector2.down * boxCastDistance);
-            Gizmos.DrawWireCube(origin, boxCastSize);
+
+            Gizmos.color = Color.red;
+            Vector2 groundOrigin = new Vector2(col.bounds.center.x, col.bounds.min.y) + (Vector2.down * boxCastDistance);
+            Gizmos.DrawWireCube(groundOrigin, boxCastSize);
+
+            Gizmos.color = Color.cyan;
+            Vector2 ceilingOrigin = new Vector2(col.bounds.center.x, col.bounds.max.y) + (Vector2.up * boxCastDistance);
+            Vector2 ceilingBoxSize = new Vector2(col.bounds.size.x - 0.02f, 0.1f);
+            Gizmos.DrawWireCube(ceilingOrigin, ceilingBoxSize);
         }
     }
 }

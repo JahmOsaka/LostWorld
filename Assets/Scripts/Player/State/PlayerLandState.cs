@@ -8,7 +8,22 @@ public class PlayerLandState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        
         player.RB.linearVelocity = new Vector2(0f, 0f);
+
+        float animSpeed = playerData.defaultLandingSpeed;
+
+        if (player.FallDuration < playerData.shortFallDuration)
+        {
+            animSpeed = playerData.shortFallAnimSpeed;
+        }
+        else if (player.FallDuration < playerData.mediumFallDuration)
+        {
+            animSpeed = playerData.mediumFallAnimSpeed;
+        }
+
+        player.Anim.SetFloat("LandingSpeed", animSpeed);
+        player.FallDuration = 0f;
     }
 
     public override void LogicUpdate()

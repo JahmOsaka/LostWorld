@@ -40,6 +40,18 @@ public class CoreHealth : MonoBehaviour, IDamageable
         OnHealthChanged?.Invoke();
         Debug.Log($"{gameObject.name} healed {amount} HP! Current HP: {currentHealth}");
     }
+    public void UpgradeMaxHealth(int amount)
+    {
+        if (isDead) return;
+
+        maxHealth += amount;
+
+        currentHealth = maxHealth;
+
+        OnHealthChanged?.Invoke();
+
+        Debug.Log($"{gameObject.name} upgraded Max HP by {amount}! New Max HP: {maxHealth}");
+    }
     public void TakeDamage(int amount)
     {
         if (isInvincible || isDead) return;

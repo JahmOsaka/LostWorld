@@ -5,11 +5,15 @@ public class PlayerFallState : PlayerState
     public PlayerFallState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
 
+    public override void Enter()
+    {
+        base.Enter();
+        player.FallDuration = 0f;
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        base.LogicUpdate();
+        player.FallDuration += Time.deltaTime;
 
         if (player.InputHandler.JumpInput && player.CoyoteTimeCounter > 0f)
         {

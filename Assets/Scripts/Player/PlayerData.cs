@@ -11,13 +11,26 @@ public class PlayerData : ScriptableObject
     [Header("Jump Settings")]
     [Tooltip("Initial velocity when the jump starts.")]
     public float maxJumpVelocity = 15f;
-
     [Tooltip("Velocity multiplier when the jump button is released early (e.g., 0.5 cuts the velocity in half).")]
     [Range(0.1f, 1f)]
     public float minJumpMultiplier = 0.5f;
-
     [Tooltip("Maximum duration the jump button can be held down to increase height.")]
     public float maxJumpTime = 0.25f;
+    
+    [Space(10)]
+    [Header("Landing Settings")]
+    [Tooltip("The fall duration considered as a 'short' fall.")]
+    public float shortFallDuration = 0.2f;
+    [Tooltip("Animation speed for landing after a short fall (should be fast).")]
+    public float shortFallAnimSpeed = 3f;
+    [Tooltip("The fall duration considered as a 'medium' fall.")]
+    public float mediumFallDuration = 0.6f;
+    [Tooltip("Animation speed for landing after a medium fall.")]
+    public float mediumFallAnimSpeed = 1.5f;
+    [Tooltip("Default animation speed for landing (after a long fall).")]
+    public float defaultLandingSpeed = 1f;
+    [Tooltip("The vertical velocity threshold at which the player transitions to the fall state.")]
+    public float fallVelocityThreshold = -5f;
 
     [Space(10)]
     [Header("Assist Settings")]
@@ -28,10 +41,8 @@ public class PlayerData : ScriptableObject
     [Header("Dodge Settings")]
     [Tooltip("The speed of the dodge roll.")]
     [SerializeField] private float dodgeSpeed = 12f;
-
     [Tooltip("The duration of the dodge roll in seconds.")]
     [SerializeField] private float dodgeDuration = 0.4f;
-
     [Tooltip("The cooldown time before the player can dodge again.")]
     [SerializeField] private float dodgeCooldown = 1f;
 

@@ -288,6 +288,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 660418ef-8caf-48a4-bf6f-392718c583b2
     m_ActionName: 'Player/Potion[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2202049385663698167}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnSkillInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ef3c3743-a39e-473f-bc48-00f092a70477
+    m_ActionName: 'Player/Skill[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -372,6 +388,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSkillController
   currentSkill: {fileID: 0}
+  skillIconUI: {fileID: 0}
+  inputHandler: {fileID: 0}
 --- !u!114 &9218278369501562890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,9 +414,9 @@ GameObject:
   - component: {fileID: 8063810419092582632}
   - component: {fileID: 4142366149432382527}
   - component: {fileID: 9117282417096178437}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: WhipHitbox
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -558,7 +576,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 30282567
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 8
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8085337866675114585, guid: 8e26e81ddfe4ae843869e508613c1440, type: 3}

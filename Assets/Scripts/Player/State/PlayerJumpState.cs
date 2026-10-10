@@ -4,7 +4,7 @@ public class PlayerJumpState : PlayerState
 {
     private bool isJumpCut;
 
-    public PlayerJumpState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
+    public PlayerJumpState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
 
     public override void Enter()
@@ -29,7 +29,20 @@ public class PlayerJumpState : PlayerState
             isJumpCut = true;
         }
 
-        if (player.RB.linearVelocity.y < 0)
+        if (player.CheckIfTouchingCeiling())
+        {
+            player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, 0f);
+            stateMachine.ChangeState(player.FallState);
+        }
+        else if (player.CheckIfGrounded() && player.RB.linearVelocity.y <= 0f)
+        {
+            stateMachine.ChangeState(player.LandState);
+        }
+        else if (player.CheckIfTouchingWall() && player.RB.linearVelocity.y < 0f)
+        {
+            stateMachine.ChangeState(player.FallState);
+        }
+        else if (player.RB.linearVelocity.y < playerData.fallVelocityThreshold)
         {
             stateMachine.ChangeState(player.FallState);
         }
@@ -41,8 +54,19 @@ public class PlayerJumpState : PlayerState
 
         float inputX = player.InputHandler.RawMovementInput.x;
         float moveDirection = inputX == 0 ? 0 : Mathf.Sign(inputX);
-        
-        player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, player.RB.linearVelocity.y);
+
+        if (player.CheckIfTouchingWall() && moveDirection == player.FacingDirection)
+        {
+            if (Mathf.Abs(player.RB.linearVelocity.x) > 0.1f)
+            {
+                player.RB.linearVelocity = new Vector2(0f, player.RB.linearVelocity.y);
+            }
+        }
+        else
+        {
+            player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, player.RB.linearVelocity.y);
+        }
+
         player.CheckIfShouldFlip(moveDirection);
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyContact : MonoBehaviour
 {
+
     private Enemy enemy;
 
     private void Awake()
@@ -11,6 +12,7 @@ public class EnemyContact : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.gameObject.CompareTag("Player")) return;
         CoreHealth playerHealth = collision.GetComponentInParent<CoreHealth>();
 
         if(playerHealth != null)

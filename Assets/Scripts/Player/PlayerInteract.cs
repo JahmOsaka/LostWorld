@@ -8,6 +8,12 @@ public class PlayerInteract : MonoBehaviour
     public PlayerInputHandler inputHandler;
 
     private IInteractable currentInteractable;
+    private BoxCollider2D myCollider;
+
+    private void Awake()
+    {
+        myCollider = GetComponent<BoxCollider2D>();
+    }
 
     private void Update()
     {
@@ -20,6 +26,8 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (myCollider != null && !myCollider.IsTouching(collision)) return;
+
         IInteractable interactable = collision.GetComponent<IInteractable>();
         if (interactable != null)
         {
