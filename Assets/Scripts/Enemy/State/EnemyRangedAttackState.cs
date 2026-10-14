@@ -5,6 +5,8 @@ public class EnemyRangedAttackState : EnemyState
     private float cooldownTimer;
     private bool isThrowing;
 
+    private RangedEnemyData ranged => (RangedEnemyData)enemyData;
+
     public EnemyRangedAttackState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName)
         : base(enemy, stateMachine, enemyData, animBoolName) { }
 
@@ -12,7 +14,6 @@ public class EnemyRangedAttackState : EnemyState
     {
         base.Enter();
         enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
-
     }
 
     public override void LogicUpdate()
@@ -23,8 +24,7 @@ public class EnemyRangedAttackState : EnemyState
 
         FacePlayer();
 
-
-        if (dist > enemyData.throwRange * 1.2f)
+        if (dist > ranged.throwRange * 1.2f)
         {
             stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.ReturnState);
             return;
@@ -35,9 +35,10 @@ public class EnemyRangedAttackState : EnemyState
         {
             isThrowing = true;
             enemy.anim.SetTrigger("throw");
-            cooldownTimer = enemyData.throwCooldown;
+            cooldownTimer = ranged.throwCooldown;
         }
     }
+
     public void OnThrowAnimationEnd()
     {
         isThrowing = false;

@@ -9,23 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96968c9e2cca0394aa4897254693196b, type: 3}
-  m_Name: Test Throw
+  m_Script: {fileID: 11500000, guid: b3100be0d1a24ed478a846216ed25576, type: 3}
+  m_Name: Shroomling
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  isStationary: 0
-  canDetectPlayer: 1
+  damage: 1
+  moveSpeed: 2
   patrolSpeed: 1.5
   idleTimeAtPoint: 1.5
+  canDetectPlayer: 1
   chaseRange: 5
+  retreatsAfterAttack: 1
+  retreatDistance: 2
+  retreatSpeed: 3
+  retreatTriggerRange: 2
   attackRange: 1.5
-  moveSpeed: 2
-  isRangedEnemy: 1
-  throwRange: 6
-  throwCooldown: 2
-  projectileSpeed: 8
-  useArcProjectile: 0
-  arcHeight: 2
-  arcSpeedMultiplier: 1
-  damage: 1
   attackCooldown: 1.5
   comboInterval: 0.1

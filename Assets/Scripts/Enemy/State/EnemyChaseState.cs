@@ -9,11 +9,16 @@ public class EnemyChaseState : EnemyState
     {
         enemy.FacePlayer();
         float dist = enemy.DistanceToPlayer();
-        float triggerRange = enemyData.isRangedEnemy ? enemyData.throwRange : enemyData.attackRange;
+
+        var ranged = enemyData as RangedEnemyData;
+        var melee = enemyData as MeleeEnemyData;
+        float triggerRange = ranged != null ? ranged.throwRange
+                           : melee != null ? melee.attackRange
+                           : 0f;
 
         if (dist <= triggerRange)
         {
-            stateMachine.ChangeState(enemyData.isRangedEnemy ? enemy.RangedAttackState : enemy.AttackState);
+            stateMachine.ChangeState(ranged != null ? enemy.RangedAttackState : enemy.AttackState);
             return;
         }
         if (dist > enemyData.chaseRange * 1.5f)
