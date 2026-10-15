@@ -1,4 +1,5 @@
 using UnityEngine;
+
 [CreateAssetMenu(fileName = "NewPlayerData", menuName = "Data/Player Data/Base Data")]
 public class PlayerData : ScriptableObject
 {
@@ -14,23 +15,17 @@ public class PlayerData : ScriptableObject
     [Tooltip("Velocity multiplier when the jump button is released early (e.g., 0.5 cuts the velocity in half).")]
     [Range(0.1f, 1f)]
     public float minJumpMultiplier = 0.5f;
-    [Tooltip("Maximum duration the jump button can be held down to increase height.")]
-    public float maxJumpTime = 0.25f;
-    
+
     [Space(10)]
     [Header("Landing Settings")]
-    [Tooltip("The fall duration considered as a 'short' fall.")]
-    public float shortFallDuration = 0.2f;
-    [Tooltip("Animation speed for landing after a short fall (should be fast).")]
-    public float shortFallAnimSpeed = 3f;
-    [Tooltip("The fall duration considered as a 'medium' fall.")]
-    public float mediumFallDuration = 0.6f;
-    [Tooltip("Animation speed for landing after a medium fall.")]
-    public float mediumFallAnimSpeed = 1.5f;
-    [Tooltip("Default animation speed for landing (after a long fall).")]
-    public float defaultLandingSpeed = 1f;
     [Tooltip("The vertical velocity threshold at which the player transitions to the fall state.")]
-    public float fallVelocityThreshold = -5f;
+    public float fallVelocityThreshold = -12f;
+    [Tooltip("The minimum fall duration required to trigger a Hard Landing (causes brief stun).")]
+    public float hardLandingThreshold = 0.6f;
+    [Tooltip("Animation speed for a Soft Landing (quick recovery).")]
+    public float softLandingAnimSpeed = 3f;
+    [Tooltip("Animation speed for a Hard Landing (heavy impact).")]
+    public float hardLandingAnimSpeed = 1f;
 
     [Space(10)]
     [Header("Assist Settings")]
@@ -52,7 +47,6 @@ public class PlayerData : ScriptableObject
     public float comboWindow = 0.2f;
     [SerializeField] private float attackSpeedMultiplier = 1f;
 
-    // Getters for Read-only access
     public float DodgeSpeed => dodgeSpeed;
     public float DodgeDuration => dodgeDuration;
     public float DodgeCooldown => dodgeCooldown;

@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   moveSpeed: 8
-  maxJumpVelocity: 32
+  maxJumpVelocity: 10
   minJumpMultiplier: 0.5
   maxJumpTime: 0.25
   shortFallDuration: 0.2
-  shortFallAnimSpeed: 2.5
+  shortFallAnimSpeed: 1
   mediumFallDuration: 0.6
-  mediumFallAnimSpeed: 1.5
-  defaultLandingSpeed: 1
-  fallVelocityThreshold: -20
+  mediumFallAnimSpeed: 1
+  defaultLandingSpeed: 0.5
+  fallVelocityThreshold: -15
   coyoteTime: 0.15
   dodgeSpeed: 10
   dodgeDuration: 0.35

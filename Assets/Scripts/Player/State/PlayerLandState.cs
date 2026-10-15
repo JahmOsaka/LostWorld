@@ -2,47 +2,62 @@ using UnityEngine;
 
 public class PlayerLandState : PlayerState
 {
+    private bool isHardLanding;
+    private float timer;
+
     public PlayerLandState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
 
     public override void Enter()
     {
         base.Enter();
-        
-        player.RB.linearVelocity = new Vector2(0f, 0f);
+        player.RB.linearVelocity = Vector2.zero;
+        timer = 0f;
 
-        float animSpeed = playerData.defaultLandingSpeed;
-
-        if (player.FallDuration < playerData.shortFallDuration)
+        if (player.FallDuration >= playerData.hardLandingThreshold)
         {
-            animSpeed = playerData.shortFallAnimSpeed;
+            isHardLanding = true;
+            player.Anim.SetFloat("LandingSpeed", playerData.hardLandingAnimSpeed);
         }
-        else if (player.FallDuration < playerData.mediumFallDuration)
+        else
         {
-            animSpeed = playerData.mediumFallAnimSpeed;
+            isHardLanding = false;
+            player.Anim.SetFloat("LandingSpeed", playerData.softLandingAnimSpeed);
         }
 
-        player.Anim.SetFloat("LandingSpeed", animSpeed);
         player.FallDuration = 0f;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        timer += Time.deltaTime;
+
+        float inputX = player.InputHandler.RawMovementInput.x;
 
         if (player.InputHandler.JumpInput)
         {
             stateMachine.ChangeState(player.JumpState);
+            return;
         }
-        else if (isAnimationFinished)
+
+        if (!isHardLanding && inputX != 0f)
         {
-            if (player.InputHandler.RawMovementInput.x == 0)
+            stateMachine.ChangeState(player.MoveState);
+            return;
+        }
+
+        float exitTime = isHardLanding ? 0.4f : 0.1f;
+
+        if (timer >= exitTime)
+        {
+            if (inputX != 0f)
             {
-                stateMachine.ChangeState(player.IdleState);
+                stateMachine.ChangeState(player.MoveState);
             }
             else
             {
-                stateMachine.ChangeState(player.MoveState);
+                stateMachine.ChangeState(player.IdleState);
             }
         }
     }

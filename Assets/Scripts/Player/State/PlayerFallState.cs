@@ -2,6 +2,8 @@
 
 public class PlayerFallState : PlayerState
 {
+    [Header("Fall Settings")]
+    public float maxFallSpeed = 20f;
     public PlayerFallState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
 
@@ -9,11 +11,20 @@ public class PlayerFallState : PlayerState
     {
         base.Enter();
         player.FallDuration = 0f;
+
     }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         player.FallDuration += Time.deltaTime;
+
+        if (player.RB.linearVelocity.y < 0)
+        {
+            player.RB.linearVelocity = new Vector2(
+                player.RB.linearVelocity.x,
+                Mathf.Max(player.RB.linearVelocity.y, -maxFallSpeed)
+            );
+        }
 
         if (player.InputHandler.JumpInput && player.CoyoteTimeCounter > 0f)
         {

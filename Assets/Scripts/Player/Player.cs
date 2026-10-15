@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         StateMachine.CurrentState.LogicUpdate();
+        Anim.SetBool("isGrounded", CheckIfGrounded());
 
         if (DodgeCooldownTimer > 0)
         {

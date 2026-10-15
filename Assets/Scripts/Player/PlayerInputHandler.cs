@@ -3,19 +3,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    [Header("MoveMent Inputs")]
     public Vector2 RawMovementInput { get; private set; }
+    public float LookAxis { get; private set; }
     public bool JumpInput { get; private set; }
-    public bool DodgeInput { get; private set; }
     public bool IsJumpHolding { get; private set; }
+    public bool DodgeInput { get; private set; }
 
+    [Header("Interact Inputs")]
     public bool InteractInput { get; private set; }
-
-    public bool PotionInput { get; private set; }
-
-    public bool SkillInput { get; private set; }
 
     [Header("Combat Inputs")]
     public bool AttackInput { get; private set; }
+    public bool PotionInput { get; private set; }
+    public bool SkillInput { get; private set; }
     void Start()
     {
         int playerLayer = LayerMask.NameToLayer("Player");
@@ -26,6 +27,18 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnLookCamera(InputAction.CallbackContext context)
+    {
+        if (context.canceled)
+        {
+            LookAxis = 0f;
+        }
+        else
+        {
+            LookAxis = context.ReadValue<float>();
+        }
     }
 
     public void OnJumpInput(InputAction.CallbackContext context)
@@ -82,5 +95,4 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseAttackInput() => AttackInput = false;
     public void UsePotionInput() => PotionInput = false;
     public void UseSkillInput() => SkillInput = false;
-
 }
