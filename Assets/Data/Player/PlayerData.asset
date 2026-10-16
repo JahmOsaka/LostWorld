@@ -15,14 +15,11 @@ MonoBehaviour:
   moveSpeed: 8
   maxJumpVelocity: 10
   minJumpMultiplier: 0.5
-  maxJumpTime: 0.25
-  shortFallDuration: 0.2
-  shortFallAnimSpeed: 1
-  mediumFallDuration: 0.6
-  mediumFallAnimSpeed: 1
-  defaultLandingSpeed: 0.5
   fallVelocityThreshold: -15
-  coyoteTime: 0.15
+  hardLandingThreshold: 0.6
+  softLandingAnimSpeed: 3
+  hardLandingAnimSpeed: 1
+  coyoteTime: 0.1
   dodgeSpeed: 10
   dodgeDuration: 0.35
   dodgeCooldown: 1

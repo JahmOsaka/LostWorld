@@ -31,4 +31,16 @@ public class PlayerJumpState : PlayerState
             stateMachine.ChangeState(player.FallState);
         }
     }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+
+        float inputX = player.InputHandler.RawMovementInput.x;
+        float moveDirection = inputX == 0 ? 0 : Mathf.Sign(inputX);
+
+        player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, player.RB.linearVelocity.y);
+
+        player.CheckIfShouldFlip(moveDirection);
+    }
 }
