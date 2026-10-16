@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class SimpleManualParallax : MonoBehaviour
 {
@@ -23,7 +24,17 @@ public class SimpleManualParallax : MonoBehaviour
         fixedPosY = transform.position.y;
     }
 
-    void LateUpdate()
+    void OnEnable()
+    {
+        CinemachineCore.CameraUpdatedEvent.AddListener(OnCameraUpdated);
+    }
+
+    void OnDisable()
+    {
+        CinemachineCore.CameraUpdatedEvent.RemoveListener(OnCameraUpdated);
+    }
+
+    void OnCameraUpdated(CinemachineBrain brain)
     {
         if (cameraTransform == null) return;
 

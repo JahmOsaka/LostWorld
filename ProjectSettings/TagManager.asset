@@ -44,11 +44,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BG
-    uniqueID: 2428057575
-    locked: 0
   - name: Parallax
     uniqueID: 3675216121
+    locked: 0
+  - name: BG
+    uniqueID: 2428057575
     locked: 0
   - name: Ground
     uniqueID: 3768297091
