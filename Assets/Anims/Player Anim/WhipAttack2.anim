@@ -21,17 +21,36 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 8288915215451595207, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
+      value: {fileID: 225066520, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
     - time: 0.05
-      value: {fileID: 4668938655123782945, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
+      value: {fileID: -1463300421, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
     - time: 0.083333336
-      value: {fileID: 5683539909772271658, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
+      value: {fileID: 1888541961, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
     - time: 0.11666667
-      value: {fileID: -1191510351576865934, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
+      value: {fileID: 1504302735, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
     - time: 0.15
-      value: {fileID: -8937499057154260928, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
+      value: {fileID: 1502932311, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
     attribute: m_Sprite
     path: 
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 1218114194617874462, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - time: 0.05
+      value: {fileID: 7359606462597308688, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - time: 0.083333336
+      value: {fileID: -8393017084893261206, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - time: 0.11666667
+      value: {fileID: -5956727418894532967, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - time: 0.15
+      value: {fileID: 3887668215157099345, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - time: 0.16666667
+      value: {fileID: 0}
+    attribute: m_Sprite
+    path: Whip
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -52,18 +71,34 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
       metaData: 0
+    - serializedVersion: 2
+      path: 3579892557
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+      metaData: 0
     pptrCurveMapping:
-    - {fileID: 8288915215451595207, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
-    - {fileID: 4668938655123782945, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
-    - {fileID: 5683539909772271658, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
-    - {fileID: -1191510351576865934, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
-    - {fileID: -8937499057154260928, guid: ca76fe937874b9e44acbc295045ec6af, type: 3}
+    - {fileID: 225066520, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
+    - {fileID: -1463300421, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
+    - {fileID: 1888541961, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
+    - {fileID: 1504302735, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
+    - {fileID: 1502932311, guid: b6bf24bb7b8c69f4b9d7b22b584923c5, type: 3}
+    - {fileID: 1218114194617874462, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - {fileID: 7359606462597308688, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - {fileID: -8393017084893261206, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - {fileID: -5956727418894532967, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - {fileID: 3887668215157099345, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.16666667
+    m_StopTime: 0.18333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -91,14 +126,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.15
-    functionName: DisableHitbox
+    functionName: FinishAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.15
-    functionName: FinishAttack
+  - time: 0.16666667
+    functionName: DisableHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

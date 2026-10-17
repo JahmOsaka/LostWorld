@@ -1,34 +1,28 @@
 fileFormatVersion: 2
-guid: 1e56c1bf39ac66947a73f281c44b175f
+guid: 50c6add95cac3654c9bd8fb76505c1df
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3344084327779749891
-    second: MC_Idle_Attack_0
+      213: -3552495435785751306
+    second: whip3_0
   - first:
-      213: -3797358817868971536
-    second: MC_Idle_Attack_1
+      213: 9082036907663074595
+    second: whip3_1
   - first:
-      213: 4293396676093713362
-    second: MC_Idle_Attack_2
+      213: 6015369266768636983
+    second: whip3_2
   - first:
-      213: 7566283130968429867
-    second: MC_Idle_Attack_3
+      213: -3436677352481765607
+    second: whip3_3
   - first:
-      213: -914265251958017655
-    second: MC_Idle_Attack_4
+      213: -650033164763415113
+    second: whip3_4
   - first:
-      213: 6705809737454695855
-    second: MC_Idle_Attack_5
+      213: 8047637069620098320
+    second: whip3_5
   - first:
-      213: -747886196836818405
-    second: MC_Idle_Attack_6
-  - first:
-      213: 2366867896569536986
-    second: MC_Idle_Attack_7
-  - first:
-      213: -8739344410293131879
-    second: MC_Idle_Attack_8
+      213: -5925653285059734299
+    second: whip3_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 2
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 650
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,10 +90,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_Idle_Attack_0
+      name: whip3_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 240
-        width: 1024
-        height: 1808
+        y: 9392
+        width: 3584
+        height: 1360
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30053487af2986e20800000000000000
-      internalID: 3344084327779749891
+      spriteID: 6f43bcb193003bec0800000000000000
+      internalID: -3552495435785751306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_Attack_1
+      name: whip3_1
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 240
-        width: 1024
-        height: 1808
+        x: 0
+        y: 7849
+        width: 3584
+        height: 1360
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f1093046421d4bc0800000000000000
-      internalID: -3797358817868971536
+      spriteID: 325ae36e270e90e70800000000000000
+      internalID: 9082036907663074595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_Attack_2
+      name: whip3_2
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 240
-        width: 1024
-        height: 1808
+        x: 0
+        y: 6318
+        width: 3584
+        height: 1360
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2db986e8785359b30800000000000000
-      internalID: 4293396676093713362
+      spriteID: 73ceb823a72ea7350800000000000000
+      internalID: 6015369266768636983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_Attack_3
+      name: whip3_3
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 240
-        width: 1024
-        height: 1808
+        x: 0
+        y: 4778
+        width: 3584
+        height: 1360
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2557637b66d00960800000000000000
-      internalID: 7566283130968429867
+      spriteID: 917c1bdf7287e40d0800000000000000
+      internalID: -3436677352481765607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_Attack_4
+      name: whip3_4
       rect:
         serializedVersion: 2
-        x: 4096
-        y: 240
-        width: 1024
-        height: 1808
+        x: 0
+        y: 3240
+        width: 3584
+        height: 1360
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9813f8ae890ef43f0800000000000000
-      internalID: -914265251958017655
+      spriteID: 7bdbd0ad74e9af6f0800000000000000
+      internalID: -650033164763415113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_Attack_5
+      name: whip3_5
       rect:
         serializedVersion: 2
-        x: 5120
-        y: 240
-        width: 1024
-        height: 1808
+        x: 0
+        y: 1702
+        width: 3584
+        height: 1360
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,20 +243,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa5b7546d62df0d50800000000000000
-      internalID: 6705809737454695855
+      spriteID: 015b8ffc643feaf60800000000000000
+      internalID: 8047637069620098320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Idle_Attack_6
+      name: whip3_6
       rect:
         serializedVersion: 2
-        x: 6144
-        y: 240
-        width: 1024
-        height: 1808
+        x: 0
+        y: 164
+        width: 3584
+        height: 1360
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,30 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b12af196779fe95f0800000000000000
-      internalID: -747886196836818405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Idle_Attack_7
-      rect:
-        serializedVersion: 2
-        x: 7168
-        y: 240
-        width: 1024
-        height: 1808
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad1ad4dcfcdc8d020800000000000000
-      internalID: 2366867896569536986
+      spriteID: 5e453e19bb9d3cda0800000000000000
+      internalID: -5925653285059734299
       vertices: []
       indices: 
       edges: []
@@ -303,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 34a9ab7c0189cba4291fe58db2b1638a
+    spriteID: f832f3d3fe6fc684cba8125a354718f5
     internalID: 0
     vertices: []
     indices: 
@@ -311,18 +283,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":1024.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      MC_Idle_Attack_0: 3344084327779749891
-      MC_Idle_Attack_1: -3797358817868971536
-      MC_Idle_Attack_2: 4293396676093713362
-      MC_Idle_Attack_3: 7566283130968429867
-      MC_Idle_Attack_4: -914265251958017655
-      MC_Idle_Attack_5: 6705809737454695855
-      MC_Idle_Attack_6: -747886196836818405
-      MC_Idle_Attack_7: 2366867896569536986
+      whip3_0: -3552495435785751306
+      whip3_1: 9082036907663074595
+      whip3_2: 6015369266768636983
+      whip3_3: -3436677352481765607
+      whip3_4: -650033164763415113
+      whip3_5: 8047637069620098320
+      whip3_6: -5925653285059734299
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

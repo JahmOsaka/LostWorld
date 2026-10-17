@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: f21b5a37bfc3e0f42adb862ed183b4f2
+guid: c34a61aff6f971a4e93eefe6e3a15bef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6698200000348494304
-    second: Combat Main Character 1_0
+      213: 1218114194617874462
+    second: whip2_0
   - first:
-      213: -3589825603081810596
-    second: Combat Main Character 1_1
+      213: 7359606462597308688
+    second: whip2_1
   - first:
-      213: 158684663921265742
-    second: Combat Main Character 1_2
+      213: -8393017084893261206
+    second: whip2_2
   - first:
-      213: -4880210967037062921
-    second: Combat Main Character 1_3
+      213: -5956727418894532967
+    second: whip2_3
   - first:
-      213: -7474374743340847362
-    second: Combat Main Character 1_4
+      213: 3887668215157099345
+    second: whip2_4
   - first:
-      213: -719440188996867447
-    second: Combat Main Character 1_5
+      213: -4959705380800511931
+    second: whip2_5
   - first:
-      213: -707462360867773506
-    second: Combat Main Character 1_6
+      213: -9164777230838253620
+    second: whip2_6
   - first:
-      213: -5995929423759784702
-    second: Combat Main Character 1_7
+      213: -448023773878938708
+    second: whip2_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 650
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,10 +93,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,177 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Combat Main Character 1_0
+      name: whip2_0
       rect:
         serializedVersion: 2
-        x: 191
-        y: 238
-        width: 641
-        height: 1610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 10928
+        width: 3584
+        height: 1360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 026e4b896963b03a0800000000000000
-      internalID: -6698200000348494304
+      spriteID: e183f0af76c97e010800000000000000
+      internalID: 1218114194617874462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character 1_1
+      name: whip2_1
       rect:
         serializedVersion: 2
-        x: 1215
-        y: 238
-        width: 641
-        height: 1606
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 9386
+        width: 3584
+        height: 1360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5dc4ba32a06e2ec0800000000000000
-      internalID: -3589825603081810596
+      spriteID: 01128c9b513922660800000000000000
+      internalID: 7359606462597308688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character 1_2
+      name: whip2_2
       rect:
         serializedVersion: 2
-        x: 2239
-        y: 238
-        width: 642
-        height: 1594
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 7854
+        width: 3584
+        height: 1360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4c44507cd2c33200800000000000000
-      internalID: 158684663921265742
+      spriteID: a62172ded63068b80800000000000000
+      internalID: -8393017084893261206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character 1_3
+      name: whip2_3
       rect:
         serializedVersion: 2
-        x: 3262
-        y: 238
-        width: 643
-        height: 1595
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 6315
+        width: 3584
+        height: 1360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f05ac06bf1064cb0800000000000000
-      internalID: -4880210967037062921
+      spriteID: 99e36fcf8f3755da0800000000000000
+      internalID: -5956727418894532967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character 1_4
+      name: whip2_4
       rect:
         serializedVersion: 2
-        x: 4287
-        y: 238
-        width: 642
-        height: 1594
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4777
+        width: 3584
+        height: 1360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efe640995cfa54890800000000000000
-      internalID: -7474374743340847362
+      spriteID: 15b0409d4a5c3f530800000000000000
+      internalID: 3887668215157099345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character 1_5
+      name: whip2_5
       rect:
         serializedVersion: 2
-        x: 5311
-        y: 238
-        width: 641
-        height: 1606
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3241
+        width: 3584
+        height: 1360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98aa3b9b5f80406f0800000000000000
-      internalID: -719440188996867447
+      spriteID: 540cacadb369b2bb0800000000000000
+      internalID: -4959705380800511931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character 1_6
+      name: whip2_6
       rect:
         serializedVersion: 2
-        x: 6335
-        y: 238
-        width: 641
-        height: 1610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1714
+        width: 3584
+        height: 1360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb364882bb69e26f0800000000000000
-      internalID: -707462360867773506
+      spriteID: cc73c466aab20d080800000000000000
+      internalID: -9164777230838253620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character 1_7
+      name: whip2_7
       rect:
         serializedVersion: 2
-        x: 7359
-        y: 238
-        width: 641
-        height: 1610
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 169
+        width: 3584
+        height: 1360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2054c76f4fd2acca0800000000000000
-      internalID: -5995929423759784702
+      spriteID: ca3140b50cc48c9f0800000000000000
+      internalID: -448023773878938708
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 27069b6ac8f574243b835e987f3a5ee1
     internalID: 0
     vertices: []
     indices: 
@@ -308,16 +308,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":8.0},"gridSpriteSize":{"x":3584.0,"y":1536.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Combat Main Character 1_0: -6698200000348494304
-      Combat Main Character 1_1: -3589825603081810596
-      Combat Main Character 1_2: 158684663921265742
-      Combat Main Character 1_3: -4880210967037062921
-      Combat Main Character 1_4: -7474374743340847362
-      Combat Main Character 1_5: -719440188996867447
-      Combat Main Character 1_6: -707462360867773506
-      Combat Main Character 1_7: -5995929423759784702
+      whip2_0: 1218114194617874462
+      whip2_1: 7359606462597308688
+      whip2_2: -8393017084893261206
+      whip2_3: -5956727418894532967
+      whip2_4: 3887668215157099345
+      whip2_5: -4959705380800511931
+      whip2_6: -9164777230838253620
+      whip2_7: -448023773878938708
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
