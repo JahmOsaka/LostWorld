@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Hitbox Flip")]
     public BoxCollider2D hitboxCollider;
-    public Transform damageHitboxTransform;   // child ที่มี EnemyContact (ไม่บังคับ)
+    public Transform damageHitboxTransform;
     private Vector2 originalColliderOffset;
     private float originalDamageLocalX;
 
