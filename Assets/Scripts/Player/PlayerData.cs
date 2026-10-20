@@ -30,7 +30,9 @@ public class PlayerData : ScriptableObject
     [Space(10)]
     [Header("Assist Settings")]
     [Tooltip("The time window allowed to jump after walking off a ledge (in seconds).")]
-    public float coyoteTime = 0.15f;
+    public float coyoteTime = 0.1f;
+    [Tooltip("The time window to buffer a jump input before hitting the ground (in seconds).")]
+    public float jumpBufferTime = 0.15f;
 
     [Space(10)]
     [Header("Dodge Settings")]

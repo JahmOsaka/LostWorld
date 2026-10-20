@@ -9,8 +9,9 @@ public class PlayerJumpState : PlayerState
     {
         base.Enter();
 
-        player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.maxJumpVelocity);
+        player.InputHandler.UseJumpInput();
 
+        player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.maxJumpVelocity);
         player.Anim.Play("Jump_Ground");
     }
 

@@ -3,6 +3,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    [Header("Jump Buffer Settings")]
+    [Tooltip("Duration to hold the jump input active in memory before it expires.")]
+    [SerializeField] private float jumpBufferTime = 0.15f;
+    private float jumpInputStartTime;
+
     [Header("MoveMent Inputs")]
     public Vector2 RawMovementInput { get; private set; }
     public float LookAxis { get; private set; }
@@ -24,6 +29,11 @@ public class PlayerInputHandler : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
     }
+    private void Update()
+    {
+        CheckJumpInputBuffer();
+    }
+
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
@@ -41,16 +51,23 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    private void CheckJumpInputBuffer()
+    {
+        if (JumpInput && Time.time >= jumpInputStartTime + jumpBufferTime)
+        {
+            JumpInput = false;
+        }
+    }
     public void OnJumpInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
             JumpInput = true;
             IsJumpHolding = true;
+            jumpInputStartTime = Time.time;
         }
         if (context.canceled)
         {
-            JumpInput = false;
             IsJumpHolding = false;
         }
     }
