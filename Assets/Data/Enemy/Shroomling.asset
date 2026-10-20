@@ -19,7 +19,7 @@ MonoBehaviour:
   canDetectPlayer: 1
   chaseRange: 5
   retreatsAfterAttack: 1
-  retreatDistance: 2
+  retreatDistance: 4
   retreatSpeed: 3
   retreatTriggerRange: 2
   attackRange: 1.5
