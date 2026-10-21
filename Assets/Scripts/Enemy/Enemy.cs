@@ -9,7 +9,9 @@ public class Enemy : MonoBehaviour
 
     [Header("Hitbox Flip")]
     public BoxCollider2D hitboxCollider;
+    public Transform damageHitboxTransform;
     private Vector2 originalColliderOffset;
+    private float originalDamageLocalX;
 
     [Header("Edge Detection")]
     public float edgeCheckDistance = 1f;
@@ -24,7 +26,7 @@ public class Enemy : MonoBehaviour
     public Transform throwPoint;
 
     private EnemyRangedAttackState rangedAttackState;
-   
+
     private EnemyRetreatState retreatState;
     public EnemyRetreatState RetreatState => retreatState;
 
@@ -59,10 +61,11 @@ public class Enemy : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         spawnPosition = transform.position;
         health = GetComponent<CoreHealth>();
+
         if (hitboxCollider != null)
-        {
             originalColliderOffset = hitboxCollider.offset;
-        }
+        if (damageHitboxTransform != null)
+            originalDamageLocalX = damageHitboxTransform.localPosition.x;
 
         stateMachine = new EnemyStateMachine();
         idleState = new EnemyIdleState(this, stateMachine, enemyData, "idle");
@@ -81,6 +84,7 @@ public class Enemy : MonoBehaviour
         else
             stateMachine.Initialize(idleState);
     }
+
     private void Update() => stateMachine.CurrentState.LogicUpdate();
     private void FixedUpdate() => stateMachine.CurrentState.PhysicsUpdate();
 
@@ -92,21 +96,23 @@ public class Enemy : MonoBehaviour
     {
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
+
     public void SpawnProjectile()
     {
-        if (projectilePrefab == null || throwPoint == null) return;
+        var ranged = enemyData as RangedEnemyData;
+        if (ranged == null || projectilePrefab == null || throwPoint == null) return;
 
         GameObject proj = Instantiate(projectilePrefab, throwPoint.position, Quaternion.identity);
 
-        if (enemyData.useArcProjectile)
+        if (ranged.useArcProjectile)
         {
             proj.GetComponent<EnemyArcProjectile>()
-                .Init(throwPoint.position, playerTransform.position, enemyData.arcHeight, enemyData.damage, enemyData.arcSpeedMultiplier);
+                .Init(throwPoint.position, playerTransform.position, ranged.arcHeight, ranged.damage, ranged.arcSpeedMultiplier);
         }
         else
         {
             Vector2 dir = (playerTransform.position - throwPoint.position).normalized;
-            proj.GetComponent<EnemyProjectile>().Init(dir, enemyData.projectileSpeed, enemyData.damage);
+            proj.GetComponent<EnemyProjectile>().Init(dir, ranged.projectileSpeed, ranged.damage);
         }
     }
 
@@ -127,7 +133,8 @@ public class Enemy : MonoBehaviour
 
     public void NotifySpawnOrbs()
     {
-        if (!enemyData.hasOrbAttack || orbPrefab == null) return;
+        var elite = enemyData as EliteEnemyData;
+        if (elite == null || orbPrefab == null) return;
 
         foreach (var orb in activeOrbs)
         {
@@ -135,12 +142,12 @@ public class Enemy : MonoBehaviour
         }
         activeOrbs.Clear();
 
-        for (int i = 0; i < enemyData.orbCount; i++)
+        for (int i = 0; i < elite.orbCount; i++)
         {
             GameObject orbObj = Instantiate(orbPrefab, transform.position, Quaternion.identity);
-            float startAngle = (360f / enemyData.orbCount) * i;
+            float startAngle = (360f / elite.orbCount) * i;
             orbObj.GetComponent<OrbitingDamageOrb>()
-                .Init(transform, enemyData.orbitRadius, enemyData.orbitSpeed, startAngle, enemyData.orbDuration, enemyData.damage);
+                .Init(transform, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.damage);
             activeOrbs.Add(orbObj);
         }
     }
@@ -151,9 +158,9 @@ public class Enemy : MonoBehaviour
         {
             float dirX = playerTransform.position.x - transform.position.x;
             if (dirX > 0)
-                FlipX = false;
+                FlipX = true;
             else if (dirX < 0)
-                FlipX =  true;
+                FlipX = false;
         }
     }
 
@@ -163,10 +170,18 @@ public class Enemy : MonoBehaviour
         set
         {
             spriteRenderer.flipX = value;
+            float sign = value ? 1f : -1f;
+
             if (hitboxCollider != null)
             {
-                float sign = value ? 1f : -1f;
                 hitboxCollider.offset = new Vector2(Mathf.Abs(originalColliderOffset.x) * sign, originalColliderOffset.y);
+            }
+
+            if (damageHitboxTransform != null)
+            {
+                Vector3 pos = damageHitboxTransform.localPosition;
+                pos.x = Mathf.Abs(originalDamageLocalX) * sign;
+                damageHitboxTransform.localPosition = pos;
             }
         }
     }

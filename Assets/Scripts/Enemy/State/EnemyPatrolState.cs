@@ -10,7 +10,6 @@ public class EnemyPatrolState : EnemyState
 
     public override void Enter()
     {
-
         isWaiting = false;
         enemy.anim.SetBool("move", true);
         enemy.anim.SetBool("idle", false);
@@ -30,14 +29,13 @@ public class EnemyPatrolState : EnemyState
             return;
         }
 
-        float detectRange = enemyData.isStationary ? enemyData.throwRange : enemyData.chaseRange;
+        var ranged = enemyData as RangedEnemyData;
+        bool stationaryRanged = ranged != null && ranged.isStationary;
+        float detectRange = stationaryRanged ? ranged.throwRange : enemyData.chaseRange;
 
         if (enemy.DistanceToPlayer() <= detectRange)
         {
-            if (enemyData.isStationary && enemyData.isRangedEnemy)
-                stateMachine.ChangeState(enemy.RangedAttackState);
-            else
-                stateMachine.ChangeState(enemy.ChaseState);
+            stateMachine.ChangeState(stationaryRanged ? enemy.RangedAttackState : enemy.ChaseState);
             return;
         }
 
@@ -90,6 +88,5 @@ public class EnemyPatrolState : EnemyState
     {
         if (dirX > 0) enemy.FlipX = true;
         else if (dirX < 0) enemy.FlipX = false;
-
     }
 }

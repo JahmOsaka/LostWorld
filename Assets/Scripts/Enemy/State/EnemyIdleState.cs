@@ -7,19 +7,13 @@ public class EnemyIdleState : EnemyState
 
     public override void LogicUpdate()
     {
-        float detectRange = enemyData.isStationary ? enemyData.throwRange : enemyData.chaseRange;
+        var ranged = enemyData as RangedEnemyData;
+        bool stationaryRanged = ranged != null && ranged.isStationary;
+        float detectRange = stationaryRanged ? ranged.throwRange : enemyData.chaseRange;
 
         if (enemy.DistanceToPlayer() <= detectRange)
         {
-           
-            if (enemyData.isStationary && enemyData.isRangedEnemy)
-            {
-                stateMachine.ChangeState(enemy.RangedAttackState);
-            }
-            else
-            {
-                stateMachine.ChangeState(enemy.ChaseState);
-            }
+            stateMachine.ChangeState(stationaryRanged ? enemy.RangedAttackState : enemy.ChaseState);
         }
     }
 }
