@@ -21,6 +21,8 @@ public class EnemyContact : MonoBehaviour
 
         if (playerHealth != null)
         {
+            if (!playerHealth.IsValidHurtbox(collision)) return;
+
             playerHealth.TakeDamage(enemy.enemyData.damage);
             nextDamageTime = Time.time + damageInterval;
         }

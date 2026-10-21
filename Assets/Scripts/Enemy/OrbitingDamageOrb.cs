@@ -38,10 +38,16 @@ public class OrbitingDamageOrb : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && hitCooldown <= 0f)
+        if (hitCooldown > 0f) return;
+
+        CoreHealth health = other.GetComponentInParent<CoreHealth>();
+        if (health != null)
         {
-            other.GetComponent<IDamageable>()?.TakeDamage(damage);
-            hitCooldown = HitInterval;
+            if (health.IsValidHurtbox(other))
+            {
+                health.TakeDamage(damage);
+                hitCooldown = HitInterval;
+            }
         }
     }
 }

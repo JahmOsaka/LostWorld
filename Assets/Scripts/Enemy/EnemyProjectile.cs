@@ -21,12 +21,18 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        CoreHealth health = other.GetComponentInParent<CoreHealth>();
+        if (health != null)
         {
-            other.GetComponent<IDamageable>()?.TakeDamage(damage);
-            Destroy(gameObject);
+            if (health.IsValidHurtbox(other))
+            {
+                health.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
         }
-        else if (other.CompareTag("Ground"))
+
+        if (other.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }
