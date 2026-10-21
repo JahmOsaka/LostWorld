@@ -85,6 +85,26 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "WheelMenu",
+                    "type": "Button",
+                    "id": "74869319-8bf8-46a8-b43c-ae35c5b6bae7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "MouseSelect",
+                    "type": "Value",
+                    "id": "c3271e04-8e4b-4228-8b66-db67bc417ce8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -234,7 +254,7 @@
                 {
                     "name": "",
                     "id": "a8aa9594-2d8a-4b34-9d2c-51dbfe602809",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -245,7 +265,7 @@
                 {
                     "name": "",
                     "id": "2865798e-b4fe-4695-9fe3-e76d651f7c30",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -285,6 +305,28 @@
                     "action": "LookCamera",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "6bef027e-746a-45b2-8c2e-2a33212268aa",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WheelMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8bb56053-c5c7-46f5-bc7c-68bf78937de7",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -3,6 +3,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    [Header("UI / Wheel Inputs")]
+    public bool WheelMenuInput { get; private set; }
+    public Vector2 MouseWheelInput { get; private set; }
+
     [Header("Jump Buffer Settings")]
     [Tooltip("Duration to hold the jump input active in memory before it expires.")]
     [SerializeField] private float jumpBufferTime = 0.15f;
@@ -106,6 +110,18 @@ public class PlayerInputHandler : MonoBehaviour
             SkillInput = true;
         }
     }
+
+    public void OnWheelMenuInput(InputAction.CallbackContext context)
+    {
+        if (context.started) WheelMenuInput = true;
+        if (context.canceled) WheelMenuInput = false;
+    }
+
+    public void OnMouseSelectInput(InputAction.CallbackContext context)
+    {
+        MouseWheelInput = context.ReadValue<Vector2>();
+    }
+
     public void UseInteractInput() => InteractInput = false;
     public void UseJumpInput() => JumpInput = false;
     public void UseDodgeInput() => DodgeInput = false;

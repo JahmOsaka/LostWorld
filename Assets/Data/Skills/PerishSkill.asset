@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: PerishSkill
   m_EditorClassIdentifier: Assembly-CSharp::PerishSkillData
   skillName: Perish
+  skillType: 1
+  description: 
   cooldownTime: 0
-  skillIcon: {fileID: 3924596553151034296, guid: 45ccf99517c626b41ac1ebe5021b05a0, type: 3}
+  mpCost: 0
+  skillIcon: {fileID: 0}
   vfxPrefab: {fileID: 0}
   destroyRadius: 2
   obstacleLayer:

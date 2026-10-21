@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b71e6c6ecefd8147a4a8b052add2beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
+  jumpBufferTime: 0.15
 --- !u!114 &1873264935103288477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +322,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5d599157-16f2-4777-8b83-3bd0991b55b0
     m_ActionName: 'Player/LookCamera[/Keyboard/w,/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2202049385663698167}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnWheelMenuInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 74869319-8bf8-46a8-b43c-ae35c5b6bae7
+    m_ActionName: 'Player/WheelMenu[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2202049385663698167}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnMouseSelectInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c3271e04-8e4b-4228-8b66-db67bc417ce8
+    m_ActionName: 'Player/MouseSelect[/Mouse/delta]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -416,9 +449,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6652fda674aa5448a455e0347457c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSkillController
-  currentSkill: {fileID: 0}
-  skillIconUI: {fileID: 0}
   inputHandler: {fileID: 2202049385663698167}
+  playerStats: {fileID: 8596653904048946542}
+  hasPerish: 0
+  perishSkillData: {fileID: 11400000, guid: 62a092b13f290b44faa31f8166e42135, type: 2}
+  unlockedCombatSkills: []
+  equippedWheelSkills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  activeWheelIndex: 0
+  activeSkillIconUI: {fileID: 0}
 --- !u!114 &9218278369501562890
 MonoBehaviour:
   m_ObjectHideFlags: 0

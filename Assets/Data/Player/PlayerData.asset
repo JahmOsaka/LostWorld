@@ -20,9 +20,10 @@ MonoBehaviour:
   softLandingAnimSpeed: 3
   hardLandingAnimSpeed: 1
   coyoteTime: 0.1
+  jumpBufferTime: 0.15
   dodgeSpeed: 10
   dodgeDuration: 0.35
   dodgeCooldown: 1
-  attackDamage: 35
+  attackDamage: 20
   comboWindow: 0.2
   attackSpeedMultiplier: 1
