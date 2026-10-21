@@ -116649,6 +116649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shroomling
       objectReference: {fileID: 0}
+    - target: {fileID: 2473983255118647660, guid: 544b1221aaabfa94f9d08737a8b1ac2b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5072478853811685202, guid: 544b1221aaabfa94f9d08737a8b1ac2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3866715
@@ -397742,7 +397746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4473217849596222109, guid: 4a29c126b95f93041b9891994b95e862, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5299372370324674456, guid: 4a29c126b95f93041b9891994b95e862, type: 3}
       propertyPath: m_LocalPosition.x
