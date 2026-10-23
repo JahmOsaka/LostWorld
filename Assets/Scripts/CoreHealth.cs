@@ -1,27 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System;
+using System.Collections;
 
 public class CoreHealth : MonoBehaviour, IDamageable
 {
     [Header("Health Settings")]
     [Tooltip("Maximum health points of the entity.")]
     public int maxHealth = 100;
-    [Tooltip("Current health points.")]
     public int currentHealth { get; private set; }
 
-    [Header("Hurtbox Settings")]
-    [Tooltip("Assign the specific collider designated as the hurtbox. If left unassigned, the main collider will take damage.")]
+    [Header("Hurtbox & I-Frames Settings")]
+    [Tooltip("Assign the specific collider designated as the hurtbox. If left unassigned, any collider on this object will take damage.")]
     [SerializeField] private Collider2D designatedHurtbox;
+    [Tooltip("Duration of invincibility after taking damage to prevent double hits (set 0 for enemies if needed).")]
+    [SerializeField] private float invincibilityDuration = 0.2f;
 
     [Header("Tech Art / FX Events")]
-    [Tooltip("Events triggered when taking damage.")]
     public UnityEvent OnTakDamage;
-    [Tooltip("Events triggered when health drops to zero.")]
     public UnityEvent OnDeath;
 
     private bool isDead;
     private bool isInvincible;
+    private Coroutine invincibilityCoroutine;
 
     public static event Action OnHealthChanged;
 
@@ -29,19 +30,25 @@ public class CoreHealth : MonoBehaviour, IDamageable
     {
         currentHealth = maxHealth;
         isDead = false;
-        SetupColliders();
-    }
 
-    private void SetupColliders()
-    {
         if (designatedHurtbox != null)
         {
             designatedHurtbox.isTrigger = true;
         }
     }
 
+    public void InitializeMaxHealth(int newMaxHealth)
+    {
+        maxHealth = newMaxHealth;
+        currentHealth = maxHealth;
+        OnHealthChanged?.Invoke();
+    }
+
+    public bool CanBeDamagedBy(Collider2D col) => IsValidHurtbox(col);
+
     public bool IsValidHurtbox(Collider2D col)
     {
+        if (isDead || isInvincible) return false;
         if (designatedHurtbox != null)
         {
             return col == designatedHurtbox;
@@ -58,12 +65,7 @@ public class CoreHealth : MonoBehaviour, IDamageable
     {
         if (isDead) return;
 
-        currentHealth += amount;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
         OnHealthChanged?.Invoke();
         Debug.Log($"{gameObject.name} healed {amount} HP! Current HP: {currentHealth}");
     }
@@ -74,7 +76,6 @@ public class CoreHealth : MonoBehaviour, IDamageable
 
         maxHealth += amount;
         currentHealth = maxHealth;
-
         OnHealthChanged?.Invoke();
         Debug.Log($"{gameObject.name} upgraded Max HP by {amount}! New Max HP: {maxHealth}");
     }
@@ -91,6 +92,11 @@ public class CoreHealth : MonoBehaviour, IDamageable
         {
             Die();
         }
+        else if (invincibilityDuration > 0f)
+        {
+            if (invincibilityCoroutine != null) StopCoroutine(invincibilityCoroutine);
+            invincibilityCoroutine = StartCoroutine(InvincibilityRoutine());
+        }
 
         Player player = GetComponentInParent<Player>();
         if (player != null)
@@ -100,9 +106,18 @@ public class CoreHealth : MonoBehaviour, IDamageable
         OnHealthChanged?.Invoke();
     }
 
+    private IEnumerator InvincibilityRoutine()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(invincibilityDuration);
+        isInvincible = false;
+    }
+
     public void Die()
     {
+        if (isDead) return;
         isDead = true;
+
         OnDeath?.Invoke();
         Debug.Log($"{gameObject.name} is Dead!");
 
@@ -112,6 +127,8 @@ public class CoreHealth : MonoBehaviour, IDamageable
             rb.linearVelocity = Vector2.zero;
             rb.simulated = false;
         }
+
+        if (designatedHurtbox != null) designatedHurtbox.enabled = false;
 
         Player player = GetComponent<Player>();
         if (player != null)
@@ -123,6 +140,7 @@ public class CoreHealth : MonoBehaviour, IDamageable
         Enemy enemy = GetComponent<Enemy>();
         if (enemy != null)
         {
+            enemy.ClearActiveOrbs();
             enemy.enabled = false;
         }
     }

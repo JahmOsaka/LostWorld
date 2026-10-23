@@ -42,7 +42,7 @@ public class EnemyAttackState : EnemyState
     {
         if (enemy.DistanceToPlayer() <= melee.attackRange)
         {
-            enemy.playerTransform.GetComponent<IDamageable>()?.TakeDamage(melee.damage);
+            enemy.playerTransform.GetComponentInParent<IDamageable>()?.TakeDamage(melee.damage);
         }
     }
 

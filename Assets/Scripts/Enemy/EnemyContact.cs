@@ -17,13 +17,11 @@ public class EnemyContact : MonoBehaviour
         if (!collision.CompareTag("Player")) return;
         if (Time.time < nextDamageTime) return;
 
-        CoreHealth playerHealth = collision.GetComponentInParent<CoreHealth>();
+        IDamageable damageable = collision.GetComponentInParent<IDamageable>();
 
-        if (playerHealth != null)
+        if (damageable != null && damageable.CanBeDamagedBy(collision))
         {
-            if (!playerHealth.IsValidHurtbox(collision)) return;
-
-            playerHealth.TakeDamage(enemy.enemyData.damage);
+            damageable.TakeDamage(enemy.enemyData.damage);
             nextDamageTime = Time.time + damageInterval;
         }
     }

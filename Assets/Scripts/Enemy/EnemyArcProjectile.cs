@@ -37,8 +37,13 @@ public class EnemyArcProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<IDamageable>()?.TakeDamage(damage);
-            Destroy(gameObject);
+            IDamageable damageable = other.GetComponentInParent<IDamageable>();
+            if (damageable != null && damageable.CanBeDamagedBy(other))
+            {
+                damageable.TakeDamage(damage);
+                Destroy(gameObject);
+                return;
+            }
         }
         else if (other.CompareTag("Ground"))
         {

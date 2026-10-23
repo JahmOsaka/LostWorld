@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3100be0d1a24ed478a846216ed25576, type: 3}
   m_Name: Shroomling
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  maxHealth: 5
   damage: 1
   moveSpeed: 2
   patrolSpeed: 1.5

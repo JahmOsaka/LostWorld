@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36d33e53ab6a34f82304150d973789, type: 3}
   m_Name: Warden
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  maxHealth: 10
   damage: 1
   moveSpeed: 2
   patrolSpeed: 0.5

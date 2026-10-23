@@ -6,12 +6,15 @@ using System.Collections.Generic;
 public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
-
     [Header("Hitbox Flip")]
+    public BoxCollider2D physicsCollider;
     public BoxCollider2D hitboxCollider;
     public Transform damageHitboxTransform;
+
+    private Vector2 originalPhysicsOffset;
     private Vector2 originalColliderOffset;
     private float originalDamageLocalX;
+    private float originalThrowPointLocalX;
 
     [Header("Edge Detection")]
     public float edgeCheckDistance = 1f;
@@ -56,14 +59,26 @@ public class Enemy : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null) playerTransform = playerObj.transform;
+
         spawnPosition = transform.position;
         health = GetComponent<CoreHealth>();
+        if (health != null && enemyData != null)
+        {
+            health.InitializeMaxHealth(enemyData.maxHealth);
+        }
+
+        if (physicsCollider == null) physicsCollider = GetComponent<BoxCollider2D>();
+        if (physicsCollider != null) originalPhysicsOffset = physicsCollider.offset;
 
         if (hitboxCollider != null)
             originalColliderOffset = hitboxCollider.offset;
         if (damageHitboxTransform != null)
             originalDamageLocalX = damageHitboxTransform.localPosition.x;
+        if (throwPoint != null)
+            originalThrowPointLocalX = throwPoint.localPosition.x;
 
         stateMachine = new EnemyStateMachine();
         idleState = new EnemyIdleState(this, stateMachine, enemyData, "idle");
@@ -85,8 +100,6 @@ public class Enemy : MonoBehaviour
 
     private void Update() => stateMachine.CurrentState.LogicUpdate();
     private void FixedUpdate() => stateMachine.CurrentState.PhysicsUpdate();
-
-    public float DistanceToPlayer() => Vector2.Distance(transform.position, playerTransform.position);
 
     public Transform GetCurrentPatrolPoint() => patrolPoints[currentPatrolIndex];
 
@@ -170,6 +183,11 @@ public class Enemy : MonoBehaviour
             spriteRenderer.flipX = value;
             float sign = value ? 1f : -1f;
 
+            if (physicsCollider != null)
+            {
+                physicsCollider.offset = new Vector2(Mathf.Abs(originalPhysicsOffset.x) * sign, originalPhysicsOffset.y);
+            }
+
             if (hitboxCollider != null)
             {
                 hitboxCollider.offset = new Vector2(Mathf.Abs(originalColliderOffset.x) * sign, originalColliderOffset.y);
@@ -181,22 +199,56 @@ public class Enemy : MonoBehaviour
                 pos.x = Mathf.Abs(originalDamageLocalX) * sign;
                 damageHitboxTransform.localPosition = pos;
             }
+
+            if (throwPoint != null)
+            {
+                Vector3 pos = throwPoint.localPosition;
+                pos.x = Mathf.Abs(originalThrowPointLocalX) * sign;
+                throwPoint.localPosition = pos;
+            }
         }
+    }
+
+    public Vector2 BodyCenter => physicsCollider != null ? (Vector2)physicsCollider.bounds.center : (Vector2)transform.position;
+
+    public float DistanceToPlayer()
+    {
+        if (playerTransform == null) return Mathf.Infinity;
+        return Vector2.Distance(BodyCenter, playerTransform.position);
     }
 
     public bool IsGroundAheadOf(float dirX)
     {
         if (Mathf.Approximately(dirX, 0f)) return true;
 
-        Vector2 origin = (Vector2)transform.position + new Vector2(Mathf.Sign(dirX) * edgeCheckForwardOffset, 0f);
+        BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
+        Vector2 feetPos = col != null ? new Vector2(col.bounds.center.x, col.bounds.min.y) : (Vector2)transform.position;
+
+
+        Vector2 origin = feetPos + new Vector2(Mathf.Sign(dirX) * edgeCheckForwardOffset, 0.1f);
         return Physics2D.Raycast(origin, Vector2.down, edgeCheckDistance, groundLayer);
+    }
+    public void ClearActiveOrbs()
+    {
+        foreach (var orb in activeOrbs)
+        {
+            if (orb != null) Destroy(orb);
+        }
+        activeOrbs.Clear();
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Vector2 rightOrigin = (Vector2)transform.position + new Vector2(edgeCheckForwardOffset, 0f);
-        Vector2 leftOrigin = (Vector2)transform.position + new Vector2(-edgeCheckForwardOffset, 0f);
+
+        BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
+        Vector2 feetPos = (col != null)
+            ? (Application.isPlaying ? new Vector2(col.bounds.center.x, col.bounds.min.y) : (Vector2)transform.position - new Vector2(0, col.size.y / 2f * transform.localScale.y))
+            : (Vector2)transform.position;
+
+        Vector2 rightOrigin = feetPos + new Vector2(edgeCheckForwardOffset, 0.1f);
+        Vector2 leftOrigin = feetPos + new Vector2(-edgeCheckForwardOffset, 0.1f);
+
         Gizmos.DrawLine(rightOrigin, rightOrigin + Vector2.down * edgeCheckDistance);
         Gizmos.DrawLine(leftOrigin, leftOrigin + Vector2.down * edgeCheckDistance);
     }

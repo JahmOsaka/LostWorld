@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1212269087558271580}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: spot1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -31,6 +31,84 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5017066069667619834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &669888674387181222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5630316620252105894}
+  - component: {fileID: 8154866930232706578}
+  m_Layer: 10
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5630316620252105894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669888674387181222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1741921276644345863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &8154866930232706578
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669888674387181222}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.0003349781}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1.3376069}
+  m_EdgeRadius: 0
 --- !u!1 &4422726531095345253
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +123,7 @@ GameObject:
   - component: {fileID: 986085056457938881}
   - component: {fileID: 5064516160156491723}
   - component: {fileID: 1077384758397504901}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +139,7 @@ Transform:
   m_GameObject: {fileID: 4422726531095345253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.194, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.3398, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -113,7 +191,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 491147479
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 7
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -282,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8334316978053283536}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5017066069667619834}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Patrol  Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5299372370324674456}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: spot2
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -379,7 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 435597593014003342}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ThrowPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,8 +512,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5590801843025485840}
   - {fileID: 435597593014003342}
+  - {fileID: 5630316620252105894}
+  - {fileID: 5590801843025485840}
   m_Father: {fileID: 8334316978053283536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3342071494306465765
@@ -499,7 +578,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.1786251}
+  m_Offset: {x: 0, y: -0.002654314}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -509,7 +588,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.3572502}
+  m_Size: {x: 1, y: 1.3519416}
   m_EdgeRadius: 0
 --- !u!114 &6842223043306055183
 MonoBehaviour:
@@ -524,14 +603,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyData: {fileID: 11400000, guid: eef9b93b2e523564d822cd5b0909e567, type: 2}
-  hitboxCollider: {fileID: 0}
+  physicsCollider: {fileID: 6100445818434788676}
+  hitboxCollider: {fileID: 8154866930232706578}
+  damageHitboxTransform: {fileID: 5630316620252105894}
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 0.4
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  orbPrefab: {fileID: 0}
-  projectilePrefab: {fileID: 4405633380316195933, guid: fb809a0112b13ce478dfa2107cfced3c, type: 3}
   throwPoint: {fileID: 435597593014003342}
   spawnPosition: {x: 0, y: 0, z: 0}
   patrolPoints:
@@ -550,6 +629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoreHealth
   maxHealth: 100
+  designatedHurtbox: {fileID: 8154866930232706578}
+  invincibilityDuration: 0.2
   OnTakDamage:
     m_PersistentCalls:
       m_Calls:

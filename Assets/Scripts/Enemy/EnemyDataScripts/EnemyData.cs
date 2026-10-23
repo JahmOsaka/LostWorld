@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [Header("Stats")]
+    public int maxHealth = 30;
     public int damage = 1;
 
     [Header("Movement")]

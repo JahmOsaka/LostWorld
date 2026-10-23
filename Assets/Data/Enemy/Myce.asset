@@ -12,20 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96968c9e2cca0394aa4897254693196b, type: 3}
   m_Name: Myce
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  isStationary: 0
-  canDetectPlayer: 0
+  maxHealth: 1
+  damage: 1
+  moveSpeed: 2
   patrolSpeed: 2
   idleTimeAtPoint: 1.5
+  canDetectPlayer: 0
   chaseRange: 5
-  attackRange: 1.5
-  moveSpeed: 2
-  isRangedEnemy: 0
-  throwRange: 6
-  throwCooldown: 2
-  projectileSpeed: 8
-  useArcProjectile: 0
-  arcHeight: 2
-  arcSpeedMultiplier: 1
-  damage: 1
-  attackCooldown: 1.5
-  comboInterval: 0.1
+  retreatsAfterAttack: 0
+  retreatDistance: 2
+  retreatSpeed: 3
+  retreatTriggerRange: 2

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1212269087558271580}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: spot1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6387942980181517922}
   - component: {fileID: 2721989214032247155}
   - component: {fileID: 5095374225904988951}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8334316978053283536}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: DummyCombatSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8098805001666576963}
   - component: {fileID: 4412040287149096277}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: InteractPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ Transform:
   m_GameObject: {fileID: 5245730195197566015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1199999, z: 0}
+  m_LocalPosition: {x: -0.63, y: 1.1199999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -408,8 +408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7931346362942923131}
   - component: {fileID: 5681447469185159381}
-  - component: {fileID: 4884737598064388866}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +464,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.41287947, y: 0.3250202}
+  m_Offset: {x: -0.413606, y: 0.32619953}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -475,20 +474,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0725222, y: 0.63896775}
+  m_Size: {x: 0.96612096, y: 0.59266853}
   m_EdgeRadius: 0
---- !u!114 &4884737598064388866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6788186296501413050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1ad2d055e08f249aa5cf98f0770e31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyContact
 --- !u!1 &7801827078342501664
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5017066069667619834}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Patrol  Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5299372370324674456}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: spot2
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -654,7 +641,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.05077207, y: 0.3229319}
+  m_Offset: {x: -0.41521785, y: 0.4413221}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -664,7 +651,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9205482, y: 0.6239369}
+  m_Size: {x: 0.967521, y: 0.82215834}
   m_EdgeRadius: 0
 --- !u!114 &6842223043306055183
 MonoBehaviour:
@@ -678,15 +665,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdb21e8f90bac048aad1f5d2952cc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  enemyData: {fileID: 11400000, guid: 4e398cea97615d54d95634094bafb93d, type: 2}
+  enemyData: {fileID: 11400000, guid: 6084aedf30309d148b1819d0200e119e, type: 2}
+  physicsCollider: {fileID: 6100445818434788676}
   hitboxCollider: {fileID: 5681447469185159381}
+  damageHitboxTransform: {fileID: 7931346362942923131}
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 0.4
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  orbPrefab: {fileID: 0}
-  projectilePrefab: {fileID: 0}
   throwPoint: {fileID: 0}
   spawnPosition: {x: 0, y: 0, z: 0}
   patrolPoints:
@@ -705,6 +692,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoreHealth
   maxHealth: 100
+  designatedHurtbox: {fileID: 5681447469185159381}
+  invincibilityDuration: 0.2
   OnTakDamage:
     m_PersistentCalls:
       m_Calls:
@@ -747,6 +736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1ad2d055e08f249aa5cf98f0770e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyContact
+  damageInterval: 1
 --- !u!114 &5511865948879427338
 MonoBehaviour:
   m_ObjectHideFlags: 0

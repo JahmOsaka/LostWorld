@@ -22,7 +22,7 @@ public class EnemyRangedAttackState : EnemyState
 
         float dist = enemy.DistanceToPlayer();
 
-        FacePlayer();
+        enemy.FacePlayer();
 
         if (dist > ranged.throwRange * 1.2f)
         {
@@ -47,11 +47,5 @@ public class EnemyRangedAttackState : EnemyState
         {
             stateMachine.ChangeState(enemy.RetreatState);
         }
-    }
-
-    private void FacePlayer()
-    {
-        float dirX = enemy.playerTransform.position.x - enemy.transform.position.x;
-        enemy.FlipX = dirX > 0;
     }
 }
