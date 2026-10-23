@@ -18,11 +18,9 @@ public class Enemy : MonoBehaviour
     public float edgeCheckForwardOffset = 0.4f;
     public LayerMask groundLayer;
 
-    public GameObject orbPrefab;
     private List<GameObject> activeOrbs = new List<GameObject>();
 
     [Header("Ranged Attack")]
-    public GameObject projectilePrefab;
     public Transform throwPoint;
 
     private EnemyRangedAttackState rangedAttackState;
@@ -100,9 +98,9 @@ public class Enemy : MonoBehaviour
     public void SpawnProjectile()
     {
         var ranged = enemyData as RangedEnemyData;
-        if (ranged == null || projectilePrefab == null || throwPoint == null) return;
+        if (ranged == null || ranged.projectilePrefab == null || throwPoint == null) return;
 
-        GameObject proj = Instantiate(projectilePrefab, throwPoint.position, Quaternion.identity);
+        GameObject proj = Instantiate(ranged.projectilePrefab, throwPoint.position, Quaternion.identity);
 
         if (ranged.useArcProjectile)
         {
@@ -134,7 +132,7 @@ public class Enemy : MonoBehaviour
     public void NotifySpawnOrbs()
     {
         var elite = enemyData as EliteEnemyData;
-        if (elite == null || orbPrefab == null) return;
+        if (elite == null || elite.orbPrefab == null) return;
 
         foreach (var orb in activeOrbs)
         {
@@ -144,7 +142,7 @@ public class Enemy : MonoBehaviour
 
         for (int i = 0; i < elite.orbCount; i++)
         {
-            GameObject orbObj = Instantiate(orbPrefab, transform.position, Quaternion.identity);
+            GameObject orbObj = Instantiate(elite.orbPrefab, transform.position, Quaternion.identity);
             float startAngle = (360f / elite.orbCount) * i;
             orbObj.GetComponent<OrbitingDamageOrb>()
                 .Init(transform, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.damage);
