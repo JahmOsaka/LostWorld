@@ -8,6 +8,7 @@ public class RangedEnemyData : EnemyData
     public float throwRange = 6f;
     public float throwCooldown = 2f;
     public float projectileSpeed = 8f;
+    public GameObject projectilePrefab;
 
     [Header("Arc Projectile")]
     public bool useArcProjectile = false;

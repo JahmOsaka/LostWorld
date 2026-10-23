@@ -26,6 +26,7 @@ MonoBehaviour:
   throwRange: 7
   throwCooldown: 2
   projectileSpeed: 8
+  projectilePrefab: {fileID: 4405633380316195933, guid: fb809a0112b13ce478dfa2107cfced3c, type: 3}
   useArcProjectile: 1
   arcHeight: 4
   arcSpeedMultiplier: 2
