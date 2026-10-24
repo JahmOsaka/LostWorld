@@ -22,4 +22,5 @@ public class EnemyData : ScriptableObject
     public float retreatDistance = 2f;
     public float retreatSpeed = 3f;
     public float retreatTriggerRange = 2f;
+    public float retreatPauseTime = 0.4f;
 }

@@ -14,11 +14,12 @@ public class EnemyAttackState : EnemyState
     {
         enemy.rb.linearVelocity = Vector2.zero;
         cooldownTimer = 0f;
+        isAttacking = false;
     }
 
     public override void LogicUpdate()
     {
-        if (isAttacking) return;
+        if (isAttacking) return; 
 
         enemy.FacePlayer();
         float dist = enemy.DistanceToPlayer();
@@ -30,7 +31,7 @@ public class EnemyAttackState : EnemyState
         }
 
         cooldownTimer -= Time.deltaTime;
-        if (cooldownTimer <= 0f && !isAttacking)
+        if (cooldownTimer <= 0f)
         {
             isAttacking = true;
             enemy.anim.SetTrigger("attack");
@@ -49,6 +50,7 @@ public class EnemyAttackState : EnemyState
     public void OnAttackAnimationEnd()
     {
         isAttacking = false;
+
         if (enemyData.retreatsAfterAttack && enemy.DistanceToPlayer() <= enemyData.retreatTriggerRange)
         {
             stateMachine.ChangeState(enemy.RetreatState);

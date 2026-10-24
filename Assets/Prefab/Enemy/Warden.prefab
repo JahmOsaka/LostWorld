@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5072478853811685202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Warden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3653174891277814227}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spot2
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -151,7 +151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7066099437660156920}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Patrol  Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5002869283504580029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spot1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3372696692760516044}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThrowPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 1315214209189178090}
   - component: {fileID: 5533674718324369763}
   - component: {fileID: 4575928193666992725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,9 +616,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyData: {fileID: 11400000, guid: 4479aee4100b162409ad864a4b3936b7, type: 2}
-  physicsCollider: {fileID: 1115290622575985833}
-  hitboxCollider: {fileID: 5736940620442987372}
-  damageHitboxTransform: {fileID: 4598878643785421694}
+  hitboxCollider: {fileID: 1115290622575985833}
+  damageHitboxTransform: {fileID: 0}
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 0.4
   groundLayer:

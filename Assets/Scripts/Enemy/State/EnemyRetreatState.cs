@@ -3,6 +3,8 @@ using UnityEngine;
 public class EnemyRetreatState : EnemyState
 {
     private Vector2 retreatDir;
+    private bool isPausing;
+    private float pauseTimer;
 
     public EnemyRetreatState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName)
         : base(enemy, stateMachine, enemyData, animBoolName) { }
@@ -10,17 +12,34 @@ public class EnemyRetreatState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        Vector2 away = (enemy.transform.position - enemy.playerTransform.position).normalized;
-        retreatDir = away;
+        isPausing = false;
+        retreatDir = (enemy.transform.position - enemy.playerTransform.position).normalized;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        enemy.anim.SetBool("idle", false);
     }
 
     public override void PhysicsUpdate()
     {
+        if (isPausing)
+        {
+            enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
+            return;
+        }
+
+        float awayX = enemy.transform.position.x - enemy.playerTransform.position.x;
+        if (Mathf.Sign(awayX) != Mathf.Sign(retreatDir.x))
+        {
+            BeginPause();
+            return;
+        }
 
         if (!enemy.IsGroundAheadOf(retreatDir.x))
         {
-            enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
-            stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.IdleState);
+            BeginPause();
             return;
         }
         enemy.rb.linearVelocity = new Vector2(retreatDir.x * enemyData.retreatSpeed, enemy.rb.linearVelocity.y);
@@ -28,10 +47,36 @@ public class EnemyRetreatState : EnemyState
 
     public override void LogicUpdate()
     {
-        float dist = enemy.DistanceToPlayer();
-        if (dist >= enemyData.retreatDistance)
+        if (isPausing)
         {
-            stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.IdleState);
+            pauseTimer -= Time.deltaTime;
+            if (pauseTimer <= 0f) Finish();
+            return;
         }
+
+        if (enemy.DistanceToPlayer() >= enemyData.retreatDistance)
+        {
+            BeginPause();
+        }
+    }
+
+    private void BeginPause()
+    {
+        if (enemyData.retreatPauseTime <= 0f)
+        {
+            Finish();
+            return;
+        }
+
+        isPausing = true;
+        pauseTimer = enemyData.retreatPauseTime;
+        enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
+        enemy.anim.SetBool("retreat", false);   // ออกจากท่าถอย
+        enemy.anim.SetBool("idle", true);       // เล่นท่ายืนระหว่างหยุด
+    }
+
+    private void Finish()
+    {
+        stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.IdleState);
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6276079845134515383}
   - component: {fileID: 519110232538716110}
   - component: {fileID: 1031750176255101096}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,9 +79,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 491147479
+  m_SortingLayer: 6
+  m_SortingOrder: 7
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.4339623, g: 0, b: 0, a: 1}
