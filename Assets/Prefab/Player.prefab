@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 831591605139798008}
   - component: {fileID: 9218278369501562890}
   - component: {fileID: 3178139596531164579}
+  - component: {fileID: 7760232690829060984}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -196,7 +197,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.09}
+  m_Offset: {x: 0, y: 0.08540726}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -206,7 +207,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 2.24}
+  m_Size: {x: 0.5, y: 2.2471237}
   m_EdgeRadius: 0.1
 --- !u!114 &2202049385663698167
 MonoBehaviour:
@@ -485,6 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoreHealth
   maxHealth: 100
   designatedHurtbox: {fileID: 219218130790720734}
+  invincibilityDuration: 0.2
   OnTakDamage:
     m_PersistentCalls:
       m_Calls:
@@ -585,6 +587,29 @@ MonoBehaviour:
   panSpeed: 5
   normalDampingY: 1.5
   fallDampingY: 0.1
+--- !u!114 &7760232690829060984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255730908677199951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089c57fe0ce0037498b3796c547d180d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerColliderController
+  physicsCollider: {fileID: 8167728703867444916}
+  playerHurtbox: {fileID: 1729811924663578679}
+  solidGroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  jumpPhysicsSize: {x: 0.6, y: 1.2}
+  jumpPhysicsOffset: {x: 0, y: 0.3}
+  jumpHurtboxSize: {x: 0.5, y: 1.2}
+  jumpHurtboxOffset: {x: 0, y: 0.3}
+  dodgeHurtboxSize: {x: 1, y: 0.8}
+  dodgeHurtboxOffset: {x: 0, y: -0.7}
 --- !u!1 &4999029265928798916
 GameObject:
   m_ObjectHideFlags: 0

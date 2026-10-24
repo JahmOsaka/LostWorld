@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 797
+  spritePixelsToUnits: 790
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -181,7 +181,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2560
-        y: 3072
+        y: 3074
         width: 512
         height: 512
       alignment: 0
@@ -202,30 +202,8 @@ TextureImporter:
       name: tile_detach_3
       rect:
         serializedVersion: 2
-        x: 1023
-        y: 2683
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63d5e700f77daab10800000000000000
-      internalID: 1993642725533965622
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tile_detach_4
-      rect:
-        serializedVersion: 2
         x: 1024
-        y: 2304
+        y: 2305
         width: 512
         height: 512
       alignment: 0
@@ -243,7 +221,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_detach_5
+      name: tile_detach_4
       rect:
         serializedVersion: 2
         x: 1792
@@ -265,7 +243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_detach_6
+      name: tile_detach_5
       rect:
         serializedVersion: 2
         x: 2559
@@ -287,7 +265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_detach_7
+      name: tile_detach_6
       rect:
         serializedVersion: 2
         x: 1024
@@ -309,33 +287,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_detach_8
-      rect:
-        serializedVersion: 2
-        x: 1072
-        y: 1669
-        width: 9
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a56e36917b8503830800000000000000
-      internalID: 4048833608434312794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tile_detach_9
+      name: tile_detach_7
       rect:
         serializedVersion: 2
         x: 1792
-        y: 1536
+        y: 1539
         width: 512
         height: 512
       alignment: 0
@@ -353,7 +309,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tile_detach_10
+      name: tile_detach_8
       rect:
         serializedVersion: 2
         x: 2559
@@ -374,28 +330,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: tile_detach_11
-      rect:
-        serializedVersion: 2
-        x: 3015
-        y: 1669
-        width: 9
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1986203c5b1c18890800000000000000
-      internalID: -7457466521543874415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -412,16 +346,14 @@ TextureImporter:
     nameFileIdTable:
       tile_detach_0: 6846705224910409420
       tile_detach_1: 7314098737606838252
-      tile_detach_10: 1295379108181758740
       tile_detach_11: -7457466521543874415
       tile_detach_2: 6389796763307367847
-      tile_detach_3: 1993642725533965622
-      tile_detach_4: 6564986638770268175
-      tile_detach_5: -326000545569610579
-      tile_detach_6: 1299111174820136862
-      tile_detach_7: 2627409157914381678
-      tile_detach_8: 4048833608434312794
-      tile_detach_9: -581923980409420930
+      tile_detach_3: 6564986638770268175
+      tile_detach_4: -326000545569610579
+      tile_detach_5: 1299111174820136862
+      tile_detach_6: 2627409157914381678
+      tile_detach_7: -581923980409420930
+      tile_detach_8: 1295379108181758740
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

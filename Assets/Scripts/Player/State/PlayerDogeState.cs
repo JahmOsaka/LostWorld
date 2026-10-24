@@ -18,6 +18,8 @@ public class PlayerDodgeState : PlayerState
         player.InputHandler.UseDodgeInput();
         player.SetInvincible(true);
 
+        player.ColliderController?.ShrinkHurtboxOnlyForDodge();
+
         isDodgeFinished = false;
 
         if (player.InputHandler.RawMovementInput.x != 0)
@@ -34,11 +36,13 @@ public class PlayerDodgeState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
         if (!player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.FallState);
             return;
         }
+
         if (isDodgeFinished)
         {
             if (player.CheckIfGrounded())
@@ -67,6 +71,8 @@ public class PlayerDodgeState : PlayerState
         player.SetInvincible(false);
         player.ResetDodgeCooldown();
         player.RB.gravityScale = defaultGravity;
+
+        player.ColliderController?.RestoreHurtbox();
     }
 
     public void FinishDodgeAnimation()

@@ -13,6 +13,8 @@ public class PlayerJumpState : PlayerState
 
         player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.maxJumpVelocity);
         player.Anim.Play("Jump_Ground");
+
+        player.ColliderController?.ShrinkForJump();
     }
 
     public override void LogicUpdate()
@@ -43,5 +45,13 @@ public class PlayerJumpState : PlayerState
         player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, player.RB.linearVelocity.y);
 
         player.CheckIfShouldFlip(moveDirection);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        player.ColliderController?.RestoreHurtbox();
+        player.ColliderController?.TryRestorePhysicsCollider();
     }
 }

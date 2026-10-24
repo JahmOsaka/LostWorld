@@ -78,8 +78,10 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnDodgeInput(InputAction.CallbackContext context)
     {
-        if (context.started) DodgeInput = true;
-        if (context.canceled) DodgeInput = false;
+        if (context.started)
+        {
+            DodgeInput = true;
+        }
     }
 
     public void OnAttackInput(InputAction.CallbackContext context)

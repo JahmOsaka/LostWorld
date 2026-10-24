@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     // Components
     public Rigidbody2D RB { get; private set; }
     public BoxCollider2D Collider { get; private set; }
+    public PlayerColliderController ColliderController { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Animator Anim { get; private set; }
 
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour
         Anim = GetComponentInChildren<Animator>();
         StateMachine = new PlayerStateMachine();
         Health = GetComponent<CoreHealth>();
-
+        ColliderController = GetComponent<PlayerColliderController>();
         RB.freezeRotation = true;
 
         // Initialize States

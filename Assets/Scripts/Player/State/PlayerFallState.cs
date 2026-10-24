@@ -18,6 +18,11 @@ public class PlayerFallState : PlayerState
         base.LogicUpdate();
         player.FallDuration += Time.deltaTime;
 
+        if (player.ColliderController != null && player.ColliderController.IsPhysicsShrunk)
+        {
+            player.ColliderController.TryRestorePhysicsCollider();
+        }
+
         if (player.RB.linearVelocity.y < 0)
         {
             player.RB.linearVelocity = new Vector2(
@@ -32,6 +37,7 @@ public class PlayerFallState : PlayerState
         }
         else if (player.CheckIfGrounded())
         {
+            player.ColliderController?.ForceRestoreAll();
             stateMachine.ChangeState(player.LandState);
         }
     }

@@ -11,6 +11,7 @@ public class PlayerLandState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.ColliderController?.ForceRestoreAll();
         player.RB.linearVelocity = Vector2.zero;
         timer = 0f;
 
