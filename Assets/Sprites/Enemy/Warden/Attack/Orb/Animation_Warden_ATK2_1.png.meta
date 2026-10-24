@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 9b0975f7be542ab408d9a157d70e902a
+guid: 0859289cde5029345b8c650454a32550
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8983168833439852561
-    second: 1_test walk 1 center aligned_0
+      213: 7259810001396537576
+    second: Animation_Warden_ATK2_1_0
   - first:
-      213: 1968552103772364972
-    second: 1_test walk 1 center aligned_1
+      213: 1358092629978481252
+    second: Animation_Warden_ATK2_1_1
   - first:
-      213: -5677409754951529364
-    second: 1_test walk 1 center aligned_2
+      213: -8559693498908709141
+    second: Animation_Warden_ATK2_1_2
   - first:
-      213: 481269057653055955
-    second: 1_test walk 1 center aligned_3
+      213: -5177282908544250036
+    second: Animation_Warden_ATK2_1_3
   - first:
-      213: 8629536705825121623
-    second: 1_test walk 1 center aligned_4
+      213: -8197469963198447372
+    second: Animation_Warden_ATK2_1_4
   - first:
-      213: -6271785189823069840
-    second: 1_test walk 1 center aligned_5
+      213: 924180231817786743
+    second: Animation_Warden_ATK2_1_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 650
+  spritePixelsToUnits: 325
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,133 +115,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_test walk 1 center aligned_0
+      name: Animation_Warden_ATK2_1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 10262
-        width: 4096
-        height: 1513
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 10306
+        width: 4240
+        height: 1535
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe715757a8f555380800000000000000
-      internalID: -8983168833439852561
+      spriteID: 8e8911e6bb600c460800000000000000
+      internalID: 7259810001396537576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_test walk 1 center aligned_1
+      name: Animation_Warden_ATK2_1_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 8212
-        width: 4096
-        height: 1553
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 8257
+        width: 4240
+        height: 1523
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca0233365b3b15b10800000000000000
-      internalID: 1968552103772364972
+      spriteID: 46281fd2d0ae8d210800000000000000
+      internalID: 1358092629978481252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_test walk 1 center aligned_2
+      name: Animation_Warden_ATK2_1_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 6163
-        width: 4096
-        height: 1575
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 6212
+        width: 4240
+        height: 1806
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6cc6c778e9c531b0800000000000000
-      internalID: -5677409754951529364
+      spriteID: bee635b2d1cd53980800000000000000
+      internalID: -8559693498908709141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_test walk 1 center aligned_3
+      name: Animation_Warden_ATK2_1_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 4121
-        width: 4096
-        height: 1550
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 4166
+        width: 4240
+        height: 1779
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3d12cc678afcda600800000000000000
-      internalID: 481269057653055955
+      spriteID: c4fc48600a89628b0800000000000000
+      internalID: -5177282908544250036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_test walk 1 center aligned_4
+      name: Animation_Warden_ATK2_1_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 2069
-        width: 4096
-        height: 1511
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 2114
+        width: 4240
+        height: 1722
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 755a6e6a9e542c770800000000000000
-      internalID: 8629536705825121623
+      spriteID: 4f04f92208cbc3e80800000000000000
+      internalID: -8197469963198447372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_test walk 1 center aligned_5
+      name: Animation_Warden_ATK2_1_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
-        width: 4096
-        height: 1501
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 68
+        width: 4240
+        height: 1822
+      alignment: 9
+      pivot: {x: 0.5, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0714a05699426f8a0800000000000000
-      internalID: -6271785189823069840
+      spriteID: 775ffe9360953dc00800000000000000
+      internalID: 924180231817786743
       vertices: []
       indices: 
       edges: []
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 18befe1e42d1b644083b5835cd5f3c53
+    spriteID: e3b697954f62c964b89a2df8a1dccf68
     internalID: 0
     vertices: []
     indices: 
@@ -258,14 +258,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":6.0},"gridSpriteSize":{"x":4240.0,"y":2066.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      1_test walk 1 center aligned_0: -8983168833439852561
-      1_test walk 1 center aligned_1: 1968552103772364972
-      1_test walk 1 center aligned_2: -5677409754951529364
-      1_test walk 1 center aligned_3: 481269057653055955
-      1_test walk 1 center aligned_4: 8629536705825121623
-      1_test walk 1 center aligned_5: -6271785189823069840
+      Animation_Warden_ATK2_1_0: 7259810001396537576
+      Animation_Warden_ATK2_1_1: 1358092629978481252
+      Animation_Warden_ATK2_1_2: -8559693498908709141
+      Animation_Warden_ATK2_1_3: -5177282908544250036
+      Animation_Warden_ATK2_1_4: -8197469963198447372
+      Animation_Warden_ATK2_1_5: 924180231817786743
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: a6d321c19b9500b4bbdc630577932225
+guid: c567c1298a50f544e945b0f19f83a58f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2744808124584891402
-    second: Animation_Warden_Idle_1_Center_Aligned_0
+      213: -5450708536641623834
+    second: Animation_Warden_ATK1_1_0
   - first:
-      213: 6955353875667893757
-    second: Animation_Warden_Idle_1_Center_Aligned_1
+      213: 2305881573638020467
+    second: Animation_Warden_ATK1_1_1
   - first:
-      213: 5079710509107295122
-    second: Animation_Warden_Idle_1_Center_Aligned_2
+      213: -5195275751544552977
+    second: Animation_Warden_ATK1_1_2
   - first:
-      213: -1359184072759339065
-    second: Animation_Warden_Idle_1_Center_Aligned_3
+      213: 2091693027881436116
+    second: Animation_Warden_ATK1_1_3
+  - first:
+      213: -2378299182271566189
+    second: Animation_Warden_ATK1_1_4
+  - first:
+      213: 6687695343630620965
+    second: Animation_Warden_ATK1_1_5
+  - first:
+      213: -703794629977497855
+    second: Animation_Warden_ATK1_1_6
+  - first:
+      213: -586310825253862841
+    second: Animation_Warden_ATK1_1_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 650
+  spritePixelsToUnits: 325
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,89 +121,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animation_Warden_Idle_1_Center_Aligned_0
+      name: Animation_Warden_ATK1_1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 6213
-        width: 4240
-        height: 1529
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 10240
+        width: 4096
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.64, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6fbe285ad8b78e9d0800000000000000
-      internalID: -2744808124584891402
+      spriteID: 6e8694b07713b54b0800000000000000
+      internalID: -5450708536641623834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_Warden_Idle_1_Center_Aligned_1
+      name: Animation_Warden_ATK1_1_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 4166
-        width: 4240
-        height: 1534
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 8192
+        width: 4096
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.64, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dfd3256bf71668060800000000000000
-      internalID: 6955353875667893757
+      spriteID: 37d10daf213200020800000000000000
+      internalID: 2305881573638020467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_Warden_Idle_1_Center_Aligned_2
+      name: Animation_Warden_ATK1_1_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 2115
-        width: 4240
-        height: 1549
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 6144
+        width: 4096
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.64, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 293b8296bc1ce7640800000000000000
-      internalID: 5079710509107295122
+      spriteID: fe18cfeca3ca6e7b0800000000000000
+      internalID: -5195275751544552977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_Warden_Idle_1_Center_Aligned_3
+      name: Animation_Warden_ATK1_1_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 63
-        width: 4240
-        height: 1563
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 2048
+        width: 4096
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.64, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c79fce7945332de0800000000000000
-      internalID: -1359184072759339065
+      spriteID: 39ee9179e759efed0800000000000000
+      internalID: -2378299182271566189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Warden_ATK1_1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4096
+        width: 4096
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.64, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e982f5f622ae146b700796ee041888
+      internalID: 2091693027881436116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Warden_ATK1_1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 4096
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.64, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27a5b0473d428bc40bfddbd0d8d9d0cd
+      internalID: 6687695343630620965
       vertices: []
       indices: 
       edges: []
@@ -200,7 +256,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ad444487cc4152542af7b10c6c542d5c
+    spriteID: 90b08e6a6b0cd88428fa07233c75f495
     internalID: 0
     vertices: []
     indices: 
@@ -208,12 +264,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":6.0},"gridSpriteSize":{"x":4096.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Animation_Warden_Idle_1_Center_Aligned_0: -2744808124584891402
-      Animation_Warden_Idle_1_Center_Aligned_1: 6955353875667893757
-      Animation_Warden_Idle_1_Center_Aligned_2: 5079710509107295122
-      Animation_Warden_Idle_1_Center_Aligned_3: -1359184072759339065
+      Animation_Warden_ATK1_1_0: -5450708536641623834
+      Animation_Warden_ATK1_1_1: 2305881573638020467
+      Animation_Warden_ATK1_1_2: -5195275751544552977
+      Animation_Warden_ATK1_1_3: 2091693027881436116
+      Animation_Warden_ATK1_1_4: -2378299182271566189
+      Animation_Warden_ATK1_1_5: 6687695343630620965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

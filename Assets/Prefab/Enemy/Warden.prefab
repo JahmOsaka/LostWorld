@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.21762156, y: 0.6645614}
+  m_Offset: {x: 0.44282722, y: 1.7905807}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8785367, y: 2.2924564}
+  m_Size: {x: 2.0250282, y: 4.5444946}
   m_EdgeRadius: 0
 --- !u!1 &2473983255118647660
 GameObject:
@@ -323,12 +323,12 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 7
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4976858427786504763, guid: 9177de8d126476543b810a625b28d632, type: 3}
+  m_Sprite: {fileID: -5450708536641623834, guid: c567c1298a50f544e945b0f19f83a58f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.706154, y: 2.3553889}
+  m_Size: {x: 22.691072, y: 15.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd162f7625c00be419b42efd502aa491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitFlash
-  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
 --- !u!114 &5533674718324369763
 MonoBehaviour:
@@ -591,7 +591,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.216326, y: 0.6657003}
+  m_Offset: {x: -0.54288673, y: 1.7871051}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -601,7 +601,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8826709, y: 2.294736}
+  m_Size: {x: 5.0478935, y: 4.537545}
   m_EdgeRadius: 0
 --- !u!114 &8893509894371904499
 MonoBehaviour:
@@ -616,8 +616,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyData: {fileID: 11400000, guid: 4479aee4100b162409ad864a4b3936b7, type: 2}
+  physicsCollider: {fileID: 5736940620442987372}
   hitboxCollider: {fileID: 1115290622575985833}
-  damageHitboxTransform: {fileID: 0}
+  damageHitboxTransform: {fileID: 4598878643785421694}
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 0.4
   groundLayer:
