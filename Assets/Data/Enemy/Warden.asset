@@ -17,15 +17,17 @@ MonoBehaviour:
   patrolSpeed: 0.5
   idleTimeAtPoint: 1.5
   canDetectPlayer: 1
-  chaseRange: 5
+  chaseRange: 6
   retreatsAfterAttack: 1
-  retreatDistance: 4
+  retreatDistance: 5
   retreatSpeed: 2
   retreatTriggerRange: 2
+  retreatPauseTime: 0.2
   attackRange: 1.5
   attackCooldown: 1.5
   comboInterval: 0.1
+  attackCancelRange: 2.5
   orbCount: 2
-  orbitRadius: 1.2
+  orbitRadius: 2
   orbitSpeed: 180
   orbDuration: 3
