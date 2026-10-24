@@ -7,5 +7,4 @@ public class MeleeEnemyData : EnemyData
     public float attackRange = 1.5f;
     public float attackCooldown = 1.5f;
     public float comboInterval = 0.1f;
-    public float attackCancelRange = 2.5f;
 }
