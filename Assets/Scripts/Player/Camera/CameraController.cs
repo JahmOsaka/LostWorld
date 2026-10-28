@@ -17,6 +17,8 @@ public class CameraController : MonoBehaviour
     public float normalDampingY = 1.5f;
     [Tooltip("Fall Y Damping (Set to 0-0.1 for instant catch-up)")]
     public float fallDampingY = 0.1f;
+    [Tooltip("Falling speed required to trigger fast camera catch-up")]
+    public float fallVelocityThreshold = -8f;
 
     private CinemachinePositionComposer positionComposer;
     private float defaultOffsetY;
@@ -44,7 +46,7 @@ public class CameraController : MonoBehaviour
         positionComposer.TargetOffset = currentOffset;
 
         Vector3 currentDamping = positionComposer.Damping;
-        if (playerRb.linearVelocity.y < -1f)
+        if (playerRb.linearVelocity.y < fallVelocityThreshold)
         {
             currentDamping.y = Mathf.MoveTowards(currentDamping.y, fallDampingY, Time.deltaTime * 10f);
         }

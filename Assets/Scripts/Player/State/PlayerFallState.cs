@@ -37,7 +37,6 @@ public class PlayerFallState : PlayerState
         }
         else if (player.CheckIfGrounded())
         {
-            player.ColliderController?.ForceRestoreAll();
             stateMachine.ChangeState(player.LandState);
         }
     }

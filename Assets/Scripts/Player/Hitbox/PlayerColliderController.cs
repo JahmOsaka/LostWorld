@@ -84,7 +84,10 @@ public class PlayerColliderController : MonoBehaviour
         if (!IsPhysicsShrunk || physicsCollider == null) return true;
 
         Vector2 targetCenter = (Vector2)physicsCollider.transform.position + defaultPhysicsOffset;
-        Collider2D hit = Physics2D.OverlapBox(targetCenter, defaultPhysicsSize * 0.95f, 0f, solidGroundLayer);
+
+        Vector2 checkSize = new Vector2(defaultPhysicsSize.x * 0.95f, defaultPhysicsSize.y);
+
+        Collider2D hit = Physics2D.OverlapBox(targetCenter, checkSize, 0f, solidGroundLayer);
 
         if (hit == null)
         {
@@ -102,6 +105,18 @@ public class PlayerColliderController : MonoBehaviour
         RestoreHurtbox();
         if (physicsCollider != null)
         {
+            if (IsPhysicsShrunk)
+            {
+                float currentBottom = physicsCollider.offset.y - (physicsCollider.size.y * 0.5f);
+                float defaultBottom = defaultPhysicsOffset.y - (defaultPhysicsSize.y * 0.5f);
+                float bottomDifference = currentBottom - defaultBottom;
+
+                if (bottomDifference > 0f)
+                {
+                    physicsCollider.transform.position += new Vector3(0f, bottomDifference, 0f);
+                }
+            }
+
             physicsCollider.size = defaultPhysicsSize;
             physicsCollider.offset = defaultPhysicsOffset;
             IsPhysicsShrunk = false;

@@ -52,6 +52,5 @@ public class PlayerJumpState : PlayerState
         base.Exit();
 
         player.ColliderController?.RestoreHurtbox();
-        player.ColliderController?.TryRestorePhysicsCollider();
     }
 }
