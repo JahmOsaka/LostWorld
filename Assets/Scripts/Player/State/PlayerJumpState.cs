@@ -14,7 +14,7 @@ public class PlayerJumpState : PlayerState
         player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.maxJumpVelocity);
         player.Anim.Play("Jump_Ground");
 
-        player.ColliderController?.ShrinkForJump();
+        player.ColliderController?.ActivateJumpCollider();
     }
 
     public override void LogicUpdate()
@@ -51,6 +51,5 @@ public class PlayerJumpState : PlayerState
     {
         base.Exit();
 
-        player.ColliderController?.RestoreHurtbox();
     }
 }

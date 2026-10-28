@@ -127,10 +127,10 @@ TextureImporter:
       name: MC Jump_0
       rect:
         serializedVersion: 2
-        x: 171
-        y: 239
-        width: 646
-        height: 1809
+        x: 170
+        y: 238
+        width: 647
+        height: 1362
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: MC Jump_1
       rect:
         serializedVersion: 2
-        x: 1287
-        y: 239
-        width: 606
-        height: 1809
+        x: 1286
+        y: 229
+        width: 608
+        height: 948
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: MC Jump_2
       rect:
         serializedVersion: 2
-        x: 2226
-        y: 239
-        width: 637
-        height: 1809
+        x: 2225
+        y: 283
+        width: 638
+        height: 1674
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,9 +194,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3239
-        y: 239
-        width: 666
-        height: 1809
+        y: 766
+        width: 668
+        height: 1106
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: MC Jump_4
       rect:
         serializedVersion: 2
-        x: 4183
-        y: 239
-        width: 743
-        height: 1809
+        x: 4181
+        y: 373
+        width: 746
+        height: 1623
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +237,10 @@ TextureImporter:
       name: MC Jump_5
       rect:
         serializedVersion: 2
-        x: 5261
-        y: 239
-        width: 745
-        height: 1809
+        x: 5258
+        y: 373
+        width: 749
+        height: 1623
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,10 +259,10 @@ TextureImporter:
       name: MC Jump_6
       rect:
         serializedVersion: 2
-        x: 6284
-        y: 239
-        width: 743
-        height: 1809
+        x: 6281
+        y: 373
+        width: 746
+        height: 1623
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: MC Jump_7
       rect:
         serializedVersion: 2
-        x: 7349
-        y: 239
-        width: 698
-        height: 1809
+        x: 7346
+        y: 228
+        width: 701
+        height: 814
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,10 +303,10 @@ TextureImporter:
       name: MC Jump_8
       rect:
         serializedVersion: 2
-        x: 8397
-        y: 239
-        width: 646
-        height: 1809
+        x: 8396
+        y: 238
+        width: 647
+        height: 1362
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,7 +333,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       MC Jump_0: 6397211387787717414
       MC Jump_1: 8594420881345634455

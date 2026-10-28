@@ -7,9 +7,12 @@ public class Player : MonoBehaviour
 {
     public PlayerData playerData;
 
-    [Header("Ground Detection")]
-    [Tooltip("Layer mask used to detect the ground.")]
-    public LayerMask groundLayer;
+    [Header("Ground & Ceiling Check Points")]
+    [SerializeField] private Transform groundCheckPoint;
+    [SerializeField] private Vector2 groundCheckSize = new Vector2(0.5f, 0.1f);
+    [SerializeField] private Transform ceilingCheckPoint;
+    [SerializeField] private Vector2 ceilingCheckSize = new Vector2(0.6f, 0.1f);
+    [SerializeField] private LayerMask whatIsGround;
     [Tooltip("The size of the box cast used for ground detection.")]
     public Vector2 boxCastSize = new Vector2(0.8f, 0.1f);
     [Tooltip("The distance of the box cast below the player.")]
@@ -105,25 +108,28 @@ public class Player : MonoBehaviour
 
     public bool CheckIfGrounded()
     {
-        Vector2 origin = new Vector2(Collider.bounds.center.x, Collider.bounds.min.y);
-        RaycastHit2D hit = Physics2D.BoxCast(origin, boxCastSize, 0f, Vector2.down, boxCastDistance, groundLayer);
-        return hit.collider != null;
+        if (RB.linearVelocity.y > 0.05f) return false;
+        if (groundCheckPoint == null) return false;
+
+        return Physics2D.OverlapBox(groundCheckPoint.position, groundCheckSize, 0f, whatIsGround) != null;
     }
     public bool CheckIfTouchingCeiling()
     {
-        Vector2 origin = new Vector2(Collider.bounds.center.x, Collider.bounds.max.y);
-        Vector2 ceilingBoxSize = new Vector2(Collider.bounds.size.x - 0.02f, 0.1f);
+        if (ceilingCheckPoint == null) return false;
 
-        RaycastHit2D hit = Physics2D.BoxCast(origin, ceilingBoxSize, 0f, Vector2.up, boxCastDistance, groundLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(ceilingCheckPoint.position, ceilingCheckSize, 0f, Vector2.up, boxCastDistance, whatIsGround);
         return hit.collider != null;
     }
+
     public bool CheckIfTouchingWall()
     {
-        Vector2 boxSize = new Vector2(0.1f, Collider.bounds.size.y * 0.8f);
+        BoxCollider2D currentCollider = ActiveCollider;
+        if (currentCollider == null) return false;
 
+        Vector2 boxSize = new Vector2(0.1f, currentCollider.bounds.size.y * 0.8f);
         Vector2 direction = FacingDirection == 1 ? Vector2.right : Vector2.left;
 
-        RaycastHit2D hit = Physics2D.BoxCast(Collider.bounds.center, boxSize, 0f, direction, 0.1f, groundLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(currentCollider.bounds.center, boxSize, 0f, direction, 0.1f, whatIsGround);
         return hit.collider != null;
     }
     public void CheckIfShouldFlip(float xInput)
@@ -191,20 +197,36 @@ public class Player : MonoBehaviour
             DodgeState.FinishDodgeAnimation();
         }
     }
+    public BoxCollider2D ActiveCollider
+    {
+        get
+        {
+            if (ColliderController != null)
+            {
+                if (ColliderController.IsUsingSmallCollider && ColliderController.jumpRollCollider != null)
+                    return ColliderController.jumpRollCollider;
+
+                if (ColliderController.standingCollider != null)
+                    return ColliderController.standingCollider;
+            }
+            return Collider;
+        }
+    }
+
     private void OnDrawGizmos()
     {
-        if (GetComponent<BoxCollider2D>() != null)
+        if (groundCheckPoint != null)
         {
-            BoxCollider2D col = GetComponent<BoxCollider2D>();
-
             Gizmos.color = Color.red;
-            Vector2 groundOrigin = new Vector2(col.bounds.center.x, col.bounds.min.y) + (Vector2.down * boxCastDistance);
-            Gizmos.DrawWireCube(groundOrigin, boxCastSize);
+            Vector3 groundCastPos = groundCheckPoint.position + (Vector3)(Vector2.down * boxCastDistance);
+            Gizmos.DrawWireCube(groundCastPos, groundCheckSize);
+        }
 
+        if (ceilingCheckPoint != null)
+        {
             Gizmos.color = Color.cyan;
-            Vector2 ceilingOrigin = new Vector2(col.bounds.center.x, col.bounds.max.y) + (Vector2.up * boxCastDistance);
-            Vector2 ceilingBoxSize = new Vector2(col.bounds.size.x - 0.02f, 0.1f);
-            Gizmos.DrawWireCube(ceilingOrigin, ceilingBoxSize);
+            Vector3 ceilingCastPos = ceilingCheckPoint.position + (Vector3)(Vector2.up * boxCastDistance);
+            Gizmos.DrawWireCube(ceilingCastPos, ceilingCheckSize);
         }
     }
 }

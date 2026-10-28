@@ -11,9 +11,13 @@ public class PlayerLandState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.ColliderController?.ForceRestoreAll();
-        player.RB.linearVelocity = Vector2.zero;
         timer = 0f;
+
+        bool restored = player.ColliderController != null && player.ColliderController.TryRestoreStandingCollider();
+        if (restored)
+        {
+            player.RB.linearVelocity = Vector2.zero;
+        }
 
         if (player.FallDuration >= playerData.hardLandingThreshold)
         {
@@ -34,6 +38,15 @@ public class PlayerLandState : PlayerState
         base.LogicUpdate();
         timer += Time.deltaTime;
 
+        if (player.ColliderController != null && player.ColliderController.IsUsingSmallCollider)
+        {
+            if (!player.CheckIfGrounded())
+            {
+                stateMachine.ChangeState(player.FallState);
+            }
+            return;
+        }
+
         float inputX = player.InputHandler.RawMovementInput.x;
 
         if (player.InputHandler.JumpInput)
@@ -53,12 +66,22 @@ public class PlayerLandState : PlayerState
         if (timer >= exitTime)
         {
             if (inputX != 0f)
-            {
                 stateMachine.ChangeState(player.MoveState);
-            }
             else
-            {
                 stateMachine.ChangeState(player.IdleState);
+        }
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+
+        if (player.ColliderController != null)
+        {
+            bool restored = player.ColliderController.TryRestoreStandingCollider();
+            if (!restored)
+            {
+                player.ColliderController.HandleAutoEject(player.RB, player.FacingDirection);
             }
         }
     }

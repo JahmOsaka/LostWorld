@@ -18,11 +18,6 @@ public class PlayerFallState : PlayerState
         base.LogicUpdate();
         player.FallDuration += Time.deltaTime;
 
-        if (player.ColliderController != null && player.ColliderController.IsPhysicsShrunk)
-        {
-            player.ColliderController.TryRestorePhysicsCollider();
-        }
-
         if (player.RB.linearVelocity.y < 0)
         {
             player.RB.linearVelocity = new Vector2(
@@ -45,10 +40,24 @@ public class PlayerFallState : PlayerState
     {
         base.PhysicsUpdate();
 
-        float inputX = player.InputHandler.RawMovementInput.x;
-        float moveDirection = inputX == 0 ? 0 : Mathf.Sign(inputX);
+        bool isStuck = false;
+        if (player.ColliderController != null)
+        {
+            bool restored = player.ColliderController.TryRestoreStandingCollider();
+            if (!restored)
+            {
+                isStuck = true;
+                player.ColliderController.HandleAutoEject(player.RB, player.FacingDirection);
+            }
+        }
 
-        player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, player.RB.linearVelocity.y);
-        player.CheckIfShouldFlip(moveDirection);
+        if (!isStuck)
+        {
+            float inputX = player.InputHandler.RawMovementInput.x;
+            float moveDirection = inputX == 0 ? 0 : Mathf.Sign(inputX);
+
+            player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, player.RB.linearVelocity.y);
+            player.CheckIfShouldFlip(moveDirection);
+        }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   moveSpeed: 8
-  maxJumpVelocity: 10.5
+  maxJumpVelocity: 12.5
   minJumpMultiplier: 0.5
   fallVelocityThreshold: -15
   hardLandingThreshold: 0.6

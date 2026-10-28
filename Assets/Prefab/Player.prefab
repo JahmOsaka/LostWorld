@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &187462400194500172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3694341256519750740}
+  m_Layer: 8
+  m_Name: CeilingCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3694341256519750740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187462400194500172}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.266, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2952475920657060125}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &749448194949925486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97624465149749992}
+  m_Layer: 8
+  m_Name: GroundCheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &97624465149749992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749448194949925486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2952475920657060125}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1844602725723013294
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +164,7 @@ GameObject:
   - component: {fileID: 2952475920657060125}
   - component: {fileID: 2463019285508519511}
   - component: {fileID: 8167728703867444916}
+  - component: {fileID: 7923329268856455311}
   - component: {fileID: 2202049385663698167}
   - component: {fileID: 1873264935103288477}
   - component: {fileID: 8815986915462865779}
@@ -109,8 +172,8 @@ GameObject:
   - component: {fileID: 8596653904048946542}
   - component: {fileID: 831591605139798008}
   - component: {fileID: 9218278369501562890}
-  - component: {fileID: 3178139596531164579}
   - component: {fileID: 7760232690829060984}
+  - component: {fileID: 3178139596531164579}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -134,6 +197,8 @@ Transform:
   - {fileID: 8063810419092582632}
   - {fileID: 2214464595900108532}
   - {fileID: 8070273964345352837}
+  - {fileID: 3694341256519750740}
+  - {fileID: 97624465149749992}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2463019285508519511
@@ -197,7 +262,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.08540726}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -207,7 +272,53 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 2.2471237}
+  m_Size: {x: 0.5, y: 2.2}
+  m_EdgeRadius: 0.1
+--- !u!61 &7923329268856455311
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255730908677199951}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 233c2c2b1a9ba7c4ca910dda5233b431, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.55}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5, y: 1.1}
   m_EdgeRadius: 0.1
 --- !u!114 &2202049385663698167
 MonoBehaviour:
@@ -465,11 +576,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerData: {fileID: 11400000, guid: 07e631631ecb8a0489a5d2f30b5549e4, type: 2}
-  groundLayer:
+  groundCheckPoint: {fileID: 97624465149749992}
+  groundCheckSize: {x: 0.5, y: 0.1}
+  ceilingCheckPoint: {fileID: 3694341256519750740}
+  ceilingCheckSize: {x: 0.6, y: 0.1}
+  whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   boxCastSize: {x: 0.8, y: 0.1}
-  boxCastDistance: 0.15
+  boxCastDistance: 0.1
   whipHitbox: {fileID: 4142366149432382527}
   combatIdleDuration: 4
 --- !u!114 &3173419442666312354
@@ -569,24 +684,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
   inputHandler: {fileID: 2202049385663698167}
---- !u!114 &3178139596531164579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255730908677199951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e424d4af5c85b41a86898c8b9bb289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  inputHandler: {fileID: 2202049385663698167}
-  playerRb: {fileID: 2463019285508519511}
-  panDistance: 4
-  panSpeed: 5
-  normalDampingY: 1.5
-  fallDampingY: 0.1
 --- !u!114 &7760232690829060984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,17 +696,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089c57fe0ce0037498b3796c547d180d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerColliderController
-  physicsCollider: {fileID: 8167728703867444916}
+  standingCollider: {fileID: 8167728703867444916}
+  jumpRollCollider: {fileID: 7923329268856455311}
   playerHurtbox: {fileID: 1729811924663578679}
-  solidGroundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  jumpPhysicsSize: {x: 0.6, y: 1.2}
-  jumpPhysicsOffset: {x: 0, y: 0.3}
   jumpHurtboxSize: {x: 0.5, y: 1.2}
   jumpHurtboxOffset: {x: 0, y: 0.3}
   dodgeHurtboxSize: {x: 1, y: 0.8}
   dodgeHurtboxOffset: {x: 0, y: -0.7}
+  solidGroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  autoEjectSpeed: 7
+--- !u!114 &3178139596531164579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255730908677199951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e424d4af5c85b41a86898c8b9bb289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  currentState: 0
+  player: {fileID: 8815986915462865779}
+  inputHandler: {fileID: 2202049385663698167}
+  playerRb: {fileID: 2463019285508519511}
+  defaultZoom: 5
+  combatZoomMultiplier: 1.4
+  zoomOutTime: 0.3
+  zoomInTime: 1.5
+  lookAheadDistanceX: 2.5
+  lookAheadSmoothTimeX: 0.5
+  idleLookAheadRatio: 0.75
+  panDistanceY: 4
+  panSmoothTimeY: 0.25
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  combatDetectionRadius: 10
+  enemyWeight: 0.4
+  maxCombatOffset: {x: 4, y: 2.5}
+  combatOffsetSpeed: 5
+  combatExitDelay: 1.5
+  groundedDampingY: 0.3
+  airborneDampingY: 2.5
+  fallDampingY: 0.1
+  fallVelocityThreshold: -10
 --- !u!1 &4999029265928798916
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +958,7 @@ Transform:
   m_GameObject: {fileID: 6109365457505568432}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.153, z: 0}
+  m_LocalPosition: {x: 0, y: -1.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
