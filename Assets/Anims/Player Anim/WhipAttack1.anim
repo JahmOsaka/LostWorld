@@ -59,8 +59,6 @@ AnimationClip:
       value: {fileID: -3929115330197762702, guid: ade90c23a08766a4c92132afb8f093ba, type: 3}
     - time: 0.38333333
       value: {fileID: 6217562650445118425, guid: ade90c23a08766a4c92132afb8f093ba, type: 3}
-    - time: 0.4
-      value: {fileID: 0}
     attribute: m_Sprite
     path: Whip
     classID: 212
@@ -110,13 +108,12 @@ AnimationClip:
     - {fileID: -1865294209440440286, guid: ade90c23a08766a4c92132afb8f093ba, type: 3}
     - {fileID: -3929115330197762702, guid: ade90c23a08766a4c92132afb8f093ba, type: 3}
     - {fileID: 6217562650445118425, guid: ade90c23a08766a4c92132afb8f093ba, type: 3}
-    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.4166667
+    m_StopTime: 0.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -150,7 +147,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4
+  - time: 0.38333333
     functionName: FinishAttack
     data: 
     objectReferenceParameter: {fileID: 0}

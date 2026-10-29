@@ -32,7 +32,14 @@ public class PlayerFallState : PlayerState
         }
         else if (player.CheckIfGrounded())
         {
-            stateMachine.ChangeState(player.LandState);
+            if (player.InputHandler.JumpInput && player.ColliderController != null && player.ColliderController.TryRestoreStandingCollider())
+            {
+                stateMachine.ChangeState(player.JumpState);
+            }
+            else
+            {
+                stateMachine.ChangeState(player.LandState);
+            }
         }
     }
 

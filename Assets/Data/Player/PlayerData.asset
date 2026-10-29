@@ -12,18 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc240ccd159fd3449476f71ffcdabc1, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  maxEnergy: 100
+  maxPotions: 2
+  potionHealAmount: 30
   moveSpeed: 8
   maxJumpVelocity: 12.5
-  minJumpMultiplier: 0.5
+  minJumpMultiplier: 0.8
   fallVelocityThreshold: -15
+  maxFallSpeed: 20
   hardLandingThreshold: 0.6
   softLandingAnimSpeed: 3
   hardLandingAnimSpeed: 1
   coyoteTime: 0.1
   jumpBufferTime: 0.15
+  dodgeBufferTime: 0.15
   dodgeSpeed: 10
   dodgeDuration: 0.35
   dodgeCooldown: 1
   attackDamage: 1
   comboWindow: 0.2
   attackSpeedMultiplier: 1
+  combatIdleDuration: 4
+  autoEjectSpeed: 7
+  jumpHurtboxSize: {x: 0.6, y: 1}
+  jumpHurtboxOffset: {x: 0, y: -0.3}
+  dodgeHurtboxSize: {x: 0.8, y: 0.7}
+  dodgeHurtboxOffset: {x: 0, y: -0.5}
+  groundCheckSize: {x: 0.5, y: 0.1}
+  ceilingCheckSize: {x: 0.6, y: 0.1}
+  boxCastDistance: 0.05

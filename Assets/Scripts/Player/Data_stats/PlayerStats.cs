@@ -3,16 +3,12 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [Header("Energy / Mana")]
-    public float maxEnergy = 100f;
+    public float maxEnergy => (player != null && player.playerData != null) ? player.playerData.maxEnergy : 100f;
+    public int maxPotions => (player != null && player.playerData != null) ? player.playerData.maxPotions : 2;
+    public int potionHealAmount => (player != null && player.playerData != null) ? player.playerData.potionHealAmount : 30;
+
     public float currentEnergy { get; private set; }
-
-    [Header("Potions")]
-    public int maxPotions = 2;
     public int currentPotions { get; private set; }
-    public int potionHealAmount = 30;
-
-    [Header("Currency")]
     public int currentCurrency { get; private set; }
 
     public static event Action OnStatsChanged;
@@ -24,7 +20,10 @@ public class PlayerStats : MonoBehaviour
     {
         health = GetComponent<CoreHealth>();
         player = GetComponent<Player>();
+    }
 
+    private void Start()
+    {
         currentEnergy = maxEnergy;
         currentPotions = maxPotions;
         currentCurrency = 0;
@@ -32,26 +31,24 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-        if (player.InputHandler.PotionInput)
+        if (player != null && player.InputHandler != null && player.InputHandler.PotionInput)
         {
             player.InputHandler.UsePotionInput();
-
             UsePotion();
         }
     }
 
     public void UsePotion()
     {
-        if (currentPotions > 0 && health.currentHealth < health.maxHealth)
+        if (currentPotions > 0 && health != null && health.currentHealth < health.maxHealth)
         {
             currentPotions--;
-
-            health.Heal(potionHealAmount); 
-
+            health.Heal(potionHealAmount);
             OnStatsChanged?.Invoke();
-            Debug.Log("taken the medicine! Leftover: " + currentPotions);
+            Debug.Log("Taken medicine! Leftover: " + currentPotions);
         }
     }
+
     public void ConsumeEnergy(float amount)
     {
         if (currentEnergy >= amount)

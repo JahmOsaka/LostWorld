@@ -9,12 +9,15 @@ public class PlayerIdleState : PlayerState
     {
         base.Enter();
         player.RB.linearVelocity = new Vector2(0f, player.RB.linearVelocity.y);
+
+        bool inCombat = Time.time - player.LastAttackTime < playerData.combatIdleDuration;
+        player.Anim.SetBool("isCombatIdle", inCombat);
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Time.time - player.LastAttackTime < player.combatIdleDuration)
+        if (Time.time - player.LastAttackTime < playerData.combatIdleDuration)
         {
             player.Anim.SetBool("isCombatIdle", true);
         }

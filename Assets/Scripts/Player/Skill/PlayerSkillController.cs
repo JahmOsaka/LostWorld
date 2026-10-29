@@ -4,20 +4,13 @@ using UnityEngine.UI;
 
 public class PlayerSkillController : MonoBehaviour
 {
-    [Header("Input Reference")]
-    public PlayerInputHandler inputHandler;
-    [Header("Stats Reference")]
-    public PlayerStats playerStats;
-
     [Header("Key Abilities (Progression)")]
     [Tooltip("Unlocked state for Perish ability (destroys Blue Gates & absorbs low HP enemies).")]
     public bool hasPerish = false;
     public SkillData perishSkillData;
 
     [Header("Combat Skills Inventory & Wheel")]
-    [Tooltip("All combat skills unlocked by the player so far.")]
     public List<SkillData> unlockedCombatSkills = new List<SkillData>();
-
     [Tooltip("4 slots corresponding to the Hotkey Wheel (0: Up, 1: Right, 2: Down, 3: Left).")]
     public SkillData[] equippedWheelSkills = new SkillData[4];
     public int activeWheelIndex = 0;
@@ -25,27 +18,23 @@ public class PlayerSkillController : MonoBehaviour
     [Header("HUD UI Reference")]
     public Image activeSkillIconUI;
 
+    private PlayerInputHandler inputHandler;
+    private PlayerStats playerStats;
     private float cooldownTimer;
 
     public SkillData CurrentCombatSkill => equippedWheelSkills[activeWheelIndex];
 
     private void Awake()
     {
-        if (playerStats == null) playerStats = GetComponent<PlayerStats>();
+        inputHandler = GetComponentInParent<PlayerInputHandler>();
+        playerStats = GetComponentInParent<PlayerStats>();
     }
 
-    private void Start()
-    {
-        UpdateHUD();
-    }
+    private void Start() => UpdateHUD();
 
     private void Update()
     {
-        if (cooldownTimer > 0)
-        {
-            cooldownTimer -= Time.deltaTime;
-        }
-
+        if (cooldownTimer > 0) cooldownTimer -= Time.deltaTime;
         if (inputHandler == null) return;
 
         if (inputHandler.SkillInput)
@@ -84,7 +73,6 @@ public class PlayerSkillController : MonoBehaviour
                 if (playerStats.currentEnergy >= skill.mpCost)
                 {
                     playerStats.ConsumeEnergy(skill.mpCost);
-
                     skill.ExecuteSkill(gameObject);
                     cooldownTimer = skill.cooldownTime;
                 }
@@ -99,10 +87,6 @@ public class PlayerSkillController : MonoBehaviour
                 cooldownTimer = skill.cooldownTime;
             }
         }
-        else if (skill == null)
-        {
-            Debug.Log("No Combat Skill equipped in the current wheel slot!");
-        }
     }
 
     public void UnlockSkill(SkillData newSkill)
@@ -114,7 +98,6 @@ public class PlayerSkillController : MonoBehaviour
             if (newSkill == perishSkillData || newSkill.skillName == "Perish")
             {
                 hasPerish = true;
-                Debug.Log("Key Ability Unlocked: Perish!");
             }
             return;
         }
@@ -122,8 +105,6 @@ public class PlayerSkillController : MonoBehaviour
         if (!unlockedCombatSkills.Contains(newSkill))
         {
             unlockedCombatSkills.Add(newSkill);
-            Debug.Log($"Unlocked new Combat Skill: {newSkill.skillName}");
-
             for (int i = 0; i < equippedWheelSkills.Length; i++)
             {
                 if (equippedWheelSkills[i] == null)
@@ -150,15 +131,8 @@ public class PlayerSkillController : MonoBehaviour
         if (activeSkillIconUI != null)
         {
             SkillData skill = CurrentCombatSkill;
-            if (skill != null && skill.skillIcon != null)
-            {
-                activeSkillIconUI.sprite = skill.skillIcon;
-                activeSkillIconUI.enabled = true;
-            }
-            else
-            {
-                activeSkillIconUI.enabled = false;
-            }
+            activeSkillIconUI.sprite = skill != null ? skill.skillIcon : null;
+            activeSkillIconUI.enabled = (skill != null && skill.skillIcon != null);
         }
     }
 }

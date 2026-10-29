@@ -17,6 +17,8 @@ public class PlayerAttackState : PlayerState
         player.InputHandler.UseAttackInput();
         player.RB.linearVelocity = Vector2.zero;
 
+        player.ShowWhipVisual();
+
         if (Time.time >= player.LastAttackTime + playerData.comboWindow)
         {
             player.ResetCombo();
@@ -62,5 +64,6 @@ public class PlayerAttackState : PlayerState
         base.Exit();
         player.Anim.speed = 1f;
         player.DisableHitbox();
+        player.HideWhipVisual();
     }
 }

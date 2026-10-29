@@ -47,8 +47,6 @@ AnimationClip:
       value: {fileID: -5956727418894532967, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
     - time: 0.15
       value: {fileID: 3887668215157099345, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
-    - time: 0.16666667
-      value: {fileID: 0}
     attribute: m_Sprite
     path: Whip
     classID: 212
@@ -92,13 +90,12 @@ AnimationClip:
     - {fileID: -8393017084893261206, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
     - {fileID: -5956727418894532967, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
     - {fileID: 3887668215157099345, guid: c34a61aff6f971a4e93eefe6e3a15bef, type: 3}
-    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.18333334
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -132,7 +129,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.16666667
+  - time: 0.15
     functionName: DisableHitbox
     data: 
     objectReferenceParameter: {fileID: 0}

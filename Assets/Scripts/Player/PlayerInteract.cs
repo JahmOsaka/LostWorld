@@ -3,16 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerInteract : MonoBehaviour
 {
-    [Header("References")]
-    [Tooltip("Drag and drop the PlayerInputHandler component here to link the interaction input.")]
-    public PlayerInputHandler inputHandler;
-
+    private PlayerInputHandler inputHandler;
     private IInteractable currentInteractable;
     private BoxCollider2D myCollider;
 
     private void Awake()
     {
         myCollider = GetComponent<BoxCollider2D>();
+        inputHandler = GetComponentInParent<PlayerInputHandler>();
     }
 
     private void Update()

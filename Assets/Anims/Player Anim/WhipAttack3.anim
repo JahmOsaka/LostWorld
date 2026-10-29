@@ -67,8 +67,6 @@ AnimationClip:
       value: {fileID: 8047637069620098320, guid: 50c6add95cac3654c9bd8fb76505c1df, type: 3}
     - time: 0.41666666
       value: {fileID: -5925653285059734299, guid: 50c6add95cac3654c9bd8fb76505c1df, type: 3}
-    - time: 0.43333334
-      value: {fileID: 0}
     attribute: m_Sprite
     path: Whip
     classID: 212
@@ -122,13 +120,12 @@ AnimationClip:
     - {fileID: -650033164763415113, guid: 50c6add95cac3654c9bd8fb76505c1df, type: 3}
     - {fileID: 8047637069620098320, guid: 50c6add95cac3654c9bd8fb76505c1df, type: 3}
     - {fileID: -5925653285059734299, guid: 50c6add95cac3654c9bd8fb76505c1df, type: 3}
-    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.45000002
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
