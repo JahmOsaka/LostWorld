@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 8e26e81ddfe4ae843869e508613c1440
+guid: 5b3af83766f83284b97ae6178f6dfb90
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8085337866675114585
-    second: Combat Main Character_0
+      213: -1482510244612873774
+    second: Combat_0
   - first:
-      213: -4559181753172042225
-    second: Combat Main Character_1
+      213: 6159096373306776158
+    second: Combat_1
   - first:
-      213: 8646779774247715438
-    second: Combat Main Character_2
+      213: -7275188651862321258
+    second: Combat_2
   - first:
-      213: -7847011882041397806
-    second: Combat Main Character_3
+      213: -4549873744640668061
+    second: Combat_3
   - first:
-      213: 4825369683296062289
-    second: Combat Main Character_4
+      213: -7165304574982342169
+    second: Combat_4
   - first:
-      213: -4537179203100792990
-    second: Combat Main Character_5
+      213: 9164239115702025562
+    second: Combat_5
   - first:
-      213: 7411914783166168914
-    second: Combat Main Character_6
+      213: 3841245522743664663
+    second: Combat_6
   - first:
-      213: -8299206322043369007
-    second: Combat Main Character_7
+      213: -7572257942169470954
+    second: Combat_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,14 +121,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Combat Main Character_0
+      name: Combat_0
       rect:
         serializedVersion: 2
-        x: 191
-        y: 238
-        width: 641
-        height: 1610
-      alignment: 7
+        x: 0
+        y: 0
+        width: 1024
+        height: 2048
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -136,21 +136,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9525f28a3f3e43070800000000000000
-      internalID: 8085337866675114585
+      spriteID: 2d1e8f589c01d6be0800000000000000
+      internalID: -1482510244612873774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character_1
+      name: Combat_1
       rect:
         serializedVersion: 2
-        x: 1215
-        y: 238
-        width: 641
-        height: 1606
-      alignment: 7
+        x: 1024
+        y: 0
+        width: 1024
+        height: 2048
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -158,21 +158,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0edcbfd9588ab0c0800000000000000
-      internalID: -4559181753172042225
+      spriteID: e5ad85ce481897550800000000000000
+      internalID: 6159096373306776158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character_2
+      name: Combat_2
       rect:
         serializedVersion: 2
-        x: 2239
-        y: 238
-        width: 642
-        height: 1594
-      alignment: 7
+        x: 2048
+        y: 0
+        width: 1024
+        height: 2048
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -180,21 +180,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e62411f54688ff770800000000000000
-      internalID: 8646779774247715438
+      spriteID: 6971bcb7776590b90800000000000000
+      internalID: -7275188651862321258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character_3
+      name: Combat_3
       rect:
         serializedVersion: 2
-        x: 3262
-        y: 238
-        width: 643
-        height: 1595
-      alignment: 7
+        x: 3072
+        y: 0
+        width: 1024
+        height: 2048
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -202,21 +202,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2dd27aeb440d91390800000000000000
-      internalID: -7847011882041397806
+      spriteID: 36e01dd7fe99bd0c0800000000000000
+      internalID: -4549873744640668061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character_4
+      name: Combat_4
       rect:
         serializedVersion: 2
-        x: 4287
-        y: 238
-        width: 642
-        height: 1594
-      alignment: 7
+        x: 4096
+        y: 0
+        width: 1024
+        height: 2048
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -224,21 +224,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15b0dca392827f240800000000000000
-      internalID: 4825369683296062289
+      spriteID: 7e932b4d379bf8c90800000000000000
+      internalID: -7165304574982342169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character_5
+      name: Combat_5
       rect:
         serializedVersion: 2
-        x: 5311
-        y: 238
-        width: 641
-        height: 1606
-      alignment: 7
+        x: 5120
+        y: 0
+        width: 1024
+        height: 2048
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -246,21 +246,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26723e4cd83b801c0800000000000000
-      internalID: -4537179203100792990
+      spriteID: a5db828ebeaed2f70800000000000000
+      internalID: 9164239115702025562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character_6
+      name: Combat_6
       rect:
         serializedVersion: 2
-        x: 6331
-        y: 238
-        width: 641
-        height: 1610
-      alignment: 7
+        x: 6144
+        y: 0
+        width: 1024
+        height: 2048
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -268,21 +268,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25ff51ca9396cd660800000000000000
-      internalID: 7411914783166168914
+      spriteID: 710223e7378de4530800000000000000
+      internalID: 3841245522743664663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Combat Main Character_7
+      name: Combat_7
       rect:
         serializedVersion: 2
-        x: 7359
-        y: 238
-        width: 641
-        height: 1610
-      alignment: 7
+        x: 7168
+        y: 0
+        width: 1024
+        height: 2048
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -290,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d9cde832db43dc80800000000000000
-      internalID: -8299206322043369007
+      spriteID: 618bb59658fe9e690800000000000000
+      internalID: -7572257942169470954
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d3d31b593361b37419100b6b65eaba80
+    spriteID: 082873cc8291637499f7cfb964ea0333
     internalID: 0
     vertices: []
     indices: 
@@ -308,16 +308,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":1024.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Combat Main Character_0: 8085337866675114585
-      Combat Main Character_1: -4559181753172042225
-      Combat Main Character_2: 8646779774247715438
-      Combat Main Character_3: -7847011882041397806
-      Combat Main Character_4: 4825369683296062289
-      Combat Main Character_5: -4537179203100792990
-      Combat Main Character_6: 7411914783166168914
-      Combat Main Character_7: -8299206322043369007
+      Combat_0: -1482510244612873774
+      Combat_1: 6159096373306776158
+      Combat_2: -7275188651862321258
+      Combat_3: -4549873744640668061
+      Combat_4: -7165304574982342169
+      Combat_5: 9164239115702025562
+      Combat_6: 3841245522743664663
+      Combat_7: -7572257942169470954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

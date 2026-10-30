@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: 476fbf125eaa68b4f9af145c7ae07f70
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1169987400998655895
+    second: Animation_ST_ATK_0
+  - first:
+      213: -1494178883550184206
+    second: Animation_ST_ATK_1
+  - first:
+      213: -6411935636787129484
+    second: Animation_ST_ATK_2
+  - first:
+      213: -7253115215750314061
+    second: Animation_ST_ATK_3
+  - first:
+      213: 7527974056702002700
+    second: Animation_ST_ATK_4
+  - first:
+      213: -432192436968705889
+    second: Animation_ST_ATK_5
+  - first:
+      213: 2653312079881091281
+    second: Animation_ST_ATK_6
+  - first:
+      213: -5515101301729301616
+    second: Animation_ST_ATK_7
+  - first:
+      213: -7732917298316405719
+    second: Animation_ST_ATK_8
+  - first:
+      213: 1129597392569873802
+    second: Animation_ST_ATK_9
+  - first:
+      213: -224176206482803440
+    second: Animation_ST_ATK_10
+  - first:
+      213: 2878934845694149738
+    second: Animation_ST_ATK_11
+  - first:
+      213: -233590568997679150
+    second: Animation_ST_ATK_12
+  - first:
+      213: -2663141662220328147
+    second: Animation_ST_ATK_13
+  - first:
+      213: -7951901732639265659
+    second: Animation_ST_ATK_14
+  - first:
+      213: 949761473596132500
+    second: Animation_ST_ATK_15
+  - first:
+      213: 5717359105062523651
+    second: Animation_ST_ATK_16
+  - first:
+      213: -4960068864781817799
+    second: Animation_ST_ATK_17
+  - first:
+      213: 1196713624869645324
+    second: Animation_ST_ATK_18
+  - first:
+      213: 4684587156728967509
+    second: Animation_ST_ATK_19
+  - first:
+      213: -2052515516634515539
+    second: Animation_ST_ATK_20
+  - first:
+      213: -1494525668667784794
+    second: Animation_ST_ATK_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 650
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animation_ST_ATK_0
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 10295
+        width: 2351
+        height: 1537
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968eacb58ae53cfe0800000000000000
+      internalID: -1169987400998655895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_ST_ATK_5
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 8245
+        width: 2351
+        height: 1537
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90bed7b44b800af0800000000000000
+      internalID: -432192436968705889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_ST_ATK_8
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 6197
+        width: 2351
+        height: 1537
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924906c10b82fa490800000000000000
+      internalID: -7732917298316405719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_ST_ATK_13
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 4150
+        width: 2351
+        height: 1537
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2360d4a4ce9a0bd0800000000000000
+      internalID: -2663141662220328147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_ST_ATK_17
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 2101
+        width: 2351
+        height: 1537
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9386435a5ab4a2bb0800000000000000
+      internalID: -4960068864781817799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_ST_ATK_21
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 53
+        width: 2351
+        height: 1537
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a18a5b92d0624be0800000000000000
+      internalID: -1494525668667784794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 16523923085076044aeac7f61545911b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Animation_ST_ATK_0: -1169987400998655895
+      Animation_ST_ATK_1: -1494178883550184206
+      Animation_ST_ATK_10: -224176206482803440
+      Animation_ST_ATK_11: 2878934845694149738
+      Animation_ST_ATK_12: -233590568997679150
+      Animation_ST_ATK_13: -2663141662220328147
+      Animation_ST_ATK_14: -7951901732639265659
+      Animation_ST_ATK_15: 949761473596132500
+      Animation_ST_ATK_16: 5717359105062523651
+      Animation_ST_ATK_17: -4960068864781817799
+      Animation_ST_ATK_18: 1196713624869645324
+      Animation_ST_ATK_19: 4684587156728967509
+      Animation_ST_ATK_2: -6411935636787129484
+      Animation_ST_ATK_20: -2052515516634515539
+      Animation_ST_ATK_21: -1494525668667784794
+      Animation_ST_ATK_3: -7253115215750314061
+      Animation_ST_ATK_4: 7527974056702002700
+      Animation_ST_ATK_5: -432192436968705889
+      Animation_ST_ATK_6: 2653312079881091281
+      Animation_ST_ATK_7: -5515101301729301616
+      Animation_ST_ATK_8: -7732917298316405719
+      Animation_ST_ATK_9: 1129597392569873802
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

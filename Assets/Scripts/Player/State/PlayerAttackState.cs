@@ -17,8 +17,6 @@ public class PlayerAttackState : PlayerState
         player.InputHandler.UseAttackInput();
         player.RB.linearVelocity = Vector2.zero;
 
-        player.ShowWhipVisual();
-
         if (Time.time >= player.LastAttackTime + playerData.comboWindow)
         {
             player.ResetCombo();
@@ -26,6 +24,10 @@ public class PlayerAttackState : PlayerState
 
         player.RecordAttack();
         player.Anim.SetInteger("Combo", player.ComboCounter);
+
+        player.ShowWhipVisual();
+
+        player.Anim.Update(0f);
     }
 
     public override void LogicUpdate()

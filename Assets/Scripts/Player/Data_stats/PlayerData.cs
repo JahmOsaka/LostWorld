@@ -18,6 +18,8 @@ public class PlayerData : ScriptableObject
 
     [Space(10)]
     [Header("3. Jump & Landing Settings")]
+    [Tooltip("Default gravity scale for normal movement and falling.")]
+    public float defaultGravity = 2.5f;
     [Tooltip("Initial vertical velocity when jumping.")]
     public float maxJumpVelocity = 15f;
     [Tooltip("Velocity cut multiplier when releasing jump early.")]

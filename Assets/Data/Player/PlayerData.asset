@@ -16,8 +16,9 @@ MonoBehaviour:
   maxPotions: 2
   potionHealAmount: 30
   moveSpeed: 8
+  defaultGravity: 2.5
   maxJumpVelocity: 12.5
-  minJumpMultiplier: 0.8
+  minJumpMultiplier: 0.955
   fallVelocityThreshold: -15
   maxFallSpeed: 20
   hardLandingThreshold: 0.6
@@ -26,6 +27,7 @@ MonoBehaviour:
   coyoteTime: 0.1
   jumpBufferTime: 0.15
   dodgeBufferTime: 0.15
+  attackBufferTime: 0.15
   dodgeSpeed: 10
   dodgeDuration: 0.35
   dodgeCooldown: 1

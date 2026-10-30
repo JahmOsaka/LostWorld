@@ -20,13 +20,15 @@ public class PlayerStats : MonoBehaviour
     {
         health = GetComponent<CoreHealth>();
         player = GetComponent<Player>();
+
+        currentEnergy = maxEnergy;
+        currentPotions = maxPotions;
+        currentCurrency = 0;
     }
 
     private void Start()
     {
-        currentEnergy = maxEnergy;
-        currentPotions = maxPotions;
-        currentCurrency = 0;
+        OnStatsChanged?.Invoke();
     }
 
     private void Update()

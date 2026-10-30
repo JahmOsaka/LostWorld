@@ -21,6 +21,13 @@ public class PlayerAnimationTriggers : MonoBehaviour
     {
         player.StateMachine.CurrentState.AnimationFinishTrigger();
     }
+    public void TriggerJumpForceEvent()
+    {
+        if (player.StateMachine.CurrentState is PlayerJumpState jumpState)
+        {
+            jumpState.ExecuteJumpForce();
+        }
+    }
     private void EnableHitbox()
     {
         player.EnableHitbox();

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [Header("Combat References")]
     [SerializeField] private BoxCollider2D whipHitbox;
     [SerializeField] private SpriteRenderer whipSpriteRenderer;
+    [SerializeField] private SpriteRenderer vfxSpriteRenderer;
 
     public Rigidbody2D RB { get; private set; }
     public BoxCollider2D Collider { get; private set; }
@@ -64,6 +65,12 @@ public class Player : MonoBehaviour
             if (whipTransform != null)
                 whipSpriteRenderer = whipTransform.GetComponent<SpriteRenderer>();
         }
+        if (vfxSpriteRenderer == null)
+        {
+            Transform vfxTransform = transform.Find("PlayerVisual/VFX") ?? transform.Find("VFX");
+            if (vfxTransform != null)
+                vfxSpriteRenderer = vfxTransform.GetComponent<SpriteRenderer>();
+        }
     }
 
     private void Awake()
@@ -89,8 +96,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        StateMachine.Initialize(IdleState);
         HideWhipVisual();
+        StateMachine.Initialize(IdleState);
     }
 
     private void Update()
@@ -179,7 +186,17 @@ public class Player : MonoBehaviour
 
     public void ShowWhipVisual()
     {
-        if (whipSpriteRenderer != null) whipSpriteRenderer.enabled = true;
+        if (whipSpriteRenderer != null)
+        {
+            whipSpriteRenderer.sprite = null;
+            whipSpriteRenderer.enabled = true;
+        }
+
+        if (vfxSpriteRenderer != null)
+        {
+            vfxSpriteRenderer.sprite = null;
+            vfxSpriteRenderer.enabled = true;
+        }
     }
 
     public void HideWhipVisual()
@@ -188,6 +205,12 @@ public class Player : MonoBehaviour
         {
             whipSpriteRenderer.enabled = false;
             whipSpriteRenderer.sprite = null;
+        }
+
+        if (vfxSpriteRenderer != null)
+        {
+            vfxSpriteRenderer.enabled = false;
+            vfxSpriteRenderer.sprite = null;
         }
     }
 

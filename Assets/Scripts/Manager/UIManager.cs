@@ -35,7 +35,18 @@ public class UIManager : MonoBehaviour
         CoreHealth.OnHealthChanged -= UpdateHealthUI;
         PlayerStats.OnStatsChanged -= UpdateStatsUI;
     }
+    private void Awake()
+    {
+        if (playerStats == null)
+        {
+            playerStats = FindAnyObjectByType<PlayerStats>();
+        }
 
+        if (playerHealth == null && playerStats != null)
+        {
+            playerHealth = playerStats.GetComponent<CoreHealth>();
+        }
+    }
     private void Start()
     {
         UpdateHealthUI();
