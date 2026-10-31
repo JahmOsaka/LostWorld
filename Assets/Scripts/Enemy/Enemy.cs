@@ -136,11 +136,13 @@ public class Enemy : MonoBehaviour
 
     public void NotifyAttackHit()
     {
+        if (stateMachine.CurrentState != attackState) return;
         attackState.DealHit();
     }
 
     public void NotifyAttackAnimationEnd()
     {
+        if (stateMachine.CurrentState != attackState) return;
         attackState.OnAttackAnimationEnd();
     }
 

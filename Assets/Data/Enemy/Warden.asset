@@ -26,7 +26,7 @@ MonoBehaviour:
   retreatPauseTime: 0.2
   retreatChance: 0.15
   attackRange: 1.5
-  attackCooldown: 1.5
+  attackCooldown: 0.5
   comboInterval: 0.1
   orbPrefab: {fileID: 5659091714964175152, guid: 281ef193d8640f148a80dda5136b4931, type: 3}
   orbCount: 2
