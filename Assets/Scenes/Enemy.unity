@@ -349174,6 +349174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spit (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4473217849596222109, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8334316978053283536, guid: 39849207d00d0c74ba58715cd26ce895, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.77

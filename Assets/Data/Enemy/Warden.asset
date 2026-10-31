@@ -24,6 +24,7 @@ MonoBehaviour:
   retreatSpeed: 2
   retreatTriggerRange: 2
   retreatPauseTime: 0.2
+  retreatChance: 0.15
   attackRange: 1.5
   attackCooldown: 1.5
   comboInterval: 0.1
