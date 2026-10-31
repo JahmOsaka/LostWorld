@@ -13,7 +13,8 @@ public class EnemyRetreatState : EnemyState
     {
         base.Enter();
         isPausing = false;
-        retreatDir = (enemy.transform.position - enemy.playerTransform.position).normalized;
+        float awayX = enemy.transform.position.x - enemy.playerTransform.position.x;
+        retreatDir = new Vector2(awayX >= 0f ? 1f : -1f, 0f);
     }
 
     public override void Exit()
@@ -71,8 +72,8 @@ public class EnemyRetreatState : EnemyState
         isPausing = true;
         pauseTimer = enemyData.retreatPauseTime;
         enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
-        enemy.anim.SetBool("retreat", false);   // ออกจากท่าถอย
-        enemy.anim.SetBool("idle", true);       // เล่นท่ายืนระหว่างหยุด
+        enemy.anim.SetBool("retreat", false);
+        enemy.anim.SetBool("idle", true); 
     }
 
     private void Finish()

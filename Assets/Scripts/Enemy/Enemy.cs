@@ -111,10 +111,11 @@ public class Enemy : MonoBehaviour
     public void SpawnProjectile()
     {
         var ranged = enemyData as RangedEnemyData;
-        if (ranged == null || ranged.projectilePrefab == null || throwPoint == null) return;
+        if (ranged == null || ranged.projectilePrefab == null || throwPoint == null || playerTransform == null) return;
 
         GameObject proj = Instantiate(ranged.projectilePrefab, throwPoint.position, Quaternion.identity);
 
+        if (stateMachine.CurrentState != rangedAttackState) return;
         if (ranged.useArcProjectile)
         {
             proj.GetComponent<EnemyArcProjectile>()
@@ -129,6 +130,7 @@ public class Enemy : MonoBehaviour
 
     public void NotifyThrowAnimationEnd()
     {
+        if (stateMachine.CurrentState != rangedAttackState) return;
         rangedAttackState.OnThrowAnimationEnd();
     }
 

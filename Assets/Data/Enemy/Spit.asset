@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spit
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   maxHealth: 4
-  damage: 10
+  damage: 1
   moveSpeed: 2
   patrolSpeed: 1.5
   idleTimeAtPoint: 1.5
@@ -23,6 +23,7 @@ MonoBehaviour:
   retreatDistance: 6
   retreatSpeed: 3
   retreatTriggerRange: 4
+  retreatPauseTime: 0.4
   isStationary: 1
   throwRange: 7
   throwCooldown: 2

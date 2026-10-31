@@ -43,9 +43,7 @@ public class EnemyRangedAttackState : EnemyState
     {
         isThrowing = false;
 
-        if (enemyData.retreatsAfterAttack && enemy.DistanceToPlayer() <= enemyData.retreatTriggerRange)
-        {
+        if (enemyData.ShouldRetreat(enemy.DistanceToPlayer()))
             stateMachine.ChangeState(enemy.RetreatState);
-        }
     }
 }
