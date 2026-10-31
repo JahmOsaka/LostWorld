@@ -20,7 +20,7 @@ public class PlayerJumpState : PlayerState
         player.ColliderController?.ActivateJumpCollider();
 
         player.Anim.Play("Jump_Ground", 0, 0f);
-        player.Anim.Update(0f);
+        //player.Anim.Update(0f);
     }
 
     public void ExecuteJumpForce()

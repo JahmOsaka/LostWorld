@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class PlayerFallState : PlayerState
 {
@@ -11,6 +12,7 @@ public class PlayerFallState : PlayerState
     {
         base.Enter();
         player.FallDuration = 0f;
+        player.Anim.Play("Jump_Air", 0, 0f);
 
     }
     public override void LogicUpdate()
