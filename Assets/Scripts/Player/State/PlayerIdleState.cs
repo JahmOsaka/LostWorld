@@ -82,6 +82,7 @@ public class PlayerIdleState : PlayerState
     {
         if (playerData == null) return;
         bool isCombatActive = Time.time < player.LastAttackTime + playerData.combatIdleDuration;
-        player.Anim.SetBool("isCombat", isCombatActive);
+
+        player.Anim.SetBool("isCombatIdle", isCombatActive);
     }
 }
