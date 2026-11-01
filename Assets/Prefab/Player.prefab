@@ -603,7 +603,7 @@ MonoBehaviour:
   ceilingCheckPoint: {fileID: 3694341256519750740}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 2112
   whipHitbox: {fileID: 4142366149432382527}
   whipSpriteRenderer: {fileID: 4526257046166525584}
   vfxSpriteRenderer: {fileID: 1580456119929361600}

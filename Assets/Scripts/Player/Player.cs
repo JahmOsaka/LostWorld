@@ -122,7 +122,8 @@ public class Player : MonoBehaviour
 
     public bool CheckIfGrounded()
     {
-        if (RB.linearVelocity.y > 0.05f || groundCheckPoint == null || playerData == null) return false;
+        if (StateMachine.CurrentState == JumpState && RB.linearVelocity.y > 0.05f) return false;
+        if (groundCheckPoint == null || playerData == null) return false;
 
         Vector2 groundCastPos = (Vector2)groundCheckPoint.position + (Vector2.down * playerData.boxCastDistance);
         return Physics2D.OverlapBox(groundCastPos, playerData.groundCheckSize, 0f, whatIsGround) != null;

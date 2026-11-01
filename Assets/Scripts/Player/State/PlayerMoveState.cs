@@ -4,37 +4,51 @@ public class PlayerMoveState : PlayerState
 {
     public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
+
     public override void Enter()
     {
         base.Enter();
-        player.ResetCombo();
+        player.ColliderController?.TryRestoreStandingCollider();
     }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (player.InputHandler.AttackInput)
+
+        if (player.ColliderController != null && player.ColliderController.IsStuckUnderCeiling)
+        {
+            player.ColliderController.TryRestoreStandingCollider();
+            return;
+        }
+
+        if (player.InputHandler.AttackInput && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.AttackState);
+            return;
         }
 
-        else if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
+        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0 && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.DodgeState);
+            return;
         }
 
-        else if (player.InputHandler.JumpInput && player.CheckIfGrounded())
+        if (player.InputHandler.JumpInput && (player.CheckIfGrounded() || player.CoyoteTimeCounter > 0f))
         {
             stateMachine.ChangeState(player.JumpState);
+            return;
         }
 
-        else if (!player.CheckIfGrounded())
+        if (!player.CheckIfGrounded() && player.CoyoteTimeCounter <= 0f)
         {
             stateMachine.ChangeState(player.FallState);
+            return;
         }
 
-        else if (player.InputHandler.RawMovementInput.x == 0)
+        if (player.InputHandler.RawMovementInput.x == 0f)
         {
             stateMachine.ChangeState(player.IdleState);
+            return;
         }
     }
 
@@ -42,10 +56,18 @@ public class PlayerMoveState : PlayerState
     {
         base.PhysicsUpdate();
 
-        float inputX = player.InputHandler.RawMovementInput.x;
-        float moveDirection = inputX == 0 ? 0 : Mathf.Sign(inputX);
+        if (player.ColliderController != null && player.ColliderController.IsStuckUnderCeiling)
+        {
+            player.ColliderController.HandleAutoEject(player.RB, player.FacingDirection);
+            return;
+        }
 
-        player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, player.RB.linearVelocity.y);
+        float inputX = player.InputHandler.RawMovementInput.x;
+        float moveDirection = inputX == 0f ? 0f : Mathf.Sign(inputX);
+
+        float velY = player.CheckIfGrounded() ? Mathf.Min(0f, player.RB.linearVelocity.y) : player.RB.linearVelocity.y;
+
+        player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, velY);
         player.CheckIfShouldFlip(moveDirection);
     }
 }

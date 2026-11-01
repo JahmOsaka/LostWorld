@@ -100,8 +100,10 @@ public class PlayerColliderController : MonoBehaviour
             return true;
         }
 
-        Vector2 targetCenter = (Vector2)standingCollider.transform.position + standingCollider.offset;
-        Vector2 checkSize = new Vector2(standingCollider.size.x * 0.9f, standingCollider.size.y * 0.98f);
+        Vector2 standCenter = (Vector2)standingCollider.transform.position + standingCollider.offset;
+        float checkHeight = standingCollider.size.y * 0.5f;
+        Vector2 targetCenter = new Vector2(standCenter.x, standCenter.y + (standingCollider.size.y * 0.25f));
+        Vector2 checkSize = new Vector2(standingCollider.size.x * 0.85f, checkHeight * 0.95f);
 
         int hitCount = Physics2D.OverlapBox(targetCenter, checkSize, 0f, ceilingFilter, overlapResults);
 
@@ -149,8 +151,12 @@ public class PlayerColliderController : MonoBehaviour
     {
         if (standingCollider == null) return;
         Gizmos.color = IsStuckUnderCeiling ? Color.red : Color.cyan;
-        Vector2 targetCenter = (Vector2)standingCollider.transform.position + standingCollider.offset;
-        Vector2 checkSize = new Vector2(standingCollider.size.x * 0.9f, standingCollider.size.y * 0.98f);
+
+        Vector2 standCenter = (Vector2)standingCollider.transform.position + standingCollider.offset;
+        float checkHeight = standingCollider.size.y * 0.5f;
+        Vector2 targetCenter = new Vector2(standCenter.x, standCenter.y + (standingCollider.size.y * 0.25f));
+        Vector2 checkSize = new Vector2(standingCollider.size.x * 0.85f, checkHeight * 0.95f);
+
         Gizmos.DrawWireCube(targetCenter, checkSize);
     }
 }

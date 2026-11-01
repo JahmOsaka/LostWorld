@@ -8,51 +8,80 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.RB.linearVelocity = new Vector2(0f, player.RB.linearVelocity.y);
 
-        bool inCombat = Time.time - player.LastAttackTime < playerData.combatIdleDuration;
-        player.Anim.SetBool("isCombatIdle", inCombat);
+        player.ColliderController?.TryRestoreStandingCollider();
+
+        if (player.ColliderController == null || !player.ColliderController.IsStuckUnderCeiling)
+        {
+            float velY = player.CheckIfGrounded() ? Mathf.Min(0f, player.RB.linearVelocity.y) : player.RB.linearVelocity.y;
+            player.RB.linearVelocity = new Vector2(0f, velY);
+        }
+
+        UpdateCombatIdleStatus();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Time.time - player.LastAttackTime < playerData.combatIdleDuration)
+
+        UpdateCombatIdleStatus();
+
+        if (player.ColliderController != null && player.ColliderController.IsStuckUnderCeiling)
         {
-            player.Anim.SetBool("isCombatIdle", true);
+            player.ColliderController.TryRestoreStandingCollider();
+            return;
+        }
+
+        if (player.InputHandler.AttackInput && player.CheckIfGrounded())
+        {
+            stateMachine.ChangeState(player.AttackState);
+            return;
+        }
+
+        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0 && player.CheckIfGrounded())
+        {
+            stateMachine.ChangeState(player.DodgeState);
+            return;
+        }
+
+        if (player.InputHandler.JumpInput && (player.CheckIfGrounded() || player.CoyoteTimeCounter > 0f))
+        {
+            stateMachine.ChangeState(player.JumpState);
+            return;
+        }
+
+        if (!player.CheckIfGrounded() && player.CoyoteTimeCounter <= 0f)
+        {
+            stateMachine.ChangeState(player.FallState);
+            return;
+        }
+
+        if (player.InputHandler.RawMovementInput.x != 0f)
+        {
+            stateMachine.ChangeState(player.MoveState);
+            return;
+        }
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+
+        if (player.ColliderController != null && player.ColliderController.IsStuckUnderCeiling)
+        {
+            player.ColliderController.HandleAutoEject(player.RB, player.FacingDirection);
         }
         else
         {
-            player.Anim.SetBool("isCombatIdle", false);
-        }
-
-
-        if (player.InputHandler.AttackInput)
-        {
-            stateMachine.ChangeState(player.AttackState);
-        }
-        else if (player.InputHandler.JumpInput && player.CheckIfGrounded())
-        {
-            stateMachine.ChangeState(player.JumpState);
-        }
-        else if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
-        {
-            stateMachine.ChangeState(player.DodgeState);
-        }
-
-        else if (!player.CheckIfGrounded())
-        {
-            stateMachine.ChangeState(player.FallState);
-        }
-
-        else if (player.InputHandler.RawMovementInput.x != 0)
-        {
-            stateMachine.ChangeState(player.MoveState);
+            float velY = player.CheckIfGrounded() ? Mathf.Min(0f, player.RB.linearVelocity.y) : player.RB.linearVelocity.y;
+            player.RB.linearVelocity = new Vector2(0f, velY);
         }
     }
-    public override void Exit()
+
+    private void UpdateCombatIdleStatus()
     {
-        base.Exit();
-        player.Anim.SetBool("isCombatIdle", false);
+        if (playerData == null) return;
+        bool isCombatActive = Time.time < player.LastAttackTime + playerData.combatIdleDuration;
+        player.Anim.SetBool("isCombat", isCombatActive);
     }
 }
