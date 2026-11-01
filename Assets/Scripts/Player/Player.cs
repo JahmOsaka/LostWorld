@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -5,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInputHandler))]
 public class Player : MonoBehaviour
 {
+
     [Header("Core Data (Balance Here)")]
     public PlayerData playerData;
 
@@ -113,6 +115,7 @@ public class Player : MonoBehaviour
             CoyoteTimeCounter = playerData.coyoteTime;
         else
             CoyoteTimeCounter -= Time.deltaTime;
+
     }
 
     private void FixedUpdate() => StateMachine.CurrentState.PhysicsUpdate();
