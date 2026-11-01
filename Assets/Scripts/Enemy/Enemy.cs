@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     [Header("Edge Detection")]
     public float edgeCheckDistance = 1f;
     public float edgeCheckForwardOffset = 0.4f;
+    public float wallCheckDistance = 0.1f;
     public LayerMask groundLayer;
 
     private List<GameObject> activeOrbs = new List<GameObject>();
@@ -231,6 +232,24 @@ public class Enemy : MonoBehaviour
 
         Vector2 origin = feetPos + new Vector2(Mathf.Sign(dirX) * edgeCheckForwardOffset, 0.1f);
         return Physics2D.Raycast(origin, Vector2.down, edgeCheckDistance, groundLayer);
+    }
+
+    public bool IsWallAheadOf(float dirX)
+    {
+        if (Mathf.Approximately(dirX, 0f)) return false;
+
+        BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
+        if (col == null) return false;
+
+        Bounds b = col.bounds;
+        Vector2 dir = new Vector2(Mathf.Sign(dirX), 0f);
+        float dist = b.extents.x + wallCheckDistance;
+
+        Vector2 mid = b.center;                                   
+        Vector2 low = new Vector2(b.center.x, b.min.y + 0.1f);    
+
+        return Physics2D.Raycast(mid, dir, dist, groundLayer)
+            || Physics2D.Raycast(low, dir, dist, groundLayer);
     }
     public void ClearActiveOrbs()
     {
