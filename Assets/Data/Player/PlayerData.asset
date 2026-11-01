@@ -17,10 +17,10 @@ MonoBehaviour:
   potionHealAmount: 30
   moveSpeed: 8
   defaultGravity: 2.5
-  maxJumpVelocity: 12.5
-  minJumpMultiplier: 0.955
-  fallVelocityThreshold: -15
-  maxFallSpeed: 20
+  maxJumpVelocity: 13.8
+  minJumpMultiplier: 0.968
+  fallVelocityThreshold: -8
+  maxFallSpeed: 30
   hardLandingThreshold: 0.6
   softLandingAnimSpeed: 3
   hardLandingAnimSpeed: 1
