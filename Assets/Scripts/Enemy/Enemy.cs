@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     public Transform[] patrolPoints;
     private int currentPatrolIndex = 0;
 
-    private EnemyStateMachine stateMachine;
+    protected EnemyStateMachine stateMachine;
     private EnemyIdleState idleState;
     private EnemyPatrolState patrolState;
     private EnemyChaseState chaseState;
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb { get; private set; }
     public Transform playerTransform { get; private set; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
         retreatState = new EnemyRetreatState(this, stateMachine, enemyData, "retreat");
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         if (HasPatrolPoints)
             stateMachine.Initialize(patrolState);
