@@ -20,6 +20,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool AttackInput { get; private set; }
     public bool PotionInput { get; private set; }
     public bool SkillInput { get; private set; }
+    public bool SuperDashInput { get; private set; }
 
     private void Awake()
     {
@@ -81,8 +82,14 @@ public class PlayerInputHandler : MonoBehaviour
             dodgeInputStartTime = Time.time;
         }
     }
-
-    public void OnAttackInput(InputAction.CallbackContext context) 
+    public void OnSuperDashInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            SuperDashInput = true;
+        }
+    }
+    public void OnAttackInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
@@ -90,10 +97,18 @@ public class PlayerInputHandler : MonoBehaviour
             attackInputStartTime = Time.time;
         }
     }
-    public void OnInteract(InputAction.CallbackContext context) { if (context.started) InteractInput = true; }
-    public void OnPotionInput(InputAction.CallbackContext context) { if (context.started) PotionInput = true; }
-    public void OnSkillInput(InputAction.CallbackContext context) { if (context.started) SkillInput = true; }
-
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started) InteractInput = true;
+    }
+    public void OnPotionInput(InputAction.CallbackContext context)
+    {
+        if (context.started) PotionInput = true;
+    }
+    public void OnSkillInput(InputAction.CallbackContext context)
+    {
+        if (context.started) SkillInput = true;
+    }
     public void OnWheelMenuInput(InputAction.CallbackContext context)
     {
         if (context.started) WheelMenuInput = true;
@@ -108,4 +123,5 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseAttackInput() => AttackInput = false;
     public void UsePotionInput() => PotionInput = false;
     public void UseSkillInput() => SkillInput = false;
+    public void UseSuperDashInput() => SuperDashInput = false;
 }

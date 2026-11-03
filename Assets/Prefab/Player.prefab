@@ -581,6 +581,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c3271e04-8e4b-4228-8b66-db67bc417ce8
     m_ActionName: 'Player/MouseSelect[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2202049385663698167}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnSuperDashInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 862efd45-b955-4afb-9799-da60dd96b462
+    m_ActionName: Player/SuperDash
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -666,6 +682,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSkillController
   hasPerish: 0
   perishSkillData: {fileID: 11400000, guid: 62a092b13f290b44faa31f8166e42135, type: 2}
+  hasDoubleJump: 0
+  doubleJumpSkillData: {fileID: 0}
+  hasSuperDash: 0
+  superDashSkillData: {fileID: 0}
   unlockedCombatSkills: []
   equippedWheelSkills:
   - {fileID: 0}

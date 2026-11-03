@@ -54,6 +54,16 @@ public class PlayerLandState : PlayerState
             stateMachine.ChangeState(player.JumpState);
             return;
         }
+        if (player.InputHandler.AttackInput)
+        {
+            stateMachine.ChangeState(player.AttackState);
+            return;
+        }
+        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
+        {
+            stateMachine.ChangeState(player.DodgeState);
+            return;
+        }
 
         if (!isHardLanding && inputX != 0f)
         {
@@ -61,7 +71,7 @@ public class PlayerLandState : PlayerState
             return;
         }
 
-        float exitTime = isHardLanding ? 0.4f : 0.1f;
+        float exitTime = isHardLanding ? playerData.hardLandingExitTime : playerData.softLandingExitTime;
 
         if (timer >= exitTime)
         {

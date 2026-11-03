@@ -1,10 +1,7 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerFallState : PlayerState
 {
-    [Header("Fall Settings")]
-    public float maxFallSpeed = 20f;
     public PlayerFallState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
 
@@ -24,24 +21,23 @@ public class PlayerFallState : PlayerState
         {
             player.RB.linearVelocity = new Vector2(
                 player.RB.linearVelocity.x,
-                Mathf.Max(player.RB.linearVelocity.y, -maxFallSpeed)
+                Mathf.Max(player.RB.linearVelocity.y, -playerData.maxFallSpeed)
             );
         }
 
-        if (player.InputHandler.JumpInput && player.CoyoteTimeCounter > 0f)
+        if (player.InputHandler.SuperDashInput && player.SkillController.hasSuperDash)
+        {
+            stateMachine.ChangeState(player.SuperDashState);
+            return;
+        }
+
+        if (player.InputHandler.JumpInput && (player.CheckIfGrounded() || player.JumpsRemaining > 0 || player.CoyoteTimeCounter > 0f))
         {
             stateMachine.ChangeState(player.JumpState);
         }
         else if (player.CheckIfGrounded())
         {
-            if (player.InputHandler.JumpInput && player.ColliderController != null && player.ColliderController.TryRestoreStandingCollider())
-            {
-                stateMachine.ChangeState(player.JumpState);
-            }
-            else
-            {
-                stateMachine.ChangeState(player.LandState);
-            }
+            stateMachine.ChangeState(player.LandState);
         }
     }
 

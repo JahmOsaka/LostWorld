@@ -4,7 +4,7 @@ public class PlayerDodgeState : PlayerState
 {
     private bool isDodgeFinished;
     private int dodgeDirection;
-    private float defaultGravity;
+    private float dodgeTimer;
 
     public PlayerDodgeState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName)
@@ -21,6 +21,7 @@ public class PlayerDodgeState : PlayerState
         player.ColliderController?.ShrinkHurtboxOnlyForDodge();
 
         isDodgeFinished = false;
+        dodgeTimer = 0f;
 
         if (player.InputHandler.RawMovementInput.x != 0)
             dodgeDirection = (int)Mathf.Sign(player.InputHandler.RawMovementInput.x);
@@ -28,14 +29,23 @@ public class PlayerDodgeState : PlayerState
             dodgeDirection = player.FacingDirection;
 
         player.CheckIfShouldFlip(dodgeDirection);
-
-        defaultGravity = player.RB.gravityScale;
         player.RB.gravityScale = 0f;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        dodgeTimer += Time.deltaTime;
+
+        if (dodgeTimer >= playerData.DodgeDuration)
+        {
+            isDodgeFinished = true;
+        }
+
+        if (dodgeTimer >= playerData.DodgeIFrameDuration)
+        {
+            player.SetInvincible(false);
+        }
 
         if (!player.CheckIfGrounded())
         {
@@ -70,7 +80,7 @@ public class PlayerDodgeState : PlayerState
         base.Exit();
         player.SetInvincible(false);
         player.ResetDodgeCooldown();
-        player.RB.gravityScale = defaultGravity;
+        player.RB.gravityScale = playerData.defaultGravity;
 
         player.ColliderController?.RestoreHurtbox();
     }

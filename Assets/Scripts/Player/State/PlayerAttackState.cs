@@ -3,7 +3,6 @@
 public class PlayerAttackState : PlayerState
 {
     private float failsafeTimer;
-    private float attackDuration = 0.5f;
 
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
@@ -48,7 +47,7 @@ public class PlayerAttackState : PlayerState
             return;
         }
 
-        if (failsafeTimer >= attackDuration)
+        if (failsafeTimer >= playerData.attackDuration)
         {
             if (player.InputHandler.RawMovementInput.x != 0)
             {

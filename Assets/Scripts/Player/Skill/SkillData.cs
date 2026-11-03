@@ -21,7 +21,7 @@ public abstract class SkillData : ScriptableObject
     public float cooldownTime;
     [Tooltip("Mana cost required to execute this combat skill.")]
     public int mpCost = 20;
-
+    public float castDuration;
     [Header("UI & TechArt")]
     public Sprite skillIcon;
     public GameObject vfxPrefab;

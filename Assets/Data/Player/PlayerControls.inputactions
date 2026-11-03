@@ -37,6 +37,16 @@
                     "priority": 0
                 },
                 {
+                    "name": "SuperDash",
+                    "type": "Button",
+                    "id": "862efd45-b955-4afb-9799-da60dd96b462",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "7a2b0880-eab5-4892-b13a-3e527b118235",
@@ -325,6 +335,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4cc375ef-539d-4939-b744-9e226e9df0ad",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SuperDash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

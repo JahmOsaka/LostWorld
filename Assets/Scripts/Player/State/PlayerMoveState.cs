@@ -32,8 +32,13 @@ public class PlayerMoveState : PlayerState
             stateMachine.ChangeState(player.DodgeState);
             return;
         }
+        else if (player.InputHandler.SuperDashInput && player.SkillController.hasSuperDash)
+        {
+            stateMachine.ChangeState(player.SuperDashState);
+            return;
+        }
 
-        if (player.InputHandler.JumpInput && (player.CheckIfGrounded() || player.CoyoteTimeCounter > 0f))
+        if (player.InputHandler.JumpInput && (player.CheckIfGrounded() || player.JumpsRemaining > 0 || player.CoyoteTimeCounter > 0f))
         {
             stateMachine.ChangeState(player.JumpState);
             return;
@@ -50,6 +55,7 @@ public class PlayerMoveState : PlayerState
             stateMachine.ChangeState(player.IdleState);
             return;
         }
+
     }
 
     public override void PhysicsUpdate()

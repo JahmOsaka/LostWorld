@@ -3,6 +3,8 @@
 public class PlayerJumpState : PlayerState
 {
     private bool hasJumped;
+    private bool hasAppliedJumpCut;
+    private float timer;
     public PlayerJumpState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
 
@@ -10,6 +12,9 @@ public class PlayerJumpState : PlayerState
     {
         base.Enter();
         hasJumped = false;
+        hasAppliedJumpCut = false;
+        timer = 0f;
+        player.JumpsRemaining--;
 
         player.InputHandler.UseJumpInput();
         player.ResetCoyoteTime();
@@ -20,16 +25,15 @@ public class PlayerJumpState : PlayerState
         player.ColliderController?.ActivateJumpCollider();
 
         player.Anim.Play("Jump_Ground", 0, 0f);
-        //player.Anim.Update(0f);
     }
 
     public void ExecuteJumpForce()
     {
         if (!hasJumped)
         {
-            player.RB.gravityScale = playerData.defaultGravity;
+            player.RB.gravityScale = playerData.JumpGravityScale;
 
-            player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.maxJumpVelocity);
+            player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.MaxJumpVelocity);
             hasJumped = true;
         }
     }
@@ -37,12 +41,9 @@ public class PlayerJumpState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (!hasJumped) return;
+        timer += Time.deltaTime;
 
-        if (!player.InputHandler.IsJumpHolding && player.RB.linearVelocity.y > 0)
-        {
-            player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, player.RB.linearVelocity.y * playerData.minJumpMultiplier);
-        }
+        if (!hasJumped) return;
 
         if (player.CheckIfGrounded() && player.RB.linearVelocity.y <= 0.01f)
         {
@@ -57,7 +58,11 @@ public class PlayerJumpState : PlayerState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-
+        if (!hasAppliedJumpCut && !player.InputHandler.IsJumpHolding && player.RB.linearVelocity.y > 0 && timer > playerData.minJumpHoldTime)
+        {
+            player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, player.RB.linearVelocity.y * playerData.minJumpMultiplier);
+            hasAppliedJumpCut = true;
+        }
         float inputX = player.InputHandler.RawMovementInput.x;
         float moveDirection = inputX == 0 ? 0 : Mathf.Sign(inputX);
 

@@ -20,8 +20,11 @@ public class PlayerData : ScriptableObject
     [Header("3. Jump & Landing Settings")]
     [Tooltip("Default gravity scale for normal movement and falling.")]
     public float defaultGravity = 2.5f;
-    [Tooltip("Initial vertical velocity when jumping.")]
-    public float maxJumpVelocity = 15f;
+    public float minJumpHoldTime = 0.08f;
+    [Tooltip("The maximum height (Unity units) required to jump when the button is fully pressed and held.")]
+    public float maxJumpHeight = 3f;
+    [Tooltip("Time (in seconds) to reach the top when the button is pressed and held.")]
+    public float jumpApexTime = 0.25f;
     [Tooltip("Velocity cut multiplier when releasing jump early.")]
     [Range(0.1f, 1f)] public float minJumpMultiplier = 0.5f;
     [Tooltip("Vertical velocity threshold to trigger Fall State.")]
@@ -32,6 +35,8 @@ public class PlayerData : ScriptableObject
     public float hardLandingThreshold = 0.6f;
     public float softLandingAnimSpeed = 3f;
     public float hardLandingAnimSpeed = 1f;
+    public float softLandingExitTime = 0.1f;
+    public float hardLandingExitTime = 0.4f;
 
     [Space(10)]
     [Header("4. Input Assists & Buffers")]
@@ -48,10 +53,13 @@ public class PlayerData : ScriptableObject
     [Header("5. Dodge Settings")]
     [SerializeField] private float dodgeSpeed = 12f;
     [SerializeField] private float dodgeDuration = 0.4f;
-    [SerializeField] private float dodgeCooldown = 1f;
+    [SerializeField] private float dodgeCooldown = 0.4f;
+    [SerializeField] private float dodgeIFrameDuration = -1f;
+    public float superDashSpeed = 18f;
 
     [Space(10)]
     [Header("6. Combat Settings")]
+    public float attackDuration = 0.5f;
     public int attackDamage = 10;
     public float comboWindow = 0.2f;
     [SerializeField] private float attackSpeedMultiplier = 1f;
@@ -77,4 +85,7 @@ public class PlayerData : ScriptableObject
     public float DodgeDuration => dodgeDuration;
     public float DodgeCooldown => dodgeCooldown;
     public float AttackSpeedMultiplier => attackSpeedMultiplier;
+    public float MaxJumpVelocity => 2f * maxJumpHeight / jumpApexTime;
+    public float JumpGravityScale => (2f * maxJumpHeight / (jumpApexTime * jumpApexTime)) / Physics2D.gravity.magnitude;
+    public float DodgeIFrameDuration => dodgeIFrameDuration <= 0f ? dodgeDuration : dodgeIFrameDuration;
 }

@@ -9,6 +9,12 @@ public class PlayerSkillController : MonoBehaviour
     public bool hasPerish = false;
     public SkillData perishSkillData;
 
+    public bool hasDoubleJump = false;
+    public SkillData doubleJumpSkillData;
+
+    public bool hasSuperDash = false;
+    public SkillData superDashSkillData;
+
     [Header("Combat Skills Inventory & Wheel")]
     public List<SkillData> unlockedCombatSkills = new List<SkillData>();
     [Tooltip("4 slots corresponding to the Hotkey Wheel (0: Up, 1: Right, 2: Down, 3: Left).")]
@@ -21,6 +27,7 @@ public class PlayerSkillController : MonoBehaviour
     private PlayerInputHandler inputHandler;
     private PlayerStats playerStats;
     private float cooldownTimer;
+    private Player player;
 
     public SkillData CurrentCombatSkill => equippedWheelSkills[activeWheelIndex];
 
@@ -28,6 +35,7 @@ public class PlayerSkillController : MonoBehaviour
     {
         inputHandler = GetComponentInParent<PlayerInputHandler>();
         playerStats = GetComponentInParent<PlayerStats>();
+        player = GetComponentInParent<Player>();
     }
 
     private void Start() => UpdateHUD();
@@ -40,7 +48,13 @@ public class PlayerSkillController : MonoBehaviour
         if (inputHandler.SkillInput)
         {
             inputHandler.UseSkillInput();
-            UseActiveCombatSkill();
+            if (cooldownTimer <= 0 && CurrentCombatSkill != null && HasEnoughEnergy())
+            {
+                player.SkillState.SetSkill(CurrentCombatSkill);
+                player.StateMachine.ChangeState(player.SkillState);
+                cooldownTimer = CurrentCombatSkill.cooldownTime;
+                playerStats?.ConsumeEnergy(CurrentCombatSkill.mpCost);
+            }
         }
 
         if (hasPerish && perishSkillData != null && IsNearBlueGate())
@@ -63,30 +77,11 @@ public class PlayerSkillController : MonoBehaviour
         return false;
     }
 
-    public void UseActiveCombatSkill()
+    private bool HasEnoughEnergy()
     {
         SkillData skill = CurrentCombatSkill;
-        if (skill != null && cooldownTimer <= 0)
-        {
-            if (playerStats != null)
-            {
-                if (playerStats.currentEnergy >= skill.mpCost)
-                {
-                    playerStats.ConsumeEnergy(skill.mpCost);
-                    skill.ExecuteSkill(gameObject);
-                    cooldownTimer = skill.cooldownTime;
-                }
-                else
-                {
-                    Debug.Log("Not enough Energy (MP) to use this skill!");
-                }
-            }
-            else
-            {
-                skill.ExecuteSkill(gameObject);
-                cooldownTimer = skill.cooldownTime;
-            }
-        }
+        if (skill == null) return false;
+        return playerStats == null || playerStats.currentEnergy >= skill.mpCost;
     }
 
     public void UnlockSkill(SkillData newSkill)
@@ -96,9 +91,12 @@ public class PlayerSkillController : MonoBehaviour
         if (newSkill.skillType == SkillType.KeySkill)
         {
             if (newSkill == perishSkillData || newSkill.skillName == "Perish")
-            {
                 hasPerish = true;
-            }
+            else if (newSkill == doubleJumpSkillData || newSkill.skillName == "Double Jump")
+                hasDoubleJump = true;
+            else if (newSkill == superDashSkillData || newSkill.skillName == "Super Dash")
+                hasSuperDash = true;
+
             return;
         }
 

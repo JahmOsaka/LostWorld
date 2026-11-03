@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     public Animator Anim { get; private set; }
     public CoreHealth Health { get; private set; }
+    public PlayerSkillController SkillController { get; private set; }
 
     public int ComboCounter { get; private set; }
     public float LastAttackTime { get; set; } = -999f;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
     public int FacingDirection { get; private set; } = 1;
     public float CoyoteTimeCounter { get; private set; }
     public float FallDuration { get; set; }
+    public int JumpsRemaining { get; set; }
 
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
@@ -43,6 +45,8 @@ public class Player : MonoBehaviour
     public PlayerLandState LandState { get; private set; }
     public PlayerDodgeState DodgeState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }
+    public PlayerSkillState SkillState { get; private set; }
+    public PlayerSuperDashState SuperDashState { get; private set; }
 
     private void OnValidate()
     {
@@ -84,6 +88,7 @@ public class Player : MonoBehaviour
         Anim = GetComponentInChildren<Animator>();
         Health = GetComponent<CoreHealth>();
         ColliderController = GetComponent<PlayerColliderController>();
+        SkillController = GetComponentInChildren<PlayerSkillController>();
         StateMachine = new PlayerStateMachine();
         RB.freezeRotation = true;
 
@@ -94,6 +99,8 @@ public class Player : MonoBehaviour
         LandState = new PlayerLandState(this, StateMachine, playerData, "land");
         DodgeState = new PlayerDodgeState(this, StateMachine, playerData, "dodge");
         AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        SkillState = new PlayerSkillState(this, StateMachine, playerData, "skill");
+        SuperDashState = new PlayerSuperDashState(this, StateMachine, playerData, "superdash");
     }
 
     private void Start()
@@ -111,10 +118,15 @@ public class Player : MonoBehaviour
 
         if (DodgeCooldownTimer > 0) DodgeCooldownTimer -= Time.deltaTime;
 
-        if (CheckIfGrounded())
+        if (groundedForAnim)
+        {
             CoyoteTimeCounter = playerData.coyoteTime;
+            JumpsRemaining = SkillController != null && SkillController.hasDoubleJump ? 2 : 1;
+        }
         else
+        {
             CoyoteTimeCounter -= Time.deltaTime;
+        }
 
     }
 
@@ -175,7 +187,10 @@ public class Player : MonoBehaviour
     public void FinishAttack()
     {
         LastAttackTime = Time.time;
-        StateMachine.ChangeState(IdleState);
+        if (InputHandler.RawMovementInput.x != 0)
+            StateMachine.ChangeState(MoveState);
+        else
+            StateMachine.ChangeState(IdleState);
     }
 
     public void EnableHitbox() => whipHitbox?.gameObject.SetActive(true);
