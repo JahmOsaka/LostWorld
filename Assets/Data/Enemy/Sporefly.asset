@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7112d18e3cc86a944bac2f9e2f892db2, type: 3}
   m_Name: Sporefly
   m_EditorClassIdentifier: Assembly-CSharp::FlyerData
-  maxHealth: 30
+  maxHealth: 4
   damage: 1
   moveSpeed: 2
   patrolSpeed: 1.5
   idleTimeAtPoint: 1.5
-  canDetectPlayer: 0
+  canDetectPlayer: 1
   chaseRange: 5
   retreatsAfterAttack: 0
   retreatDistance: 2
@@ -25,9 +25,9 @@ MonoBehaviour:
   retreatTriggerRange: 2
   retreatPauseTime: 0.4
   retreatChance: 1
-  hoverRadiusX: 4
+  hoverRadiusX: 8
   hoverRadiusY: 1.5
-  leashRadius: 8
+  leashRadius: 10
   followSpeed: 3
   keepDistance: 3
   followHeight: 1.5
@@ -37,7 +37,7 @@ MonoBehaviour:
   chargeOvershoot: 1
   chargeRecover: 0.5
   chargeCooldown: 2
-  headPrefab: {fileID: 0}
+  headPrefab: {fileID: 6920680603885643416, guid: 822c18511557a5c41b0fdd9039ccfd10, type: 3}
   burstDamage: 30
-  burstRadius: 2
+  burstRadius: 3
   burstFuse: 1
