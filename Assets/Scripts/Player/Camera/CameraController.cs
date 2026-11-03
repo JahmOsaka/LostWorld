@@ -77,7 +77,9 @@ public class CameraController : MonoBehaviour
         cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
         if (cinemachineCamera != null)
         {
-            defaultZoom = cinemachineCamera.Lens.OrthographicSize;
+            var lens = cinemachineCamera.Lens;
+            lens.OrthographicSize = defaultZoom;
+            cinemachineCamera.Lens = lens;
 
             positionComposer = cinemachineCamera.GetComponent<CinemachinePositionComposer>();
             if (positionComposer != null)
