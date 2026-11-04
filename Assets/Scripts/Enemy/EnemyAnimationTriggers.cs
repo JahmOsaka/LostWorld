@@ -24,6 +24,11 @@ public class EnemyAnimationTriggers : MonoBehaviour
         enemy.NotifyAttackAnimationEnd();
     }
 
+    private void NotifyComboCheck()
+    {
+        enemy.NotifyComboCheck();
+    }
+
     private void NotifyThrowAnimationEnd()
     {
         enemy.NotifyThrowAnimationEnd();

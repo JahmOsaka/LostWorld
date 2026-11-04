@@ -146,6 +146,11 @@ public class Enemy : MonoBehaviour
         if (stateMachine.CurrentState != attackState) return;
         attackState.OnAttackAnimationEnd();
     }
+    public void NotifyComboCheck()
+    {
+        if (stateMachine.CurrentState != attackState) return;
+        attackState.OnComboCheck();
+    }
 
     public void NotifySpawnOrbs()
     {

@@ -4,8 +4,12 @@ public class EnemyAttackState : EnemyState
 {
     private float cooldownTimer;
     private bool isAttacking;
+    private bool lastHitLanded;
+    private bool waitingCombo;
+    private float comboTimer;
 
     private MeleeEnemyData melee => (MeleeEnemyData)enemyData;
+    private bool hasCombo => enemyData is EliteEnemyData;
 
     public EnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName)
         : base(enemy, stateMachine, enemyData, animBoolName) { }
@@ -15,11 +19,24 @@ public class EnemyAttackState : EnemyState
         enemy.rb.linearVelocity = Vector2.zero;
         cooldownTimer = 0f;
         isAttacking = false;
+        waitingCombo = false;
+        lastHitLanded = false;
     }
 
     public override void LogicUpdate()
     {
-        if (isAttacking) return; 
+        if (waitingCombo)
+        {
+            comboTimer -= Time.deltaTime;
+            if (comboTimer <= 0f)
+            {
+                waitingCombo = false;
+                enemy.anim.SetTrigger("combo");   
+            }
+            return;
+        }
+
+        if (isAttacking) return;
 
         enemy.FacePlayer();
         float dist = enemy.DistanceToPlayer();
@@ -34,22 +51,60 @@ public class EnemyAttackState : EnemyState
         if (cooldownTimer <= 0f)
         {
             isAttacking = true;
+            lastHitLanded = false;
             enemy.anim.SetTrigger("attack");
             cooldownTimer = melee.attackCooldown;
         }
     }
 
+    private bool CanHurt(CoreHealth health)
+    {
+        foreach (Collider2D col in health.GetComponentsInChildren<Collider2D>())
+        {
+            if (health.CanBeDamagedBy(col)) return true;
+        }
+        return false;
+    }
+
     public void DealHit()
     {
+        bool landed = false;
+
         if (enemy.DistanceToPlayer() <= melee.attackRange)
         {
-            enemy.playerTransform.GetComponentInParent<IDamageable>()?.TakeDamage(melee.damage);
+            var target = enemy.playerTransform.GetComponentInParent<IDamageable>();
+            var health = enemy.playerTransform.GetComponentInParent<CoreHealth>();
+
+            if (target != null && (health == null || CanHurt(health)))
+            {
+                target.TakeDamage(melee.damage);
+                landed = true;
+            }
+        }
+
+        lastHitLanded = landed;
+    }
+
+    public void OnComboCheck()
+    {
+        if (!hasCombo || waitingCombo) return;
+
+        if (lastHitLanded)
+        {
+            waitingCombo = true;
+            comboTimer = melee.comboInterval;    
+        }
+        else
+        {
+            enemy.anim.SetTrigger("comboEnd"); 
+            OnAttackAnimationEnd();
         }
     }
 
     public void OnAttackAnimationEnd()
     {
         isAttacking = false;
+        waitingCombo = false;
 
         if (enemyData.ShouldRetreat(enemy.DistanceToPlayer()))
             stateMachine.ChangeState(enemy.RetreatState);
