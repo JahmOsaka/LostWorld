@@ -12,23 +12,22 @@ public class EnemyArcProjectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Init(Vector2 startPos, Vector2 targetPos, float arcHeight, int dmg, float speedMultiplier = 1f)
+    public void Init(Vector2 startPos, Vector2 targetPos, float launchAngle, int dmg, float speed)
     {
         damage = dmg;
-
-        float baseGravity = Mathf.Abs(Physics2D.gravity.y * rb.gravityScale);
+        float dx = targetPos.x - startPos.x;
         float deltaY = targetPos.y - startPos.y;
 
-        float timeUp = Mathf.Sqrt(2f * arcHeight / baseGravity);
-        float heightFromPeakToTarget = Mathf.Max(arcHeight - deltaY, 0.01f);
-        float timeDown = Mathf.Sqrt(2f * heightFromPeakToTarget / baseGravity);
+        float T = Mathf.Max(Mathf.Abs(dx), 0.5f) / Mathf.Max(speed, 0.01f);   
+        float vx = dx / T;
+        float vy = Mathf.Abs(vx) * Mathf.Tan(launchAngle * Mathf.Deg2Rad);   
 
-        float totalTime = timeUp + timeDown;
-        float vy = baseGravity * timeUp;
-        float vx = (targetPos.x - startPos.x) / totalTime;
+      
+        float g = 2f * (vy * T - deltaY) / (T * T);
+        g = Mathf.Max(g, 1f);
 
-        rb.gravityScale *= speedMultiplier * speedMultiplier;
-        rb.linearVelocity = new Vector2(vx, vy) * speedMultiplier;
+        rb.gravityScale = g / Mathf.Abs(Physics2D.gravity.y);
+        rb.linearVelocity = new Vector2(vx, vy);
 
         Destroy(gameObject, 5f);
     }

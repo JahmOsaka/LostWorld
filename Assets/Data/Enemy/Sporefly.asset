@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7112d18e3cc86a944bac2f9e2f892db2, type: 3}
+  m_Name: Sporefly
+  m_EditorClassIdentifier: Assembly-CSharp::FlyerData
+  maxHealth: 4
+  damage: 1
+  moveSpeed: 2
+  patrolSpeed: 1.5
+  idleTimeAtPoint: 1.5
+  canDetectPlayer: 1
+  chaseRange: 5
+  retreatsAfterAttack: 0
+  retreatDistance: 2
+  retreatSpeed: 3
+  retreatTriggerRange: 2
+  retreatPauseTime: 0.4
+  retreatChance: 1
+  hoverRadiusX: 8
+  hoverRadiusY: 1.5
+  leashRadius: 10
+  followSpeed: 3
+  keepDistance: 3
+  followHeight: 1.5
+  attackRange: 4
+  chargeWindup: 0.6
+  chargeSpeed: 12
+  chargeOvershoot: 1
+  chargeRecover: 0.5
+  chargeCooldown: 2
+  headPrefab: {fileID: 6920680603885643416, guid: 822c18511557a5c41b0fdd9039ccfd10, type: 3}
+  burstDamage: 30
+  burstRadius: 3
+  burstFuse: 1

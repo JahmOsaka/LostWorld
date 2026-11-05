@@ -2,8 +2,22 @@ using UnityEngine;
 
 public class EnemyChaseState : EnemyState
 {
+    private bool isBlocked;
+
     public EnemyChaseState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName)
         : base(enemy, stateMachine, enemyData, animBoolName) { }
+
+    public override void Enter()
+    {
+        base.Enter();
+        isBlocked = false;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        enemy.anim.SetBool("idle", false);
+    }
 
     public override void LogicUpdate()
     {
@@ -29,12 +43,25 @@ public class EnemyChaseState : EnemyState
 
     public override void PhysicsUpdate()
     {
-        Vector2 dir = (enemy.playerTransform.position - enemy.transform.position).normalized;
-        if (!enemy.IsGroundAheadOf(dir.x))
+        float dirX = enemy.playerTransform.position.x - enemy.transform.position.x;
+        dirX = dirX >= 0f ? 1f : -1f;
+
+        if (!enemy.IsGroundAheadOf(dirX) || enemy.IsWallAheadOf(dirX))
         {
             enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
+            SetBlocked(true);
             return;
         }
-        enemy.rb.linearVelocity = new Vector2(dir.x * enemyData.moveSpeed, enemy.rb.linearVelocity.y);
+
+        SetBlocked(false);
+        enemy.rb.linearVelocity = new Vector2(dirX * enemyData.moveSpeed, enemy.rb.linearVelocity.y);
+    }
+
+    private void SetBlocked(bool blocked)
+    {
+        if (isBlocked == blocked) return;
+        isBlocked = blocked;
+        enemy.anim.SetBool(animBoolName, !blocked);
+        enemy.anim.SetBool("idle", blocked); 
     }
 }

@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     [Header("Edge Detection")]
     public float edgeCheckDistance = 1f;
     public float edgeCheckForwardOffset = 0.4f;
+    public float wallCheckDistance = 0.1f;
     public LayerMask groundLayer;
 
     private List<GameObject> activeOrbs = new List<GameObject>();
@@ -37,7 +38,7 @@ public class Enemy : MonoBehaviour
     public Transform[] patrolPoints;
     private int currentPatrolIndex = 0;
 
-    private EnemyStateMachine stateMachine;
+    protected EnemyStateMachine stateMachine;
     private EnemyIdleState idleState;
     private EnemyPatrolState patrolState;
     private EnemyChaseState chaseState;
@@ -54,7 +55,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb { get; private set; }
     public Transform playerTransform { get; private set; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
@@ -90,7 +91,7 @@ public class Enemy : MonoBehaviour
         retreatState = new EnemyRetreatState(this, stateMachine, enemyData, "retreat");
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         if (HasPatrolPoints)
             stateMachine.Initialize(patrolState);
@@ -112,6 +113,7 @@ public class Enemy : MonoBehaviour
     {
         var ranged = enemyData as RangedEnemyData;
         if (ranged == null || ranged.projectilePrefab == null || throwPoint == null || playerTransform == null) return;
+        if (stateMachine.CurrentState != rangedAttackState) return;
 
         GameObject proj = Instantiate(ranged.projectilePrefab, throwPoint.position, Quaternion.identity);
 
@@ -119,7 +121,7 @@ public class Enemy : MonoBehaviour
         if (ranged.useArcProjectile)
         {
             proj.GetComponent<EnemyArcProjectile>()
-                .Init(throwPoint.position, playerTransform.position, ranged.arcHeight, ranged.damage, ranged.arcSpeedMultiplier);
+                .Init(throwPoint.position, playerTransform.position, ranged.arcLaunchAngle, ranged.damage, ranged.projectileSpeed);
         }
         else
         {
@@ -144,6 +146,11 @@ public class Enemy : MonoBehaviour
     {
         if (stateMachine.CurrentState != attackState) return;
         attackState.OnAttackAnimationEnd();
+    }
+    public void NotifyComboCheck()
+    {
+        if (stateMachine.CurrentState != attackState) return;
+        attackState.OnComboCheck();
     }
 
     public void NotifySpawnOrbs()
@@ -232,6 +239,24 @@ public class Enemy : MonoBehaviour
         Vector2 origin = feetPos + new Vector2(Mathf.Sign(dirX) * edgeCheckForwardOffset, 0.1f);
         return Physics2D.Raycast(origin, Vector2.down, edgeCheckDistance, groundLayer);
     }
+
+    public bool IsWallAheadOf(float dirX)
+    {
+        if (Mathf.Approximately(dirX, 0f)) return false;
+
+        BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
+        if (col == null) return false;
+
+        Bounds b = col.bounds;
+        Vector2 dir = new Vector2(Mathf.Sign(dirX), 0f);
+        float dist = b.extents.x + wallCheckDistance;
+
+        Vector2 mid = b.center;                                   
+        Vector2 low = new Vector2(b.center.x, b.min.y + 0.1f);    
+
+        return Physics2D.Raycast(mid, dir, dist, groundLayer)
+            || Physics2D.Raycast(low, dir, dist, groundLayer);
+    }
     public void ClearActiveOrbs()
     {
         foreach (var orb in activeOrbs)
@@ -255,6 +280,49 @@ public class Enemy : MonoBehaviour
 
         Gizmos.DrawLine(rightOrigin, rightOrigin + Vector2.down * edgeCheckDistance);
         Gizmos.DrawLine(leftOrigin, leftOrigin + Vector2.down * edgeCheckDistance);
+        DrawRangeGizmos();
+    }
+
+    private void DrawRangeGizmos()
+    {
+        if (enemyData == null) return;
+
+        BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
+        Vector3 center = col != null ? (Vector3)col.bounds.center : transform.position;
+
+        var ranged = enemyData as RangedEnemyData;
+        var melee = enemyData as MeleeEnemyData;
+
+        bool stationaryRanged = ranged != null && ranged.isStationary;
+        if (!stationaryRanged)
+            DrawRange(center, enemyData.chaseRange, new Color(0.3f, 0.8f, 1f), "Chase");
+
+        if (ranged != null)
+        {
+            DrawRange(center, ranged.throwRange, new Color(1f, 0.5f, 0f), "Throw");
+            DrawRange(center, ranged.throwRange * 1.2f, new Color(1f, 0.5f, 0f, 0.35f), "Throw exit");
+        }
+
+        if (melee != null)
+        {
+            DrawRange(center, melee.attackRange, new Color(1f, 0.2f, 0.2f), "Attack");
+            DrawRange(center, melee.attackRange * 1.2f, new Color(1f, 0.2f, 0.2f, 0.35f), "Attack exit");
+        }
+
+        if (enemyData.retreatsAfterAttack)
+        {
+            DrawRange(center, enemyData.retreatTriggerRange, new Color(0.8f, 0.3f, 1f), "Retreat trigger");
+            DrawRange(center, enemyData.retreatDistance, new Color(0.3f, 1f, 0.4f), "Retreat dist");
+        }
+    }
+
+    private static void DrawRange(Vector3 center, float radius, Color color, string label)
+    {
+        Gizmos.color = color;
+        Gizmos.DrawWireSphere(center, radius);
+#if UNITY_EDITOR
+        UnityEditor.Handles.Label(center + Vector3.up * radius, $"{label} {radius:0.0}");
+#endif
     }
 
     public EnemyIdleState IdleState => idleState;

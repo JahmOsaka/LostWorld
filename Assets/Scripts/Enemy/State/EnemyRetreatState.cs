@@ -38,7 +38,7 @@ public class EnemyRetreatState : EnemyState
             return;
         }
 
-        if (!enemy.IsGroundAheadOf(retreatDir.x))
+        if (!enemy.IsGroundAheadOf(retreatDir.x) || enemy.IsWallAheadOf(retreatDir.x))
         {
             BeginPause();
             return;
