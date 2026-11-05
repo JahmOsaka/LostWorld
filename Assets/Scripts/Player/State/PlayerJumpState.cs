@@ -14,7 +14,12 @@ public class PlayerJumpState : PlayerState
         hasJumped = false;
         hasAppliedJumpCut = false;
         timer = 0f;
-        player.JumpsRemaining--;
+
+        bool isGroundJump = player.CheckIfGrounded() || player.CoyoteTimeCounter > 0f;
+        if (!isGroundJump)
+        {
+            player.JumpsRemaining--;
+        }
 
         player.InputHandler.UseJumpInput();
         player.ResetCoyoteTime();

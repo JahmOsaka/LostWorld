@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
         if (groundedForAnim)
         {
             CoyoteTimeCounter = playerData.coyoteTime;
-            JumpsRemaining = SkillController != null && SkillController.hasDoubleJump ? 2 : 1;
+            JumpsRemaining = SkillController != null && SkillController.hasDoubleJump ? 1 : 0;
         }
         else
         {
