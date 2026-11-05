@@ -7,6 +7,7 @@ public class EnemyAttackState : EnemyState
     private bool lastHitLanded;
     private bool waitingCombo;
     private float comboTimer;
+    private CoreHealth coreHealth;
 
     private MeleeEnemyData melee => (MeleeEnemyData)enemyData;
     private bool hasCombo => enemyData is EliteEnemyData;
@@ -21,6 +22,9 @@ public class EnemyAttackState : EnemyState
         isAttacking = false;
         waitingCombo = false;
         lastHitLanded = false;
+
+        enemy.anim.ResetTrigger("combo");
+        enemy.anim.ResetTrigger("comboEnd");
     }
 
     public override void LogicUpdate()
@@ -56,6 +60,15 @@ public class EnemyAttackState : EnemyState
             cooldownTimer = melee.attackCooldown;
         }
     }
+    private bool CanUseOrbAttack()
+    {
+        if (!hasCombo) return false;
+        if (coreHealth == null) coreHealth = enemy.GetComponent<CoreHealth>();
+        if (coreHealth == null) return false;
+
+        var elite = (EliteEnemyData)enemyData;
+        return coreHealth.currentHealth <= coreHealth.maxHealth * elite.orbHpPercent;
+    }
 
     private bool CanHurt(CoreHealth health)
     {
@@ -89,7 +102,7 @@ public class EnemyAttackState : EnemyState
     {
         if (!hasCombo || waitingCombo) return;
 
-        if (lastHitLanded)
+        if (lastHitLanded && CanUseOrbAttack())
         {
             waitingCombo = true;
             comboTimer = melee.comboInterval;    

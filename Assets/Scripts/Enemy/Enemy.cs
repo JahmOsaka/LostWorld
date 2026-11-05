@@ -163,7 +163,12 @@ public class Enemy : MonoBehaviour
             if (orb != null) Destroy(orb);
         }
         activeOrbs.Clear();
-
+        
+        if (elite.orbCastVfxPrefab != null)
+        {
+            GameObject vfx = Instantiate(elite.orbCastVfxPrefab, transform.position, Quaternion.identity, transform);
+            if (elite.orbCastVfxLifetime > 0f) Destroy(vfx, elite.orbCastVfxLifetime);
+        }
         for (int i = 0; i < elite.orbCount; i++)
         {
             GameObject orbObj = Instantiate(elite.orbPrefab, transform.position, Quaternion.identity);
