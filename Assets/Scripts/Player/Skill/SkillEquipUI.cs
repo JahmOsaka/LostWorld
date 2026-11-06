@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -5,7 +6,6 @@ using TMPro;
 public class SkillEquipUI : MonoBehaviour
 {
     [Header("Main Panel")]
-    [Tooltip("The root panel of the Skill Select UI.")]
     public GameObject menuPanel;
     public bool IsMenuOpen => menuPanel != null && menuPanel.activeSelf;
 
@@ -15,7 +15,6 @@ public class SkillEquipUI : MonoBehaviour
     public GameObject[] wheelSlotHighlights = new GameObject[4];
 
     [Header("Center: Inventory Grid Slots")]
-    [Tooltip("Buttons inside the grid representing unlocked combat skills.")]
     public Button[] inventoryButtons;
     public Image[] inventoryIcons;
 
@@ -23,7 +22,8 @@ public class SkillEquipUI : MonoBehaviour
     public Image largePreviewIcon;
     public TextMeshProUGUI descriptionText;
 
-    private PlayerSkillController skillController;
+    private List<SkillData> localUnlockedSkills;
+    private SkillData[] localEquippedSkills = new SkillData[4];
     private int selectedWheelSlotIndex = 0;
 
     private void Start()
@@ -32,21 +32,29 @@ public class SkillEquipUI : MonoBehaviour
         {
             int index = i;
             if (wheelSlotButtons[i] != null)
-            {
                 wheelSlotButtons[i].onClick.AddListener(() => SelectWheelSlotToEdit(index));
-            }
         }
 
         for (int i = 0; i < inventoryButtons.Length; i++)
         {
             int index = i;
             if (inventoryButtons[i] != null)
-            {
                 inventoryButtons[i].onClick.AddListener(() => OnInventorySlotClicked(index));
-            }
         }
 
         if (menuPanel != null) menuPanel.SetActive(false);
+
+        SkillEquipService.Instance.OnMenuOpened += OpenMenu;
+        SkillEquipService.Instance.OnMenuClosed += CloseMenu;
+    }
+
+    private void OnDestroy()
+    {
+        if (SkillEquipService.Instance != null)
+        {
+            SkillEquipService.Instance.OnMenuOpened -= OpenMenu;
+            SkillEquipService.Instance.OnMenuClosed -= CloseMenu;
+        }
     }
 
     private void Update()
@@ -54,15 +62,16 @@ public class SkillEquipUI : MonoBehaviour
         if (IsMenuOpen && UnityEngine.InputSystem.Keyboard.current != null &&
             UnityEngine.InputSystem.Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            CloseMenu();
+            SkillEquipService.Instance.CloseMenuFromUI();
         }
     }
 
-    public void OpenMenu(PlayerSkillController controller)
+    private void OpenMenu(List<SkillData> unlocked, SkillData[] equipped)
     {
-        skillController = controller;
-        if (menuPanel != null) menuPanel.SetActive(true);
+        localUnlockedSkills = new List<SkillData>(unlocked);
+        equipped.CopyTo(localEquippedSkills, 0);
 
+        if (menuPanel != null) menuPanel.SetActive(true);
         Time.timeScale = 0f;
 
         SelectWheelSlotToEdit(0);
@@ -72,13 +81,12 @@ public class SkillEquipUI : MonoBehaviour
     public void CloseMenu()
     {
         if (menuPanel != null) menuPanel.SetActive(false);
-
         Time.timeScale = 1f;
+    }
 
-        if (skillController != null)
-        {
-            skillController.UpdateHUD();
-        }
+    public SkillData[] GetCurrentWheelSkills()
+    {
+        return localEquippedSkills;
     }
 
     public void SelectWheelSlotToEdit(int slotIndex)
@@ -91,44 +99,34 @@ public class SkillEquipUI : MonoBehaviour
                 wheelSlotHighlights[i].SetActive(i == selectedWheelSlotIndex);
         }
 
-        if (skillController != null)
-        {
-            ShowSkillDetails(skillController.equippedWheelSkills[selectedWheelSlotIndex]);
-        }
+        ShowSkillDetails(localEquippedSkills[selectedWheelSlotIndex]);
     }
 
     private void OnInventorySlotClicked(int inventoryIndex)
     {
-        if (skillController == null) return;
+        if (localUnlockedSkills == null || inventoryIndex >= localUnlockedSkills.Count) return;
 
-        if (inventoryIndex < skillController.unlockedCombatSkills.Count)
+        SkillData chosenSkill = localUnlockedSkills[inventoryIndex];
+
+        for (int i = 0; i < localEquippedSkills.Length; i++)
         {
-            SkillData chosenSkill = skillController.unlockedCombatSkills[inventoryIndex];
-
-            for (int i = 0; i < skillController.equippedWheelSkills.Length; i++)
-            {
-                if (skillController.equippedWheelSkills[i] == chosenSkill)
-                {
-                    skillController.equippedWheelSkills[i] = null;
-                }
-            }
-
-            skillController.equippedWheelSkills[selectedWheelSlotIndex] = chosenSkill;
-
-            RefreshUI();
-            ShowSkillDetails(chosenSkill);
+            if (localEquippedSkills[i] == chosenSkill)
+                localEquippedSkills[i] = null;
         }
+
+        localEquippedSkills[selectedWheelSlotIndex] = chosenSkill;
+
+        RefreshUI();
+        ShowSkillDetails(chosenSkill);
     }
 
     private void RefreshUI()
     {
-        if (skillController == null) return;
-
         for (int i = 0; i < wheelSlotIcons.Length; i++)
         {
             if (wheelSlotIcons[i] != null)
             {
-                SkillData skill = skillController.equippedWheelSkills[i];
+                SkillData skill = localEquippedSkills[i];
                 if (skill != null && skill.skillIcon != null)
                 {
                     wheelSlotIcons[i].sprite = skill.skillIcon;
@@ -145,9 +143,9 @@ public class SkillEquipUI : MonoBehaviour
         {
             if (inventoryIcons[i] != null)
             {
-                if (i < skillController.unlockedCombatSkills.Count)
+                if (i < localUnlockedSkills.Count)
                 {
-                    SkillData skill = skillController.unlockedCombatSkills[i];
+                    SkillData skill = localUnlockedSkills[i];
                     inventoryIcons[i].sprite = skill.skillIcon;
                     inventoryIcons[i].enabled = true;
                     if (inventoryButtons[i] != null) inventoryButtons[i].interactable = true;
@@ -172,7 +170,14 @@ public class SkillEquipUI : MonoBehaviour
             }
             if (descriptionText != null)
             {
-                descriptionText.text = $"<b>{skill.skillName}</b>\n\n{skill.description}\n\n<color=#00FFCC>MP Cost: {skill.mpCost}</color> | <color=#FFCC00>Cooldown: {skill.cooldownTime}s</color>";
+                if (skill is ActiveSkillData activeSkill)
+                {
+                    descriptionText.text = $"<b>{skill.skillName}</b>\n\n{skill.description}\n\n<color=#00FFCC>MP Cost: {activeSkill.mpCost}</color> | <color=#FFCC00>Cooldown: {activeSkill.cooldownTime}s</color>";
+                }
+                else
+                {
+                    descriptionText.text = $"<b>{skill.skillName}</b>\n\n{skill.description}";
+                }
             }
         }
         else

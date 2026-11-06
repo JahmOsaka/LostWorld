@@ -22,7 +22,14 @@ public class PlayerSkillState : PlayerState
     {
         base.LogicUpdate();
         failsafeTimer += Time.deltaTime;
-        if (failsafeTimer >= (currentSkill != null ? currentSkill.castDuration : 0.5f))
+
+        float duration = 0.5f;
+        if (currentSkill is ActiveSkillData activeSkill)
+        {
+            duration = activeSkill.castDuration;
+        }
+
+        if (failsafeTimer >= duration)
         {
             stateMachine.ChangeState(player.InputHandler.RawMovementInput.x != 0 ? player.MoveState : player.IdleState);
         }

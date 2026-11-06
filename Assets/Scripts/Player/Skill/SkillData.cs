@@ -1,30 +1,25 @@
 using UnityEngine;
 
-public enum SkillType
+public enum SkillCategory
 {
-    CombatSkill,
-    KeySkill
+    CombatActive,
+    CombatPassive,
+    KeyAbility,
+    Ultimate
 }
 
 public abstract class SkillData : ScriptableObject
 {
     [Header("Basic Info")]
     public string skillName;
-    public SkillType skillType = SkillType.CombatSkill;
+    public SkillCategory category = SkillCategory.CombatActive;
 
     [TextArea(3, 5)]
-    [Tooltip("Skill description to display in the Fairy Ring Skill Select UI.")]
     public string description;
 
-    [Header("Combat Stats")]
-    [Tooltip("Cooldown time in seconds before the skill can be used again.")]
-    public float cooldownTime;
-    [Tooltip("Mana cost required to execute this combat skill.")]
-    public int mpCost = 20;
-    public float castDuration;
     [Header("UI & TechArt")]
     public Sprite skillIcon;
     public GameObject vfxPrefab;
 
-    public abstract void ExecuteSkill(GameObject user);
+    public virtual void ExecuteSkill(GameObject user) { }
 }

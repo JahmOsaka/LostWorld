@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class PlayerSkillController : MonoBehaviour
 {
     [Header("Key Abilities (Progression)")]
-    [Tooltip("Unlocked state for Perish ability (destroys Blue Gates & absorbs low HP enemies).")]
     public bool hasPerish = false;
     public SkillData perishSkillData;
 
@@ -17,7 +16,6 @@ public class PlayerSkillController : MonoBehaviour
 
     [Header("Combat Skills Inventory & Wheel")]
     public List<SkillData> unlockedCombatSkills = new List<SkillData>();
-    [Tooltip("4 slots corresponding to the Hotkey Wheel (0: Up, 1: Right, 2: Down, 3: Left).")]
     public SkillData[] equippedWheelSkills = new SkillData[4];
     public int activeWheelIndex = 0;
 
@@ -52,8 +50,12 @@ public class PlayerSkillController : MonoBehaviour
             {
                 player.SkillState.SetSkill(CurrentCombatSkill);
                 player.StateMachine.ChangeState(player.SkillState);
-                cooldownTimer = CurrentCombatSkill.cooldownTime;
-                playerStats?.ConsumeEnergy(CurrentCombatSkill.mpCost);
+
+                if (CurrentCombatSkill is ActiveSkillData activeSkill)
+                {
+                    cooldownTimer = activeSkill.cooldownTime;
+                    playerStats?.ConsumeEnergy(activeSkill.mpCost);
+                }
             }
         }
 
@@ -79,16 +81,24 @@ public class PlayerSkillController : MonoBehaviour
 
     private bool HasEnoughEnergy()
     {
-        SkillData skill = CurrentCombatSkill;
-        if (skill == null) return false;
-        return playerStats == null || playerStats.currentEnergy >= skill.mpCost;
+        if (CurrentCombatSkill is ActiveSkillData activeSkill)
+        {
+            return playerStats == null || playerStats.currentEnergy >= activeSkill.mpCost;
+        }
+        return false;
+    }
+
+    public void UpdateEquippedSkills(SkillData[] newEquippedSkills)
+    {
+        newEquippedSkills.CopyTo(equippedWheelSkills, 0);
+        UpdateHUD();
     }
 
     public void UnlockSkill(SkillData newSkill)
     {
         if (newSkill == null) return;
 
-        if (newSkill.skillType == SkillType.KeySkill)
+        if (newSkill.category == SkillCategory.KeyAbility)
         {
             if (newSkill == perishSkillData || newSkill.skillName == "Perish")
                 hasPerish = true;

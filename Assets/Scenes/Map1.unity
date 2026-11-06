@@ -401501,6 +401501,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1839111313}
   - component: {fileID: 1839111314}
+  - component: {fileID: 1839111318}
+  - component: {fileID: 1839111317}
+  - component: {fileID: 1839111316}
+  - component: {fileID: 1839111315}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -401535,6 +401539,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb90d36f8f7c0842892bd7fa091fe24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FPSUnlocker
+--- !u!114 &1839111315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839111312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8cc57d0cf6cd0419742c5121f24f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveManager
+--- !u!114 &1839111316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839111312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433ab04a21c1e1b4d8bbde4c8175d1b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheckpointManager
+--- !u!114 &1839111317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839111312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2014572399be94198b8f83c621647f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillEquipService
+  skillEquipMenu: {fileID: 1047858282}
+--- !u!114 &1839111318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839111312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0157a77ca629a9748aa9677987827323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RestService
 --- !u!1 &1839418815
 GameObject:
   m_ObjectHideFlags: 0
