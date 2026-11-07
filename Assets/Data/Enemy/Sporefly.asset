@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7112d18e3cc86a944bac2f9e2f892db2, type: 3}
   m_Name: Sporefly
   m_EditorClassIdentifier: Assembly-CSharp::FlyerData
-  maxHealth: 4
+  maxHealth: 2
   damage: 1
   moveSpeed: 2
   patrolSpeed: 1.5
   idleTimeAtPoint: 1.5
   canDetectPlayer: 1
-  chaseRange: 5
+  chaseRange: 8.07
   retreatsAfterAttack: 0
   retreatDistance: 2
   retreatSpeed: 3

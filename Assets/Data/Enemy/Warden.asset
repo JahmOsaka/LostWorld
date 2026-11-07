@@ -33,6 +33,6 @@ MonoBehaviour:
   orbCastVfxLifetime: 0.5
   orbHpPercent: 0.5
   orbCount: 2
-  orbitRadius: 2
+  orbitRadius: 4.7
   orbitSpeed: 180
   orbDuration: 3

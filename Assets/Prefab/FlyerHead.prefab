@@ -80,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 491147479
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3784208444547856841, guid: b0faef86bbb805a49bf3e797d69ebd50, type: 3}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e2681f524994847a72c7acab32e9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyerHead
-  burstEffect: {fileID: 0}
+  burstEffect: {fileID: 4296565627176495652, guid: 4f83cb427767ca84885ddce1fcfd81f6, type: 3}
 --- !u!58 &-7370220919173701688
 CircleCollider2D:
   m_ObjectHideFlags: 0

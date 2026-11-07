@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7ff4d590398b0e47b77813b1fc73c41, type: 3}
-  m_Name: Spit
+  m_Name: Spit Arc
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHealth: 4
+  maxHealth: 3
   damage: 1
   moveSpeed: 2
   patrolSpeed: 1.5
@@ -26,10 +26,9 @@ MonoBehaviour:
   retreatPauseTime: 0.4
   retreatChance: 1
   isStationary: 1
-  throwRange: 10.7
+  throwRange: 10.89
   throwCooldown: 1
-  projectileSpeed: 15.07
+  projectileSpeed: 9.32
   projectilePrefab: {fileID: 4405633380316195933, guid: fb809a0112b13ce478dfa2107cfced3c, type: 3}
   useArcProjectile: 1
-  arcHeight: 0.21
-  arcSpeedMultiplier: 1.92
+  arcLaunchAngle: 60

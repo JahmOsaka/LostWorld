@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96968c9e2cca0394aa4897254693196b, type: 3}
   m_Name: Myce
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHealth: 1
+  maxHealth: 3
   damage: 1
-  moveSpeed: 2
-  patrolSpeed: 2
+  moveSpeed: 4.5
+  patrolSpeed: 3.7
   idleTimeAtPoint: 1.5
   canDetectPlayer: 0
   chaseRange: 5
@@ -23,3 +23,5 @@ MonoBehaviour:
   retreatDistance: 2
   retreatSpeed: 3
   retreatTriggerRange: 2
+  retreatPauseTime: 0.4
+  retreatChance: 1
