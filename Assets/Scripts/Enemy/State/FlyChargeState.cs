@@ -90,7 +90,16 @@ public class FlyChargeState : EnemyState
 
     public override void PhysicsUpdate()
     {
-        if (phase == Phase.Dash)
-            enemy.rb.linearVelocity = dashDir * data.chargeSpeed;
+        if (phase != Phase.Dash) return;
+
+        float look = enemy.wallCheckDistance + data.chargeSpeed * Time.fixedDeltaTime;
+        if (fly.IsBlocked(dashDir, look))
+        {
+            enemy.rb.linearVelocity = Vector2.zero;
+            timer = 0f;
+            return;
+        }
+
+        enemy.rb.linearVelocity = dashDir * data.chargeSpeed;
     }
 }
