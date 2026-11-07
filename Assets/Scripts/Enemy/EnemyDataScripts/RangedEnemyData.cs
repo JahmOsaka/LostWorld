@@ -12,5 +12,6 @@ public class RangedEnemyData : EnemyData
 
     [Header("Arc Projectile")]
     public bool useArcProjectile = false;
+    [Range(15f, 85f)]
     public float arcLaunchAngle = 60f;
 }

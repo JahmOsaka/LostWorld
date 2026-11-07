@@ -16,19 +16,36 @@ public class EnemyArcProjectile : MonoBehaviour
     {
         damage = dmg;
         float dx = targetPos.x - startPos.x;
-        float deltaY = targetPos.y - startPos.y;
+        float dy = targetPos.y - startPos.y;
+        float distanceX = Mathf.Abs(dx);
 
-        float T = Mathf.Max(Mathf.Abs(dx), 0.5f) / Mathf.Max(speed, 0.01f);   
-        float vx = dx / T;
-        float vy = Mathf.Abs(vx) * Mathf.Tan(launchAngle * Mathf.Deg2Rad);   
+        float fixedGravityScale = 2f;
+        rb.gravityScale = fixedGravityScale;
+        float g = Mathf.Abs(Physics2D.gravity.y) * fixedGravityScale;
 
-      
-        float g = 2f * (vy * T - deltaY) / (T * T);
-        g = Mathf.Max(g, 1f);
+        float angleRad = launchAngle * Mathf.Deg2Rad;
+        float tanAngle = Mathf.Tan(angleRad);
 
-        rb.gravityScale = g / Mathf.Abs(Physics2D.gravity.y);
+        float denominator = (distanceX * tanAngle) - dy;
+
+        float vx = 0f;
+        float vy = 0f;
+
+        if (denominator > 0)
+        {
+            float vxSq = (0.5f * g * distanceX * distanceX) / denominator;
+            vx = Mathf.Sqrt(vxSq);
+            vy = vx * tanAngle;
+        }
+        else
+        {
+            vx = speed;
+            vy = 0;
+        }
+
+        vx *= Mathf.Sign(dx);
+
         rb.linearVelocity = new Vector2(vx, vy);
-
         Destroy(gameObject, 5f);
     }
 
