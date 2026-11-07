@@ -11,6 +11,7 @@ public class PlayerSensor : MonoBehaviour
 
     [Header("Layer Masks")]
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private LayerMask oneWayPlatformLayer;
 
     private void Awake()
     {
@@ -73,5 +74,26 @@ public class PlayerSensor : MonoBehaviour
             Vector3 ceilingCastPos = ceilingCheckPoint.position + (Vector3)(Vector2.up * data.boxCastDistance);
             Gizmos.DrawWireCube(ceilingCastPos, data.ceilingCheckSize);
         }
+    }
+
+    public bool IsStandingOnOneWay()
+    {
+        if (groundCheckPoint == null || data == null) return false;
+        Vector2 groundCastPos = (Vector2)groundCheckPoint.position + (Vector2.down * data.boxCastDistance);
+        return Physics2D.OverlapBox(groundCastPos, data.groundCheckSize, 0f, oneWayPlatformLayer) != null;
+    }
+
+    public bool IsInsideOneWayPlatform(BoxCollider2D currentCollider)
+    {
+        if (currentCollider == null) return false;
+
+        Vector2 boxSize = currentCollider.bounds.size;
+        boxSize.y -= 0.2f;
+        boxSize.x -= 0.1f;
+
+        Vector2 boxCenter = currentCollider.bounds.center;
+        boxCenter.y += 0.1f;
+
+        return Physics2D.OverlapBox(boxCenter, boxSize, 0f, oneWayPlatformLayer) != null;
     }
 }

@@ -34,11 +34,6 @@ public class CameraController : MonoBehaviour
     [Tooltip("Multiplier for Look-Ahead distance when standing still (1 = Keep full distance, 0.5 = Half).")]
     [Range(0f, 1f)] public float idleLookAheadRatio = 0.75f;
 
-    [Header("Look Up/Down (Manual Pan)")]
-    public float panDistanceY = 4f;
-    [Tooltip("Time in seconds for vertical pan to reach target.")]
-    public float panSmoothTimeY = 0.25f;
-
     private Vector3 offsetVelocity;
 
     [Header("Combat Detection & Weighted Midpoint")]
@@ -131,7 +126,6 @@ public class CameraController : MonoBehaviour
             }
         }
     }
-
     private void UpdateCameraZoom()
     {
         float targetZoom = (currentState == CameraState.Fighting)
@@ -146,7 +140,6 @@ public class CameraController : MonoBehaviour
         lens.OrthographicSize = Mathf.SmoothDamp(lens.OrthographicSize, targetZoom, ref zoomVelocity, currentSmoothTime);
         cinemachineCamera.Lens = lens;
     }
-
     private void UpdateTargetOffsets()
     {
         Vector3 targetOffset = defaultTargetOffset;
@@ -166,11 +159,12 @@ public class CameraController : MonoBehaviour
             }
 
             targetOffset.x += lookDirectionX * lookAheadDistanceX;
-            targetOffset.y += inputHandler.LookAxis * panDistanceY;
 
             Vector3 currentOffset = positionComposer.TargetOffset;
             currentOffset.x = Mathf.SmoothDamp(currentOffset.x, targetOffset.x, ref offsetVelocity.x, lookAheadSmoothTimeX);
-            currentOffset.y = Mathf.SmoothDamp(currentOffset.y, targetOffset.y, ref offsetVelocity.y, panSmoothTimeY);
+
+            currentOffset.y = Mathf.SmoothDamp(currentOffset.y, targetOffset.y, ref offsetVelocity.y, 0.25f);
+
             positionComposer.TargetOffset = currentOffset;
         }
         else if (currentState == CameraState.Fighting)

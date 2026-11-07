@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     [SerializeField] private SpriteRenderer whipSpriteRenderer;
     [SerializeField] private SpriteRenderer vfxSpriteRenderer;
 
+    private int originalLayer;
+    private int passThroughLayer;
+    private float dropDownTimer;
+
     // Components
     public Rigidbody2D RB { get; private set; }
     public BoxCollider2D Collider { get; private set; }
@@ -23,6 +27,7 @@ public class Player : MonoBehaviour
     public CoreHealth Health { get; private set; }
     public PlayerSkillController SkillController { get; private set; }
     public PlayerSensor Sensor { get; private set; }
+    public bool IsInsideOneWay { get; private set; }
 
     // Runtime Data
     public PlayerCombatData CombatData { get; private set; } = new PlayerCombatData();
@@ -57,6 +62,8 @@ public class Player : MonoBehaviour
 
         StateMachine = new PlayerStateMachine();
         RB.freezeRotation = true;
+        originalLayer = gameObject.layer;
+        passThroughLayer = LayerMask.NameToLayer("PlayerPassThrough");
 
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
@@ -93,6 +100,8 @@ public class Player : MonoBehaviour
         {
             CoyoteTimeCounter -= Time.deltaTime;
         }
+
+        HandleOneWayPlatforms();
     }
 
     private void FixedUpdate() => StateMachine.CurrentState.PhysicsUpdate();
@@ -100,6 +109,9 @@ public class Player : MonoBehaviour
     public bool CheckIfGrounded()
     {
         if (StateMachine.CurrentState == JumpState && RB.linearVelocity.y > 0.05f) return false;
+
+        if (dropDownTimer > 0f || IsInsideOneWay) return false;
+
         return Sensor.CheckIfGrounded();
     }
 
@@ -147,6 +159,44 @@ public class Player : MonoBehaviour
     {
         if (whipSpriteRenderer != null) { whipSpriteRenderer.enabled = false; whipSpriteRenderer.sprite = null; }
         if (vfxSpriteRenderer != null) { vfxSpriteRenderer.enabled = false; vfxSpriteRenderer.sprite = null; }
+    }
+    public void PassThroughPlatformUpwards()
+    {
+        dropDownTimer = 0.2f;
+    }
+    public void DropThroughPlatform()
+    {
+        if (Sensor.IsStandingOnOneWay())
+        {
+            dropDownTimer = 0.25f;
+            ResetCoyoteTime();
+            StateMachine.ChangeState(FallState);
+        }
+    }
+
+    private void HandleOneWayPlatforms()
+    {
+        if (dropDownTimer > 0)
+        {
+            dropDownTimer -= Time.deltaTime;
+            gameObject.layer = passThroughLayer;
+            return;
+        }
+
+        if (RB.linearVelocity.y > 0.05f)
+        {
+            gameObject.layer = passThroughLayer;
+            return;
+        }
+
+        IsInsideOneWay = Sensor.IsInsideOneWayPlatform(ActiveCollider);
+        if (IsInsideOneWay)
+        {
+            gameObject.layer = passThroughLayer;
+            return;
+        }
+
+        gameObject.layer = originalLayer;
     }
 
     public BoxCollider2D ActiveCollider

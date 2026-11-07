@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerIdleState : PlayerState
 {
@@ -49,10 +49,19 @@ public class PlayerIdleState : PlayerState
             return;
         }
 
-        if (player.InputHandler.JumpInput && (player.CheckIfGrounded() || player.JumpsRemaining > 0 || player.CoyoteTimeCounter > 0f))
+        if (player.InputHandler.JumpInput)
         {
-            stateMachine.ChangeState(player.JumpState);
-            return;
+            if (player.InputHandler.RawMovementInput.y < 0f && player.Sensor.IsStandingOnOneWay())
+            {
+                player.InputHandler.UseJumpInput();
+                player.DropThroughPlatform();
+                return;
+            }
+            else if (player.CheckIfGrounded() || player.JumpsRemaining > 0 || player.CoyoteTimeCounter > 0f)
+            {
+                stateMachine.ChangeState(player.JumpState);
+                return;
+            }
         }
 
         if (!player.CheckIfGrounded() && player.CoyoteTimeCounter <= 0f)

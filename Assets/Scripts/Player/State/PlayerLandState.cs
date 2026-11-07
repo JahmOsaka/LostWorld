@@ -51,8 +51,17 @@ public class PlayerLandState : PlayerState
 
         if (player.InputHandler.JumpInput)
         {
-            stateMachine.ChangeState(player.JumpState);
-            return;
+            if (player.InputHandler.RawMovementInput.y < 0f && player.Sensor.IsStandingOnOneWay())
+            {
+                player.InputHandler.UseJumpInput();
+                player.DropThroughPlatform();
+                return;
+            }
+            else if (player.CheckIfGrounded() || player.JumpsRemaining > 0 || player.CoyoteTimeCounter > 0f)
+            {
+                stateMachine.ChangeState(player.JumpState);
+                return;
+            }
         }
         if (player.InputHandler.AttackInput)
         {

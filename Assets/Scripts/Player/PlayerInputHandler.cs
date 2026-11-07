@@ -12,7 +12,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool WheelMenuInput { get; private set; }
     public Vector2 MouseWheelInput { get; private set; }
     public Vector2 RawMovementInput { get; private set; }
-    public float LookAxis { get; private set; }
+
+
     public bool JumpInput { get; private set; }
     public bool IsJumpHolding { get; private set; }
     public bool DodgeInput { get; private set; }
@@ -54,11 +55,6 @@ public class PlayerInputHandler : MonoBehaviour
     }
 
     public void OnMoveInput(InputAction.CallbackContext context) => RawMovementInput = context.ReadValue<Vector2>();
-
-    public void OnLookCamera(InputAction.CallbackContext context)
-    {
-        LookAxis = context.canceled ? 0f : context.ReadValue<float>();
-    }
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
