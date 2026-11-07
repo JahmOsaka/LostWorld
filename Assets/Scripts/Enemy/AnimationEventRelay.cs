@@ -9,5 +9,5 @@ public class AnimationEventRelay : MonoBehaviour
         enemy = GetComponentInParent<Enemy>();
     }
     public void NotifySpawnOrbs() => enemy.NotifySpawnOrbs();
-
+    
 }

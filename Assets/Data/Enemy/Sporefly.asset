@@ -25,18 +25,18 @@ MonoBehaviour:
   retreatTriggerRange: 2
   retreatPauseTime: 0.4
   retreatChance: 1
-  hoverRadiusX: 8
+  hoverRadiusX: 4
   hoverRadiusY: 1.5
   leashRadius: 10
   followSpeed: 3
   keepDistance: 3
   followHeight: 1.5
   attackRange: 4
-  chargeWindup: 0.6
-  chargeSpeed: 12
+  chargeWindup: 0.45
+  chargeSpeed: 15
   chargeOvershoot: 1
-  chargeRecover: 0.5
-  chargeCooldown: 2
+  chargeRecover: 0.4
+  chargeCooldown: 1.5
   headPrefab: {fileID: 6920680603885643416, guid: 822c18511557a5c41b0fdd9039ccfd10, type: 3}
   burstDamage: 30
   burstRadius: 3
