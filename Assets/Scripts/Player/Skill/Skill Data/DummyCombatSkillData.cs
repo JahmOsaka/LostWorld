@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewDummyCombatSkill", menuName = "Data/Skills/Dummy Combat Skill")]
-public class DummyCombatSkillData : SkillData
+public class DummyCombatSkillData : ActiveSkillData
 {
     [Header("Dummy Skill Settings")]
     public float attackRadius = 2.5f;

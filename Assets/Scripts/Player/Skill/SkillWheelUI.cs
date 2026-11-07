@@ -108,7 +108,14 @@ public class SkillWheelUI : MonoBehaviour
             }
             if (descriptionText != null)
             {
-                descriptionText.text = $"<b>{hoveredSkill.skillName}</b>\n\n{hoveredSkill.description}\n\n<color=#00FFCC>MP Cost: {hoveredSkill.mpCost}</color> | <color=#FFCC00>Cooldown: {hoveredSkill.cooldownTime}s</color>";
+                if (hoveredSkill is ActiveSkillData activeSkill)
+                {
+                    descriptionText.text = $"<b>{activeSkill.skillName}</b>\n\n{activeSkill.description}\n\n<color=#00FFCC>MP Cost: {activeSkill.mpCost}</color> | <color=#FFCC00>Cooldown: {activeSkill.cooldownTime}s</color>";
+                }
+                else
+                {
+                    descriptionText.text = $"<b>{hoveredSkill.skillName}</b>\n\n{hoveredSkill.description}";
+                }
             }
         }
         else

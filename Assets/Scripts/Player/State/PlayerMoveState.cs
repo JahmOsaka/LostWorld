@@ -27,7 +27,7 @@ public class PlayerMoveState : PlayerState
             return;
         }
 
-        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0 && player.CheckIfGrounded())
+        if (player.InputHandler.DodgeInput && player.CombatData.DodgeCooldownTimer <= 0 && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.DodgeState);
             return;

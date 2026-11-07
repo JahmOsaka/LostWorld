@@ -65,4 +65,18 @@ public class PlayerStats : MonoBehaviour
         currentCurrency += amount;
         OnStatsChanged?.Invoke();
     }
+
+    public int DropAllCurrency()
+    {
+        int droppedAmount = currentCurrency;
+        currentCurrency = 0;
+        OnStatsChanged?.Invoke();
+        return droppedAmount;
+    }
+
+    public void RetrieveCurrency(int amount)
+    {
+        currentCurrency += amount;
+        OnStatsChanged?.Invoke();
+    }
 }

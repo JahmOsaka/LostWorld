@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 2463019285508519511}
   - component: {fileID: 8167728703867444916}
   - component: {fileID: 7923329268856455311}
+  - component: {fileID: 8399064392625647778}
   - component: {fileID: 8815986915462865779}
   - component: {fileID: 7760232690829060984}
   - component: {fileID: 1873264935103288477}
@@ -174,6 +175,7 @@ GameObject:
   - component: {fileID: 3173419442666312354}
   - component: {fileID: 831591605139798008}
   - component: {fileID: 3178139596531164579}
+  - component: {fileID: 7769062199619788246}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -320,6 +322,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 1.1}
   m_EdgeRadius: 0.1
+--- !u!114 &8399064392625647778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255730908677199951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fc282dd2cf28b41be595f7372cbea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSensor
+  groundCheckPoint: {fileID: 97624465149749992}
+  ceilingCheckPoint: {fileID: 3694341256519750740}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 2112
 --- !u!114 &8815986915462865779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,11 +352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerData: {fileID: 11400000, guid: 07e631631ecb8a0489a5d2f30b5549e4, type: 2}
-  groundCheckPoint: {fileID: 97624465149749992}
-  ceilingCheckPoint: {fileID: 3694341256519750740}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 2112
   whipHitbox: {fileID: 4142366149432382527}
   whipSpriteRenderer: {fileID: 4526257046166525584}
   vfxSpriteRenderer: {fileID: 1580456119929361600}
@@ -749,6 +763,23 @@ MonoBehaviour:
   airborneDampingY: 2.5
   fallDampingY: 0.1
   fallVelocityThreshold: -10
+--- !u!114 &7769062199619788246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255730908677199951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fc282dd2cf28b41be595f7372cbea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSensor
+  groundCheckPoint: {fileID: 97624465149749992}
+  ceilingCheckPoint: {fileID: 3694341256519750740}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4016599245229063868
 GameObject:
   m_ObjectHideFlags: 0

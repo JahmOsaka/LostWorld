@@ -462,6 +462,7 @@ GameObject:
   - component: {fileID: 6842223043306055183}
   - component: {fileID: 3391847674591662950}
   - component: {fileID: 1115327753244630346}
+  - component: {fileID: 3641244288027122069}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -577,6 +578,7 @@ MonoBehaviour:
   damageHitboxTransform: {fileID: 7931346362942923131}
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 0.4
+  wallCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -643,3 +645,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyContact
   damageInterval: 1
+--- !u!114 &3641244288027122069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406653713664756089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02929686869bd73489d25d00c41a90b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnableEnemy
+  respawnsOnRest: 1

@@ -360,6 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8334316978053283536}
+  - component: {fileID: 719213524843206919}
   m_Layer: 7
   m_Name: Spit
   m_TagString: Untagged
@@ -384,6 +385,19 @@ Transform:
   - {fileID: 5017066069667619834}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &719213524843206919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4473217849596222109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02929686869bd73489d25d00c41a90b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnableEnemy
+  respawnsOnRest: 1
 --- !u!1 &7801827078342501664
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +622,7 @@ MonoBehaviour:
   damageHitboxTransform: {fileID: 5630316620252105894}
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 0.4
+  wallCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public class PlayerSuperDashState : PlayerState
 {
     public PlayerSuperDashState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
@@ -16,7 +17,9 @@ public class PlayerSuperDashState : PlayerState
     {
         base.LogicUpdate();
 
-        if (player.InputHandler.DodgeInput || player.CheckIfTouchingWall())
+        bool isTouchingWall = player.Sensor.CheckIfTouchingWall(player.ActiveCollider, player.FacingDirection);
+
+        if (player.InputHandler.DodgeInput || isTouchingWall)
         {
             player.InputHandler.UseDodgeInput();
             stateMachine.ChangeState(player.CheckIfGrounded() ? player.IdleState : player.FallState);
