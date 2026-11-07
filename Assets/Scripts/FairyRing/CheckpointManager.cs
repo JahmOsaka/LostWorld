@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
@@ -13,13 +14,17 @@ public class CheckpointManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private void OnEnable() => FairyRingActivation.OnFairyRingInteracted += HandleCheckpointSaved;
-    private void OnDisable() => FairyRingActivation.OnFairyRingInteracted -= HandleCheckpointSaved;
+    private void OnEnable() => FairyRingMenuUI.OnRestRequested += HandleCheckpointSaved;
+    private void OnDisable() => FairyRingMenuUI.OnRestRequested -= HandleCheckpointSaved;
 
-    private void HandleCheckpointSaved(FairyRingActivation ring, GameObject player)
+    private void HandleCheckpointSaved(GameObject player)
     {
-        LastCheckpointId = ring.checkpointId;
-        LastRespawnPosition = ring.transform.position;
-        Debug.Log($"CheckpointManager: Saved checkpoint {LastCheckpointId}");
+        FairyRingActivation currentRing = FindAnyObjectByType<FairyRingActivation>();
+        if (currentRing != null)
+        {
+            LastCheckpointId = currentRing.checkpointId;
+            LastRespawnPosition = currentRing.transform.position;
+            Debug.Log($"CheckpointManager: Saved checkpoint {LastCheckpointId}");
+        }
     }
 }

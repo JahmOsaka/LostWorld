@@ -20,16 +20,13 @@ public class SkillEquipService : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private void OnEnable()
+    public void OpenMenuForPlayer(GameObject player)
     {
-        FairyRingActivation.OnFairyRingInteracted += HandleOpenMenu;
-        FairyRingActivation.OnPlayerLeftFairyRing += HandleCloseMenu;
-    }
-
-    private void OnDisable()
-    {
-        FairyRingActivation.OnFairyRingInteracted -= HandleOpenMenu;
-        FairyRingActivation.OnPlayerLeftFairyRing -= HandleCloseMenu;
+        currentPlayerSkill = player.GetComponentInChildren<PlayerSkillController>();
+        if (currentPlayerSkill != null && skillEquipMenu != null)
+        {
+            OnMenuOpened?.Invoke(currentPlayerSkill.unlockedCombatSkills, currentPlayerSkill.equippedWheelSkills);
+        }
     }
 
     private void HandleOpenMenu(FairyRingActivation ring, GameObject player)

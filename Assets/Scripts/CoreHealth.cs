@@ -25,7 +25,7 @@ public class CoreHealth : MonoBehaviour, IDamageable
     private Coroutine invincibilityCoroutine;
 
     public static event Action OnHealthChanged;
-
+    public static event Action<GameObject> OnPlayerDeathGlobal;
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -135,6 +135,8 @@ public class CoreHealth : MonoBehaviour, IDamageable
         {
             player.enabled = false;
             if (player.InputHandler != null) player.InputHandler.enabled = false;
+
+            OnPlayerDeathGlobal?.Invoke(gameObject);
         }
 
         Enemy enemy = GetComponent<Enemy>();

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class RestService : MonoBehaviour
 {
-    private void OnEnable() => FairyRingActivation.OnFairyRingInteracted += HandleRest;
-    private void OnDisable() => FairyRingActivation.OnFairyRingInteracted -= HandleRest;
+    private void OnEnable() => FairyRingMenuUI.OnRestRequested += HandleRest;
+    private void OnDisable() => FairyRingMenuUI.OnRestRequested -= HandleRest;
 
-    private void HandleRest(FairyRingActivation ring, GameObject player)
+    private void HandleRest(GameObject player)
     {
         CoreHealth health = player.GetComponentInChildren<CoreHealth>();
         if (health != null)
