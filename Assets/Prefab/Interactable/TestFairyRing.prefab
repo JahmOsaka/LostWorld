@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3201124713707727525}
   - component: {fileID: 3127243794548619433}
   - component: {fileID: 1131492262656795616}
-  - component: {fileID: 1569828568723053914}
+  - component: {fileID: 8427284874875111493}
   m_Layer: 0
   m_Name: TestFairyRing
   m_TagString: Untagged
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FairyRingActivation
   checkpointId: 9f762d43-67cd-4a56-a2c7-828a5a3f9ada
   isActivated: 0
---- !u!114 &1569828568723053914
+--- !u!114 &8427284874875111493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

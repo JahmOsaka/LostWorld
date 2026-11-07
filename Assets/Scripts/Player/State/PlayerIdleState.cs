@@ -38,7 +38,7 @@ public class PlayerIdleState : PlayerState
             return;
         }
 
-        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0 && player.CheckIfGrounded())
+        if (player.InputHandler.DodgeInput && player.CombatData.DodgeCooldownTimer <= 0 && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.DodgeState);
             return;
@@ -87,7 +87,7 @@ public class PlayerIdleState : PlayerState
     private void UpdateCombatIdleStatus()
     {
         if (playerData == null) return;
-        bool isCombatActive = Time.time < player.LastAttackTime + playerData.combatIdleDuration;
+        bool isCombatActive = Time.time < player.CombatData.LastAttackTime + playerData.combatIdleDuration;
 
         player.Anim.SetBool("isCombatIdle", isCombatActive);
     }

@@ -14,7 +14,7 @@ public class PlayerDodgeState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.ResetCombo();
+        player.CombatData.ResetCombo();
         player.InputHandler.UseDodgeInput();
         player.SetInvincible(true);
 

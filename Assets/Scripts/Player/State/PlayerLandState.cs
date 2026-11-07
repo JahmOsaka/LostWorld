@@ -59,7 +59,7 @@ public class PlayerLandState : PlayerState
             stateMachine.ChangeState(player.AttackState);
             return;
         }
-        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
+        if (player.InputHandler.DodgeInput && player.CombatData.DodgeCooldownTimer <= 0)
         {
             stateMachine.ChangeState(player.DodgeState);
             return;

@@ -16,13 +16,13 @@ public class PlayerAttackState : PlayerState
         player.InputHandler.UseAttackInput();
         player.RB.linearVelocity = Vector2.zero;
 
-        if (Time.time >= player.LastAttackTime + playerData.comboWindow)
+        if (Time.time >= player.CombatData.LastAttackTime + playerData.comboWindow)
         {
-            player.ResetCombo();
+            player.CombatData.ResetCombo();
         }
 
-        player.RecordAttack();
-        player.Anim.SetInteger("Combo", player.ComboCounter);
+        player.CombatData.RecordAttack();
+        player.Anim.SetInteger("Combo", player.CombatData.ComboCounter);
 
         player.ShowWhipVisual();
 
@@ -35,7 +35,7 @@ public class PlayerAttackState : PlayerState
 
         failsafeTimer += Time.deltaTime;
 
-        if (player.InputHandler.DodgeInput && player.DodgeCooldownTimer <= 0)
+        if (player.InputHandler.DodgeInput && player.CombatData.DodgeCooldownTimer <= 0)
         {
             stateMachine.ChangeState(player.DodgeState);
             return;
