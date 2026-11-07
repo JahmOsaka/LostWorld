@@ -19,7 +19,7 @@ MonoBehaviour:
   defaultGravity: 2.73
   minJumpHoldTime: 0.08
   maxJumpHeight: 3.5
-  jumpApexTime: 0.25
+  jumpApexTime: 0.34
   minJumpMultiplier: 0.5
   fallVelocityThreshold: -8
   maxFallSpeed: 30
@@ -36,6 +36,7 @@ MonoBehaviour:
   dodgeDuration: 0.4
   dodgeCooldown: 0.4
   dodgeIFrameDuration: -1
+  superDashSpeed: 18
   attackDuration: 0.5
   attackDamage: 1
   comboWindow: 0.2
