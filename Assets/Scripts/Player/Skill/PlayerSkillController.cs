@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerSkillController : MonoBehaviour
@@ -66,6 +68,18 @@ public class PlayerSkillController : MonoBehaviour
                 inputHandler.UseInteractInput();
                 perishSkillData.ExecuteSkill(gameObject);
             }
+        }
+
+        // DEBUG : Toggle abilities Keys
+        if (Keyboard.current != null && Keyboard.current.bKey.wasPressedThisFrame)
+        {
+            hasDoubleJump = !hasDoubleJump;
+
+        }
+        if (Keyboard.current != null && Keyboard.current.vKey.wasPressedThisFrame)
+        {
+            hasPerish = !hasPerish;
+
         }
     }
 
