@@ -83,16 +83,27 @@ public class PlayerSensor : MonoBehaviour
         return Physics2D.OverlapBox(groundCastPos, data.groundCheckSize, 0f, oneWayPlatformLayer) != null;
     }
 
+    public bool CheckIfSolidGrounded()
+    {
+        if (groundCheckPoint == null || data == null) return false;
+
+        LayerMask solidGroundMask = whatIsGround & ~oneWayPlatformLayer;
+
+        Vector2 groundCastPos = (Vector2)groundCheckPoint.position + (Vector2.down * data.boxCastDistance);
+        return Physics2D.OverlapBox(groundCastPos, data.groundCheckSize, 0f, solidGroundMask) != null;
+    }
+
     public bool IsInsideOneWayPlatform(BoxCollider2D currentCollider)
     {
         if (currentCollider == null) return false;
 
         Vector2 boxSize = currentCollider.bounds.size;
-        boxSize.y -= 0.2f;
-        boxSize.x -= 0.1f;
+
+        boxSize.y -= 0.3f;
+        boxSize.x += 0.25f;
 
         Vector2 boxCenter = currentCollider.bounds.center;
-        boxCenter.y += 0.1f;
+        boxCenter.y += 0.15f;
 
         return Physics2D.OverlapBox(boxCenter, boxSize, 0f, oneWayPlatformLayer) != null;
     }

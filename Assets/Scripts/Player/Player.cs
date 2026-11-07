@@ -110,7 +110,12 @@ public class Player : MonoBehaviour
     {
         if (StateMachine.CurrentState == JumpState && RB.linearVelocity.y > 0.05f) return false;
 
-        if (dropDownTimer > 0f || IsInsideOneWay) return false;
+        if (dropDownTimer > 0f) return false;
+
+        if (IsInsideOneWay)
+        {
+            return Sensor.CheckIfSolidGrounded();
+        }
 
         return Sensor.CheckIfGrounded();
     }
