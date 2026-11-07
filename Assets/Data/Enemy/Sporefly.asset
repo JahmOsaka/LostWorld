@@ -25,7 +25,7 @@ MonoBehaviour:
   retreatTriggerRange: 2
   retreatPauseTime: 0.4
   retreatChance: 1
-  hoverRadiusX: 8
+  hoverRadiusX: 4
   hoverRadiusY: 1.5
   leashRadius: 10
   followSpeed: 3
