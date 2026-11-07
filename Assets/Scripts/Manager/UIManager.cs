@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -35,26 +34,27 @@ public class UIManager : MonoBehaviour
         CoreHealth.OnHealthChanged -= UpdateHealthUI;
         PlayerStats.OnStatsChanged -= UpdateStatsUI;
     }
-    private void Awake()
-    {
-        if (playerStats == null)
-        {
-            playerStats = FindAnyObjectByType<PlayerStats>();
-        }
 
-        if (playerHealth == null && playerStats != null)
-        {
-            playerHealth = playerStats.GetComponent<CoreHealth>();
-        }
-    }
     private void Start()
     {
+        TryFindPlayer();
         UpdateHealthUI();
         UpdateStatsUI();
     }
 
+    private void TryFindPlayer()
+    {
+        if (playerStats == null)
+            playerStats = FindAnyObjectByType<PlayerStats>();
+
+        if (playerHealth == null && playerStats != null)
+            playerHealth = playerStats.GetComponent<CoreHealth>();
+    }
+
     private void UpdateHealthUI()
     {
+        if (playerHealth == null) TryFindPlayer();
+
         if (playerHealth != null && healthBarFill != null)
         {
             healthBarFill.fillAmount = (float)playerHealth.currentHealth / playerHealth.maxHealth;
@@ -63,28 +63,24 @@ public class UIManager : MonoBehaviour
 
     private void UpdateStatsUI()
     {
+        if (playerStats == null) TryFindPlayer();
+
         if (playerStats != null)
         {
             if (energyBarFill != null)
-            {
                 energyBarFill.fillAmount = playerStats.currentEnergy / playerStats.maxEnergy;
-            }
 
             if (potionIcons != null)
             {
                 for (int i = 0; i < potionIcons.Length; i++)
                 {
                     if (potionIcons[i] != null)
-                    {
                         potionIcons[i].sprite = (i < playerStats.currentPotions) ? gemFullSprite : gemEmptySprite;
-                    }
                 }
             }
 
             if (currencyText != null)
-            {
                 currencyText.text = playerStats.currentCurrency.ToString();
-            }
         }
     }
 
