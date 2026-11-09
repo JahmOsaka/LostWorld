@@ -45,7 +45,7 @@ public class EnemyAttackState : EnemyState
         enemy.FacePlayer();
         float dist = enemy.DistanceToPlayer();
 
-        if (dist > melee.attackRange * 1.2f)
+        if (dist > melee.attackRange * 1.2f || !enemy.CanSeePlayer())
         {
             stateMachine.ChangeState(enemy.ChaseState);
             return;

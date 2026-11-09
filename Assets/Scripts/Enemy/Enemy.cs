@@ -232,6 +232,20 @@ public class Enemy : MonoBehaviour
         if (playerTransform == null) return Mathf.Infinity;
         return Vector2.Distance(BodyCenter, playerTransform.position);
     }
+    public bool CanSeePlayer()
+    {
+        if (playerTransform == null) return false;
+
+        Vector2 startPos = BodyCenter;
+
+        Vector2 targetPos = (Vector2)playerTransform.position + Vector2.up * 1.0f;
+
+        Debug.DrawLine(startPos, targetPos, Color.yellow);
+
+        RaycastHit2D hit = Physics2D.Linecast(startPos, targetPos, groundLayer);
+
+        return hit.collider == null;
+    }
 
     public bool IsGroundAheadOf(float dirX)
     {

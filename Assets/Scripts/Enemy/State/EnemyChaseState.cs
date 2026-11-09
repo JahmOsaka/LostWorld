@@ -30,7 +30,7 @@ public class EnemyChaseState : EnemyState
                            : melee != null ? melee.attackRange
                            : 0f;
 
-        if (dist <= triggerRange)
+        if (dist <= triggerRange && enemy.CanSeePlayer())
         {
             stateMachine.ChangeState(ranged != null ? enemy.RangedAttackState : enemy.AttackState);
             return;

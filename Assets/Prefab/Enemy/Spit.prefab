@@ -607,7 +607,8 @@ MonoBehaviour:
   hitboxCollider: {fileID: 8154866930232706578}
   damageHitboxTransform: {fileID: 5630316620252105894}
   edgeCheckDistance: 1
-  edgeCheckForwardOffset: 0.4
+  edgeCheckForwardOffset: 1
+  wallCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

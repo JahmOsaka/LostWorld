@@ -24,7 +24,7 @@ public class EnemyRangedAttackState : EnemyState
 
         enemy.FacePlayer();
 
-        if (dist > ranged.throwRange * 1.2f)
+        if (dist > ranged.throwRange * 1.2f || !enemy.CanSeePlayer())
         {
             stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.ReturnState);
             return;
