@@ -39,7 +39,7 @@ MonoBehaviour:
   superDashSpeed: 18
   attackDuration: 0.5
   attackDamage: 1
-  comboWindow: 0.2
+  comboWindow: 1
   attackSpeedMultiplier: 1
   combatIdleDuration: 4
   autoEjectSpeed: 7
