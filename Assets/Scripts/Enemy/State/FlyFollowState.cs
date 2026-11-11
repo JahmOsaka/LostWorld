@@ -39,14 +39,16 @@ public class FlyFollowState : EnemyState
         if (enemy.playerTransform == null) return;
 
         Vector2 p = enemy.playerTransform.position;
-        float side = enemy.transform.position.x >= p.x ? 1f : -1f;  
+        float side = enemy.transform.position.x >= p.x ? 1f : -1f;
         Vector2 desired = p + new Vector2(side * data.keepDistance, data.followHeight);
 
         Vector2 to = desired - (Vector2)enemy.transform.position;
         float d = to.magnitude;
 
-        enemy.rb.linearVelocity = d < 0.15f
+        Vector2 vel = d < 0.15f
             ? Vector2.zero
-            : to.normalized * data.followSpeed * Mathf.Clamp01(d); 
+            : to.normalized * data.followSpeed * Mathf.Clamp01(d);
+
+        enemy.rb.linearVelocity = fly.SlideAgainstWalls(vel);
     }
 }

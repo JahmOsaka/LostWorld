@@ -232,6 +232,20 @@ public class Enemy : MonoBehaviour
         if (playerTransform == null) return Mathf.Infinity;
         return Vector2.Distance(BodyCenter, playerTransform.position);
     }
+    public bool CanSeePlayer()
+    {
+        if (playerTransform == null) return false;
+
+        Vector2 startPos = BodyCenter;
+
+        Vector2 targetPos = (Vector2)playerTransform.position + Vector2.up * 1.0f;
+
+        Debug.DrawLine(startPos, targetPos, Color.yellow);
+
+        RaycastHit2D hit = Physics2D.Linecast(startPos, targetPos, groundLayer);
+
+        return hit.collider == null;
+    }
 
     public bool IsGroundAheadOf(float dirX)
     {
@@ -271,7 +285,7 @@ public class Enemy : MonoBehaviour
         activeOrbs.Clear();
     }
 
-    private void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
 
@@ -285,10 +299,11 @@ public class Enemy : MonoBehaviour
 
         Gizmos.DrawLine(rightOrigin, rightOrigin + Vector2.down * edgeCheckDistance);
         Gizmos.DrawLine(leftOrigin, leftOrigin + Vector2.down * edgeCheckDistance);
+        DrawWallCheckGizmos();
         DrawRangeGizmos();
     }
 
-    private void DrawRangeGizmos()
+    protected void DrawRangeGizmos()
     {
         if (enemyData == null) return;
 
@@ -321,13 +336,48 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private static void DrawRange(Vector3 center, float radius, Color color, string label)
+    protected static void DrawRange(Vector3 center, float radius, Color color, string label)
     {
         Gizmos.color = color;
         Gizmos.DrawWireSphere(center, radius);
 #if UNITY_EDITOR
         UnityEditor.Handles.Label(center + Vector3.up * radius, $"{label} {radius:0.0}");
 #endif
+    }
+    protected Bounds GetBodyBounds()
+    {
+        BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
+        if (col == null) return new Bounds(transform.position, Vector3.one);
+        if (Application.isPlaying) return col.bounds;
+
+        Vector3 s = col.transform.lossyScale;
+        Vector3 center = col.transform.TransformPoint(col.offset);
+        Vector3 size = new Vector3(Mathf.Abs(col.size.x * s.x), Mathf.Abs(col.size.y * s.y), 0.1f);
+        return new Bounds(center, size);
+    }
+
+
+    protected void DrawWallCheckGizmos()
+    {
+        Bounds b = GetBodyBounds();
+        float dist = b.extents.x + wallCheckDistance;
+        Vector2 mid = b.center;
+        Vector2 low = new Vector2(b.center.x, b.min.y + 0.1f);
+
+        Gizmos.color = new Color(1f, 1f, 1f, 0.5f);
+        Gizmos.DrawWireCube(b.center, b.size);   
+
+        foreach (float dirX in new[] { -1f, 1f })
+        {
+            Vector2 dir = new Vector2(dirX, 0f);
+            bool hitMid = Physics2D.Raycast(mid, dir, dist, groundLayer);
+            bool hitLow = Physics2D.Raycast(low, dir, dist, groundLayer);
+
+            Gizmos.color = hitMid ? Color.red : new Color(1f, 0.6f, 0.1f);
+            Gizmos.DrawLine(mid, mid + dir * dist);
+            Gizmos.color = hitLow ? Color.red : new Color(1f, 0.6f, 0.1f);
+            Gizmos.DrawLine(low, low + dir * dist);
+        }
     }
 
     public EnemyIdleState IdleState => idleState;

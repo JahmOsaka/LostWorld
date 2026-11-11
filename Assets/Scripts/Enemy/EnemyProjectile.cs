@@ -6,6 +6,7 @@ public class EnemyProjectile : MonoBehaviour
 {
     private Rigidbody2D rb;
     private int damage;
+    public LayerMask groundLayer;
 
     private void Awake()
     {
@@ -31,7 +32,7 @@ public class EnemyProjectile : MonoBehaviour
                 return;
             }
         }
-        else if (other.CompareTag("Ground"))
+        else if (((1 << other.gameObject.layer) & groundLayer) != 0)
         {
             Destroy(gameObject);
         }

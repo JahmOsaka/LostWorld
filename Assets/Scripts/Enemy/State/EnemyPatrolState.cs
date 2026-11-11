@@ -33,7 +33,7 @@ public class EnemyPatrolState : EnemyState
         bool stationaryRanged = ranged != null && ranged.isStationary;
         float detectRange = stationaryRanged ? ranged.throwRange : enemyData.chaseRange;
 
-        if (enemy.DistanceToPlayer() <= detectRange)
+        if (enemy.DistanceToPlayer() <= detectRange && enemy.CanSeePlayer())
         {
             stateMachine.ChangeState(stationaryRanged ? enemy.RangedAttackState : enemy.ChaseState);
             return;
@@ -67,6 +67,18 @@ public class EnemyPatrolState : EnemyState
 
         Transform target = enemy.GetCurrentPatrolPoint();
         float dist = Mathf.Abs(enemy.transform.position.x - target.position.x);
+
+        float dirX = (target.position.x - enemy.transform.position.x) >= 0 ? 1f : -1f;
+
+        if (!enemy.IsGroundAheadOf(dirX) || enemy.IsWallAheadOf(dirX))
+        {
+            isWaiting = true;
+            idleTimer = enemyData.idleTimeAtPoint;
+            enemy.rb.linearVelocity = new Vector2(0f, enemy.rb.linearVelocity.y);
+            enemy.anim.SetBool("move", false);
+            enemy.anim.SetBool("idle", true);
+            return;
+        }
 
         if (dist < 0.2f)
         {
