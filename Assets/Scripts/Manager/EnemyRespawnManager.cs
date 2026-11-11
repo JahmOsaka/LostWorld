@@ -73,7 +73,7 @@ public class EnemyRespawnManager : MonoBehaviour
         RespawnAllEnemies();
     }
 
-    private void RespawnAllEnemies()
+    public void RespawnAllEnemies()
     {
         foreach (var enemy in allEnemies)
         {

@@ -491,7 +491,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  destroyOnEnd: 1
+  destroyOnEnd: 0
 --- !u!1 &8982670718893699685
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +676,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isDead: 0
 --- !u!114 &5540166850978732795
 MonoBehaviour:
   m_ObjectHideFlags: 0

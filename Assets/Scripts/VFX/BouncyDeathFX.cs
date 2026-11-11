@@ -24,8 +24,16 @@ public class BouncyDeathFX : MonoBehaviour
     );
 
     [Header("End Action")]
-    [Tooltip("Destroy the GameObject at the end? (Set to false if using Object Pooling).")]
-    public bool destroyOnEnd = true;
+    [Tooltip("Check to Destroy the GameObject. Uncheck to use SetActive(false) for object pooling or respawning.")]
+    public bool destroyOnEnd = false;
+
+    private void Awake()
+    {
+        if (GetComponentInParent<Enemy>() != null)
+        {
+            destroyOnEnd = false;
+        }
+    }
 
     public void PlayDeathEffect()
     {
@@ -50,7 +58,7 @@ public class BouncyDeathFX : MonoBehaviour
             yield return null;
         }
 
-        transform.localScale = Vector3.zero;
+        transform.localScale = startScale;
 
         if (destroyOnEnd)
         {

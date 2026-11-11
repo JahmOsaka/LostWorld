@@ -98,9 +98,20 @@ public class Enemy : MonoBehaviour
         else
             stateMachine.Initialize(idleState);
     }
+    private void Update()
+    {
+        if (health != null && health.isDead) return;
+        if (spriteRenderer == null) return;
 
-    private void Update() => stateMachine.CurrentState.LogicUpdate();
-    private void FixedUpdate() => stateMachine.CurrentState.PhysicsUpdate();
+        stateMachine.CurrentState.LogicUpdate();
+    }
+    private void FixedUpdate()
+    {
+        if (health != null && health.isDead) return;
+        if (spriteRenderer == null) return;
+
+        stateMachine.CurrentState.PhysicsUpdate();
+    }
 
     public Transform GetCurrentPatrolPoint() => patrolPoints[currentPatrolIndex];
 
@@ -269,6 +280,32 @@ public class Enemy : MonoBehaviour
             if (orb != null) Destroy(orb);
         }
         activeOrbs.Clear();
+    }
+
+    public void ResetEnemyState()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.gameObject.SetActive(true);
+        }
+
+        if (anim != null)
+        {
+            anim.Rebind();
+            anim.Update(0f);
+        }
+
+        ClearActiveOrbs();
+
+        currentPatrolIndex = 0;
+
+        if (stateMachine != null)
+        {
+            if (HasPatrolPoints)
+                stateMachine.Initialize(patrolState);
+            else
+                stateMachine.Initialize(idleState);
+        }
     }
 
     private void OnDrawGizmosSelected()

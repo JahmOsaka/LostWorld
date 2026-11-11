@@ -20,7 +20,7 @@ public class CoreHealth : MonoBehaviour, IDamageable
     public UnityEvent OnTakDamage;
     public UnityEvent OnDeath;
 
-    private bool isDead;
+    public bool isDead;
     private bool isInvincible;
     private Coroutine invincibilityCoroutine;
 
@@ -144,6 +144,22 @@ public class CoreHealth : MonoBehaviour, IDamageable
         {
             enemy.ClearActiveOrbs();
             enemy.enabled = false;
+
+            Invoke(nameof(HideCorpse), 2f);
         }
+    }
+    public void Revive()
+    {
+        isDead = false;
+        currentHealth = maxHealth;
+
+        if (designatedHurtbox != null)
+        {
+            designatedHurtbox.enabled = true;
+        }
+    }
+    private void HideCorpse()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -61,16 +61,15 @@ public class PlayerSkillController : MonoBehaviour
             }
         }
 
-        if (hasPerish && perishSkillData != null && IsNearBlueGate())
+        if (hasPerish && perishSkillData != null)
         {
             if (inputHandler.InteractInput)
             {
-                inputHandler.UseInteractInput();
                 perishSkillData.ExecuteSkill(gameObject);
+                inputHandler.UseInteractInput();
             }
         }
 
-        // DEBUG : Toggle abilities Keys
         if (Keyboard.current != null && Keyboard.current.bKey.wasPressedThisFrame)
         {
             hasDoubleJump = !hasDoubleJump;
@@ -81,16 +80,6 @@ public class PlayerSkillController : MonoBehaviour
             hasPerish = !hasPerish;
 
         }
-    }
-
-    private bool IsNearBlueGate()
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 2f);
-        foreach (var hit in hits)
-        {
-            if (hit.CompareTag("BlueGate")) return true;
-        }
-        return false;
     }
 
     private bool HasEnoughEnergy()

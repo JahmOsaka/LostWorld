@@ -13,9 +13,15 @@ public class PerishSkillData : SkillData
         bool hitSomething = false;
         foreach (Collider2D obstacle in hitObstacles)
         {
-            if (obstacle.CompareTag("BlueGate"))
+            ShortcutGate gate = obstacle.GetComponent<ShortcutGate>();
+            if (gate != null && !gate.isUnlocked)
             {
-                Destroy(obstacle.gameObject);
+                gate.Interact();
+                hitSomething = true;
+            }
+            else if (obstacle.CompareTag("BlueGate"))
+            {
+                obstacle.gameObject.SetActive(false);
                 hitSomething = true;
             }
         }

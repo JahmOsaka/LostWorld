@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RespawnableEnemy : MonoBehaviour
 {
@@ -29,14 +29,16 @@ public class RespawnableEnemy : MonoBehaviour
 
     public void Respawn()
     {
+        if (this == null || gameObject == null || enemyScript == null || enemyScript.anim == null) return;
         if (!respawnsOnRest && health.currentHealth <= 0) return;
 
         gameObject.SetActive(true);
         transform.position = initialPosition;
+        transform.localScale = Vector3.one;
 
         if (health != null)
         {
-            health.Heal(health.maxHealth);
+            health.Revive();
         }
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -49,6 +51,7 @@ public class RespawnableEnemy : MonoBehaviour
         if (enemyScript != null)
         {
             enemyScript.enabled = true;
+            enemyScript.ResetEnemyState();
         }
     }
 }
