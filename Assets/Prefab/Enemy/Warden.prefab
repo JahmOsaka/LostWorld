@@ -621,6 +621,7 @@ MonoBehaviour:
   damageHitboxTransform: {fileID: 4598878643785421694}
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 0.4
+  wallCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
