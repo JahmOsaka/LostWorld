@@ -109,11 +109,11 @@ TextureImporter:
       name: Animation_Flyer_OnlyHead_0
       rect:
         serializedVersion: 2
-        x: 1697
-        y: 4501
-        width: 846
+        x: 0
+        y: 4513
+        width: 4240
         height: 1320
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -131,9 +131,9 @@ TextureImporter:
       name: Animation_Flyer_OnlyHead_1
       rect:
         serializedVersion: 2
-        x: 1697
+        x: 0
         y: 2466
-        width: 846
+        width: 4240
         height: 1295
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -153,9 +153,9 @@ TextureImporter:
       name: Animation_Flyer_OnlyHead_2
       rect:
         serializedVersion: 2
-        x: 1697
+        x: 0
         y: 435
-        width: 846
+        width: 4240
         height: 1290
       alignment: 7
       pivot: {x: 0.5, y: 0}

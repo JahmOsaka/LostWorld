@@ -7,15 +7,25 @@ public class FlyerHead : MonoBehaviour
 
     private int damage;
     private float radius;
+    private float fuseTime;
+    private bool hasLanded;
 
     public void Init(int damage, float radius, float fuse)
     {
         this.damage = damage;
         this.radius = radius;
+        this.fuseTime = fuse; 
 
         GetComponent<Rigidbody2D>().linearVelocity = new Vector2(Random.Range(-1.5f, 1.5f), 3f);
+    }
 
-        Invoke(nameof(Explode), fuse);
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!hasLanded)
+        {
+            hasLanded = true;
+            Invoke(nameof(Explode), fuseTime);
+        }
     }
 
     private void Explode()

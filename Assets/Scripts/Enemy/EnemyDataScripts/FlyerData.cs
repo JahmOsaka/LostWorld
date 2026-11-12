@@ -25,5 +25,5 @@ public class FlyerData : EnemyData
     public GameObject headPrefab;    
     public int burstDamage = 30;
     public float burstRadius = 2f;
-    public float burstFuse = 1f;
+    [Range(1f, 3f)] public float burstFuse = 3f;
 }

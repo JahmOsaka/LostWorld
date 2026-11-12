@@ -37,7 +37,10 @@ public class FlyerEnemy : Enemy
 
         GameObject head = Instantiate(data.headPrefab, transform.position, Quaternion.identity);
         FlyerHead sporeHead = head.GetComponent<FlyerHead>();
-        if (sporeHead != null) sporeHead.Init(data.burstDamage, data.burstRadius, data.burstFuse);
+        if (sporeHead != null)
+        {
+            sporeHead.Init(data.burstDamage, data.burstRadius, data.burstFuse);
+        }
     }
     public bool IsBlocked(Vector2 dir, float distance)
     {
