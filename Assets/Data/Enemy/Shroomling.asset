@@ -27,4 +27,4 @@ MonoBehaviour:
   retreatChance: 0.3
   attackRange: 1.5
   attackCooldown: 1.5
-  comboInterval: 0.1
+  comboInterval: 2
