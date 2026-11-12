@@ -1,0 +1,387 @@
+fileFormatVersion: 2
+guid: 502a25d5a63998941919bd987aafa993
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9108737348404021753
+    second: Animation_Warden_ATK2_VFX_CAST_0
+  - first:
+      213: -6709325538764676229
+    second: Animation_Warden_ATK2_VFX_CAST_1
+  - first:
+      213: -6083629376964890037
+    second: Animation_Warden_ATK2_VFX_CAST_2
+  - first:
+      213: 7998213370404884827
+    second: Animation_Warden_ATK2_VFX_CAST_3
+  - first:
+      213: -8061763142773046664
+    second: Animation_Warden_ATK2_VFX_CAST_4
+  - first:
+      213: -80027210007968071
+    second: Animation_Warden_ATK2_VFX_CAST_5
+  - first:
+      213: 3309548859917976481
+    second: Animation_Warden_ATK2_VFX_CAST_6
+  - first:
+      213: -7115375588273221136
+    second: Animation_Warden_ATK2_VFX_CAST_7
+  - first:
+      213: -8975491928366466373
+    second: Animation_Warden_ATK2_VFX_CAST_8
+  - first:
+      213: 1904163556607976029
+    second: Animation_Warden_ATK2_VFX_CAST_9
+  - first:
+      213: -4313161052010756585
+    second: Animation_Warden_ATK2_VFX_CAST_10
+  - first:
+      213: -3440398559623203701
+    second: Animation_Warden_ATK2_VFX_CAST_11
+  - first:
+      213: -7178122423530074298
+    second: Animation_Warden_ATK2_VFX_CAST_12
+  - first:
+      213: 8453152112431777642
+    second: Animation_Warden_ATK2_VFX_CAST_13
+  - first:
+      213: 6264547676864604443
+    second: Animation_Warden_ATK2_VFX_CAST_14
+  - first:
+      213: -6877062696947828880
+    second: Animation_Warden_ATK2_VFX_CAST_15
+  - first:
+      213: 7059766395415066968
+    second: Animation_Warden_ATK2_VFX_CAST_16
+  - first:
+      213: -4091611721974576900
+    second: Animation_Warden_ATK2_VFX_CAST_17
+  - first:
+      213: -3273245544059048515
+    second: Animation_Warden_ATK2_VFX_CAST_18
+  - first:
+      213: -5626128149739973445
+    second: Animation_Warden_ATK2_VFX_CAST_19
+  - first:
+      213: -2687386264698992874
+    second: Animation_Warden_ATK2_VFX_CAST_20
+  - first:
+      213: -8782557626113296972
+    second: Animation_Warden_ATK2_VFX_CAST_21
+  - first:
+      213: -9066462240357638569
+    second: Animation_Warden_ATK2_VFX_CAST_22
+  - first:
+      213: 8294249632123913551
+    second: Animation_Warden_ATK2_VFX_CAST_23
+  - first:
+      213: -5361625960342746676
+    second: Animation_Warden_ATK2_VFX_CAST_24
+  - first:
+      213: -8203576915765795886
+    second: Animation_Warden_ATK2_VFX_CAST_25
+  - first:
+      213: 1951120464925831592
+    second: Animation_Warden_ATK2_VFX_CAST_26
+  - first:
+      213: 4196072321156240435
+    second: Animation_Warden_ATK2_VFX_CAST_27
+  - first:
+      213: -7351359926292573081
+    second: Animation_Warden_ATK2_VFX_CAST_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 650
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animation_Warden_ATK2_VFX_CAST_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14390
+        width: 4240
+        height: 163
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f984f3bb5cb86e70800000000000000
+      internalID: 9108737348404021753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Warden_ATK2_VFX_CAST_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 105
+        width: 4240
+        height: 3951
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73a97358ffa3e2a0800000000000000
+      internalID: -6709325538764676229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Warden_ATK2_VFX_CAST_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12346
+        width: 4240
+        height: 439
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8720dab722dde1090800000000000000
+      internalID: -8061763142773046664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Warden_ATK2_VFX_CAST_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10293
+        width: 4240
+        height: 288
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a3c5324721eded20800000000000000
+      internalID: 3309548859917976481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Warden_ATK2_VFX_CAST_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8245
+        width: 4240
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52ecd18aa2fc6a10800000000000000
+      internalID: 1904163556607976029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Warden_ATK2_VFX_CAST_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6197
+        width: 4240
+        height: 1890
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85974f3e12459f160800000000000000
+      internalID: 7059766395415066968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Warden_ATK2_VFX_CAST_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4151
+        width: 4240
+        height: 1921
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b57e1cfe561e1680800000000000000
+      internalID: -8782557626113296972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 083ea8168be2482448926fa4e2e6b827
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Animation_Warden_ATK2_VFX_CAST_0: 9108737348404021753
+      Animation_Warden_ATK2_VFX_CAST_1: -6709325538764676229
+      Animation_Warden_ATK2_VFX_CAST_10: -4313161052010756585
+      Animation_Warden_ATK2_VFX_CAST_11: -3440398559623203701
+      Animation_Warden_ATK2_VFX_CAST_12: -7178122423530074298
+      Animation_Warden_ATK2_VFX_CAST_13: 8453152112431777642
+      Animation_Warden_ATK2_VFX_CAST_14: 6264547676864604443
+      Animation_Warden_ATK2_VFX_CAST_15: -6877062696947828880
+      Animation_Warden_ATK2_VFX_CAST_16: 7059766395415066968
+      Animation_Warden_ATK2_VFX_CAST_17: -4091611721974576900
+      Animation_Warden_ATK2_VFX_CAST_18: -3273245544059048515
+      Animation_Warden_ATK2_VFX_CAST_19: -5626128149739973445
+      Animation_Warden_ATK2_VFX_CAST_2: -6083629376964890037
+      Animation_Warden_ATK2_VFX_CAST_20: -2687386264698992874
+      Animation_Warden_ATK2_VFX_CAST_21: -8782557626113296972
+      Animation_Warden_ATK2_VFX_CAST_22: -9066462240357638569
+      Animation_Warden_ATK2_VFX_CAST_23: 8294249632123913551
+      Animation_Warden_ATK2_VFX_CAST_24: -5361625960342746676
+      Animation_Warden_ATK2_VFX_CAST_25: -8203576915765795886
+      Animation_Warden_ATK2_VFX_CAST_26: 1951120464925831592
+      Animation_Warden_ATK2_VFX_CAST_27: 4196072321156240435
+      Animation_Warden_ATK2_VFX_CAST_28: -7351359926292573081
+      Animation_Warden_ATK2_VFX_CAST_3: 7998213370404884827
+      Animation_Warden_ATK2_VFX_CAST_4: -8061763142773046664
+      Animation_Warden_ATK2_VFX_CAST_5: -80027210007968071
+      Animation_Warden_ATK2_VFX_CAST_6: 3309548859917976481
+      Animation_Warden_ATK2_VFX_CAST_7: -7115375588273221136
+      Animation_Warden_ATK2_VFX_CAST_8: -8975491928366466373
+      Animation_Warden_ATK2_VFX_CAST_9: 1904163556607976029
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
