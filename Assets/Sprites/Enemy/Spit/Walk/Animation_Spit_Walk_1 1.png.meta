@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: bfa25afffc18bcb4db9b821771fda3ff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2099347761721331123
+    second: Animation_Spit_Walk_1 1_0
+  - first:
+      213: -8766098209679806328
+    second: Animation_Spit_Walk_1 1_1
+  - first:
+      213: 2676433274707798241
+    second: Animation_Spit_Walk_1 1_2
+  - first:
+      213: -3786246572460238846
+    second: Animation_Spit_Walk_1 1_3
+  - first:
+      213: 6149671696009407401
+    second: Animation_Spit_Walk_1 1_4
+  - first:
+      213: -3059106717943144528
+    second: Animation_Spit_Walk_1 1_5
+  - first:
+      213: -155738015051872657
+    second: Animation_Spit_Walk_1 1_6
+  - first:
+      213: 7704656002542917729
+    second: Animation_Spit_Walk_1 1_7
+  - first:
+      213: 4129702436447580729
+    second: Animation_Spit_Walk_1 1_8
+  - first:
+      213: -5034269543600463504
+    second: Animation_Spit_Walk_1 1_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 650
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animation_Spit_Walk_1 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6193
+        width: 4240
+        height: 1028
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd496d9aa1622d10800000000000000
+      internalID: 2099347761721331123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Spit_Walk_1 1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4142
+        width: 4240
+        height: 1011
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20897708dcc847bc0800000000000000
+      internalID: -3786246572460238846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Spit_Walk_1 1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2100
+        width: 4240
+        height: 980
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f660fc6b915b6ddf0800000000000000
+      internalID: -155738015051872657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Spit_Walk_1 1_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 4240
+        height: 1004
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0716026d58ea22ab0800000000000000
+      internalID: -5034269543600463504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a9b466cd46861f84d96f7de3ceabe60a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Animation_Spit_Walk_1 1_0: 2099347761721331123
+      Animation_Spit_Walk_1 1_1: -8766098209679806328
+      Animation_Spit_Walk_1 1_10: -1679057532
+      Animation_Spit_Walk_1 1_2: 2676433274707798241
+      Animation_Spit_Walk_1 1_3: -3786246572460238846
+      Animation_Spit_Walk_1 1_4: 6149671696009407401
+      Animation_Spit_Walk_1 1_5: -3059106717943144528
+      Animation_Spit_Walk_1 1_6: -155738015051872657
+      Animation_Spit_Walk_1 1_7: 7704656002542917729
+      Animation_Spit_Walk_1 1_8: 4129702436447580729
+      Animation_Spit_Walk_1 1_9: -5034269543600463504
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
