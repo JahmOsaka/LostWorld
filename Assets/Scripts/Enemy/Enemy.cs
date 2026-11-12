@@ -6,6 +6,10 @@ using System.Collections.Generic;
 public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
+
+    [Header("Orb Attack")]
+    public Transform orbitCenter;
+
     [Header("Hitbox Flip")]
     public BoxCollider2D physicsCollider;
     public BoxCollider2D hitboxCollider;
@@ -171,10 +175,10 @@ public class Enemy : MonoBehaviour
         }
         for (int i = 0; i < elite.orbCount; i++)
         {
-            GameObject orbObj = Instantiate(elite.orbPrefab, transform.position, Quaternion.identity);
+            GameObject orbObj = Instantiate(elite.orbPrefab, orbitCenter.position, Quaternion.identity);
             float startAngle = (360f / elite.orbCount) * i;
             orbObj.GetComponent<OrbitingDamageOrb>()
-                .Init(transform, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.damage);
+                .Init(orbitCenter, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.damage);
             activeOrbs.Add(orbObj);
         }
     }
@@ -332,7 +336,7 @@ public class Enemy : MonoBehaviour
         if (melee != null)
         {
             DrawRange(center, melee.attackRange, new Color(1f, 0.2f, 0.2f), "Attack");
-            DrawRange(center, melee.attackRange * 1.2f, new Color(1f, 0.2f, 0.2f, 0.35f), "Attack exit");
+            DrawRange(center, melee.attackRange * melee.attackExitRange, new Color(1f, 0.2f, 0.2f, 0.35f), "Attack exit");
         }
 
         if (enemyData.retreatsAfterAttack)

@@ -5,6 +5,7 @@ public class MeleeEnemyData : EnemyData
 {
     [Header("Melee Attack")]
     public float attackRange = 1.5f;
+    public float attackExitRange = 1.2f;
     public float attackCooldown = 1.5f;
     public float comboInterval = 0.1f;
 }
