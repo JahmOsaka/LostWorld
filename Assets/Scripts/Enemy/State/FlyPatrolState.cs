@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class FlyPatrolState : EnemyState
 {
-    private const int MaxPickAttempts = 6;       
-    private const float MinTravelDistance = 0.5f; 
-    private const float StuckTime = 0.4f;         
-    private const float StuckSpeed = 0.05f;
+    private const int MaxPickAttempts = 6;
+    private const float MinTravelDistance = 0.5f;
+    private const float StuckTime = 0.5f;
+    private const float StuckSpeed = 0.1f;
 
     private readonly FlyerEnemy fly;
     private FlyerData data => (FlyerData)enemyData;
@@ -14,6 +14,7 @@ public class FlyPatrolState : EnemyState
     private bool waiting;
     private float waitTimer;
     private float stuckTimer;
+    private float escapeDirX;
 
     public FlyPatrolState(FlyerEnemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName)
         : base(enemy, stateMachine, enemyData, animBoolName)
@@ -26,6 +27,7 @@ public class FlyPatrolState : EnemyState
         base.Enter();
         waiting = false;
         stuckTimer = 0f;
+        escapeDirX = Random.value > 0.5f ? 1f : -1f; 
         PickTarget();
     }
 
@@ -53,13 +55,16 @@ public class FlyPatrolState : EnemyState
 
         bool arrived = Vector2.Distance(enemy.transform.position, target) < 0.25f;
 
-        if (!arrived && enemy.rb.linearVelocity.magnitude < StuckSpeed) stuckTimer += Time.deltaTime;
-        else stuckTimer = 0f;
+        if (!arrived && enemy.rb.linearVelocity.magnitude < StuckSpeed)
+            stuckTimer += Time.deltaTime;
+        else
+            stuckTimer = 0f;
 
         if (arrived || stuckTimer >= StuckTime)
         {
             waiting = true;
-            waitTimer = enemyData.idleTimeAtPoint;
+
+            waitTimer = arrived ? enemyData.idleTimeAtPoint : 0.1f;
             stuckTimer = 0f;
         }
     }
@@ -73,10 +78,31 @@ public class FlyPatrolState : EnemyState
         }
 
         Vector2 dir = (target - (Vector2)enemy.transform.position).normalized;
-        enemy.rb.linearVelocity = fly.SlideAgainstWalls(dir * enemyData.patrolSpeed);
+        Vector2 desiredVel = dir * enemyData.patrolSpeed;
+        Vector2 actualVel = fly.SlideAgainstWalls(desiredVel);
 
-        if (Mathf.Abs(dir.x) > 0.05f)
-            enemy.FlipX = dir.x > 0f;
+        if (Mathf.Abs(desiredVel.y) > 0.1f && Mathf.Abs(actualVel.y) < 0.01f)
+        {
+            if (Mathf.Abs(actualVel.x) < enemyData.patrolSpeed * 0.5f)
+            {
+                if (Mathf.Abs(dir.x) > 0.1f)
+                    escapeDirX = Mathf.Sign(dir.x);
+
+                actualVel.x = escapeDirX * enemyData.patrolSpeed;
+
+                float look = enemy.wallCheckDistance + enemyData.patrolSpeed * Time.fixedDeltaTime;
+                if (fly.IsBlocked(new Vector2(escapeDirX, 0f), look))
+                {
+                    escapeDirX *= -1f; 
+                    actualVel.x = escapeDirX * enemyData.patrolSpeed;
+                }
+            }
+        }
+
+        enemy.rb.linearVelocity = actualVel;
+
+        if (Mathf.Abs(enemy.rb.linearVelocity.x) > 0.05f)
+            enemy.FlipX = enemy.rb.linearVelocity.x > 0f;
     }
 
     private void PickTarget()
@@ -96,8 +122,6 @@ public class FlyPatrolState : EnemyState
                 Random.Range(-data.hoverRadiusX, data.hoverRadiusX),
                 Random.Range(-data.hoverRadiusY, data.hoverRadiusY));
 
-            candidate = fly.ClampToOpenSpace(candidate);  
-
             if (Vector2.Distance(candidate, current) >= MinTravelDistance)
             {
                 target = candidate;
@@ -105,6 +129,6 @@ public class FlyPatrolState : EnemyState
             }
         }
 
-        target = current;  
+        target = center;
     }
 }
