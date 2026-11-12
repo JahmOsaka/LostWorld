@@ -101,15 +101,14 @@ public class EnemyAttackState : EnemyState
     public void OnComboCheck()
     {
         if (!hasCombo || waitingCombo) return;
-
-        if (lastHitLanded && CanUseOrbAttack())
+        if (CanUseOrbAttack() && !enemy.HasActiveOrbs())
         {
             waitingCombo = true;
-            comboTimer = melee.comboInterval;    
+            comboTimer = melee.comboInterval;
         }
         else
         {
-            enemy.anim.SetTrigger("comboEnd"); 
+            enemy.anim.SetTrigger("comboEnd");
             OnAttackAnimationEnd();
         }
     }

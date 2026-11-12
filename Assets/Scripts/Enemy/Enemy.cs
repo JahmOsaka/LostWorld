@@ -285,6 +285,12 @@ public class Enemy : MonoBehaviour
         activeOrbs.Clear();
     }
 
+    public bool HasActiveOrbs()
+    {
+        activeOrbs.RemoveAll(orb => orb == null);
+        return activeOrbs.Count > 0;
+    }
+
     protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
