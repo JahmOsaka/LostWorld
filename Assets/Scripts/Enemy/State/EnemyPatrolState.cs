@@ -35,7 +35,14 @@ public class EnemyPatrolState : EnemyState
 
         if (enemy.DistanceToPlayer() <= detectRange && enemy.CanSeePlayer())
         {
-            stateMachine.ChangeState(stationaryRanged ? enemy.RangedAttackState : enemy.ChaseState);
+            if (stationaryRanged && enemy is RangedEnemy rangedEnemy)
+            {
+                stateMachine.ChangeState(rangedEnemy.RangedAttackState);
+            }
+            else
+            {
+                stateMachine.ChangeState(enemy.ChaseState);
+            }
             return;
         }
 

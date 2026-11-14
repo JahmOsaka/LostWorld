@@ -142,7 +142,10 @@ public class CoreHealth : MonoBehaviour, IDamageable
         Enemy enemy = GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.ClearActiveOrbs();
+            if (enemy is EliteEnemy elite)
+            {
+                elite.ClearActiveOrbs();
+            }
             enemy.enabled = false;
         }
     }

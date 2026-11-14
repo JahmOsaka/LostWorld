@@ -117,7 +117,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.9
-    functionName: NotifyAttackHit
+    functionName: EnableAttackHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -125,6 +125,13 @@ AnimationClip:
     messageOptions: 0
   - time: 0.95
     functionName: NotifySpawnOrbs
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.95
+    functionName: DisableAttackHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

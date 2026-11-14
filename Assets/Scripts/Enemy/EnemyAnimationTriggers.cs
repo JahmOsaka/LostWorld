@@ -11,12 +11,7 @@ public class EnemyAnimationTriggers : MonoBehaviour
 
     private void SpawnProjectile()
     {
-        enemy.SpawnProjectile();
-    }
-    
-    private void NotifyAttackHit()
-    {
-        enemy.NotifyAttackHit();
+        if (enemy is RangedEnemy ranged) ranged.SpawnProjectile();
     }
 
     private void NotifyAttackAnimationEnd()
@@ -26,11 +21,21 @@ public class EnemyAnimationTriggers : MonoBehaviour
 
     private void NotifyComboCheck()
     {
-        enemy.NotifyComboCheck();
+        if (enemy is EliteEnemy elite) elite.NotifyComboCheck();
     }
 
     private void NotifyThrowAnimationEnd()
     {
-        enemy.NotifyThrowAnimationEnd();
+        if (enemy is RangedEnemy ranged) ranged.NotifyThrowAnimationEnd();
+    }
+
+    private void EnableAttackHitbox(int index)
+    {
+        enemy.EnableAttackHitbox(index);
+    }
+
+    private void DisableAttackHitbox(int index)
+    {
+        enemy.DisableAttackHitbox(index);
     }
 }

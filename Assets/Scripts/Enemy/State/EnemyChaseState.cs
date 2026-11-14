@@ -32,7 +32,10 @@ public class EnemyChaseState : EnemyState
 
         if (dist <= triggerRange && enemy.CanSeePlayer())
         {
-            stateMachine.ChangeState(ranged != null ? enemy.RangedAttackState : enemy.AttackState);
+            if (ranged != null && enemy is RangedEnemy rangedEnemy)
+                stateMachine.ChangeState(rangedEnemy.RangedAttackState);
+            else
+                stateMachine.ChangeState(enemy.AttackState);
             return;
         }
         if (dist > enemyData.chaseRange * 1.5f)

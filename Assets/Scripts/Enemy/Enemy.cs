@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -7,18 +7,17 @@ public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
 
-    [Header("Orb Attack")]
-    public Transform orbitCenter;
-
     [Header("Hitbox Flip")]
     public BoxCollider2D physicsCollider;
     public BoxCollider2D hitboxCollider;
     public Transform damageHitboxTransform;
 
-    private Vector2 originalPhysicsOffset;
-    private Vector2 originalColliderOffset;
-    private float originalDamageLocalX;
-    private float originalThrowPointLocalX;
+    [Header("Attack Hitboxes")]
+    public GameObject[] attackHitboxes;
+
+    protected Vector2 originalPhysicsOffset;
+    protected Vector2 originalColliderOffset;
+    protected float originalDamageLocalX;
 
     [Header("Edge Detection")]
     public float edgeCheckDistance = 1f;
@@ -26,32 +25,23 @@ public class Enemy : MonoBehaviour
     public float wallCheckDistance = 0.1f;
     public LayerMask groundLayer;
 
-    private List<GameObject> activeOrbs = new List<GameObject>();
-
-    [Header("Ranged Attack")]
-    public Transform throwPoint;
-
-    private EnemyRangedAttackState rangedAttackState;
-
-    private EnemyRetreatState retreatState;
-    public EnemyRetreatState RetreatState => retreatState;
-
-    private CoreHealth health;
-
+    protected CoreHealth health;
     public Vector3 spawnPosition;
     public Transform[] patrolPoints;
-    private int currentPatrolIndex = 0;
+    protected int currentPatrolIndex = 0;
 
     protected EnemyStateMachine stateMachine;
-    private EnemyIdleState idleState;
-    private EnemyPatrolState patrolState;
-    private EnemyChaseState chaseState;
-    private EnemyAttackState attackState;
-    private EnemyReturnState returnState;
-    public EnemyReturnState ReturnState => returnState;
+    protected EnemyIdleState idleState;
+    protected EnemyPatrolState patrolState;
+    protected EnemyChaseState chaseState;
+    protected EnemyAttackState attackState;
+    protected EnemyReturnState returnState;
+    protected EnemyRetreatState retreatState;
 
+    public EnemyRetreatState RetreatState => retreatState;
+    public EnemyReturnState ReturnState => returnState;
+    public EnemyAttackState AttackState => attackState;
     public Vector3 SpawnPosition => spawnPosition;
-    public EnemyRangedAttackState RangedAttackState => rangedAttackState;
     public bool HasPatrolPoints => patrolPoints != null && patrolPoints.Length > 0 && patrolPoints[0] != null;
 
     public SpriteRenderer spriteRenderer { get; private set; }
@@ -80,17 +70,15 @@ public class Enemy : MonoBehaviour
 
         if (hitboxCollider != null)
             originalColliderOffset = hitboxCollider.offset;
+
         if (damageHitboxTransform != null)
             originalDamageLocalX = damageHitboxTransform.localPosition.x;
-        if (throwPoint != null)
-            originalThrowPointLocalX = throwPoint.localPosition.x;
 
         stateMachine = new EnemyStateMachine();
         idleState = new EnemyIdleState(this, stateMachine, enemyData, "idle");
         patrolState = new EnemyPatrolState(this, stateMachine, enemyData, "move");
         chaseState = new EnemyChaseState(this, stateMachine, enemyData, "move");
         attackState = new EnemyAttackState(this, stateMachine, enemyData, "attack");
-        rangedAttackState = new EnemyRangedAttackState(this, stateMachine, enemyData, "throw");
         returnState = new EnemyReturnState(this, stateMachine, enemyData, "move");
         retreatState = new EnemyRetreatState(this, stateMachine, enemyData, "retreat");
     }
@@ -103,8 +91,8 @@ public class Enemy : MonoBehaviour
             stateMachine.Initialize(idleState);
     }
 
-    private void Update() => stateMachine.CurrentState.LogicUpdate();
-    private void FixedUpdate() => stateMachine.CurrentState.PhysicsUpdate();
+    protected virtual void Update() => stateMachine.CurrentState.LogicUpdate();
+    protected virtual void FixedUpdate() => stateMachine.CurrentState.PhysicsUpdate();
 
     public Transform GetCurrentPatrolPoint() => patrolPoints[currentPatrolIndex];
 
@@ -113,74 +101,10 @@ public class Enemy : MonoBehaviour
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
 
-    public void SpawnProjectile()
-    {
-        var ranged = enemyData as RangedEnemyData;
-        if (ranged == null || ranged.projectilePrefab == null || throwPoint == null || playerTransform == null) return;
-        if (stateMachine.CurrentState != rangedAttackState) return;
-
-        GameObject proj = Instantiate(ranged.projectilePrefab, throwPoint.position, Quaternion.identity);
-
-        if (stateMachine.CurrentState != rangedAttackState) return;
-        if (ranged.useArcProjectile)
-        {
-            proj.GetComponent<EnemyArcProjectile>()
-                .Init(throwPoint.position, playerTransform.position, ranged.arcLaunchAngle, ranged.damage, ranged.projectileSpeed);
-        }
-        else
-        {
-            Vector2 dir = (playerTransform.position - throwPoint.position).normalized;
-            proj.GetComponent<EnemyProjectile>().Init(dir, ranged.projectileSpeed, ranged.damage);
-        }
-    }
-
-    public void NotifyThrowAnimationEnd()
-    {
-        if (stateMachine.CurrentState != rangedAttackState) return;
-        rangedAttackState.OnThrowAnimationEnd();
-    }
-
-    public void NotifyAttackHit()
-    {
-        if (stateMachine.CurrentState != attackState) return;
-        attackState.DealHit();
-    }
-
     public void NotifyAttackAnimationEnd()
     {
         if (stateMachine.CurrentState != attackState) return;
         attackState.OnAttackAnimationEnd();
-    }
-    public void NotifyComboCheck()
-    {
-        if (stateMachine.CurrentState != attackState) return;
-        attackState.OnComboCheck();
-    }
-
-    public void NotifySpawnOrbs()
-    {
-        var elite = enemyData as EliteEnemyData;
-        if (elite == null || elite.orbPrefab == null) return;
-
-        foreach (var orb in activeOrbs)
-        {
-            if (orb != null) Destroy(orb);
-        }
-        activeOrbs.Clear();
-        
-        if (elite.orbCastVfxPrefab != null)
-        {
-            GameObject vfx = Instantiate(elite.orbCastVfxPrefab, transform.position, Quaternion.identity, transform);
-            if (elite.orbCastVfxLifetime > 0f) Destroy(vfx, elite.orbCastVfxLifetime);
-        }
-        for (int i = 0; i < elite.orbCount; i++)
-        {
-            GameObject orbObj = Instantiate(elite.orbPrefab, orbitCenter.position, Quaternion.identity);
-            float startAngle = (360f / elite.orbCount) * i;
-            orbObj.GetComponent<OrbitingDamageOrb>()
-                .Init(orbitCenter, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.damage);
-            activeOrbs.Add(orbObj);
-        }
     }
 
     public void FacePlayer()
@@ -204,28 +128,47 @@ public class Enemy : MonoBehaviour
             float sign = value ? 1f : -1f;
 
             if (physicsCollider != null)
-            {
                 physicsCollider.offset = new Vector2(Mathf.Abs(originalPhysicsOffset.x) * sign, originalPhysicsOffset.y);
-            }
 
             if (hitboxCollider != null)
-            {
                 hitboxCollider.offset = new Vector2(Mathf.Abs(originalColliderOffset.x) * sign, originalColliderOffset.y);
+
+            if (attackHitboxes != null)
+            {
+                foreach (GameObject hb in attackHitboxes)
+                {
+                    if (hb != null)
+                    {
+                        Vector3 pos = hb.transform.localPosition;
+                        pos.x = Mathf.Abs(pos.x) * sign;
+                        hb.transform.localPosition = pos;
+                    }
+                }
             }
 
-            if (damageHitboxTransform != null)
-            {
-                Vector3 pos = damageHitboxTransform.localPosition;
-                pos.x = Mathf.Abs(originalDamageLocalX) * sign;
-                damageHitboxTransform.localPosition = pos;
-            }
+            OnFlip(sign);
+        }
+    }
 
-            if (throwPoint != null)
-            {
-                Vector3 pos = throwPoint.localPosition;
-                pos.x = Mathf.Abs(originalThrowPointLocalX) * sign;
-                throwPoint.localPosition = pos;
-            }
+    protected virtual void OnFlip(float sign) { }
+
+    public void EnableAttackHitbox(int index)
+    {
+        if (index >= 0 && index < attackHitboxes.Length && attackHitboxes[index] != null)
+            attackHitboxes[index].SetActive(true);
+    }
+
+    public void DisableAttackHitbox(int index)
+    {
+        if (index >= 0 && index < attackHitboxes.Length && attackHitboxes[index] != null)
+            attackHitboxes[index].SetActive(false);
+    }
+
+    public void DisableAllAttackHitboxes()
+    {
+        foreach (var hb in attackHitboxes)
+        {
+            if (hb != null) hb.SetActive(false);
         }
     }
 
@@ -236,29 +179,20 @@ public class Enemy : MonoBehaviour
         if (playerTransform == null) return Mathf.Infinity;
         return Vector2.Distance(BodyCenter, playerTransform.position);
     }
+
     public bool CanSeePlayer()
     {
         if (playerTransform == null) return false;
-
         Vector2 startPos = BodyCenter;
-
         Vector2 targetPos = (Vector2)playerTransform.position + Vector2.up * 1.0f;
-
-        Debug.DrawLine(startPos, targetPos, Color.yellow);
-
-        RaycastHit2D hit = Physics2D.Linecast(startPos, targetPos, groundLayer);
-
-        return hit.collider == null;
+        return Physics2D.Linecast(startPos, targetPos, groundLayer).collider == null;
     }
 
     public bool IsGroundAheadOf(float dirX)
     {
         if (Mathf.Approximately(dirX, 0f)) return true;
-
         BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
         Vector2 feetPos = col != null ? new Vector2(col.bounds.center.x, col.bounds.min.y) : (Vector2)transform.position;
-
-
         Vector2 origin = feetPos + new Vector2(Mathf.Sign(dirX) * edgeCheckForwardOffset, 0.1f);
         return Physics2D.Raycast(origin, Vector2.down, edgeCheckDistance, groundLayer);
     }
@@ -266,78 +200,38 @@ public class Enemy : MonoBehaviour
     public bool IsWallAheadOf(float dirX)
     {
         if (Mathf.Approximately(dirX, 0f)) return false;
-
         BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
         if (col == null) return false;
-
         Bounds b = col.bounds;
         Vector2 dir = new Vector2(Mathf.Sign(dirX), 0f);
         float dist = b.extents.x + wallCheckDistance;
-
-        Vector2 mid = b.center;                                   
-        Vector2 low = new Vector2(b.center.x, b.min.y + 0.1f);    
-
-        return Physics2D.Raycast(mid, dir, dist, groundLayer)
-            || Physics2D.Raycast(low, dir, dist, groundLayer);
-    }
-    public void ClearActiveOrbs()
-    {
-        foreach (var orb in activeOrbs)
-        {
-            if (orb != null) Destroy(orb);
-        }
-        activeOrbs.Clear();
-    }
-
-    public bool HasActiveOrbs()
-    {
-        activeOrbs.RemoveAll(orb => orb == null);
-        return activeOrbs.Count > 0;
+        Vector2 mid = b.center;
+        Vector2 low = new Vector2(b.center.x, b.min.y + 0.1f);
+        return Physics2D.Raycast(mid, dir, dist, groundLayer) || Physics2D.Raycast(low, dir, dist, groundLayer);
     }
 
     protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-
         BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
         Vector2 feetPos = (col != null)
             ? (Application.isPlaying ? new Vector2(col.bounds.center.x, col.bounds.min.y) : (Vector2)transform.position - new Vector2(0, col.size.y / 2f * transform.localScale.y))
             : (Vector2)transform.position;
-
         Vector2 rightOrigin = feetPos + new Vector2(edgeCheckForwardOffset, 0.1f);
         Vector2 leftOrigin = feetPos + new Vector2(-edgeCheckForwardOffset, 0.1f);
-
         Gizmos.DrawLine(rightOrigin, rightOrigin + Vector2.down * edgeCheckDistance);
         Gizmos.DrawLine(leftOrigin, leftOrigin + Vector2.down * edgeCheckDistance);
         DrawWallCheckGizmos();
         DrawRangeGizmos();
     }
 
-    protected void DrawRangeGizmos()
+    protected virtual void DrawRangeGizmos()
     {
         if (enemyData == null) return;
-
         BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
         Vector3 center = col != null ? (Vector3)col.bounds.center : transform.position;
 
-        var ranged = enemyData as RangedEnemyData;
-        var melee = enemyData as MeleeEnemyData;
-
-        bool stationaryRanged = ranged != null && ranged.isStationary;
-        if (!stationaryRanged)
-            DrawRange(center, enemyData.chaseRange, new Color(0.3f, 0.8f, 1f), "Chase");
-
-        if (ranged != null)
-        {
-            DrawRange(center, ranged.throwRange, new Color(1f, 0.5f, 0f), "Throw");
-            DrawRange(center, ranged.throwRange * 1.2f, new Color(1f, 0.5f, 0f, 0.35f), "Throw exit");
-        }
-
-        if (melee != null)
-        {
-            DrawRange(center, melee.attackRange, new Color(1f, 0.2f, 0.2f), "Attack");
-            DrawRange(center, melee.attackRange * melee.attackExitRange, new Color(1f, 0.2f, 0.2f, 0.35f), "Attack exit");
-        }
+        DrawRange(center, enemyData.chaseRange, new Color(0.3f, 0.8f, 1f), "Chase");
 
         if (enemyData.retreatsAfterAttack)
         {
@@ -354,18 +248,17 @@ public class Enemy : MonoBehaviour
         UnityEditor.Handles.Label(center + Vector3.up * radius, $"{label} {radius:0.0}");
 #endif
     }
+
     protected Bounds GetBodyBounds()
     {
         BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
         if (col == null) return new Bounds(transform.position, Vector3.one);
         if (Application.isPlaying) return col.bounds;
-
         Vector3 s = col.transform.lossyScale;
         Vector3 center = col.transform.TransformPoint(col.offset);
         Vector3 size = new Vector3(Mathf.Abs(col.size.x * s.x), Mathf.Abs(col.size.y * s.y), 0.1f);
         return new Bounds(center, size);
     }
-
 
     protected void DrawWallCheckGizmos()
     {
@@ -373,16 +266,13 @@ public class Enemy : MonoBehaviour
         float dist = b.extents.x + wallCheckDistance;
         Vector2 mid = b.center;
         Vector2 low = new Vector2(b.center.x, b.min.y + 0.1f);
-
         Gizmos.color = new Color(1f, 1f, 1f, 0.5f);
-        Gizmos.DrawWireCube(b.center, b.size);   
-
+        Gizmos.DrawWireCube(b.center, b.size);
         foreach (float dirX in new[] { -1f, 1f })
         {
             Vector2 dir = new Vector2(dirX, 0f);
             bool hitMid = Physics2D.Raycast(mid, dir, dist, groundLayer);
             bool hitLow = Physics2D.Raycast(low, dir, dist, groundLayer);
-
             Gizmos.color = hitMid ? Color.red : new Color(1f, 0.6f, 0.1f);
             Gizmos.DrawLine(mid, mid + dir * dist);
             Gizmos.color = hitLow ? Color.red : new Color(1f, 0.6f, 0.1f);
@@ -393,5 +283,4 @@ public class Enemy : MonoBehaviour
     public EnemyIdleState IdleState => idleState;
     public EnemyPatrolState PatrolState => patrolState;
     public EnemyChaseState ChaseState => chaseState;
-    public EnemyAttackState AttackState => attackState;
 }

@@ -12,8 +12,15 @@ public class EnemyIdleState : EnemyState
         float detectRange = stationaryRanged ? ranged.throwRange : enemyData.chaseRange;
 
         if(enemy.DistanceToPlayer() <= detectRange && enemy.CanSeePlayer())
+        {
+            if (stationaryRanged && enemy is RangedEnemy rangedEnemy)
             {
-            stateMachine.ChangeState(stationaryRanged ? enemy.RangedAttackState : enemy.ChaseState);
+                stateMachine.ChangeState(rangedEnemy.RangedAttackState);
+            }
+            else
+            {
+                stateMachine.ChangeState(enemy.ChaseState);
+            }
         }
     }
 }
