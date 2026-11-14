@@ -5,50 +5,73 @@ public class PlayerJumpState : PlayerState
     private bool hasJumped;
     private bool hasAppliedJumpCut;
     private float timer;
+    private bool bufferedDoubleJump;
+
     public PlayerJumpState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
 
     public override void Enter()
     {
         base.Enter();
-        hasJumped = false;
         hasAppliedJumpCut = false;
+        bufferedDoubleJump = false;
         timer = 0f;
 
-        bool isGroundJump = player.CheckIfGrounded() || player.CoyoteTimeCounter > 0f;
-        if (!isGroundJump)
-        {
-            player.JumpsRemaining--;
-        }
-
         player.InputHandler.UseJumpInput();
-        player.ResetCoyoteTime();
-
-        player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, 0f);
-        player.RB.gravityScale = 0f;
-
         player.ColliderController?.ActivateJumpCollider();
 
-        player.Anim.Play("Jump_Ground", 0, 0f);
-    }
+        bool isGroundJump = player.CheckIfGrounded() || player.CoyoteTimeCounter > 0f;
 
-    public void ExecuteJumpForce()
-    {
-        if (!hasJumped)
+        if (isGroundJump)
         {
-            player.RB.gravityScale = playerData.JumpGravityScale;
+            player.ResetCoyoteTime();
+            player.JumpsRemaining = (player.SkillController != null && player.SkillController.hasDoubleJump) ? 1 : 0;
 
-            player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.MaxJumpVelocity);
-            hasJumped = true;
+            player.Anim.Play("Jump_Ground", 0, 0f);
+            ApplyJumpPhysics();
+        }
+        else
+        {
+            player.JumpsRemaining--;
+            player.Anim.Play("Jump_Air", 0, 0f);
+            ApplyJumpPhysics();
         }
     }
+
+    private void ApplyJumpPhysics()
+    {
+        hasJumped = true;
+        player.RB.gravityScale = playerData.JumpGravityScale;
+        player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.MaxJumpVelocity);
+    }
+
+    public void ExecuteJumpForce() { }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         timer += Time.deltaTime;
 
-        if (!hasJumped) return;
+        if (player.InputHandler.JumpInput && player.SkillController.hasDoubleJump && player.JumpsRemaining > 0)
+        {
+            player.InputHandler.UseJumpInput();
+            bufferedDoubleJump = true;
+        }
+
+        if (bufferedDoubleJump && timer >= 0.04f)
+        {
+            bufferedDoubleJump = false;
+            player.JumpsRemaining--;
+
+            timer = 0f;
+            hasAppliedJumpCut = false;
+
+            ApplyJumpPhysics();
+            player.Anim.Play("Jump_Air", 0, 0f);
+            return;
+        }
+
+        if (timer < 0.12f) return;
 
         if (player.CheckIfGrounded() && player.RB.linearVelocity.y <= 0.01f)
         {
@@ -63,11 +86,13 @@ public class PlayerJumpState : PlayerState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        if (!hasAppliedJumpCut && !player.InputHandler.IsJumpHolding && player.RB.linearVelocity.y > 0 && timer > playerData.minJumpHoldTime)
+
+        if (!bufferedDoubleJump && !hasAppliedJumpCut && !player.InputHandler.IsJumpHolding && player.RB.linearVelocity.y > 0 && timer > playerData.minJumpHoldTime)
         {
             player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, player.RB.linearVelocity.y * playerData.minJumpMultiplier);
             hasAppliedJumpCut = true;
         }
+
         float inputX = player.InputHandler.RawMovementInput.x;
         float moveDirection = inputX == 0 ? 0 : Mathf.Sign(inputX);
 
@@ -80,5 +105,4 @@ public class PlayerJumpState : PlayerState
         base.Exit();
         player.RB.gravityScale = playerData.defaultGravity;
     }
-
 }

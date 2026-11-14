@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private int originalLayer;
     private int passThroughLayer;
     private float dropDownTimer;
+    public bool canDoubleJump;
 
     // Components
     public Rigidbody2D RB { get; private set; }

@@ -31,11 +31,14 @@ public class PlayerSkillController : MonoBehaviour
 
     public SkillData CurrentCombatSkill => equippedWheelSkills[activeWheelIndex];
 
+    public PlayerSkillController skillController { get; private set; }
+
     private void Awake()
     {
         inputHandler = GetComponentInParent<PlayerInputHandler>();
         playerStats = GetComponentInParent<PlayerStats>();
         player = GetComponentInParent<Player>();
+        skillController = GetComponent<PlayerSkillController>();
     }
 
     private void Start() => UpdateHUD();
