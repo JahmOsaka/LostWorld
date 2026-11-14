@@ -73,15 +73,15 @@ public class EnemyRespawnManager : MonoBehaviour
         RespawnAllEnemies();
     }
 
-    private void RespawnAllEnemies()
+    public void RespawnAllEnemies()
     {
-        foreach (var enemy in allEnemies)
+        RespawnableEnemy[] allEnemies = FindObjectsByType<RespawnableEnemy>(FindObjectsInactive.Include);
+
+        foreach (RespawnableEnemy enemy in allEnemies)
         {
-            if (enemy != null)
-            {
-                enemy.Respawn();
-            }
+            enemy.Respawn();
         }
+
         Debug.Log("All normal enemies respawned.");
     }
 }

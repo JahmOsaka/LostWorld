@@ -146,4 +146,15 @@ public class CoreHealth : MonoBehaviour, IDamageable
             enemy.enabled = false;
         }
     }
+
+    public void Revive()
+    {
+        isDead = false;
+        currentHealth = maxHealth;
+
+        if (designatedHurtbox != null)
+        {
+            designatedHurtbox.enabled = true;
+        }
+    }
 }

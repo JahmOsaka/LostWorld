@@ -272,7 +272,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  destroyOnEnd: 1
+  destroyOnEnd: 0
 --- !u!1 &4473217849596222109
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyData: {fileID: 11400000, guid: 4e398cea97615d54d95634094bafb93d, type: 2}
+  orbitCenter: {fileID: 0}
   physicsCollider: {fileID: 6100445818434788676}
   hitboxCollider: {fileID: 5681447469185159381}
   damageHitboxTransform: {fileID: 7931346362942923131}
@@ -658,3 +659,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RespawnableEnemy
   respawnsOnRest: 1
+  visualObject: {fileID: 4422726531095345253}

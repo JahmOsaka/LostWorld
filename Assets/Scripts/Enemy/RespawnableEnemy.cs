@@ -1,10 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(CoreHealth))]
 public class RespawnableEnemy : MonoBehaviour
 {
-    [Header("Respawn Settings")]
-    [Tooltip("If enemy can respawn")]
+    [Tooltip("If true, respawns when player rests. If false, stays dead (like a boss).")]
     public bool respawnsOnRest = true;
+
+    [Tooltip("Assign the child GameObject named 'Visual' here. This ensures it can be reactivated if disabled by death effects.")]
+    public GameObject visualObject;
 
     private Vector3 initialPosition;
     private CoreHealth health;
@@ -15,28 +18,41 @@ public class RespawnableEnemy : MonoBehaviour
         initialPosition = transform.position;
         health = GetComponent<CoreHealth>();
         enemyScript = GetComponent<Enemy>();
-    }
 
-    private void Start()
-    {
-        EnemyRespawnManager.RegisterEnemy(this);
-    }
-
-    private void OnDestroy()
-    {
-        EnemyRespawnManager.UnregisterEnemy(this);
+        if (visualObject == null)
+        {
+            Transform v = transform.Find("Visual");
+            if (v != null)
+                visualObject = v.gameObject;
+        }
     }
 
     public void Respawn()
     {
+        if (this == null || gameObject == null || enemyScript == null || enemyScript.anim == null) return;
+
         if (!respawnsOnRest && health.currentHealth <= 0) return;
 
         gameObject.SetActive(true);
         transform.position = initialPosition;
+        transform.localScale = Vector3.one;
+        if (visualObject != null)
+        {
+            visualObject.SetActive(true);
+
+            visualObject.transform.localScale = Vector3.one;
+
+            SpriteRenderer sr = visualObject.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.enabled = true;
+                sr.color = Color.white;
+            }
+        }
 
         if (health != null)
         {
-            health.Heal(health.maxHealth);
+            health.Revive();
         }
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -49,6 +65,7 @@ public class RespawnableEnemy : MonoBehaviour
         if (enemyScript != null)
         {
             enemyScript.enabled = true;
+            enemyScript.ResetEnemyState();
         }
     }
 }

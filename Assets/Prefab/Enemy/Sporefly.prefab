@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyerEnemy
   enemyData: {fileID: 11400000, guid: d68fb5ce55209394c8ce3ed74cf85ac6, type: 2}
+  orbitCenter: {fileID: 0}
   physicsCollider: {fileID: 8279469704505230806}
   hitboxCollider: {fileID: 7865742906292676635}
   damageHitboxTransform: {fileID: 5454986123503338793}
@@ -287,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RespawnableEnemy
   respawnsOnRest: 1
+  visualObject: {fileID: 0}
 --- !u!1 &6613497785866434606
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +530,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  destroyOnEnd: 1
+  destroyOnEnd: 0
 --- !u!1 &8846971725921402382
 GameObject:
   m_ObjectHideFlags: 0

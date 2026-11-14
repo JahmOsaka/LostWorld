@@ -295,6 +295,27 @@ public class Enemy : MonoBehaviour
         return activeOrbs.Count > 0;
     }
 
+    public void ResetEnemyState()
+    {
+        if (anim != null)
+        {
+            anim.Rebind();
+            anim.Update(0f);
+        }
+
+        ClearActiveOrbs();
+
+        currentPatrolIndex = 0;
+
+        if (stateMachine != null)
+        {
+            if (HasPatrolPoints)
+                stateMachine.Initialize(patrolState);
+            else
+                stateMachine.Initialize(idleState);
+        }
+    }
+
     protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

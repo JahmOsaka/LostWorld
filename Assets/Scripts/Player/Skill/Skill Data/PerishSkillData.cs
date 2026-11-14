@@ -6,23 +6,20 @@ public class PerishSkillData : SkillData
     public float destroyRadius = 2f;
     public LayerMask obstacleLayer;
 
-    public override void ExecuteSkill(GameObject user)
+    public void ExecuteSkill(Transform playerTransform)
     {
-        Collider2D[] hitObstacles = Physics2D.OverlapCircleAll(user.transform.position, destroyRadius, obstacleLayer);
+        Debug.Log("Executing Perish Skill: Trying to clear obstacles.");
+        Collider2D[] obstacles = Physics2D.OverlapCircleAll(playerTransform.position, destroyRadius, obstacleLayer);
 
-        bool hitSomething = false;
-        foreach (Collider2D obstacle in hitObstacles)
+        foreach (Collider2D obstacle in obstacles)
         {
-            if (obstacle.CompareTag("BlueGate"))
+            ShortcutGate gate = obstacle.GetComponentInParent<ShortcutGate>();
+
+            if (gate != null)
             {
-                Destroy(obstacle.gameObject);
-                hitSomething = true;
+                gate.Interact();
+                Debug.Log($"Cleared Obstacle (Perish): {obstacle.name}");
             }
-        }
-
-        if (hitSomething && vfxPrefab != null)
-        {
-            Instantiate(vfxPrefab, user.transform.position, Quaternion.identity);
         }
     }
 }
