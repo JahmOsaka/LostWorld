@@ -140,8 +140,8 @@ Transform:
   m_GameObject: {fileID: 2857313856191013775}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.48, y: 0, z: 0}
-  m_LocalScale: {x: 2.9615626, y: 1, z: 1}
+  m_LocalPosition: {x: -2.91, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4598878643785421694}
@@ -190,7 +190,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.356525, y: 1}
+  m_Size: {x: 4.588302, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &6566704278603851323
 MonoBehaviour:
@@ -359,6 +359,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e249bb0fe9a2ea34cbd12faa9a1c8677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackHitbox
+--- !u!1 &6846077479326946216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2218840966717368629}
+  m_Layer: 10
+  m_Name: VFXspawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2218840966717368629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6846077479326946216}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.029999852, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7163095937574770365}
+  - {fileID: 3337830158844772715}
+  m_Father: {fileID: 6591269083366564517}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7108473431055578084
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3372696692760516044}
   m_Layer: 7
-  m_Name: ThrowPoint
+  m_Name: OrbCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,6 +453,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3325468834581339859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8054610153138940786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3337830158844772715}
+  m_Layer: 10
+  m_Name: 'Attack2BrustVFX_SP '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3337830158844772715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8054610153138940786}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.97, y: -0.68, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2218840966717368629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8356681151551816356
 GameObject:
@@ -677,6 +741,37 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   destroyOnEnd: 1
+--- !u!1 &8980867007283435135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7163095937574770365}
+  m_Layer: 10
+  m_Name: Attack2CastVFX_SP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7163095937574770365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980867007283435135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.45, y: -0.68, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2218840966717368629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8982670718893699685
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,12 +802,13 @@ Transform:
   m_GameObject: {fileID: 8982670718893699685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4598878643785421694}
   - {fileID: 3325468834581339859}
+  - {fileID: 2218840966717368629}
   m_Father: {fileID: 5072478853811685202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1683756757378964045
@@ -807,6 +903,16 @@ MonoBehaviour:
   attackHitboxes:
   - {fileID: 6159777326334084014}
   - {fileID: 2857313856191013775}
+  vfxList:
+  - vfxName: WardenAttack2Cast
+    prefab: {fileID: 8411599194502522982, guid: 5eb29311893d67a4f9d46de2c326c1d3, type: 3}
+    spawnPoint: {fileID: 7163095937574770365}
+  - vfxName: WardenAttack2Brust
+    prefab: {fileID: 835921327678327072, guid: ee1da44e844f7664494a98aabdab17d2, type: 3}
+    spawnPoint: {fileID: 3337830158844772715}
+  - vfxName: WardenOrbSpawn
+    prefab: {fileID: 835921327678327072, guid: ee1da44e844f7664494a98aabdab17d2, type: 3}
+    spawnPoint: {fileID: 3372696692760516044}
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 1.95
   wallCheckDistance: 0.1

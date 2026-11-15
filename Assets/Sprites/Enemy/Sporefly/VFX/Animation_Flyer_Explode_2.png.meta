@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: f6d678d37a45077478f7f4fed224eb58
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7549919162947199178
+    second: Animation_Flyer_Explode_2_0
+  - first:
+      213: 5000926803223389671
+    second: Animation_Flyer_Explode_2_1
+  - first:
+      213: 6824619096670763839
+    second: Animation_Flyer_Explode_2_2
+  - first:
+      213: -8168037749605782569
+    second: Animation_Flyer_Explode_2_3
+  - first:
+      213: 4759351747908972681
+    second: Animation_Flyer_Explode_2_4
+  - first:
+      213: -6845283796188889251
+    second: Animation_Flyer_Explode_2_5
+  - first:
+      213: -336538702658488460
+    second: Animation_Flyer_Explode_2_6
+  - first:
+      213: -2444184611024321327
+    second: Animation_Flyer_Explode_2_7
+  - first:
+      213: 3489931461260174031
+    second: Animation_Flyer_Explode_2_8
+  - first:
+      213: -2539683862473381238
+    second: Animation_Flyer_Explode_2_9
+  - first:
+      213: -5634625903268194230
+    second: Animation_Flyer_Explode_2_10
+  - first:
+      213: 558524034553996765
+    second: Animation_Flyer_Explode_2_11
+  - first:
+      213: -4348384362089073845
+    second: Animation_Flyer_Explode_2_12
+  - first:
+      213: -4709613365465998978
+    second: Animation_Flyer_Explode_2_13
+  - first:
+      213: -2901004118976231130
+    second: Animation_Flyer_Explode_2_14
+  - first:
+      213: -4599490684746378250
+    second: Animation_Flyer_Explode_2_15
+  - first:
+      213: -2030476837586580596
+    second: Animation_Flyer_Explode_2_16
+  - first:
+      213: -2169299091493458878
+    second: Animation_Flyer_Explode_2_17
+  - first:
+      213: -2754854793792998187
+    second: Animation_Flyer_Explode_2_18
+  - first:
+      213: 1277890745494690465
+    second: Animation_Flyer_Explode_2_19
+  - first:
+      213: 9016367001456353442
+    second: Animation_Flyer_Explode_2_20
+  - first:
+      213: 8591764174942871064
+    second: Animation_Flyer_Explode_2_21
+  - first:
+      213: -6188606596692134414
+    second: Animation_Flyer_Explode_2_22
+  - first:
+      213: 3439904930578893229
+    second: Animation_Flyer_Explode_2_23
+  - first:
+      213: -4004133020258142977
+    second: Animation_Flyer_Explode_2_24
+  - first:
+      213: -8267170445844337302
+    second: Animation_Flyer_Explode_2_25
+  - first:
+      213: -8628455346107949647
+    second: Animation_Flyer_Explode_2_26
+  - first:
+      213: -8430070905725230387
+    second: Animation_Flyer_Explode_2_27
+  - first:
+      213: 476195796282627932
+    second: Animation_Flyer_Explode_2_28
+  - first:
+      213: 8991058415710315109
+    second: Animation_Flyer_Explode_2_29
+  - first:
+      213: -8328780895638165820
+    second: Animation_Flyer_Explode_2_30
+  - first:
+      213: -5221494123194033066
+    second: Animation_Flyer_Explode_2_31
+  - first:
+      213: 1412925777232458172
+    second: Animation_Flyer_Explode_2_32
+  - first:
+      213: -1654296565726479604
+    second: Animation_Flyer_Explode_2_33
+  - first:
+      213: 3602814204095156338
+    second: Animation_Flyer_Explode_2_34
+  - first:
+      213: -8321418204729564415
+    second: Animation_Flyer_Explode_2_35
+  - first:
+      213: 69439238015299589
+    second: Animation_Flyer_Explode_2_36
+  - first:
+      213: -6876810780275055036
+    second: Animation_Flyer_Explode_2_37
+  - first:
+      213: 391938971738776595
+    second: Animation_Flyer_Explode_2_38
+  - first:
+      213: -7276696282921869737
+    second: Animation_Flyer_Explode_2_39
+  - first:
+      213: 1234851952879101354
+    second: Animation_Flyer_Explode_2_40
+  - first:
+      213: 2524043068606443369
+    second: Animation_Flyer_Explode_2_41
+  - first:
+      213: -2374849195622591209
+    second: Animation_Flyer_Explode_2_42
+  - first:
+      213: -6434902126748436734
+    second: Animation_Flyer_Explode_2_43
+  - first:
+      213: -4189730518432814080
+    second: Animation_Flyer_Explode_2_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 650
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 709
+        width: 4240
+        height: 989
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f1e91c58c493790800000000000000
+      internalID: -7549919162947199178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_2_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10687
+        width: 4240
+        height: 1193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7db24ce51fc45ae80800000000000000
+      internalID: -8168037749605782569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8519
+        width: 4240
+        height: 1308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4331de167f67a3c0800000000000000
+      internalID: -4348384362089073845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6662
+        width: 4240
+        height: 1111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b4efaf21c42d3e0800000000000000
+      internalID: -2030476837586580596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_2_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4600
+        width: 4240
+        height: 1090
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da905481f4ffcbf20800000000000000
+      internalID: 3439904930578893229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_2_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2773
+        width: 4240
+        height: 872
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c57d5f0cd89cb9600800000000000000
+      internalID: 476195796282627932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 22a456f45fe86cd42bae189905035239
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Animation_Flyer_Explode_2_0: -7549919162947199178
+      Animation_Flyer_Explode_2_1: 5000926803223389671
+      Animation_Flyer_Explode_2_10: -5634625903268194230
+      Animation_Flyer_Explode_2_11: 558524034553996765
+      Animation_Flyer_Explode_2_12: -4348384362089073845
+      Animation_Flyer_Explode_2_13: -4709613365465998978
+      Animation_Flyer_Explode_2_14: -2901004118976231130
+      Animation_Flyer_Explode_2_15: -4599490684746378250
+      Animation_Flyer_Explode_2_16: -2030476837586580596
+      Animation_Flyer_Explode_2_17: -2169299091493458878
+      Animation_Flyer_Explode_2_18: -2754854793792998187
+      Animation_Flyer_Explode_2_19: 1277890745494690465
+      Animation_Flyer_Explode_2_2: 6824619096670763839
+      Animation_Flyer_Explode_2_20: 9016367001456353442
+      Animation_Flyer_Explode_2_21: 8591764174942871064
+      Animation_Flyer_Explode_2_22: -6188606596692134414
+      Animation_Flyer_Explode_2_23: 3439904930578893229
+      Animation_Flyer_Explode_2_24: -4004133020258142977
+      Animation_Flyer_Explode_2_25: -8267170445844337302
+      Animation_Flyer_Explode_2_26: -8628455346107949647
+      Animation_Flyer_Explode_2_27: -8430070905725230387
+      Animation_Flyer_Explode_2_28: 476195796282627932
+      Animation_Flyer_Explode_2_29: 8991058415710315109
+      Animation_Flyer_Explode_2_3: -8168037749605782569
+      Animation_Flyer_Explode_2_30: -8328780895638165820
+      Animation_Flyer_Explode_2_31: -5221494123194033066
+      Animation_Flyer_Explode_2_32: 1412925777232458172
+      Animation_Flyer_Explode_2_33: -1654296565726479604
+      Animation_Flyer_Explode_2_34: 3602814204095156338
+      Animation_Flyer_Explode_2_35: -8321418204729564415
+      Animation_Flyer_Explode_2_36: 69439238015299589
+      Animation_Flyer_Explode_2_37: -6876810780275055036
+      Animation_Flyer_Explode_2_38: 391938971738776595
+      Animation_Flyer_Explode_2_39: -7276696282921869737
+      Animation_Flyer_Explode_2_4: 4759351747908972681
+      Animation_Flyer_Explode_2_40: 1234851952879101354
+      Animation_Flyer_Explode_2_41: 2524043068606443369
+      Animation_Flyer_Explode_2_42: -2374849195622591209
+      Animation_Flyer_Explode_2_43: -6434902126748436734
+      Animation_Flyer_Explode_2_44: -4189730518432814080
+      Animation_Flyer_Explode_2_5: -6845283796188889251
+      Animation_Flyer_Explode_2_6: -336538702658488460
+      Animation_Flyer_Explode_2_7: -2444184611024321327
+      Animation_Flyer_Explode_2_8: 3489931461260174031
+      Animation_Flyer_Explode_2_9: -2539683862473381238
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

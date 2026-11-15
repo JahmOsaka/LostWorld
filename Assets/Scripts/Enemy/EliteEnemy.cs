@@ -13,6 +13,26 @@ public class EliteEnemy : Enemy
         attackState.OnComboCheck();
     }
 
+    public void NotifySpawnOrbVFX()
+    {
+        var elite = enemyData as EliteEnemyData;
+        if (elite == null) return;
+
+        for (int i = 0; i < elite.orbCount; i++)
+        {
+            float startAngle = (360f / elite.orbCount) * i;
+            float rad = startAngle * Mathf.Deg2Rad;
+            Vector2 offset = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * elite.orbitRadius;
+            Vector3 edgeSpawnPos = orbitCenter.position + (Vector3)offset;
+
+            if (vfxList != null && vfxList.Length > 2 && vfxList[2].prefab != null)
+            {
+                GameObject vfx = Instantiate(vfxList[2].prefab, edgeSpawnPos, Quaternion.identity);
+                SpriteRenderer vfxSprite = vfx.GetComponentInChildren<SpriteRenderer>();
+                if (vfxSprite != null) vfxSprite.flipX = this.spriteRenderer.flipX;
+            }
+        }
+    }
     public void NotifySpawnOrbs()
     {
         var elite = enemyData as EliteEnemyData;
@@ -20,16 +40,15 @@ public class EliteEnemy : Enemy
 
         ClearActiveOrbs();
 
-        if (elite.orbCastVfxPrefab != null)
-        {
-            GameObject vfx = Instantiate(elite.orbCastVfxPrefab, transform.position, Quaternion.identity, transform);
-            if (elite.orbCastVfxLifetime > 0f) Destroy(vfx, elite.orbCastVfxLifetime);
-        }
-
         for (int i = 0; i < elite.orbCount; i++)
         {
-            GameObject orbObj = Instantiate(elite.orbPrefab, orbitCenter.position, Quaternion.identity);
             float startAngle = (360f / elite.orbCount) * i;
+            float rad = startAngle * Mathf.Deg2Rad;
+            Vector2 offset = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * elite.orbitRadius;
+            Vector3 edgeSpawnPos = orbitCenter.position + (Vector3)offset;
+
+            // เสกแค่ลูกแก้วจริงอย่างเดียว
+            GameObject orbObj = Instantiate(elite.orbPrefab, edgeSpawnPos, Quaternion.identity);
             orbObj.GetComponent<OrbitingDamageOrb>()
                 .Init(orbitCenter, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.damage);
             activeOrbs.Add(orbObj);

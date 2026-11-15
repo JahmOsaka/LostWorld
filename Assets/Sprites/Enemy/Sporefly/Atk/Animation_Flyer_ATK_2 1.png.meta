@@ -1,0 +1,281 @@
+fileFormatVersion: 2
+guid: 37cd7841cb319044f900398450f9d42a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3529093838492219214
+    second: Animation_Flyer_ATK_2 1_0
+  - first:
+      213: 6208104064236384774
+    second: Animation_Flyer_ATK_2 1_1
+  - first:
+      213: 3474725607018494016
+    second: Animation_Flyer_ATK_2 1_2
+  - first:
+      213: -346793726188068613
+    second: Animation_Flyer_ATK_2 1_3
+  - first:
+      213: 6918839064667140197
+    second: Animation_Flyer_ATK_2 1_4
+  - first:
+      213: 2657954337411397501
+    second: Animation_Flyer_ATK_2 1_5
+  - first:
+      213: -7952503177008534444
+    second: Animation_Flyer_ATK_2 1_6
+  - first:
+      213: -7125502066162880867
+    second: Animation_Flyer_ATK_2 1_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 650
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animation_Flyer_ATK_2 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10895
+        width: 4240
+        height: 849
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e47395ee52cd9f030800000000000000
+      internalID: 3529093838492219214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_ATK_2 1_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8622
+        width: 4240
+        height: 1299
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602f77521cd972650800000000000000
+      internalID: 6208104064236384774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_ATK_2 1_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6573
+        width: 4240
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0487a4a9784b83030800000000000000
+      internalID: 3474725607018494016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_ATK_2 1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4733
+        width: 4240
+        height: 875
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 560b493c877a40060800000000000000
+      internalID: 6918839064667140197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_ATK_2 1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2424
+        width: 4240
+        height: 1403
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d777d9e2363f2e420800000000000000
+      internalID: 2657954337411397501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_ATK_2 1_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 449
+        width: 4240
+        height: 1259
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9eac049f912d1d90800000000000000
+      internalID: -7125502066162880867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8c049fdbc5ead794cb6d955573cda80c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Animation_Flyer_ATK_2 1_0: 3529093838492219214
+      Animation_Flyer_ATK_2 1_1: 6208104064236384774
+      Animation_Flyer_ATK_2 1_2: 3474725607018494016
+      Animation_Flyer_ATK_2 1_3: -346793726188068613
+      Animation_Flyer_ATK_2 1_4: 6918839064667140197
+      Animation_Flyer_ATK_2 1_5: 2657954337411397501
+      Animation_Flyer_ATK_2 1_6: -7952503177008534444
+      Animation_Flyer_ATK_2 1_7: -7125502066162880867
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

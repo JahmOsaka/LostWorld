@@ -38,4 +38,18 @@ public class EnemyAnimationTriggers : MonoBehaviour
     {
         enemy.DisableAttackHitbox(index);
     }
+
+    private void TriggerVFX(int index)
+    {
+        enemy.SpawnVFX(index);
+    }
+
+    public void TriggerSpawnOrbVFX()
+    {
+        EliteEnemy elite = GetComponentInParent<EliteEnemy>();
+        if (elite != null)
+        {
+            elite.NotifySpawnOrbVFX();
+        }
+    }
 }

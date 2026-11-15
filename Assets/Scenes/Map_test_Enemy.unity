@@ -3154,7 +3154,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 101.00001, y: -44.750004, z: -10}
+  m_LocalPosition: {x: 96.54001, y: -45.840004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -555477,7 +555477,7 @@ Transform:
   m_GameObject: {fileID: 702380126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 101, y: -44.75, z: -10}
+  m_LocalPosition: {x: 96.54, y: -45.84, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -558791,11 +558791,11 @@ PrefabInstance:
       objectReference: {fileID: 1873566294}
     - target: {fileID: 2952475920657060125, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 101
+      value: 96.54
       objectReference: {fileID: 0}
     - target: {fileID: 2952475920657060125, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -47.3
+      value: -48.39
       objectReference: {fileID: 0}
     - target: {fileID: 2952475920657060125, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -561696,7 +561696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5072478853811685202, guid: 0bd996182f08809458b519c073eaa5c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -51.776947
+      value: -51.95
       objectReference: {fileID: 0}
     - target: {fileID: 5072478853811685202, guid: 0bd996182f08809458b519c073eaa5c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -561734,6 +561734,22 @@ PrefabInstance:
       propertyPath: damageHitboxTransform
       value: 
       objectReference: {fileID: 1191312066}
+    - target: {fileID: 9188319520962670060, guid: 0bd996182f08809458b519c073eaa5c4, type: 3}
+      propertyPath: vfxList.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 835921327678327072, guid: ee1da44e844f7664494a98aabdab17d2, type: 3}
+    - target: {fileID: 9188319520962670060, guid: 0bd996182f08809458b519c073eaa5c4, type: 3}
+      propertyPath: vfxList.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 8580689045994596581, guid: 14e79a24387b88c46bafe6349548650d, type: 3}
+    - target: {fileID: 9188319520962670060, guid: 0bd996182f08809458b519c073eaa5c4, type: 3}
+      propertyPath: vfxList.Array.data[1].vfxName
+      value: WardenAttack2Brust
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188319520962670060, guid: 0bd996182f08809458b519c073eaa5c4, type: 3}
+      propertyPath: vfxList.Array.data[2].spawnPoint
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

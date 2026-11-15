@@ -1,6 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
+[System.Serializable]
+public struct VFXData
+{
+    public string vfxName;
+    public GameObject prefab;
+    public Transform spawnPoint;
+}
+
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class Enemy : MonoBehaviour
@@ -14,6 +22,9 @@ public class Enemy : MonoBehaviour
 
     [Header("Attack Hitboxes")]
     public GameObject[] attackHitboxes;
+
+    [Header("VFX Settings")]
+    public VFXData[] vfxList;
 
     protected Vector2 originalPhysicsOffset;
     protected Vector2 originalColliderOffset;
@@ -146,6 +157,19 @@ public class Enemy : MonoBehaviour
                 }
             }
 
+            if (vfxList != null)
+            {
+                foreach (VFXData vfx in vfxList)
+                {
+                    if (vfx.spawnPoint != null)
+                    {
+                        Vector3 vfxPos = vfx.spawnPoint.localPosition;
+                        vfxPos.x = Mathf.Abs(vfxPos.x) * sign;
+                        vfx.spawnPoint.localPosition = vfxPos;
+                    }
+                }
+            }
+
             OnFlip(sign);
         }
     }
@@ -157,18 +181,33 @@ public class Enemy : MonoBehaviour
         if (index >= 0 && index < attackHitboxes.Length && attackHitboxes[index] != null)
             attackHitboxes[index].SetActive(true);
     }
-
     public void DisableAttackHitbox(int index)
     {
         if (index >= 0 && index < attackHitboxes.Length && attackHitboxes[index] != null)
             attackHitboxes[index].SetActive(false);
     }
-
     public void DisableAllAttackHitboxes()
     {
         foreach (var hb in attackHitboxes)
         {
             if (hb != null) hb.SetActive(false);
+        }
+    }
+    public void SpawnVFX(int index)
+    {
+        if (index >= 0 && index < vfxList.Length)
+        {
+            var data = vfxList[index];
+            if (data.prefab != null && data.spawnPoint != null)
+            {
+                GameObject vfx = Instantiate(data.prefab, data.spawnPoint.position, data.spawnPoint.rotation);
+
+                SpriteRenderer vfxSprite = vfx.GetComponentInChildren<SpriteRenderer>();
+                if (vfxSprite != null)
+                {
+                    vfxSprite.flipX = this.spriteRenderer.flipX;
+                }
+            }
         }
     }
 
