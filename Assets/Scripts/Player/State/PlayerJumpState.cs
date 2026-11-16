@@ -2,7 +2,6 @@
 
 public class PlayerJumpState : PlayerState
 {
-    private bool hasJumped;
     private bool hasAppliedJumpCut;
     private float timer;
     private bool bufferedDoubleJump;
@@ -40,7 +39,6 @@ public class PlayerJumpState : PlayerState
 
     private void ApplyJumpPhysics()
     {
-        hasJumped = true;
         player.RB.gravityScale = playerData.JumpGravityScale;
         player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, playerData.MaxJumpVelocity);
     }

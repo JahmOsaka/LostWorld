@@ -67,7 +67,21 @@ public class PlayerData : ScriptableObject
     public float combatIdleDuration = 4f;
 
     [Space(10)]
-    [Header("7. Dynamic Collider & Hurtbox Sizes")]
+    [Header("7. Combat Game Feel & Juice")]
+    public float attackPushSpeed = 3f;
+    [Tooltip("Hitstop duration (seconds) for Combo Hit 1.")]
+    public float hitstopHit1 = 0.04f;
+    [Tooltip("Hitstop duration (seconds) for Combo Hit 2.")]
+    public float hitstopHit2 = 0.05f;
+    [Tooltip("Hitstop duration (seconds) for Combo Hit 3 (Finisher).")]
+    public float hitstopHit3 = 0.12f;
+    [Tooltip("Screen shake duration (seconds) for Combo Hit 3.")]
+    public float screenShakeDuration = 0.15f;
+    [Tooltip("Screen shake magnitude (intensity) for Combo Hit 3.")]
+    public float screenShakeMagnitude = 0.1f;
+
+    [Space(10)]
+    [Header("8. Dynamic Collider & Hurtbox Sizes")]
     [Tooltip("Horizontal push speed when stuck under a low ceiling.")]
     public float autoEjectSpeed = 7f;
     public Vector2 jumpHurtboxSize = new Vector2(0.6f, 1.0f);
@@ -76,7 +90,7 @@ public class PlayerData : ScriptableObject
     public Vector2 dodgeHurtboxOffset = new Vector2(0f, -0.5f);
 
     [Space(10)]
-    [Header("8. Ground & Ceiling Detection")]
+    [Header("9. Ground & Ceiling Detection")]
     public Vector2 groundCheckSize = new Vector2(0.5f, 0.1f);
     public Vector2 ceilingCheckSize = new Vector2(0.6f, 0.1f);
     public float boxCastDistance = 0.1f;

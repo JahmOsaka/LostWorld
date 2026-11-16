@@ -158,14 +158,29 @@ public class Player : MonoBehaviour
     public void ShowWhipVisual()
     {
         if (whipSpriteRenderer != null) { whipSpriteRenderer.sprite = null; whipSpriteRenderer.enabled = true; }
-        if (vfxSpriteRenderer != null) { vfxSpriteRenderer.sprite = null; vfxSpriteRenderer.enabled = true; }
     }
 
     public void HideWhipVisual()
     {
         if (whipSpriteRenderer != null) { whipSpriteRenderer.enabled = false; whipSpriteRenderer.sprite = null; }
+    }
+
+    public void ShowVFXVisual()
+    {
+        if (vfxSpriteRenderer != null) { vfxSpriteRenderer.sprite = null; vfxSpriteRenderer.enabled = true; }
+    }
+
+    public void HideVFXVisual()
+    {
         if (vfxSpriteRenderer != null) { vfxSpriteRenderer.enabled = false; vfxSpriteRenderer.sprite = null; }
     }
+
+    public void HideAllCombatVisuals()
+    {
+        HideWhipVisual();
+        HideVFXVisual();
+    }
+
     public void PassThroughPlatformUpwards()
     {
         dropDownTimer = 0.2f;

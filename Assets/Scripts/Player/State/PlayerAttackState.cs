@@ -3,6 +3,7 @@
 public class PlayerAttackState : PlayerState
 {
     private float failsafeTimer;
+    private bool comboQueued;
 
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName) { }
@@ -11,10 +12,13 @@ public class PlayerAttackState : PlayerState
     {
         base.Enter();
         failsafeTimer = 0f;
+        comboQueued = false;
         player.Anim.speed = playerData.AttackSpeedMultiplier;
 
         player.InputHandler.UseAttackInput();
-        player.RB.linearVelocity = Vector2.zero;
+
+        float attackPushSpeed = playerData.attackPushSpeed;
+        player.RB.linearVelocity = new Vector2(player.FacingDirection * attackPushSpeed, player.RB.linearVelocity.y);
 
         if (Time.time >= player.CombatData.LastAttackTime + playerData.comboWindow)
         {
@@ -22,9 +26,11 @@ public class PlayerAttackState : PlayerState
         }
 
         player.CombatData.RecordAttack();
-        player.Anim.SetInteger("Combo", player.CombatData.ComboCounter);
 
-        player.ShowWhipVisual();
+        string attackAnimName = "WhipAttack" + player.CombatData.ComboCounter;
+        player.Anim.Play(attackAnimName, 0, 0f);
+
+        player.HideAllCombatVisuals();
 
         player.Anim.Update(0f);
     }
@@ -34,6 +40,12 @@ public class PlayerAttackState : PlayerState
         base.LogicUpdate();
 
         failsafeTimer += Time.deltaTime;
+
+        if (player.InputHandler.AttackInput)
+        {
+            player.InputHandler.UseAttackInput();
+            comboQueued = true;
+        }
 
         if (player.InputHandler.DodgeInput && player.CombatData.DodgeCooldownTimer <= 0)
         {
@@ -58,14 +70,43 @@ public class PlayerAttackState : PlayerState
 
         if (failsafeTimer >= playerData.attackDuration)
         {
-            if (player.InputHandler.RawMovementInput.x != 0)
-            {
-                stateMachine.ChangeState(player.MoveState);
-            }
-            else
-            {
-                stateMachine.ChangeState(player.IdleState);
-            }
+            ExitAttackState();
+        }
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+
+        float dragForce = 10f;
+        float currentX = player.RB.linearVelocity.x;
+        float currentY = player.RB.linearVelocity.y;
+
+        player.RB.linearVelocity = new Vector2(Mathf.Lerp(currentX, 0f, Time.deltaTime * dragForce), currentY);
+    }
+
+    public void ExitAttackState()
+    {
+        player.CombatData.LastAttackTime = Time.time;
+
+        if (comboQueued && player.CombatData.ComboCounter < 3)
+        {
+            stateMachine.ChangeState(player.AttackState);
+            return;
+        }
+
+        if (player.CombatData.ComboCounter >= 3)
+        {
+            player.CombatData.ResetCombo();
+        }
+
+        if (player.InputHandler.RawMovementInput.x != 0)
+        {
+            stateMachine.ChangeState(player.MoveState);
+        }
+        else
+        {
+            stateMachine.ChangeState(player.IdleState);
         }
     }
 
@@ -74,6 +115,6 @@ public class PlayerAttackState : PlayerState
         base.Exit();
         player.Anim.speed = 1f;
         player.DisableHitbox();
-        player.HideWhipVisual();
+        player.HideAllCombatVisuals();
     }
 }

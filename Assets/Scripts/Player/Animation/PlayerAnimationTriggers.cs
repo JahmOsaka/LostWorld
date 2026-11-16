@@ -11,16 +11,22 @@ public class PlayerAnimationTriggers : MonoBehaviour
 
     private void FinishAttack()
     {
-        player.FinishAttack();
+        if (player.StateMachine.CurrentState is PlayerAttackState attackState)
+        {
+            attackState.ExitAttackState();
+        }
     }
+
     public void TriggerDodgeFinishEvent()
     {
         player.TriggerDodgeFinishEvent();
     }
+
     public void TriggerLandFinishEvent()
     {
         player.StateMachine.CurrentState.AnimationFinishTrigger();
     }
+
     public void TriggerJumpForceEvent()
     {
         if (player.StateMachine.CurrentState is PlayerJumpState jumpState)
@@ -28,6 +34,7 @@ public class PlayerAnimationTriggers : MonoBehaviour
             jumpState.ExecuteJumpForce();
         }
     }
+
     private void EnableHitbox()
     {
         player.EnableHitbox();
@@ -36,5 +43,25 @@ public class PlayerAnimationTriggers : MonoBehaviour
     private void DisableHitbox()
     {
         player.DisableHitbox();
+    }
+
+    private void ShowWhipVisual()
+    {
+        player.ShowWhipVisual();
+    }
+
+    private void HideWhipVisual()
+    {
+        player.HideWhipVisual();
+    }
+
+    private void ShowVFXVisual()
+    {
+        player.ShowVFXVisual();
+    }
+
+    private void HideVFXVisual()
+    {
+        player.HideVFXVisual();
     }
 }

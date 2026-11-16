@@ -30,6 +30,7 @@ public class PlayerDodgeState : PlayerState
 
         player.CheckIfShouldFlip(dodgeDirection);
         player.RB.gravityScale = 0f;
+        player.Anim.speed = 1f;
     }
 
     public override void LogicUpdate()
@@ -37,10 +38,6 @@ public class PlayerDodgeState : PlayerState
         base.LogicUpdate();
         dodgeTimer += Time.deltaTime;
 
-        if (dodgeTimer >= playerData.DodgeDuration)
-        {
-            isDodgeFinished = true;
-        }
 
         if (dodgeTimer >= playerData.DodgeIFrameDuration)
         {
@@ -72,7 +69,11 @@ public class PlayerDodgeState : PlayerState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        player.RB.linearVelocity = new Vector2(dodgeDirection * playerData.DodgeSpeed, 0f);
+        AnimatorStateInfo stateInfo = player.Anim.GetCurrentAnimatorStateInfo(0);
+        float progress = stateInfo.normalizedTime;
+        progress = Mathf.Clamp01(progress);
+        float currentSpeed = Mathf.Lerp(playerData.DodgeSpeed, 0f, progress);
+        player.RB.linearVelocity = new Vector2(dodgeDirection * currentSpeed, 0f);
     }
 
     public override void Exit()
@@ -81,7 +82,6 @@ public class PlayerDodgeState : PlayerState
         player.SetInvincible(false);
         player.ResetDodgeCooldown();
         player.RB.gravityScale = playerData.defaultGravity;
-
         player.ColliderController?.RestoreHurtbox();
     }
 
