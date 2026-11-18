@@ -33,13 +33,13 @@ MonoBehaviour:
   dodgeBufferTime: 0.15
   attackBufferTime: 0.15
   dodgeSpeed: 18.3
-  dodgeDuration: 0.25
+  dodgeDuration: 0.4
   dodgeCooldown: 0.4
-  dodgeIFrameDuration: -1
+  dodgeIFrameDuration: 0.25
   superDashSpeed: 18
-  attackDuration: 1
+  attackDuration: 0.45
   attackDamage: 1
-  comboWindow: 1
+  comboWindow: 0.4
   attackSpeedMultiplier: 1
   combatIdleDuration: 4
   attackPushSpeed: 1

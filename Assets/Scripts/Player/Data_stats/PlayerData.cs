@@ -68,6 +68,9 @@ public class PlayerData : ScriptableObject
 
     [Space(10)]
     [Header("7. Combat Game Feel & Juice")]
+    [Tooltip("Color of the whip line during skill absorption (#432523).")]
+    public Color whipBindColor = new Color32(0x43, 0x25, 0x23, 0xFF);
+    [Tooltip("Forward push speed applied when executing a whip attack.")]
     public float attackPushSpeed = 3f;
     [Tooltip("Hitstop duration (seconds) for Combo Hit 1.")]
     public float hitstopHit1 = 0.04f;
