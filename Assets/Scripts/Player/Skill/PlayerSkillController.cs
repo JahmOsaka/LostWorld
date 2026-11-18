@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerSkillController : MonoBehaviour
@@ -31,14 +30,11 @@ public class PlayerSkillController : MonoBehaviour
 
     public SkillData CurrentCombatSkill => equippedWheelSkills[activeWheelIndex];
 
-    public PlayerSkillController skillController { get; private set; }
-
     private void Awake()
     {
         inputHandler = GetComponentInParent<PlayerInputHandler>();
         playerStats = GetComponentInParent<PlayerStats>();
         player = GetComponentInParent<Player>();
-        skillController = GetComponent<PlayerSkillController>();
     }
 
     private void Start() => UpdateHUD();
@@ -73,16 +69,13 @@ public class PlayerSkillController : MonoBehaviour
             }
         }
 
-        // DEBUG : Toggle abilities Keys
         if (Keyboard.current != null && Keyboard.current.bKey.wasPressedThisFrame)
         {
             hasDoubleJump = !hasDoubleJump;
-
         }
         if (Keyboard.current != null && Keyboard.current.vKey.wasPressedThisFrame)
         {
             hasPerish = !hasPerish;
-
         }
     }
 

@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     private int originalLayer;
     private int passThroughLayer;
     private float dropDownTimer;
-    public bool canDoubleJump;
 
     // Components
     public Rigidbody2D RB { get; private set; }
@@ -185,6 +184,7 @@ public class Player : MonoBehaviour
     {
         dropDownTimer = 0.2f;
     }
+
     public void DropThroughPlatform()
     {
         if (Sensor.IsStandingOnOneWay())

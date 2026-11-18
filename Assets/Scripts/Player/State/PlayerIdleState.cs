@@ -8,7 +8,6 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.canDoubleJump = true;
         player.ColliderController?.TryRestoreStandingCollider();
 
         if (player.ColliderController == null || !player.ColliderController.IsStuckUnderCeiling)
@@ -75,7 +74,6 @@ public class PlayerIdleState : PlayerState
             stateMachine.ChangeState(player.MoveState);
             return;
         }
-        
     }
 
     public override void PhysicsUpdate()

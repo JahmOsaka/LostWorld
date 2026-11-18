@@ -13,7 +13,7 @@ public class TeleportWaypoint : MonoBehaviour
     [Header("Target to Teleport")]
     public Transform playerTransform;
 
-    [Header("Waypoints (Assign up to 9 positions)")]
+    [Header("Waypoints (Assign up to 10 positions)")]
     public Transform[] teleportWaypoints = new Transform[9];
 
     void Update()
@@ -35,7 +35,7 @@ public class TeleportWaypoint : MonoBehaviour
                 case 6: keyPressed = Keyboard.current.digit7Key.wasPressedThisFrame || Keyboard.current.numpad7Key.wasPressedThisFrame; break;
                 case 7: keyPressed = Keyboard.current.digit8Key.wasPressedThisFrame || Keyboard.current.numpad8Key.wasPressedThisFrame; break;
                 case 8: keyPressed = Keyboard.current.digit9Key.wasPressedThisFrame || Keyboard.current.numpad9Key.wasPressedThisFrame; break;
-                case 9: keyPressed = Keyboard.current.digit9Key.wasPressedThisFrame || Keyboard.current.numpad0Key.wasPressedThisFrame; break;
+                case 9: keyPressed = Keyboard.current.digit0Key.wasPressedThisFrame || Keyboard.current.numpad0Key.wasPressedThisFrame; break;
             }
 
             if (keyPressed)
@@ -52,19 +52,17 @@ public class TeleportWaypoint : MonoBehaviour
         {
             if (playerTransform != null)
             {
-                CharacterController cc = playerTransform.GetComponent<CharacterController>();
-                if (cc != null) cc.enabled = false;
+                Rigidbody2D rb = playerTransform.GetComponent<Rigidbody2D>();
+                if (rb != null) rb.linearVelocity = Vector2.zero;
 
                 playerTransform.position = teleportWaypoints[index].position;
                 playerTransform.rotation = teleportWaypoints[index].rotation;
-
-                if (cc != null) cc.enabled = true;
 
                 Debug.Log($"Teleported to Waypoint {index + 1} ({teleportWaypoints[index].name})");
             }
             else
             {
-                Debug.LogWarning("Player Transform is not assigned on the MultiTeleporter script!");
+                Debug.LogWarning("Player Transform is not assigned on the TeleportWaypoint script!");
             }
         }
         else
