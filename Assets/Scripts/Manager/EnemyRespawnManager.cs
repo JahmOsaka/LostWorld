@@ -56,7 +56,7 @@ public class EnemyRespawnManager : MonoBehaviour
             }
         }
 
-        if (CheckpointManager.Instance != null)
+        if (CheckpointManager.Instance != null && !string.IsNullOrEmpty(CheckpointManager.Instance.LastCheckpointId))
         {
             player.transform.position = CheckpointManager.Instance.LastRespawnPosition;
         }
@@ -64,10 +64,22 @@ public class EnemyRespawnManager : MonoBehaviour
         CoreHealth playerHealth = player.GetComponent<CoreHealth>();
         if (playerHealth != null)
         {
-            playerHealth.Heal(playerHealth.maxHealth);
+            playerHealth.Revive();
+        }
 
-            player.GetComponent<Player>().enabled = true;
-            player.GetComponent<PlayerInputHandler>().enabled = true;
+        Player playerComp = player.GetComponent<Player>();
+        if (playerComp != null)
+        {
+            playerComp.enabled = true;
+            playerComp.DisableHitbox();
+            playerComp.HideAllCombatVisuals();
+            playerComp.StateMachine?.ChangeState(playerComp.IdleState);
+        }
+
+        PlayerInputHandler input = player.GetComponent<PlayerInputHandler>();
+        if (input != null)
+        {
+            input.enabled = true;
         }
 
         RespawnAllEnemies();
@@ -75,9 +87,9 @@ public class EnemyRespawnManager : MonoBehaviour
 
     public void RespawnAllEnemies()
     {
-        RespawnableEnemy[] allEnemies = FindObjectsByType<RespawnableEnemy>(FindObjectsInactive.Include);
+        RespawnableEnemy[] enemies = FindObjectsByType<RespawnableEnemy>(FindObjectsInactive.Include);
 
-        foreach (RespawnableEnemy enemy in allEnemies)
+        foreach (RespawnableEnemy enemy in enemies)
         {
             enemy.Respawn();
         }

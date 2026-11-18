@@ -26,6 +26,7 @@ public class CoreHealth : MonoBehaviour, IDamageable
 
     public static event Action OnHealthChanged;
     public static event Action<GameObject> OnPlayerDeathGlobal;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -149,12 +150,45 @@ public class CoreHealth : MonoBehaviour, IDamageable
 
     public void Revive()
     {
+        if (invincibilityCoroutine != null)
+        {
+            StopCoroutine(invincibilityCoroutine);
+            invincibilityCoroutine = null;
+        }
+
         isDead = false;
+        isInvincible = false;
         currentHealth = maxHealth;
 
         if (designatedHurtbox != null)
         {
             designatedHurtbox.enabled = true;
         }
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.simulated = true;
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        Transform visual = transform.Find("PlayerVisual") ?? transform.Find("Visual");
+        if (visual != null)
+        {
+            BouncyDeathFX deathFX = visual.GetComponent<BouncyDeathFX>();
+            if (deathFX != null) deathFX.StopAllCoroutines();
+
+            visual.gameObject.SetActive(true);
+            visual.localScale = Vector3.one;
+
+            SpriteRenderer sr = visual.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.enabled = true;
+                sr.color = Color.white;
+            }
+        }
+
+        OnHealthChanged?.Invoke();
     }
 }
