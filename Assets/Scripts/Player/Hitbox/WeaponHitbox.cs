@@ -6,7 +6,7 @@ public class WeaponHitbox : MonoBehaviour
     private PlayerData playerData;
     private Collider2D myCollider;
     private ContactFilter2D filter;
-    private readonly List<Collider2D> alreadyHitObjects = new List<Collider2D>();
+    private readonly List<IDamageable> alreadyHitTargets = new List<IDamageable>();
     private readonly List<Collider2D> hitResults = new List<Collider2D>();
 
     private Player player;
@@ -27,7 +27,7 @@ public class WeaponHitbox : MonoBehaviour
 
     private void OnEnable()
     {
-        alreadyHitObjects.Clear();
+        alreadyHitTargets.Clear();
         if (myCollider != null) myCollider.enabled = true;
     }
 
@@ -41,18 +41,26 @@ public class WeaponHitbox : MonoBehaviour
         if (myCollider == null || !myCollider.enabled || playerData == null) return;
 
         myCollider.Overlap(filter, hitResults);
+        bool hitAnyThisFrame = false;
 
         foreach (Collider2D col in hitResults)
         {
-            if (alreadyHitObjects.Contains(col)) continue;
+            if (col == null) continue;
 
-            if (col.TryGetComponent(out IDamageable damageable))
+            IDamageable damageable = col.GetComponentInParent<IDamageable>();
+            if (damageable == null || alreadyHitTargets.Contains(damageable)) continue;
+
+            if (damageable.CanBeDamagedBy(col))
             {
                 damageable.TakeDamage(playerData.attackDamage);
-                alreadyHitObjects.Add(col);
-
-                TriggerHitstopEffect();
+                alreadyHitTargets.Add(damageable);
+                hitAnyThisFrame = true;
             }
+        }
+
+        if (hitAnyThisFrame)
+        {
+            TriggerHitstopEffect();
         }
     }
 

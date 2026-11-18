@@ -82,7 +82,7 @@ public class PlayerAttackState : PlayerState
         float currentX = player.RB.linearVelocity.x;
         float currentY = player.RB.linearVelocity.y;
 
-        player.RB.linearVelocity = new Vector2(Mathf.Lerp(currentX, 0f, Time.deltaTime * dragForce), currentY);
+        player.RB.linearVelocity = new Vector2(Mathf.Lerp(currentX, 0f, Time.fixedDeltaTime * dragForce), currentY);
     }
 
     public void ExitAttackState()

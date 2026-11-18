@@ -7,6 +7,9 @@ public class GameFeelManager : MonoBehaviour
     public static GameFeelManager Instance;
 
     private CinemachineImpulseSource impulseSource;
+    private Coroutine hitstopCoroutine;
+    private Coroutine shakeCoroutine;
+    private bool isHitstopActive;
 
     private void Awake()
     {
@@ -15,16 +18,34 @@ public class GameFeelManager : MonoBehaviour
 
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
+
     public void TriggerHitstop(float duration)
     {
-        StartCoroutine(HitstopRoutine(duration));
+        if (duration <= 0f) return;
+
+        if (!isHitstopActive && Time.timeScale < 0.99f) return;
+
+        if (hitstopCoroutine != null)
+        {
+            StopCoroutine(hitstopCoroutine);
+        }
+        hitstopCoroutine = StartCoroutine(HitstopRoutine(duration));
     }
 
     private IEnumerator HitstopRoutine(float duration)
     {
+        isHitstopActive = true;
         Time.timeScale = 0f;
+
         yield return new WaitForSecondsRealtime(duration);
-        Time.timeScale = 1f;
+
+        isHitstopActive = false;
+        hitstopCoroutine = null;
+
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     public void TriggerShake(float duration, float magnitude, Transform cameraTransform = null)
@@ -35,7 +56,8 @@ public class GameFeelManager : MonoBehaviour
         }
         else if (cameraTransform != null)
         {
-            StartCoroutine(ShakeRoutine(duration, magnitude, cameraTransform));
+            if (shakeCoroutine != null) StopCoroutine(shakeCoroutine);
+            shakeCoroutine = StartCoroutine(ShakeRoutine(duration, magnitude, cameraTransform));
         }
     }
 
@@ -52,6 +74,8 @@ public class GameFeelManager : MonoBehaviour
             elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
+
         camTransform.localPosition = originalPos;
+        shakeCoroutine = null;
     }
 }

@@ -6,6 +6,8 @@ public class PlayerDodgeState : PlayerState
     private int dodgeDirection;
     private float dodgeTimer;
 
+    private const float BaseDodgeClipLength = 0.467f;
+
     public PlayerDodgeState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
         : base(player, stateMachine, playerData, animBoolName)
     {
@@ -30,14 +32,18 @@ public class PlayerDodgeState : PlayerState
 
         player.CheckIfShouldFlip(dodgeDirection);
         player.RB.gravityScale = 0f;
-        player.Anim.speed = 1f;
+
+        float duration = Mathf.Max(0.1f, playerData.DodgeDuration);
+        player.Anim.speed = BaseDodgeClipLength / duration;
+
+        player.Anim.Play("Dodge", 0, 0f);
+        player.Anim.Update(0f);
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         dodgeTimer += Time.deltaTime;
-
 
         if (dodgeTimer >= playerData.DodgeIFrameDuration)
         {
@@ -50,7 +56,7 @@ public class PlayerDodgeState : PlayerState
             return;
         }
 
-        if (isDodgeFinished)
+        if (dodgeTimer >= playerData.DodgeDuration || isDodgeFinished)
         {
             if (player.CheckIfGrounded())
             {
@@ -69,16 +75,18 @@ public class PlayerDodgeState : PlayerState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        AnimatorStateInfo stateInfo = player.Anim.GetCurrentAnimatorStateInfo(0);
-        float progress = stateInfo.normalizedTime;
-        progress = Mathf.Clamp01(progress);
+
+        float duration = Mathf.Max(0.01f, playerData.DodgeDuration);
+        float progress = Mathf.Clamp01(dodgeTimer / duration);
         float currentSpeed = Mathf.Lerp(playerData.DodgeSpeed, 0f, progress);
+
         player.RB.linearVelocity = new Vector2(dodgeDirection * currentSpeed, 0f);
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.Anim.speed = 1f;
         player.SetInvincible(false);
         player.ResetDodgeCooldown();
         player.RB.gravityScale = playerData.defaultGravity;
