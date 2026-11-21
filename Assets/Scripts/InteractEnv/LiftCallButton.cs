@@ -1,79 +1,75 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Collider2D))]
-public class LiftCallButton : MonoBehaviour
+public class LiftCallButton : MonoBehaviour, IInteractable
 {
     public enum TargetFloor { PointA, PointB }
 
     [Header("References")]
     [SerializeField] private LiftController targetLift;
     [SerializeField] private TargetFloor floor = TargetFloor.PointA;
-    [SerializeField] private InputActionReference interactAction;
 
-    private bool isPlayerInRange;
-    private Vector3 promptBaseScale = Vector3.one;
+    [Header("Interact HUD Prompt")]
+    [SerializeField] private Vector3 promptOffset = new Vector3(0f, 1.4f, 0f);
+    [SerializeField] private string promptKey = "F";
+    [SerializeField] private string callLabel = "Call the elevator";
+
+    private bool isPromptShowing;
 
     private void Awake()
     {
         GetComponent<Collider2D>().isTrigger = true;
     }
 
-    private void OnEnable()
-    {
-        if (interactAction != null && interactAction.action != null)
-        {
-            interactAction.action.Enable();
-            interactAction.action.performed += OnInteractPerformed;
-        }
-    }
-
     private void OnDisable()
     {
-        if (interactAction != null && interactAction.action != null)
-        {
-            interactAction.action.performed -= OnInteractPerformed;
-        }
+        isPromptShowing = false;
         InteractPromptUI.Instance?.Hide(this);
     }
 
     private void Update()
     {
-        if (InteractPromptUI.Instance == null) return;
+        if (!isPromptShowing) return;
 
         if (CanCall())
         {
-            InteractPromptUI.Instance.Show(this, transform, "Call Elevator", "F", new Vector3(0f, 1.4f, 0f));
+            InteractPromptUI.Instance?.Show(this, transform, callLabel, promptKey, promptOffset);
         }
         else
         {
-            InteractPromptUI.Instance.Hide(this);
+            InteractPromptUI.Instance?.Hide(this);
         }
     }
 
-    private bool CanCall()
+    public void ShowInteractPrompt()
     {
-        if (!isPlayerInRange || targetLift == null || targetLift.IsMoving) return false;
-
-        return (floor == TargetFloor.PointA && targetLift.CurrentState != LiftController.LiftState.AtA) ||
-               (floor == TargetFloor.PointB && targetLift.CurrentState != LiftController.LiftState.AtB);
+        isPromptShowing = true;
+        if (CanCall())
+        {
+            InteractPromptUI.Instance?.Show(this, transform, callLabel, promptKey, promptOffset);
+        }
     }
 
-    private void OnInteractPerformed(InputAction.CallbackContext context)
+    public void HideInteractPrompt()
+    {
+        isPromptShowing = false;
+        InteractPromptUI.Instance?.Hide(this);
+    }
+
+    public void Interact()
     {
         if (!CanCall()) return;
 
+        HideInteractPrompt();
         if (floor == TargetFloor.PointA) targetLift.CallToPointA();
         else targetLift.CallToPointB();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private bool CanCall()
     {
-        if (other.CompareTag("Player")) isPlayerInRange = true;
-    }
+        if (targetLift == null || targetLift.IsMoving) return false;
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player")) isPlayerInRange = false;
+        return (floor == TargetFloor.PointA && targetLift.CurrentState != LiftController.LiftState.AtA) ||
+               (floor == TargetFloor.PointB && targetLift.CurrentState != LiftController.LiftState.AtB);
     }
 }

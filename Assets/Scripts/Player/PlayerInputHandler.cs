@@ -4,15 +4,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    [Header("Action Buffer Settings")]
+    [Tooltip("Auto-expire time for Interact, Potion, Skill, and SuperDash inputs so they never stay stuck.")]
+    [SerializeField] private float actionBufferTime = 0.1f;
+
     private Player player;
     private float jumpInputStartTime;
     private float dodgeInputStartTime;
     private float attackInputStartTime;
+    private float interactInputStartTime;
+    private float potionInputStartTime;
+    private float skillInputStartTime;
+    private float superDashInputStartTime;
 
     public bool WheelMenuInput { get; private set; }
     public Vector2 MouseWheelInput { get; private set; }
     public Vector2 RawMovementInput { get; private set; }
-
 
     public bool JumpInput { get; private set; }
     public bool IsJumpHolding { get; private set; }
@@ -52,6 +59,18 @@ public class PlayerInputHandler : MonoBehaviour
 
         if (AttackInput && Time.time >= attackInputStartTime + aBuffer)
             AttackInput = false;
+
+        if (InteractInput && Time.time >= interactInputStartTime + actionBufferTime)
+            InteractInput = false;
+
+        if (PotionInput && Time.time >= potionInputStartTime + actionBufferTime)
+            PotionInput = false;
+
+        if (SkillInput && Time.time >= skillInputStartTime + actionBufferTime)
+            SkillInput = false;
+
+        if (SuperDashInput && Time.time >= superDashInputStartTime + actionBufferTime)
+            SuperDashInput = false;
     }
 
     public void OnMoveInput(InputAction.CallbackContext context) => RawMovementInput = context.ReadValue<Vector2>();
@@ -78,13 +97,16 @@ public class PlayerInputHandler : MonoBehaviour
             dodgeInputStartTime = Time.time;
         }
     }
+
     public void OnSuperDashInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
             SuperDashInput = true;
+            superDashInputStartTime = Time.time;
         }
     }
+
     public void OnAttackInput(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -93,18 +115,34 @@ public class PlayerInputHandler : MonoBehaviour
             attackInputStartTime = Time.time;
         }
     }
+
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started) InteractInput = true;
+        if (context.started)
+        {
+            InteractInput = true;
+            interactInputStartTime = Time.time;
+        }
     }
+
     public void OnPotionInput(InputAction.CallbackContext context)
     {
-        if (context.started) PotionInput = true;
+        if (context.started)
+        {
+            PotionInput = true;
+            potionInputStartTime = Time.time;
+        }
     }
+
     public void OnSkillInput(InputAction.CallbackContext context)
     {
-        if (context.started) SkillInput = true;
+        if (context.started)
+        {
+            SkillInput = true;
+            skillInputStartTime = Time.time;
+        }
     }
+
     public void OnWheelMenuInput(InputAction.CallbackContext context)
     {
         if (context.started) WheelMenuInput = true;
