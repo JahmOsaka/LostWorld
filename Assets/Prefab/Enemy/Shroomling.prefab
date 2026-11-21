@@ -719,12 +719,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyData: {fileID: 11400000, guid: 7bb3eb07b5a2f05428c86b93a41ab08a, type: 2}
-  orbitCenter: {fileID: 0}
   physicsCollider: {fileID: 1115290622575985833}
   hitboxCollider: {fileID: 2303193163527287877}
   damageHitboxTransform: {fileID: 3768027570581782826}
   attackHitboxes:
   - {fileID: 6894750583025404053}
+  vfxList: []
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 0.5
   wallCheckDistance: 0.1
@@ -851,7 +851,7 @@ MonoBehaviour:
   skillToDrop: {fileID: 0}
   hpThresholdPercent: 0.1
   absorbRange: 3.5
-  highlightEffect: {fileID: 0}
+  highlightEffect: {fileID: 5686046891849977182}
   absorbablePulseColor: {r: 1, g: 0.55, b: 0.55, a: 1}
   bindDuration: 1
   whipWidth: 0.07

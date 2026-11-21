@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 5533674718324369763}
   - component: {fileID: 5805373153511238317}
   - component: {fileID: 4575928193666992725}
-  - component: {fileID: 8779037791870538888}
+  - component: {fileID: 8842724844290522590}
   m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
@@ -743,6 +743,24 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   destroyOnEnd: 1
+--- !u!114 &8842724844290522590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356681151551816356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4967aa0c5c34674383b12777700676a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  targetSprite: {fileID: 17931173948633359}
+  defaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  outlineMaterial: {fileID: 2100000, guid: 62f70b9b3f051f24f81aa162087ea3d6, type: 2}
+  fadeDuration: 0.2
+  enableBreathingGlow: 1
+  shaderColorProperty: _OutlineColor
 --- !u!1 &8980867007283435135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,10 +1060,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e052962c8525714196fd03cae57d66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySkillDrop
-  skillToDrop: {fileID: 0}
+  skillToDrop: {fileID: 11400000, guid: 6235bdc78d6016840ba8db2b04e8cf6a, type: 2}
   hpThresholdPercent: 0.1
   absorbRange: 3.5
-  highlightEffect: {fileID: 0}
+  highlightEffect: {fileID: 8842724844290522590}
   absorbablePulseColor: {r: 1, g: 0.55, b: 0.55, a: 1}
   bindDuration: 1
   whipWidth: 0.07

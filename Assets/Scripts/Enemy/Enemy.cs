@@ -270,25 +270,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void ResetEnemyState()
+    public virtual void ClearActiveOrbs()
     {
-        if (anim != null)
-        {
-            anim.Rebind();
-            anim.Update(0f);
-        }
 
-        ClearActiveOrbs();
-
-        currentPatrolIndex = 0;
-
-        if (stateMachine != null)
-        {
-            if (HasPatrolPoints)
-                stateMachine.Initialize(patrolState);
-            else
-                stateMachine.Initialize(idleState);
-        }
     }
 
     protected virtual void OnDrawGizmosSelected()

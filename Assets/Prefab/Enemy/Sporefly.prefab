@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyerEnemy
   enemyData: {fileID: 11400000, guid: d68fb5ce55209394c8ce3ed74cf85ac6, type: 2}
-  orbitCenter: {fileID: 0}
   physicsCollider: {fileID: 8279469704505230806}
   hitboxCollider: {fileID: 7865742906292676635}
   damageHitboxTransform: {fileID: 5454986123503338793}
@@ -347,10 +346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e052962c8525714196fd03cae57d66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySkillDrop
-  skillToDrop: {fileID: 0}
-  hpThresholdPercent: 0.1
+  skillToDrop: {fileID: 11400000, guid: 09282e56bd307484f8ebdee0c5fec1f6, type: 2}
+  hpThresholdPercent: 0.5
   absorbRange: 3.5
-  highlightEffect: {fileID: 0}
+  highlightEffect: {fileID: 8224648297015934643}
   absorbablePulseColor: {r: 1, g: 0.55, b: 0.55, a: 1}
   bindDuration: 1
   whipWidth: 0.07

@@ -627,10 +627,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangedEnemy
   enemyData: {fileID: 11400000, guid: eef9b93b2e523564d822cd5b0909e567, type: 2}
-  orbitCenter: {fileID: 0}
   physicsCollider: {fileID: 6100445818434788676}
   hitboxCollider: {fileID: 8154866930232706578}
   damageHitboxTransform: {fileID: 5630316620252105894}
+  attackHitboxes: []
+  vfxList: []
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 1
   wallCheckDistance: 0.1
@@ -755,10 +756,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e052962c8525714196fd03cae57d66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySkillDrop
-  skillToDrop: {fileID: 0}
-  hpThresholdPercent: 0.1
+  skillToDrop: {fileID: 11400000, guid: 584d8ad06b63f51448d5d5a1759be248, type: 2}
+  hpThresholdPercent: 0.5
   absorbRange: 3.5
-  highlightEffect: {fileID: 0}
+  highlightEffect: {fileID: 5548463423449487459}
   absorbablePulseColor: {r: 1, g: 0.55, b: 0.55, a: 1}
   bindDuration: 1
   whipWidth: 0.07

@@ -235,7 +235,7 @@ public class EnemySkillDrop : MonoBehaviour
 
         if (enemyScript != null)
         {
-            enemyScript.ClearActiveOrbs();
+            enemyScript.DisableAllAttackHitboxes();
             enemyScript.enabled = false;
         }
         if (enemyScript != null && enemyScript.anim != null)
