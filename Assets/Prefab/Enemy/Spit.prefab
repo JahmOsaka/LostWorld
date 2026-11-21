@@ -380,8 +380,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8334316978053283536}
-  - component: {fileID: 719213524843206919}
-  - component: {fileID: 4269374726357071665}
   m_Layer: 7
   m_Name: Spit
   m_TagString: Untagged
@@ -406,41 +404,6 @@ Transform:
   - {fileID: 5017066069667619834}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &719213524843206919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4473217849596222109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02929686869bd73489d25d00c41a90b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RespawnableEnemy
-  respawnsOnRest: 1
-  visualObject: {fileID: 0}
---- !u!114 &4269374726357071665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4473217849596222109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c8cd3540517ae4182f0f29a0742729, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoreHealth
-  maxHealth: 100
-  designatedHurtbox: {fileID: 0}
-  invincibilityDuration: 0.2
-  OnTakDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7801827078342501664
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +514,8 @@ GameObject:
   - component: {fileID: 3391847674591662950}
   - component: {fileID: 460978913147885713}
   - component: {fileID: 5365543219781800933}
+  - component: {fileID: 1390654192892996762}
+  - component: {fileID: 6633865555644693649}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -748,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitFlash
   spriteRenderer: {fileID: 2236117215173159510}
   flashMaterial: {fileID: 2100000, guid: a662242c02a5f604d819ab1dbf5ccf7e, type: 2}
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
   defaultFlashDuration: 0.08
 --- !u!114 &5365543219781800933
 MonoBehaviour:
@@ -763,3 +729,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitKnockback
   knockbackMultiplier: 1.5
   knockbackDuration: 0.14
+--- !u!114 &1390654192892996762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406653713664756089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02929686869bd73489d25d00c41a90b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnableEnemy
+  respawnsOnRest: 1
+  visualObject: {fileID: 4422726531095345253}
+--- !u!114 &6633865555644693649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406653713664756089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e052962c8525714196fd03cae57d66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySkillDrop
+  skillToDrop: {fileID: 0}
+  hpThresholdPercent: 0.1
+  absorbRange: 3.5
+  highlightEffect: {fileID: 0}
+  absorbablePulseColor: {r: 1, g: 0.55, b: 0.55, a: 1}
+  bindDuration: 1
+  whipWidth: 0.07
+  bandCount: 2
+  jellyWobbleSpeed: 15
+  jellyScaleAmount: 0.18
+  struggleTiltAngle: 14
+  struggleShiftX: 0.05
+  absorbSuccessVFX: {fileID: 0}
+  enemyHealth: {fileID: 3391847674591662950}

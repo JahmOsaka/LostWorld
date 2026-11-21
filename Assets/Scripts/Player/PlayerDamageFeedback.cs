@@ -235,7 +235,7 @@ public class PlayerDamageFeedback : MonoBehaviour
                 float v = (y + 0.5f) / size;
                 float dist = Vector2.Distance(new Vector2(u, v), new Vector2(0.5f, 0.5f));
                 float t = Mathf.Clamp01((dist - innerRadius) / (outerRadius - innerRadius));
-                float alpha = t * t * (3f - 2f * t); // Smoothstep
+                float alpha = t * t * (3f - 2f * t);
 
                 tex.SetPixel(x, y, new Color(1f, 1f, 1f, alpha));
             }

@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 3641244288027122069}
   - component: {fileID: 8074821620213559872}
   - component: {fileID: 3049459225184250220}
+  - component: {fileID: 8623837955243524280}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -708,6 +709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitFlash
   spriteRenderer: {fileID: 2236117215173159510}
   flashMaterial: {fileID: 2100000, guid: a662242c02a5f604d819ab1dbf5ccf7e, type: 2}
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
   defaultFlashDuration: 0.08
 --- !u!114 &3049459225184250220
 MonoBehaviour:
@@ -723,3 +725,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitKnockback
   knockbackMultiplier: 1.5
   knockbackDuration: 0.14
+--- !u!114 &8623837955243524280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406653713664756089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e052962c8525714196fd03cae57d66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySkillDrop
+  skillToDrop: {fileID: 0}
+  hpThresholdPercent: 0.1
+  absorbRange: 3.5
+  highlightEffect: {fileID: 0}
+  absorbablePulseColor: {r: 1, g: 0.55, b: 0.55, a: 1}
+  bindDuration: 1
+  whipWidth: 0.07
+  bandCount: 2
+  jellyWobbleSpeed: 15
+  jellyScaleAmount: 0.18
+  struggleTiltAngle: 14
+  struggleShiftX: 0.05
+  absorbSuccessVFX: {fileID: 0}
+  enemyHealth: {fileID: 3391847674591662950}

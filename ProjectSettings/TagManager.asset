@@ -21,7 +21,7 @@ TagManager:
   - EnemyHitbox
   - OneWayPlatform
   - PlayerPassThrough
-  - 
+  - PlayerProjectile
   - 
   - 
   - 
@@ -64,6 +64,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 30282567
+    locked: 0
+  - name: PlayerProjectile
+    uniqueID: 2905812373
     locked: 0
   - name: VFX
     uniqueID: 1092443243
