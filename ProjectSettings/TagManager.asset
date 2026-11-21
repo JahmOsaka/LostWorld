@@ -65,6 +65,9 @@ TagManager:
   - name: Player
     uniqueID: 30282567
     locked: 0
+  - name: VFX
+    uniqueID: 1092443243
+    locked: 0
   - name: Gate
     uniqueID: 2988120965
     locked: 0

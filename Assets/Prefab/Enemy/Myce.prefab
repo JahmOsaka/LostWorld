@@ -43,8 +43,9 @@ GameObject:
   - component: {fileID: 2236117215173159510}
   - component: {fileID: 523027359215298756}
   - component: {fileID: 6387942980181517922}
-  - component: {fileID: 2721989214032247155}
+  - component: {fileID: 1570962999951957381}
   - component: {fileID: 5095374225904988951}
+  - component: {fileID: 7810016535403098240}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -161,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08cf95e7554da8478d89242fa6a4a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimationTriggers
---- !u!114 &2721989214032247155
+--- !u!114 &1570962999951957381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,11 +171,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4422726531095345253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd162f7625c00be419b42efd502aa491, type: 3}
+  m_Script: {fileID: 11500000, guid: ead115fe29cc17f4b81c18c45d44bd9d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
-  flashColor: {r: 1, g: 0, b: 0, a: 1}
-  flashDuration: 0.1
+  m_EditorClassIdentifier: Assembly-CSharp::HitJiggle
+  visualTransform: {fileID: 5590801843025485840}
+  duration: 0.1
+  intensity: 0.22
 --- !u!114 &5095374225904988951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +275,24 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   destroyOnEnd: 0
+--- !u!114 &7810016535403098240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4422726531095345253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4967aa0c5c34674383b12777700676a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  targetSprite: {fileID: 2236117215173159510}
+  defaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  outlineMaterial: {fileID: 2100000, guid: 62f70b9b3f051f24f81aa162087ea3d6, type: 2}
+  fadeDuration: 0.2
+  enableBreathingGlow: 1
+  shaderColorProperty: _OutlineColor
 --- !u!1 &4473217849596222109
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +483,8 @@ GameObject:
   - component: {fileID: 3391847674591662950}
   - component: {fileID: 1115327753244630346}
   - component: {fileID: 3641244288027122069}
+  - component: {fileID: 8074821620213559872}
+  - component: {fileID: 3049459225184250220}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -606,9 +628,21 @@ MonoBehaviour:
   OnTakDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2721989214032247155}
+      - m_Target: {fileID: 8074821620213559872}
         m_TargetAssemblyTypeName: HitFlash, Assembly-CSharp
         m_MethodName: TriggerFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1570962999951957381}
+        m_TargetAssemblyTypeName: HitJiggle, Assembly-CSharp
+        m_MethodName: TriggerJiggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -660,3 +694,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RespawnableEnemy
   respawnsOnRest: 1
   visualObject: {fileID: 4422726531095345253}
+--- !u!114 &8074821620213559872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406653713664756089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd162f7625c00be419b42efd502aa491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  spriteRenderer: {fileID: 2236117215173159510}
+  flashMaterial: {fileID: 2100000, guid: a662242c02a5f604d819ab1dbf5ccf7e, type: 2}
+  defaultFlashDuration: 0.08
+--- !u!114 &3049459225184250220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406653713664756089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4cc902a8f242646bf7e4bcd80ba6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitKnockback
+  knockbackMultiplier: 1.5
+  knockbackDuration: 0.14

@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2236117215173159510}
   - component: {fileID: 523027359215298756}
   - component: {fileID: 6387942980181517922}
-  - component: {fileID: 2721989214032247155}
+  - component: {fileID: 8331177922863423426}
   - component: {fileID: 5095374225904988951}
   - component: {fileID: 4930578903835177459}
   m_Layer: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08cf95e7554da8478d89242fa6a4a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimationTriggers
---- !u!114 &2721989214032247155
+--- !u!114 &8331177922863423426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,11 +171,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4422726531095345253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd162f7625c00be419b42efd502aa491, type: 3}
+  m_Script: {fileID: 11500000, guid: ead115fe29cc17f4b81c18c45d44bd9d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
-  flashColor: {r: 1, g: 0, b: 0, a: 1}
-  flashDuration: 0.1
+  m_EditorClassIdentifier: Assembly-CSharp::HitJiggle
+  visualTransform: {fileID: 5590801843025485840}
+  duration: 0.1
+  intensity: 0.22
 --- !u!114 &5095374225904988951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +290,9 @@ MonoBehaviour:
   targetSprite: {fileID: 2236117215173159510}
   defaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   outlineMaterial: {fileID: 2100000, guid: 62f70b9b3f051f24f81aa162087ea3d6, type: 2}
+  fadeDuration: 0.2
+  enableBreathingGlow: 1
+  shaderColorProperty: _OutlineColor
 --- !u!1 &4473217849596222109
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +484,8 @@ GameObject:
   - component: {fileID: 1115327753244630346}
   - component: {fileID: 5511865948879427338}
   - component: {fileID: 2763741021323369311}
+  - component: {fileID: 8394434430962419618}
+  - component: {fileID: 1950350216034956869}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -623,9 +629,21 @@ MonoBehaviour:
   OnTakDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2721989214032247155}
+      - m_Target: {fileID: 8394434430962419618}
         m_TargetAssemblyTypeName: HitFlash, Assembly-CSharp
         m_MethodName: TriggerFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8331177922863423426}
+        m_TargetAssemblyTypeName: HitJiggle, Assembly-CSharp
+        m_MethodName: TriggerJiggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -703,3 +721,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RespawnableEnemy
   respawnsOnRest: 1
   visualObject: {fileID: 4422726531095345253}
+--- !u!114 &8394434430962419618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406653713664756089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd162f7625c00be419b42efd502aa491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  spriteRenderer: {fileID: 2236117215173159510}
+  flashMaterial: {fileID: 2100000, guid: a662242c02a5f604d819ab1dbf5ccf7e, type: 2}
+  defaultFlashDuration: 0.08
+--- !u!114 &1950350216034956869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406653713664756089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4cc902a8f242646bf7e4bcd80ba6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitKnockback
+  knockbackMultiplier: 1.5
+  knockbackDuration: 0.14

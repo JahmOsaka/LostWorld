@@ -33,4 +33,6 @@ public class PlayerCombatData
     {
         if (DodgeCooldownTimer > 0) DodgeCooldownTimer -= deltaTime;
     }
+
+    public void SetComboCounter(int value) => ComboCounter = value;
 }

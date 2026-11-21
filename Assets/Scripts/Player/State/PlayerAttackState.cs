@@ -27,6 +27,7 @@ public class PlayerAttackState : PlayerState
         if (isAirAttack)
         {
             player.CombatData.UseAirAttack();
+            player.CombatData.SetComboCounter(2);
             airAttackTimer = playerData.airAttackDuration;
 
             player.RB.gravityScale = playerData.airAttackGravityScale;
@@ -40,6 +41,8 @@ public class PlayerAttackState : PlayerState
             {
                 comboCounter = 0;
             }
+
+            player.CombatData.SetComboCounter(comboCounter + 1);
 
             PlayGroundComboAnimation(comboCounter);
             player.RB.linearVelocity = new Vector2(player.FacingDirection * playerData.attackPushSpeed, player.RB.linearVelocity.y);
