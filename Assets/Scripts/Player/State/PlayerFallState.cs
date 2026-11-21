@@ -17,6 +17,13 @@ public class PlayerFallState : PlayerState
         base.LogicUpdate();
         player.FallDuration += Time.deltaTime;
 
+        if (player.InputHandler.AttackInput && player.CombatData.CanAirAttack)
+        {
+            player.InputHandler.UseAttackInput();
+            stateMachine.ChangeState(player.AttackState);
+            return;
+        }
+
         if (player.RB.linearVelocity.y < 0)
         {
             player.RB.linearVelocity = new Vector2(

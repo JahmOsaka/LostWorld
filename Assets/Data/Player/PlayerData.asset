@@ -42,12 +42,16 @@ MonoBehaviour:
   comboWindow: 0.4
   attackSpeedMultiplier: 1
   combatIdleDuration: 4
+  whipBindColor: {r: 0.2627451, g: 0.14509805, b: 0.13725491, a: 1}
   attackPushSpeed: 1
   hitstopHit1: 0.04
   hitstopHit2: 0.05
   hitstopHit3: 0.12
   screenShakeDuration: 0.15
   screenShakeMagnitude: 0.1
+  airAttackGravityScale: 1.2
+  airAttackMoveSpeed: 3.5
+  airAttackDuration: 0.35
   autoEjectSpeed: 7
   jumpHurtboxSize: {x: 0.6, y: 1}
   jumpHurtboxOffset: {x: 0, y: -0.3}

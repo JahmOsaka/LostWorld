@@ -9,6 +9,10 @@ public class PlayerCombatData
 
     public float DamageMultiplier { get; set; } = 1f;
 
+    public bool CanAirAttack { get; private set; } = true;
+
+    public void UseAirAttack() => CanAirAttack = false;
+    public void ResetAirAttack() => CanAirAttack = true;
     public void RecordAttack()
     {
         ComboCounter++;

@@ -82,6 +82,13 @@ public class PlayerData : ScriptableObject
     public float screenShakeDuration = 0.15f;
     [Tooltip("Screen shake magnitude (intensity) for Combo Hit 3.")]
     public float screenShakeMagnitude = 0.1f;
+    [Header("Air Attack (Wide Arc Slash)")]
+    [Tooltip("Gravity scale applied while executing an air attack for a brief hang-time feel.")]
+    public float airAttackGravityScale = 1.2f;
+    [Tooltip("Horizontal air drift speed allowed during an air attack.")]
+    public float airAttackMoveSpeed = 3.5f;
+    [Tooltip("Fallback duration if the animation event fails to fire.")]
+    public float airAttackDuration = 0.35f;
 
     [Space(10)]
     [Header("8. Dynamic Collider & Hurtbox Sizes")]

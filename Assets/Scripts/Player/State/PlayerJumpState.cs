@@ -50,6 +50,13 @@ public class PlayerJumpState : PlayerState
         base.LogicUpdate();
         timer += Time.deltaTime;
 
+        if (player.InputHandler.AttackInput && player.CombatData.CanAirAttack)
+        {
+            player.InputHandler.UseAttackInput();
+            stateMachine.ChangeState(player.AttackState);
+            return;
+        }
+
         if (player.InputHandler.JumpInput && player.SkillController.hasDoubleJump && player.JumpsRemaining > 0)
         {
             player.InputHandler.UseJumpInput();

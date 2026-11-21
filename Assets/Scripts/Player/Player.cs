@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     private int passThroughLayer;
     private float dropDownTimer;
 
-    // Components
     public Rigidbody2D RB { get; private set; }
     public BoxCollider2D Collider { get; private set; }
     public PlayerColliderController ColliderController { get; private set; }
@@ -29,7 +28,6 @@ public class Player : MonoBehaviour
     public PlayerSensor Sensor { get; private set; }
     public bool IsInsideOneWay { get; private set; }
 
-    // Runtime Data
     public PlayerCombatData CombatData { get; private set; } = new PlayerCombatData();
 
     public int FacingDirection { get; private set; } = 1;
@@ -37,7 +35,6 @@ public class Player : MonoBehaviour
     public float FallDuration { get; set; }
     public int JumpsRemaining { get; set; }
 
-    // State Machine
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
@@ -91,6 +88,11 @@ public class Player : MonoBehaviour
 
         CombatData.TickDodgeCooldown(Time.deltaTime);
 
+        if (CheckIfGrounded() && !CombatData.CanAirAttack)
+        {
+            CombatData.ResetAirAttack();
+        }
+
         if (groundedForAnim)
         {
             CoyoteTimeCounter = playerData.coyoteTime;
@@ -138,10 +140,19 @@ public class Player : MonoBehaviour
     public void FinishAttack()
     {
         CombatData.LastAttackTime = Time.time;
-        if (InputHandler.RawMovementInput.x != 0)
+
+        if (!CheckIfGrounded())
+        {
+            StateMachine.ChangeState(FallState);
+        }
+        else if (InputHandler.RawMovementInput.x != 0)
+        {
             StateMachine.ChangeState(MoveState);
+        }
         else
+        {
             StateMachine.ChangeState(IdleState);
+        }
     }
 
     public void EnableHitbox() => whipHitbox?.gameObject.SetActive(true);
