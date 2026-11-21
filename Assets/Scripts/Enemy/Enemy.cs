@@ -270,11 +270,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void ClearActiveOrbs()
-    {
-
-    }
-
     protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
