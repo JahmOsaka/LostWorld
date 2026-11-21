@@ -175,8 +175,6 @@ GameObject:
   - component: {fileID: 3173419442666312354}
   - component: {fileID: 831591605139798008}
   - component: {fileID: 3178139596531164579}
-  - component: {fileID: 623172838006189565}
-  - component: {fileID: 9195372920028026612}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -657,25 +655,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoreHealth
   maxHealth: 100
   designatedHurtbox: {fileID: 219218130790720734}
-  invincibilityDuration: 0.8
+  invincibilityDuration: 0.2
   OnTakDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 623172838006189565}
+      - m_Target: {fileID: 1278018544631925865}
         m_TargetAssemblyTypeName: HitFlash, Assembly-CSharp
         m_MethodName: TriggerFlash
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 9195372920028026612}
-        m_TargetAssemblyTypeName: PlayerDamageFeedback, Assembly-CSharp
-        m_MethodName: TriggerDamageFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -761,49 +747,6 @@ MonoBehaviour:
   airborneDampingY: 2.5
   fallDampingY: 0.1
   fallVelocityThreshold: -10
---- !u!114 &623172838006189565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255730908677199951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd162f7625c00be419b42efd502aa491, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
-  spriteRenderer: {fileID: 479052066652333555}
-  flashMaterial: {fileID: 2100000, guid: a662242c02a5f604d819ab1dbf5ccf7e, type: 2}
-  flashColor: {r: 1, g: 0, b: 0, a: 1}
-  defaultFlashDuration: 0.08
---- !u!114 &9195372920028026612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255730908677199951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e08146c61f560438c0b451e3ffa51c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageFeedback
-  visualTransform: {fileID: 8070273964345352837}
-  spriteRenderer: {fileID: 479052066652333555}
-  redVignetteImage: {fileID: 0}
-  hurtBurstPrefab: {fileID: 0}
-  hurtHitstopDuration: 0.13
-  hurtShakeDuration: 0.22
-  hurtShakeMagnitude: 0.3
-  tiltAngle: 14
-  squashScale: {x: 0.75, y: 1.25}
-  poseRecoveryDuration: 0.16
-  iFrameBlinkDuration: 0.8
-  blinkInterval: 0.07
-  blinkMinAlpha: 0.3
-  vignetteMaxAlpha: 0.45
-  vignetteFadeDuration: 0.3
 --- !u!1 &4016599245229063868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,12 +1022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae90c6dc2e3cae42bf97d7532106852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHitbox
-  hitSparkPrefab: {fileID: 726700255922521307, guid: 7f3ee958348ca7f448acd6761bc083d3, type: 3}
-  sparkLifetime: 0.35
-  lightKnockbackForce: 6
-  heavyKnockbackForce: 12
-  lightShakeDurationMult: 0.45
-  lightShakeMagnitudeMult: 0.35
 --- !u!1 &6109365457505568432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1034,7 @@ GameObject:
   - component: {fileID: 479052066652333555}
   - component: {fileID: 3540399915313790792}
   - component: {fileID: 2283254726327349493}
+  - component: {fileID: 1278018544631925865}
   - component: {fileID: 9026938605047883056}
   m_Layer: 8
   m_Name: PlayerVisual
@@ -1216,6 +1154,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517d1eff7b0b60b42a3df361c53c4447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationTriggers
+--- !u!114 &1278018544631925865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109365457505568432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd162f7625c00be419b42efd502aa491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
 --- !u!114 &9026938605047883056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,4 +1265,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  destroyOnEnd: 0
+  destroyOnEnd: 1
