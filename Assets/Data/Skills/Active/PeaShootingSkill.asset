@@ -21,12 +21,16 @@ MonoBehaviour:
   mpCost: 10
   castDuration: 0
   projectilePrefab: {fileID: 4694563352133518375, guid: d083be78b7dfaa04cbbf9a4c70232b0d, type: 3}
+  muzzleVfxPrefab: {fileID: 4470268739109728600, guid: a0b416d4baf62614c9275a0cb3602a71, type: 3}
   damage: 3
   launchVelocity: {x: 7, y: 10}
   gravityScale: 2.5
-  knockbackForce: 4
   lifetime: 3
   spawnOffset: {x: 0.6, y: 0.3}
+  knockbackForce: 4
+  enemyFlashDuration: 0.08
+  hitShakeDuration: 0.05
+  hitShakeMagnitude: 0.05
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024

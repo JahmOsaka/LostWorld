@@ -23,11 +23,15 @@ public class BombHeadSkillData : ActiveSkillData
     [Tooltip("Layers considered valid enemy targets for the explosion.")]
     public LayerMask enemyLayer;
 
-    [Header("Screen Shake")]
+    [Header("Impact Feel")]
+    [Tooltip("Hitstop freeze duration in seconds when the bomb detonates.")]
+    public float hitstopDuration = 0.06f;
+    [Tooltip("Hit flash duration applied to enemies caught in the blast.")]
+    public float enemyFlashDuration = 0.12f;
     [Tooltip("Duration of camera shake on detonation.")]
-    public float shakeDuration = 0.18f;
+    public float shakeDuration = 0.2f;
     [Tooltip("Magnitude of camera shake on detonation.")]
-    public float shakeMagnitude = 0.25f;
+    public float shakeMagnitude = 0.28f;
 
     public override void ExecuteSkill(GameObject user)
     {
@@ -44,6 +48,7 @@ public class BombHeadSkillData : ActiveSkillData
         {
             bomb.Initialize(this, dir);
         }
+
         user.GetComponent<PlayerCastFeedback>()?.TriggerCast(CastFeedbackType.Throw);
     }
 }
