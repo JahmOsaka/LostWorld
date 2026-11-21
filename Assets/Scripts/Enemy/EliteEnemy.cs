@@ -70,6 +70,12 @@ public class EliteEnemy : Enemy
         return activeOrbs.Count > 0;
     }
 
+    public override void ResetEnemyState()
+    {
+        base.ResetEnemyState();
+        ClearActiveOrbs();
+    }
+
     protected override void DrawRangeGizmos()
     {
         base.DrawRangeGizmos();

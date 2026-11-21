@@ -249,6 +249,27 @@ public class Enemy : MonoBehaviour
         return Physics2D.Raycast(mid, dir, dist, groundLayer) || Physics2D.Raycast(low, dir, dist, groundLayer);
     }
 
+    public virtual void ResetEnemyState()
+    {
+        if (anim != null)
+        {
+            anim.Rebind();
+            anim.Update(0f);
+        }
+
+        DisableAllAttackHitboxes();
+
+        currentPatrolIndex = 0;
+
+        if (stateMachine != null)
+        {
+            if (HasPatrolPoints)
+                stateMachine.Initialize(patrolState);
+            else
+                stateMachine.Initialize(idleState);
+        }
+    }
+
     protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
