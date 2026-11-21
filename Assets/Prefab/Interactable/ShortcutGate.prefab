@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4284532954717637661}
-  - component: {fileID: 6878463617288862574}
   - component: {fileID: 5390902647895027334}
   - component: {fileID: 1462729179381602716}
   - component: {fileID: 6434679169720782862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShortcutGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,56 +32,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2525125432863820462}
   - {fileID: 9219277744134778200}
   - {fileID: 5198338948439551785}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6878463617288862574
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461750739733996404}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.0012454987, y: 4.007349}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.99505997, y: 8.002117}
-  m_EdgeRadius: 0
 --- !u!61 &5390902647895027334
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,18 +95,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c97551789f2054fb5f89a205d373b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShortcutGate
+  gateType: 0
   gateID: 
   isUnlocked: 0
   unlockableSide: 0
   showLockedFeedbackOnWrongSide: 1
   highlightEffect: {fileID: 6434679169720782862}
   gateVisual: {fileID: 1986252296078443226}
-  solidCollider: {fileID: 6878463617288862574}
+  solidCollider: {fileID: 7991052577055412868}
   promptAnchor: {fileID: 5198338948439551785}
   promptOffset: {x: 0, y: 1.5, z: 0}
   promptKey: F
   unlockLabel: Unlock Shortcut
   lockedLabel: Lock from the other side.
+  perishUnlockLabel: Absorb
+  perishMissingLabel: Blocked
+  requirePerishSkill: 1
+  absorbTintColor: {r: 0.35, g: 0.85, b: 1, a: 1}
+  absorbWindupDuration: 0.16
+  absorbPullDuration: 0.45
+  absorbPullCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0.2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.8
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  absorbStretchAmount: 0.45
+  absorbSpinDegrees: 180
+  absorbImpactVfxPrefab: {fileID: 0}
   openSlideOffset: {x: 0, y: 3.5, z: 0}
   unlockRattleDuration: 0.14
   openSlideDuration: 0.45
@@ -203,6 +191,84 @@ MonoBehaviour:
   fadeDuration: 0.2
   enableBreathingGlow: 1
   shaderColorProperty: _OutlineColor
+--- !u!1 &1170830330920913170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2525125432863820462}
+  - component: {fileID: 7991052577055412868}
+  m_Layer: 6
+  m_Name: SolidWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2525125432863820462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170830330920913170}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4284532954717637661}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7991052577055412868
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170830330920913170}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1760245486849116092
 GameObject:
   m_ObjectHideFlags: 0
