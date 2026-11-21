@@ -1,0 +1,297 @@
+fileFormatVersion: 2
+guid: db4bdcc71c9270f4fb8da3578fe084a0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6052885320789838617
+    second: Animation_Flyer_Explode_1_0
+  - first:
+      213: -4815353990807102837
+    second: Animation_Flyer_Explode_1_1
+  - first:
+      213: 703501817004037074
+    second: Animation_Flyer_Explode_1_2
+  - first:
+      213: -9059475003692473745
+    second: Animation_Flyer_Explode_1_3
+  - first:
+      213: 921218214512836626
+    second: Animation_Flyer_Explode_1_4
+  - first:
+      213: 7344564555574613616
+    second: Animation_Flyer_Explode_1_5
+  - first:
+      213: -304782122495450785
+    second: Animation_Flyer_Explode_1_6
+  - first:
+      213: -7852819568373081448
+    second: Animation_Flyer_Explode_1_7
+  - first:
+      213: 5644401005932992551
+    second: Animation_Flyer_Explode_1_8
+  - first:
+      213: -1133199358242310728
+    second: Animation_Flyer_Explode_1_9
+  - first:
+      213: 2580211296259064864
+    second: Animation_Flyer_Explode_1_10
+  - first:
+      213: 6220986321243884606
+    second: Animation_Flyer_Explode_1_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 650
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11019
+        width: 4240
+        height: 402
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bcad3312b200450800000000000000
+      internalID: 6052885320789838617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_1_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8835
+        width: 4240
+        height: 744
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ade26ee0d6c2db0800000000000000
+      internalID: -4815353990807102837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_1_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6401
+        width: 4240
+        height: 1551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d31e5ddc2753c900800000000000000
+      internalID: 703501817004037074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4140
+        width: 4240
+        height: 1910
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07613f4dc822de560800000000000000
+      internalID: 7344564555574613616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2117
+        width: 4240
+        height: 1872
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7285e704fc0f45e40800000000000000
+      internalID: 5644401005932992551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Flyer_Explode_1_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 186
+        width: 4240
+        height: 1671
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024c8fed080cec320800000000000000
+      internalID: 2580211296259064864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 27a9d86144c42994cbc93d2d7cdb7209
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Animation_Flyer_Explode_1_0: 6052885320789838617
+      Animation_Flyer_Explode_1_1: -4815353990807102837
+      Animation_Flyer_Explode_1_10: 2580211296259064864
+      Animation_Flyer_Explode_1_11: 6220986321243884606
+      Animation_Flyer_Explode_1_2: 703501817004037074
+      Animation_Flyer_Explode_1_3: -9059475003692473745
+      Animation_Flyer_Explode_1_4: 921218214512836626
+      Animation_Flyer_Explode_1_5: 7344564555574613616
+      Animation_Flyer_Explode_1_6: -304782122495450785
+      Animation_Flyer_Explode_1_7: -7852819568373081448
+      Animation_Flyer_Explode_1_8: 5644401005932992551
+      Animation_Flyer_Explode_1_9: -1133199358242310728
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,6 +8,12 @@ public class AnimationEventRelay : MonoBehaviour
     {
         enemy = GetComponentInParent<Enemy>();
     }
-    public void NotifySpawnOrbs() => enemy.NotifySpawnOrbs();
-    
+    public void NotifySpawnOrbs()
+    {
+        if (enemy is EliteEnemy elite)
+        {
+            elite.NotifySpawnOrbs();
+        }
+    }
+
 }

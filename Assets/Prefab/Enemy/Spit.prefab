@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 1741921276644345863}
   - component: {fileID: 3342071494306465765}
   - component: {fileID: 6100445818434788676}
-  - component: {fileID: 6842223043306055183}
+  - component: {fileID: 716663033494170789}
   - component: {fileID: 3391847674591662950}
   - component: {fileID: 460978913147885713}
   - component: {fileID: 5365543219781800933}
@@ -602,7 +602,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.002654314}
+  m_Offset: {x: 0.29864502, y: 0.32087898}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -612,9 +612,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.3519416}
+  m_Size: {x: 2.2111816, y: 1.9990082}
   m_EdgeRadius: 0
---- !u!114 &6842223043306055183
+--- !u!114 &716663033494170789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -623,9 +623,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8406653713664756089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fdb21e8f90bac048aad1f5d2952cc80, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c068452c3b911e40a04f8fa8cce4c6e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  m_EditorClassIdentifier: Assembly-CSharp::RangedEnemy
   enemyData: {fileID: 11400000, guid: eef9b93b2e523564d822cd5b0909e567, type: 2}
   orbitCenter: {fileID: 0}
   physicsCollider: {fileID: 6100445818434788676}
@@ -637,11 +637,11 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  throwPoint: {fileID: 435597593014003342}
   spawnPosition: {x: 0, y: 0, z: 0}
   patrolPoints:
   - {fileID: 1212269087558271580}
   - {fileID: 5299372370324674456}
+  throwPoint: {fileID: 435597593014003342}
 --- !u!114 &3391847674591662950
 MonoBehaviour:
   m_ObjectHideFlags: 0

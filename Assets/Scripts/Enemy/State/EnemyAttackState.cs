@@ -101,7 +101,14 @@ public class EnemyAttackState : EnemyState
     public void OnComboCheck()
     {
         if (!hasCombo || waitingCombo) return;
-        if (CanUseOrbAttack() && !enemy.HasActiveOrbs())
+
+        bool orbsActive = false;
+        if (enemy is EliteEnemy elite)
+        {
+            orbsActive = elite.HasActiveOrbs();
+        }
+
+        if (CanUseOrbAttack() && !orbsActive)
         {
             waitingCombo = true;
             comboTimer = melee.comboInterval;
