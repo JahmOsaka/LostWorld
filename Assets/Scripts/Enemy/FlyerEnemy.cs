@@ -83,6 +83,19 @@ public class FlyerEnemy : Enemy
         return hit.centroid - dir * 0.05f;
     }
 
+    public override void ResetEnemyState()
+    {
+        base.ResetEnemyState();
+
+        burstSpawned = false;
+        nextChargeTime = 0f;
+
+        if (stateMachine != null)
+        {
+            stateMachine.ChangeState(FlyPatrol);
+        }
+    }
+
     protected override void OnDrawGizmosSelected()
     {
         FlyerData data = enemyData as FlyerData;

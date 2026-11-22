@@ -619,6 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b71e6c6ecefd8147a4a8b052add2beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
+  actionBufferTime: 0.1
 --- !u!114 &9218278369501562890
 MonoBehaviour:
   m_ObjectHideFlags: 0

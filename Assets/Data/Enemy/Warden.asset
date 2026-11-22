@@ -30,10 +30,8 @@ MonoBehaviour:
   attackCooldown: 0.5
   comboInterval: 0.1
   orbPrefab: {fileID: 5659091714964175152, guid: 281ef193d8640f148a80dda5136b4931, type: 3}
-  orbCastVfxPrefab: {fileID: 0}
-  orbCastVfxLifetime: 3
   orbHpPercent: 0.5
   orbCount: 2
-  orbitRadius: 4.5
-  orbitSpeed: 100
+  orbitRadius: {x: 6, y: 3.5}
+  orbitSpeed: 250
   orbDuration: 6

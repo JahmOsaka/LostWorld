@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public float edgeCheckForwardOffset = 0.4f;
     public float wallCheckDistance = 0.1f;
     public LayerMask groundLayer;
+    public LayerMask oneWayPlatformLayer;
 
     protected CoreHealth health;
     public Vector3 spawnPosition;
@@ -233,7 +234,9 @@ public class Enemy : MonoBehaviour
         BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
         Vector2 feetPos = col != null ? new Vector2(col.bounds.center.x, col.bounds.min.y) : (Vector2)transform.position;
         Vector2 origin = feetPos + new Vector2(Mathf.Sign(dirX) * edgeCheckForwardOffset, 0.1f);
-        return Physics2D.Raycast(origin, Vector2.down, edgeCheckDistance, groundLayer);
+
+        LayerMask walkableLayer = groundLayer | oneWayPlatformLayer;
+        return Physics2D.Raycast(origin, Vector2.down, edgeCheckDistance, walkableLayer);
     }
 
     public bool IsWallAheadOf(float dirX)

@@ -10,12 +10,15 @@ public class RespawnableEnemy : MonoBehaviour
     public GameObject visualObject;
 
     private Vector3 initialPosition;
+    private Vector3 initialScale;
+    private Vector3 initialVisualScale;
     private CoreHealth health;
     private Enemy enemyScript;
 
     private void Awake()
     {
         initialPosition = transform.position;
+        initialScale = transform.localScale;
         health = GetComponent<CoreHealth>();
         enemyScript = GetComponent<Enemy>();
 
@@ -24,6 +27,11 @@ public class RespawnableEnemy : MonoBehaviour
             Transform v = transform.Find("Visual");
             if (v != null)
                 visualObject = v.gameObject;
+        }
+
+        if (visualObject != null)
+        {
+            initialVisualScale = visualObject.transform.localScale;
         }
     }
 
@@ -35,12 +43,10 @@ public class RespawnableEnemy : MonoBehaviour
 
         gameObject.SetActive(true);
         transform.position = initialPosition;
-        transform.localScale = Vector3.one;
+
         if (visualObject != null)
         {
             visualObject.SetActive(true);
-
-            visualObject.transform.localScale = Vector3.one;
 
             SpriteRenderer sr = visualObject.GetComponent<SpriteRenderer>();
             if (sr != null)
@@ -66,6 +72,12 @@ public class RespawnableEnemy : MonoBehaviour
         {
             enemyScript.enabled = true;
             enemyScript.ResetEnemyState();
+        }
+
+        transform.localScale = initialScale;
+        if (visualObject != null)
+        {
+            visualObject.transform.localScale = initialVisualScale;
         }
     }
 }

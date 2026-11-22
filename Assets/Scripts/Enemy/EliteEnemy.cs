@@ -22,7 +22,7 @@ public class EliteEnemy : Enemy
         {
             float startAngle = (360f / elite.orbCount) * i;
             float rad = startAngle * Mathf.Deg2Rad;
-            Vector2 offset = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * elite.orbitRadius;
+            Vector2 offset = new Vector2(Mathf.Cos(rad) * elite.orbitRadius.x, Mathf.Sin(rad) * elite.orbitRadius.y);
             Vector3 edgeSpawnPos = orbitCenter.position + (Vector3)offset;
 
             if (vfxList != null && vfxList.Length > 2 && vfxList[2].prefab != null)
@@ -33,6 +33,7 @@ public class EliteEnemy : Enemy
             }
         }
     }
+
     public void NotifySpawnOrbs()
     {
         var elite = enemyData as EliteEnemyData;
@@ -44,10 +45,9 @@ public class EliteEnemy : Enemy
         {
             float startAngle = (360f / elite.orbCount) * i;
             float rad = startAngle * Mathf.Deg2Rad;
-            Vector2 offset = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * elite.orbitRadius;
+            Vector2 offset = new Vector2(Mathf.Cos(rad) * elite.orbitRadius.x, Mathf.Sin(rad) * elite.orbitRadius.y);
             Vector3 edgeSpawnPos = orbitCenter.position + (Vector3)offset;
 
-            // เสกแค่ลูกแก้วจริงอย่างเดียว
             GameObject orbObj = Instantiate(elite.orbPrefab, edgeSpawnPos, Quaternion.identity);
             orbObj.GetComponent<OrbitingDamageOrb>()
                 .Init(orbitCenter, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.damage);

@@ -731,6 +731,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  oneWayPlatformLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   spawnPosition: {x: 0, y: 0, z: 0}
   patrolPoints:
   - {fileID: 5002869283504580029}
