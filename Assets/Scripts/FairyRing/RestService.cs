@@ -7,11 +7,21 @@ public class RestService : MonoBehaviour
 
     private void HandleRest(GameObject player)
     {
+        if (player == null) return;
+
         CoreHealth health = player.GetComponentInChildren<CoreHealth>();
         if (health != null)
         {
             health.Heal(health.maxHealth);
-            Debug.Log("RestService: Player fully healed.");
         }
+
+        PlayerStats stats = player.GetComponentInChildren<PlayerStats>();
+        if (stats != null)
+        {
+            stats.RefillEnergy();
+            stats.RefillPotions();
+        }
+
+        Debug.Log("RestService: Player HP, MP, and Life Gems fully refilled.");
     }
 }

@@ -91,7 +91,7 @@ public class EnemySkillDrop : MonoBehaviour
     private void OnDisable()
     {
         SetTargetHighlight(false);
-        RemoveFromCandidates();
+        InteractPromptUI.Instance?.Unregister(this);
     }
 
     private void FindPlayerReferences()
@@ -119,7 +119,7 @@ public class EnemySkillDrop : MonoBehaviour
         if (enemyHealth == null || enemyHealth.currentHealth <= 0 || !playerSkill.hasPerish)
         {
             SetTargetHighlight(false);
-            RemoveFromCandidates();
+            InteractPromptUI.Instance?.Unregister(this);
             return;
         }
 
@@ -137,32 +137,17 @@ public class EnemySkillDrop : MonoBehaviour
 
         if (isLowHP && isInRange)
         {
-            if (!activeCandidates.Contains(this))
-                activeCandidates.Add(this);
+            string skillName = (skillToDrop != null && !string.IsNullOrEmpty(skillToDrop.skillName))
+                ? skillToDrop.skillName
+                : "Essence";
+            string label = $"Absorb <color=#FFD700>{skillName}</color>";
+
+            InteractPromptUI.Instance?.Register(this, label, StartAbsorbFromPrompt, SetTargetHighlight, "F");
         }
         else
         {
             SetTargetHighlight(false);
-            RemoveFromCandidates();
-            return;
-        }
-
-        UpdateClosestCandidate();
-
-        bool isCurrentTarget = (closestCandidate == this);
-        SetTargetHighlight(isCurrentTarget);
-
-        if (isCurrentTarget)
-        {
-            UIManager.Instance?.ShowAbsorbPrompt(this, skillToDrop);
-
-            if (playerInput != null && playerInput.InteractInput)
-            {
-                playerInput.UseInteractInput();
-                SetTargetHighlight(false);
-                RemoveFromCandidates();
-                StartCoroutine(AbsorbBindRoutine());
-            }
+            InteractPromptUI.Instance?.Unregister(this);
         }
     }
 
@@ -178,46 +163,6 @@ public class EnemySkillDrop : MonoBehaviour
         }
     }
 
-    private void UpdateClosestCandidate()
-    {
-        if (playerTransform == null) return;
-
-        float minDist = float.MaxValue;
-        EnemySkillDrop nearest = null;
-
-        for (int i = activeCandidates.Count - 1; i >= 0; i--)
-        {
-            EnemySkillDrop candidate = activeCandidates[i];
-            if (candidate == null || !candidate.isActiveAndEnabled || candidate.isAbsorbing)
-            {
-                activeCandidates.RemoveAt(i);
-                continue;
-            }
-
-            float dist = (candidate.transform.position - playerTransform.position).sqrMagnitude;
-            if (dist < minDist)
-            {
-                minDist = dist;
-                nearest = candidate;
-            }
-        }
-
-        closestCandidate = nearest;
-    }
-
-    private void RemoveFromCandidates()
-    {
-        if (activeCandidates.Contains(this))
-        {
-            activeCandidates.Remove(this);
-        }
-        if (closestCandidate == this)
-        {
-            closestCandidate = null;
-            UIManager.Instance?.HideAbsorbPrompt(this);
-        }
-    }
-
     private Color GetWhipColor()
     {
         if (playerComp != null && playerComp.playerData != null)
@@ -227,10 +172,18 @@ public class EnemySkillDrop : MonoBehaviour
         return DefaultWhipColor;
     }
 
+    private void StartAbsorbFromPrompt()
+    {
+        if (isAbsorbing) return;
+        SetTargetHighlight(false);
+        InteractPromptUI.Instance?.Unregister(this);
+        StartCoroutine(AbsorbBindRoutine());
+    }
+
     private IEnumerator AbsorbBindRoutine()
     {
         isAbsorbing = true;
-        UIManager.Instance?.HideAbsorbPrompt(this);
+        InteractPromptUI.Instance?.Unregister(this);
         if (enemySpriteRenderer != null) enemySpriteRenderer.color = originalSpriteColor;
 
         if (enemyScript != null)

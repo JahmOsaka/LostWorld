@@ -4,8 +4,12 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     [Header("1. Stats & Resources")]
-    [Tooltip("Maximum energy/mana for using skills.")]
+    [Tooltip("Base maximum energy/mana for using skills.")]
     public float maxEnergy = 100f;
+    [Tooltip("Energy/mana restored per whip hit on an enemy.")]
+    public float energyRegenPerWhipHit = 10f;
+    [Tooltip("Bonus max energy/mana gained per collectable pickup.")]
+    public float maxEnergyPerCollectable = 20f;
     [Tooltip("Maximum number of healing potions carried.")]
     public int maxPotions = 2;
     [Tooltip("Health restored per potion used.")]

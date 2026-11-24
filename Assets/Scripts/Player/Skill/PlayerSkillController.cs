@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PlayerSkillController : MonoBehaviour
 {
@@ -20,9 +19,6 @@ public class PlayerSkillController : MonoBehaviour
     public SkillData[] equippedWheelSkills = new SkillData[4];
     public int activeWheelIndex = 0;
 
-    [Header("HUD UI Reference")]
-    public Image activeSkillIconUI;
-
     private PlayerInputHandler inputHandler;
     private PlayerStats playerStats;
     private float cooldownTimer;
@@ -37,12 +33,23 @@ public class PlayerSkillController : MonoBehaviour
         player = GetComponentInParent<Player>();
     }
 
-    private void Start() => UpdateHUD();
+    private void Start() => UpdateHUD(false);
 
     private void Update()
     {
         if (cooldownTimer > 0) cooldownTimer -= Time.deltaTime;
         if (inputHandler == null) return;
+
+        if (inputHandler.CycleSkillNextInput)
+        {
+            inputHandler.UseCycleSkillNextInput();
+            CycleSkill(1);
+        }
+        else if (inputHandler.CycleSkillPrevInput)
+        {
+            inputHandler.UseCycleSkillPrevInput();
+            CycleSkill(-1);
+        }
 
         if (inputHandler.SkillInput)
         {
@@ -70,6 +77,33 @@ public class PlayerSkillController : MonoBehaviour
         }
     }
 
+    public void CycleSkill(int direction)
+    {
+        int nextIndex = GetAdjacentSkillIndex(direction);
+        if (nextIndex != -1 && nextIndex != activeWheelIndex)
+        {
+            activeWheelIndex = nextIndex;
+            UpdateHUD(true);
+        }
+    }
+
+    private int GetAdjacentSkillIndex(int direction)
+    {
+        int count = equippedWheelSkills.Length;
+        if (count == 0) return -1;
+
+        int step = direction >= 0 ? 1 : -1;
+        for (int i = 1; i < count; i++)
+        {
+            int candidate = (activeWheelIndex + step * i + count) % count;
+            if (equippedWheelSkills[candidate] != null)
+            {
+                return candidate;
+            }
+        }
+        return -1;
+    }
+
     public void PlayPerishCastVfx()
     {
         if (perishSkillData != null && perishSkillData.vfxPrefab != null)
@@ -91,7 +125,14 @@ public class PlayerSkillController : MonoBehaviour
     public void UpdateEquippedSkills(SkillData[] newEquippedSkills)
     {
         newEquippedSkills.CopyTo(equippedWheelSkills, 0);
-        UpdateHUD();
+
+        if (CurrentCombatSkill == null)
+        {
+            int fallback = GetAdjacentSkillIndex(1);
+            if (fallback != -1) activeWheelIndex = fallback;
+        }
+
+        UpdateHUD(false);
     }
 
     public void UnlockSkill(SkillData newSkill)
@@ -118,7 +159,8 @@ public class PlayerSkillController : MonoBehaviour
                 if (equippedWheelSkills[i] == null)
                 {
                     equippedWheelSkills[i] = newSkill;
-                    UpdateHUD();
+                    if (CurrentCombatSkill == null) activeWheelIndex = i;
+                    UpdateHUD(false);
                     break;
                 }
             }
@@ -127,20 +169,24 @@ public class PlayerSkillController : MonoBehaviour
 
     public void SelectWheelSlot(int index)
     {
-        if (index >= 0 && index < 4)
+        if (index >= 0 && index < equippedWheelSkills.Length)
         {
+            bool changed = activeWheelIndex != index;
             activeWheelIndex = index;
-            UpdateHUD();
+            UpdateHUD(changed);
         }
     }
 
-    public void UpdateHUD()
+    public void UpdateHUD(bool playSwitchFeedback = false)
     {
-        if (activeSkillIconUI != null)
-        {
-            SkillData skill = CurrentCombatSkill;
-            activeSkillIconUI.sprite = skill != null ? skill.skillIcon : null;
-            activeSkillIconUI.enabled = (skill != null && skill.skillIcon != null);
-        }
+        if (UIManager.Instance == null) return;
+
+        int prevIdx = GetAdjacentSkillIndex(-1);
+        int nextIdx = GetAdjacentSkillIndex(1);
+
+        SkillData prevSkill = prevIdx != -1 ? equippedWheelSkills[prevIdx] : null;
+        SkillData nextSkill = nextIdx != -1 ? equippedWheelSkills[nextIdx] : null;
+
+        UIManager.Instance.UpdateSkillCarousel(prevSkill, CurrentCombatSkill, nextSkill, playSwitchFeedback);
     }
 }

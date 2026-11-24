@@ -16,6 +16,8 @@ public class PlayerInputHandler : MonoBehaviour
     private float potionInputStartTime;
     private float skillInputStartTime;
     private float superDashInputStartTime;
+    private float cycleNextInputStartTime;
+    private float cyclePrevInputStartTime;
 
     public bool WheelMenuInput { get; private set; }
     public Vector2 MouseWheelInput { get; private set; }
@@ -29,6 +31,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool PotionInput { get; private set; }
     public bool SkillInput { get; private set; }
     public bool SuperDashInput { get; private set; }
+    public bool CycleSkillNextInput { get; private set; }
+    public bool CycleSkillPrevInput { get; private set; }
 
     private void Awake()
     {
@@ -71,6 +75,12 @@ public class PlayerInputHandler : MonoBehaviour
 
         if (SuperDashInput && Time.time >= superDashInputStartTime + actionBufferTime)
             SuperDashInput = false;
+
+        if (CycleSkillNextInput && Time.time >= cycleNextInputStartTime + actionBufferTime)
+            CycleSkillNextInput = false;
+
+        if (CycleSkillPrevInput && Time.time >= cyclePrevInputStartTime + actionBufferTime)
+            CycleSkillPrevInput = false;
     }
 
     public void OnMoveInput(InputAction.CallbackContext context) => RawMovementInput = context.ReadValue<Vector2>();
@@ -149,6 +159,24 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.canceled) WheelMenuInput = false;
     }
 
+    public void OnCycleSkillNextInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            CycleSkillNextInput = true;
+            cycleNextInputStartTime = Time.time;
+        }
+    }
+
+    public void OnCycleSkillPrevInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            CycleSkillPrevInput = true;
+            cyclePrevInputStartTime = Time.time;
+        }
+    }
+
     public void OnMouseSelectInput(InputAction.CallbackContext context) => MouseWheelInput = context.ReadValue<Vector2>();
 
     public void UseInteractInput() => InteractInput = false;
@@ -158,4 +186,6 @@ public class PlayerInputHandler : MonoBehaviour
     public void UsePotionInput() => PotionInput = false;
     public void UseSkillInput() => SkillInput = false;
     public void UseSuperDashInput() => SuperDashInput = false;
+    public void UseCycleSkillNextInput() => CycleSkillNextInput = false;
+    public void UseCycleSkillPrevInput() => CycleSkillPrevInput = false;
 }

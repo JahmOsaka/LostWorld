@@ -15,19 +15,26 @@ MonoBehaviour:
   skillName: OrbitOrb
   category: 0
   description: 
-  skillIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  skillIcon: {fileID: -1162139174, guid: 7665d535680e7ff46a1912554eb6bde2, type: 3}
   vfxPrefab: {fileID: 5955753123173945767, guid: 94ce2dd8e4653f64d96ae36badc62ab6, type: 3}
   cooldownTime: 8
   mpCost: 25
   castDuration: 0
   orbPrefab: {fileID: 3039643184459326312, guid: 186e65529c3b5c94bba997cf9cb12fcd, type: 3}
   orbCount: 2
-  orbitRadius: 1.6
+  centerOffset: {x: 0, y: 0.7}
+  orbitRadius: {x: 1.75, y: 1.15}
   orbitSpeed: 240
   duration: 6
+  spawnDuration: 0.22
+  despawnDuration: 0.28
+  spawnSpinBoost: 1.8
   damage: 2
   hitCooldownPerEnemy: 0.35
   knockbackForce: 4
+  enemyFlashDuration: 0.08
+  hitShakeDuration: 0.05
+  hitShakeMagnitude: 0.05
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024

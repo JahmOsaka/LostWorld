@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 45ccf99517c626b41ac1ebe5021b05a0
+guid: a2161ca0dfc64e848bf7d1bc7dbc8827
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3924596553151034296
-    second: PerishSkillIcon_0
+      213: -3710432733283266819
+    second: MC Portrait_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PerishSkillIcon_0
+      name: MC Portrait_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 24
-        width: 227
-        height: 206
+        x: 726
+        y: 2508
+        width: 935
+        height: 1018
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b33a4d85c7f67630800000000000000
-      internalID: 3924596553151034296
+      spriteID: dfe4ba97615e18cc0800000000000000
+      internalID: -3710432733283266819
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7254c44aced084f42919117c8fae2587
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PerishSkillIcon_0: 3924596553151034296
+      MC Portrait_0: -3710432733283266819
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

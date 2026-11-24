@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7201142569372368506}
   - component: {fileID: 864424352851711993}
   m_Layer: 0
-  m_Name: MaxhealthUpgrade
+  m_Name: HPUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
