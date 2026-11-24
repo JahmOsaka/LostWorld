@@ -3,10 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(FairyRingActivation))]
 public class FairyRingVisual : MonoBehaviour
 {
-    [Header("Visuals & UI")]
-    public GameObject interactPromptUI;
+    [Header("Visuals & VFX")]
     public GameObject activatedVFX;
     public SpriteHighlight highlightEffect;
+
+    [Header("Legacy (Optional - Can be removed from Prefab)")]
+    [SerializeField] private GameObject interactPromptUI;
 
     private FairyRingActivation activation;
 
@@ -23,23 +25,21 @@ public class FairyRingVisual : MonoBehaviour
 
     private void OnEnable()
     {
-        activation.OnPlayerProximityChanged += HandleProximity;
+        activation.OnFocusChanged += HandleFocusChanged;
         activation.OnActivated += HandleActivation;
     }
 
     private void OnDisable()
     {
-        activation.OnPlayerProximityChanged -= HandleProximity;
+        activation.OnFocusChanged -= HandleFocusChanged;
         activation.OnActivated -= HandleActivation;
     }
 
-    private void HandleProximity(bool inRange)
+    private void HandleFocusChanged(bool isFocused)
     {
-        if (interactPromptUI != null) interactPromptUI.SetActive(inRange);
-
         if (highlightEffect != null)
         {
-            if (inRange) highlightEffect.TurnOnHighlight();
+            if (isFocused) highlightEffect.TurnOnHighlight();
             else highlightEffect.TurnOffHighlight();
         }
     }

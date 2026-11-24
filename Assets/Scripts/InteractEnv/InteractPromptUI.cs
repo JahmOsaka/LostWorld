@@ -48,6 +48,8 @@ public class InteractPromptUI : MonoBehaviour
 
     public bool HasActivePrompts => entries.Count > 0;
 
+    private readonly HashSet<object> suppressors = new HashSet<object>();
+    public bool IsSuppressed => suppressors.Count > 0;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -75,18 +77,21 @@ public class InteractPromptUI : MonoBehaviour
 
         CleanupDestroyedEntries();
 
-        if (entries.Count > 1)
+        if (!IsSuppressed)
         {
-            HandleSelectionInput();
-        }
-
-        if (entries.Count > 0 && playerInput != null && playerInput.InteractInput)
-        {
-            PromptEntry current = entries[selectedIndex];
-            if (current.OnInteract != null)
+            if (entries.Count > 1)
             {
-                playerInput.UseInteractInput();
-                current.OnInteract.Invoke();
+                HandleSelectionInput();
+            }
+
+            if (entries.Count > 0 && playerInput != null && playerInput.InteractInput)
+            {
+                PromptEntry current = entries[selectedIndex];
+                if (current.OnInteract != null)
+                {
+                    playerInput.UseInteractInput();
+                    current.OnInteract.Invoke();
+                }
             }
         }
 
@@ -253,7 +258,7 @@ public class InteractPromptUI : MonoBehaviour
 
     private void UpdateVisualSmooth()
     {
-        float targetAlpha = entries.Count > 0 ? 1f : 0f;
+        float targetAlpha = (!IsSuppressed && entries.Count > 0) ? 1f : 0f;
         if (canvasGroup != null)
         {
             canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, targetAlpha, Time.unscaledDeltaTime * fadeSpeed);
@@ -298,5 +303,12 @@ public class InteractPromptUI : MonoBehaviour
             if (entries[i].Requester == requester) return i;
         }
         return -1;
+    }
+
+    public void SetSuppressed(object source, bool suppressed)
+    {
+        if (source == null) return;
+        if (suppressed) suppressors.Add(source);
+        else suppressors.Remove(source);
     }
 }

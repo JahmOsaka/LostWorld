@@ -8,13 +8,18 @@ public class FairyRingActivation : MonoBehaviour
     public string checkpointId = Guid.NewGuid().ToString();
     public bool isActivated = false;
 
+    [Header("Interact HUD Prompt")]
+    [SerializeField] private string promptKey = "F";
+    [SerializeField] private string activateLabel = "Activate Fairy Ring";
+    [SerializeField] private string restLabel = "Rest at Fairy Ring";
+
     public static event Action<FairyRingActivation, GameObject> OnFairyRingInteracted;
     public static event Action<GameObject> OnPlayerLeftFairyRing;
     public event Action<bool> OnPlayerProximityChanged;
+    public event Action<bool> OnFocusChanged;
     public event Action OnActivated;
 
     private bool isPlayerInRange = false;
-    private PlayerInputHandler playerInput;
     private GameObject currentPlayer;
 
     private float interactCooldown = 0.5f;
@@ -30,17 +35,30 @@ public class FairyRingActivation : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        if (isPlayerInRange && playerInput != null && Time.time > lastInteractTime + interactCooldown)
+        if (isPlayerInRange)
         {
-            if (playerInput.InteractInput)
-            {
-                playerInput.UseInteractInput();
-                lastInteractTime = Time.time;
-                Interact();
-            }
+            isPlayerInRange = false;
+            currentPlayer = null;
+            OnFocusChanged?.Invoke(false);
+            OnPlayerProximityChanged?.Invoke(false);
         }
+
+        InteractPromptUI.Instance?.Unregister(this);
+    }
+
+    private void HandlePromptInteract()
+    {
+        if (!isPlayerInRange || Time.time <= lastInteractTime + interactCooldown) return;
+
+        lastInteractTime = Time.time;
+        Interact();
+    }
+
+    private void HandleFocusChanged(bool isFocused)
+    {
+        OnFocusChanged?.Invoke(isFocused);
     }
 
     private void Interact()
@@ -49,10 +67,19 @@ public class FairyRingActivation : MonoBehaviour
         {
             isActivated = true;
             OnActivated?.Invoke();
+            RegisterPrompt();
         }
 
         Debug.Log("FairyRing: Triggering Interaction Events");
         OnFairyRingInteracted?.Invoke(this, currentPlayer);
+    }
+
+    private void RegisterPrompt()
+    {
+        if (!isPlayerInRange) return;
+
+        string label = isActivated ? restLabel : activateLabel;
+        InteractPromptUI.Instance?.Register(this, label, HandlePromptInteract, HandleFocusChanged, promptKey);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,18 +87,10 @@ public class FairyRingActivation : MonoBehaviour
         if (collision.CompareTag("Player") && !isPlayerInRange)
         {
             currentPlayer = collision.transform.root.gameObject;
+            isPlayerInRange = true;
 
-            playerInput = currentPlayer.GetComponentInChildren<PlayerInputHandler>();
-
-            if (playerInput != null)
-            {
-                isPlayerInRange = true;
-                OnPlayerProximityChanged?.Invoke(true);
-            }
-            else
-            {
-                Debug.LogWarning("FairyRing: Found Player tag but no PlayerInputHandler!");
-            }
+            OnPlayerProximityChanged?.Invoke(true);
+            RegisterPrompt();
         }
     }
 
@@ -79,15 +98,15 @@ public class FairyRingActivation : MonoBehaviour
     {
         if (collision.CompareTag("Player") && isPlayerInRange)
         {
-
             if (collision.transform.root.gameObject == currentPlayer)
             {
                 OnPlayerLeftFairyRing?.Invoke(currentPlayer);
 
                 isPlayerInRange = false;
-                playerInput = null;
                 currentPlayer = null;
 
+                InteractPromptUI.Instance?.Unregister(this);
+                OnFocusChanged?.Invoke(false);
                 OnPlayerProximityChanged?.Invoke(false);
             }
         }
