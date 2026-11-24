@@ -65,6 +65,9 @@ public class ShortcutGate : MonoBehaviour, IInteractable
     [SerializeField] private float unlockShakeMagnitude = 0.1f;
     [SerializeField] private GameObject unlockVfxPrefab;
 
+    [Header("Mushroom Wall Animation")]
+    [SerializeField] private Animator wallAnimator;
+
     private Transform playerTransform;
     private Player cachedPlayer;
     private Vector3 visualBaseLocalPos;
@@ -147,6 +150,15 @@ public class ShortcutGate : MonoBehaviour, IInteractable
     public bool AbsorbByPerish(Transform absorber)
     {
         if (gateType != GateType.PerishBlueGate || isUnlocked || isAnimating) return false;
+
+        if (wallAnimator != null)
+        {
+            wallAnimator.Play("WallDown");
+        }
+        else if (gateVisual != null)
+        {
+            gateVisual.SetActive(false);
+        }
 
         isUnlocked = true;
         HideInteractPrompt();
