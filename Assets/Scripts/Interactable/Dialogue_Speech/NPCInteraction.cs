@@ -40,7 +40,7 @@ public class NPCInteraction : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (DialogueUI.Instance == null || DialogueUI.Instance.IsDialogueActive) return;
+        if (DialogueUI.Instance == null || DialogueUI.Instance.IsBlockingInteract) return;
 
         DialogueData dialogueToPlay = isConditionMet && alternateDialogue != null
             ? alternateDialogue

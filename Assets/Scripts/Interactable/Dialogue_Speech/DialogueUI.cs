@@ -32,6 +32,13 @@ public class DialogueUI : MonoBehaviour
     public bool IsDialogueActive { get; private set; }
     public bool IsQuickSpeechActive { get; private set; }
 
+    [SerializeField] private float reopenCooldown = 0.25f;
+
+    public bool IsBlockingInteract => IsDialogueActive || (Time.unscaledTime - closedTime < reopenCooldown);
+
+    private Coroutine unsuppressCoroutine;
+    private float closedTime = -999f;
+
     private readonly Queue<DialogueEntry> lineQueue = new Queue<DialogueEntry>();
     private Action onDialogueComplete;
     private Coroutine typingCoroutine;
@@ -66,11 +73,18 @@ public class DialogueUI : MonoBehaviour
 
     private void OnDisable()
     {
+        if (unsuppressCoroutine != null)
+        {
+            StopCoroutine(unsuppressCoroutine);
+            unsuppressCoroutine = null;
+        }
+
         if (IsDialogueActive)
         {
             SetPlayerLocked(false);
-            InteractPromptUI.Instance?.SetSuppressed(this, false);
         }
+
+        InteractPromptUI.Instance?.SetSuppressed(this, false);
     }
 
     private void Update()
@@ -89,13 +103,18 @@ public class DialogueUI : MonoBehaviour
 
         if (advancePressed)
         {
-            if (isTyping)
+            if (advancePressed)
             {
-                FinishTypingImmediately();
-            }
-            else
-            {
-                DisplayNextLine();
+                cachedPlayer?.InputHandler?.UseInteractInput();
+
+                if (isTyping)
+                {
+                    FinishTypingImmediately();
+                }
+                else
+                {
+                    DisplayNextLine();
+                }
             }
         }
     }
@@ -104,6 +123,12 @@ public class DialogueUI : MonoBehaviour
         if (data == null || data.lines == null || data.lines.Count == 0) return;
 
         StopActiveCoroutines();
+        if (unsuppressCoroutine != null)
+        {
+            StopCoroutine(unsuppressCoroutine);
+            unsuppressCoroutine = null;
+        }
+
         IsQuickSpeechActive = false;
         IsDialogueActive = true;
         isVisible = true;
@@ -148,8 +173,10 @@ public class DialogueUI : MonoBehaviour
         if (IsDialogueActive)
         {
             IsDialogueActive = false;
+            closedTime = Time.unscaledTime;
+            cachedPlayer?.InputHandler?.UseInteractInput();
             SetPlayerLocked(false);
-            InteractPromptUI.Instance?.SetSuppressed(this, false);
+            ScheduleUnsuppressInteract();
         }
 
         IsQuickSpeechActive = false;
@@ -286,11 +313,13 @@ public class DialogueUI : MonoBehaviour
         StopActiveCoroutines();
         IsDialogueActive = false;
         isVisible = false;
+        closedTime = Time.unscaledTime;
 
         if (continueIndicator != null) continueIndicator.SetActive(false);
 
+        cachedPlayer?.InputHandler?.UseInteractInput();
         SetPlayerLocked(false);
-        InteractPromptUI.Instance?.SetSuppressed(this, false);
+        ScheduleUnsuppressInteract();
 
         Action callback = onDialogueComplete;
         onDialogueComplete = null;
@@ -338,5 +367,31 @@ public class DialogueUI : MonoBehaviour
 
         float targetAlpha = isVisible ? 1f : 0f;
         canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, targetAlpha, Time.unscaledDeltaTime * fadeSpeed);
+    }
+
+    private void ScheduleUnsuppressInteract()
+    {
+        if (unsuppressCoroutine != null) StopCoroutine(unsuppressCoroutine);
+
+        if (isActiveAndEnabled)
+        {
+            unsuppressCoroutine = StartCoroutine(UnsuppressInteractAfterCooldown());
+        }
+        else
+        {
+            InteractPromptUI.Instance?.SetSuppressed(this, false);
+        }
+    }
+
+    private IEnumerator UnsuppressInteractAfterCooldown()
+    {
+        yield return new WaitForSecondsRealtime(reopenCooldown);
+        unsuppressCoroutine = null;
+
+        if (!IsDialogueActive)
+        {
+            cachedPlayer?.InputHandler?.UseInteractInput();
+            InteractPromptUI.Instance?.SetSuppressed(this, false);
+        }
     }
 }
