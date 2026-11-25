@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4284532954717637661}
   - component: {fileID: 5390902647895027334}
-  - component: {fileID: 1462729179381602716}
+  - component: {fileID: 8329120152963104954}
   - component: {fileID: 6434679169720782862}
   m_Layer: 9
   m_Name: BlueGate
@@ -83,7 +83,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.5010033, y: 8.006294}
   m_EdgeRadius: 0
---- !u!114 &1462729179381602716
+--- !u!114 &8329120152963104954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,25 +92,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 461750739733996404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c97551789f2054fb5f89a205d373b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 50185c27245c787468bab33a8d8a1353, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShortcutGate
-  gateType: 1
+  m_EditorClassIdentifier: Assembly-CSharp::PerishBlueGate
   gateID: 
   isUnlocked: 0
-  unlockableSide: 0
-  showLockedFeedbackOnWrongSide: 1
   highlightEffect: {fileID: 6434679169720782862}
   gateVisual: {fileID: 1986252296078443226}
   solidCollider: {fileID: 6337254644473518722}
-  promptAnchor: {fileID: 5198338948439551785}
-  promptOffset: {x: 0, y: 1.5, z: 0}
   promptKey: F
-  unlockLabel: Unlock Shortcut
-  lockedLabel: Lock from the other side.
-  perishUnlockLabel: Absorb
-  perishMissingLabel: Blocked
+  showLockedFeedback: 1
+  lockedReactionText: It's sealed by a strange energy... I can't break through it
+    yet.
+  reactionDuration: 2.5
+  reactionOverridePortrait: {fileID: 1276951143863046006, guid: fc688939f861be94da5f2dbebeacc12f, type: 3}
+  rattleMagnitude: 0.06
+  lockedRattleDuration: 0.18
+  unlockShakeDuration: 0.14
+  unlockShakeMagnitude: 0.1
+  unlockVfxPrefab: {fileID: 0}
   requirePerishSkill: 1
+  perishUnlockLabel: Absorb
+  perishExamineLabel: Examine
   absorbTintColor: {r: 0.35, g: 0.85, b: 1, a: 1}
   absorbWindupDuration: 0.16
   absorbPullDuration: 0.45
@@ -141,38 +144,6 @@ MonoBehaviour:
   absorbStretchAmount: 0.45
   absorbSpinDegrees: 180
   absorbImpactVfxPrefab: {fileID: 0}
-  openSlideOffset: {x: 0, y: 3.5, z: 0}
-  unlockRattleDuration: 0.14
-  openSlideDuration: 0.45
-  openCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  rattleMagnitude: 0.06
-  lockedRattleDuration: 0.18
-  unlockShakeDuration: 0.14
-  unlockShakeMagnitude: 0.1
-  unlockVfxPrefab: {fileID: 0}
 --- !u!114 &6434679169720782862
 MonoBehaviour:
   m_ObjectHideFlags: 0

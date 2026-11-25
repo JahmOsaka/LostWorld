@@ -141,12 +141,25 @@ public class PlayerSkillController : MonoBehaviour
 
         if (newSkill.category == SkillCategory.KeyAbility)
         {
+            bool unlockedNew = false;
+
             if (newSkill == perishSkillData || newSkill.skillName == "Perish")
-                hasPerish = true;
+            {
+                if (!hasPerish) { hasPerish = true; unlockedNew = true; }
+            }
             else if (newSkill == doubleJumpSkillData || newSkill.skillName == "Double Jump")
-                hasDoubleJump = true;
+            {
+                if (!hasDoubleJump) { hasDoubleJump = true; unlockedNew = true; }
+            }
             else if (newSkill == superDashSkillData || newSkill.skillName == "Super Dash")
-                hasSuperDash = true;
+            {
+                if (!hasSuperDash) { hasSuperDash = true; unlockedNew = true; }
+            }
+
+            if (unlockedNew)
+            {
+                PickupNotificationUI.Instance?.ShowSkillObtained(newSkill);
+            }
 
             return;
         }
@@ -154,6 +167,8 @@ public class PlayerSkillController : MonoBehaviour
         if (!unlockedCombatSkills.Contains(newSkill))
         {
             unlockedCombatSkills.Add(newSkill);
+            PickupNotificationUI.Instance?.ShowSkillObtained(newSkill);
+
             for (int i = 0; i < equippedWheelSkills.Length; i++)
             {
                 if (equippedWheelSkills[i] == null)
@@ -188,5 +203,46 @@ public class PlayerSkillController : MonoBehaviour
         SkillData nextSkill = nextIdx != -1 ? equippedWheelSkills[nextIdx] : null;
 
         UIManager.Instance.UpdateSkillCarousel(prevSkill, CurrentCombatSkill, nextSkill, playSwitchFeedback);
+    }
+
+    public void LoadSavedSkills(
+        bool savedPerish,
+        bool savedDoubleJump,
+        bool savedSuperDash,
+        List<SkillData> savedUnlockedSkills,
+        SkillData[] savedEquippedSkills,
+        int savedActiveIndex)
+    {
+        hasPerish = savedPerish;
+        hasDoubleJump = savedDoubleJump;
+        hasSuperDash = savedSuperDash;
+
+        unlockedCombatSkills.Clear();
+        if (savedUnlockedSkills != null)
+        {
+            foreach (SkillData skill in savedUnlockedSkills)
+            {
+                if (skill != null && !unlockedCombatSkills.Contains(skill))
+                {
+                    unlockedCombatSkills.Add(skill);
+                }
+            }
+        }
+
+        for (int i = 0; i < equippedWheelSkills.Length; i++)
+        {
+            equippedWheelSkills[i] = (savedEquippedSkills != null && i < savedEquippedSkills.Length)
+                ? savedEquippedSkills[i]
+                : null;
+        }
+
+        activeWheelIndex = Mathf.Clamp(savedActiveIndex, 0, Mathf.Max(0, equippedWheelSkills.Length - 1));
+        if (CurrentCombatSkill == null)
+        {
+            int fallback = GetAdjacentSkillIndex(1);
+            if (fallback != -1) activeWheelIndex = fallback;
+        }
+
+        UpdateHUD(false);
     }
 }

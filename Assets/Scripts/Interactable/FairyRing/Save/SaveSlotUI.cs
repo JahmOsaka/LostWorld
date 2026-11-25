@@ -1,6 +1,7 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class SaveSlotUI : MonoBehaviour
 {
@@ -37,7 +38,15 @@ public class SaveSlotUI : MonoBehaviour
         }
         else
         {
-            slotInfoText.text = $"Slot {slotIndex + 1}\n<color=#00FF00>{data.saveTime}</color>\nCoins: {data.currentCurrency}";
+            TimeSpan time = TimeSpan.FromSeconds(data.playTime);
+            string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}", (int)time.TotalHours, time.Minutes, time.Seconds);
+            string location = string.IsNullOrEmpty(data.locationName) ? "Unknown Area" : data.locationName;
+
+            slotInfoText.text =
+                $"Slot {slotIndex + 1} - {location}\n" +
+                $"<color=#00FF00>{data.saveTime}</color> | Time: {formattedTime}\n" +
+                $"Coins: {data.currentCurrency}";
+
             loadButton.interactable = true;
             deleteButton.interactable = true;
         }

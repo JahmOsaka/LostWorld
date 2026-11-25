@@ -125,7 +125,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8371654769571724991}
   - component: {fileID: 889906740502517021}
-  - component: {fileID: 3095965529383466201}
   - component: {fileID: 6524661870638744594}
   m_Layer: 0
   m_Name: ShroomsNPC
@@ -197,25 +196,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.8594294, y: 3.4210775}
   m_EdgeRadius: 0
---- !u!114 &3095965529383466201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4830010393710432939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1743b295389272f46a0255b5d6272869, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  interactPrompt: {fileID: 6244285546870280768}
-  highlightEffect: {fileID: 6524661870638744594}
-  defaultDialogues: []
-  alternateDialogues: []
-  playerSprite: {fileID: 6863246505373101655, guid: 454b79c20ed6f2f4bb340b3be6124f5a, type: 3}
-  npcSprite: {fileID: 6804925498275177161, guid: 3db6dcdd496f31b4fbf6bdc8267c9965, type: 3}
-  isConditionMet: 0
 --- !u!114 &6524661870638744594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +210,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   targetSprite: {fileID: 4838587205164846530}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  outlineMaterial: {fileID: 2100000, guid: 12758289c51beb148aa64ce0118bfb79, type: 2}
+  outlineMaterial: {fileID: 2100000, guid: a41c00efbcf011046946bebd02f8e38e, type: 2}
+  fadeDuration: 0.2
+  enableBreathingGlow: 1
+  shaderColorProperty: _OutlineColor
 --- !u!1 &6244285546870280768
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +292,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 86535193
-  m_SortingLayer: 11
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: ef962915af726b84ca7cf32881e56a8a, type: 3}

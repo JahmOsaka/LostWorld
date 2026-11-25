@@ -1,25 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerInteract : MonoBehaviour
 {
-    private PlayerInputHandler inputHandler;
-    private IInteractable currentInteractable;
+    private readonly HashSet<IInteractable> activeInteractables = new HashSet<IInteractable>();
     private BoxCollider2D myCollider;
 
     private void Awake()
     {
         myCollider = GetComponent<BoxCollider2D>();
-        inputHandler = GetComponentInParent<PlayerInputHandler>();
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        if (currentInteractable != null && inputHandler != null && inputHandler.InteractInput)
+        foreach (IInteractable interactable in activeInteractables)
         {
-            currentInteractable.Interact();
-            inputHandler.UseInteractInput();
+            if (interactable is UnityEngine.Object unityObj && unityObj == null) continue;
+            interactable.HideInteractPrompt();
         }
+        activeInteractables.Clear();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,25 +27,18 @@ public class PlayerInteract : MonoBehaviour
         if (myCollider != null && !myCollider.IsTouching(collision)) return;
 
         IInteractable interactable = collision.GetComponent<IInteractable>();
-        if (interactable != null)
+        if (interactable != null && activeInteractables.Add(interactable))
         {
-            currentInteractable = interactable;
-            currentInteractable.ShowInteractPrompt();
+            interactable.ShowInteractPrompt();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         IInteractable interactable = collision.GetComponent<IInteractable>();
-        if (interactable != null && interactable == currentInteractable)
+        if (interactable != null && activeInteractables.Remove(interactable))
         {
-            currentInteractable.HideInteractPrompt();
-            currentInteractable = null;
-
-            if (DialogueManager.Instance != null && DialogueManager.Instance.isOpen)
-            {
-                DialogueManager.Instance.EndDialogue();
-            }
+            interactable.HideInteractPrompt();
         }
     }
 }

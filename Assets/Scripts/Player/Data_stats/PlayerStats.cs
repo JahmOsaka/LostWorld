@@ -94,6 +94,8 @@ public class PlayerStats : MonoBehaviour
         bonusMaxEnergy += bonus;
         currentEnergy = Mathf.Min(maxEnergy, currentEnergy + bonus);
         OnStatsChanged?.Invoke();
+
+        PickupNotificationUI.Instance?.Show($"Max MP <color=#59D8FF>+{bonus:0}</color>", null, new Color(0.35f, 0.85f, 1f));
     }
     public void SetBonusMaxEnergy(float savedBonus, bool refillToMax = false)
     {
@@ -119,6 +121,15 @@ public class PlayerStats : MonoBehaviour
     public void RetrieveCurrency(int amount)
     {
         currentCurrency += amount;
+        OnStatsChanged?.Invoke();
+    }
+
+    public void LoadSavedStats(float savedBonusMaxEnergy, float savedCurrentEnergy, int savedPotions, int savedCurrency)
+    {
+        bonusMaxEnergy = Mathf.Max(0f, savedBonusMaxEnergy);
+        currentEnergy = Mathf.Clamp(savedCurrentEnergy, 0f, maxEnergy);
+        currentPotions = Mathf.Clamp(savedPotions, 0, maxPotions);
+        currentCurrency = Mathf.Max(0, savedCurrency);
         OnStatsChanged?.Invoke();
     }
 }
