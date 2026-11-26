@@ -51,6 +51,10 @@ public class LiftController : MonoBehaviour
     [Tooltip("Optional particle prefab spawned at the lift position when docking.")]
     [SerializeField] private GameObject arrivalDustPrefab;
 
+    [Header("Gear Animation")]
+    [SerializeField] private Animator gear1Animator;
+    [SerializeField] private Animator gear2Animator;
+
     public enum LiftState { AtA, Starting, Moving, AtB }
     public LiftState CurrentState { get; private set; } = LiftState.AtA;
     public bool IsMoving => CurrentState == LiftState.Starting || CurrentState == LiftState.Moving;
@@ -71,6 +75,8 @@ public class LiftController : MonoBehaviour
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
         liftCollider = GetComponent<Collider2D>();
+
+        SetGearsSpinning(false);
 
         if (visualTransform != null)
         {
@@ -95,6 +101,7 @@ public class LiftController : MonoBehaviour
             interactAction.action.performed -= OnInteractPerformed;
         }
         InteractPromptUI.Instance?.Hide(this);
+        SetGearsSpinning(false);
     }
 
     private void Start()
@@ -198,6 +205,8 @@ public class LiftController : MonoBehaviour
     {
         CurrentState = LiftState.Starting;
 
+        SetGearsSpinning(true);
+
         TriggerCameraShake(shakeDuration * 0.6f, arrivalShakeMagnitude * 0.45f);
         float startElapsed = 0f;
         while (startElapsed < startupDelay)
@@ -246,6 +255,7 @@ public class LiftController : MonoBehaviour
         CarryRider(finalDelta);
 
         CurrentState = toPointB ? LiftState.AtB : LiftState.AtA;
+        SetGearsSpinning(false);
 
         TriggerCameraShake(shakeDuration, arrivalShakeMagnitude);
 
@@ -281,6 +291,13 @@ public class LiftController : MonoBehaviour
         {
             riderRb.position += delta;
         }
+    }
+
+    private void SetGearsSpinning(bool spinning)
+    {
+        float animSpeed = spinning ? 1f : 0f;
+        if (gear1Animator != null) gear1Animator.speed = animSpeed;
+        if (gear2Animator != null) gear2Animator.speed = (float)(animSpeed * 0.5);
     }
 
     private void TriggerCameraShake(float duration, float magnitude)
