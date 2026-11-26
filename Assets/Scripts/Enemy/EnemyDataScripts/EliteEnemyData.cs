@@ -3,8 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EliteEnemyData", menuName = "Enemy/Elite")]
 public class EliteEnemyData : MeleeEnemyData
 {
-    [Header("Orb Attack")]
+    [Header("Orbit Orb Attack")]
     public GameObject orbPrefab;
+    public int orbDamage = 1;
     [Range(0f, 1f)] public float orbHpPercent = 0.5f;
     public int orbCount = 2;
     public Vector2 orbitRadius = new Vector2(1.75f, 1.15f);
@@ -12,6 +13,7 @@ public class EliteEnemyData : MeleeEnemyData
     public float orbDuration = 3f;
 
     [Header("Teleport")]
+    public int teleportOrbDamage = 1;
     public float teleportMinRange = 3.5f;
     public float teleportMaxRange = 8f; 
     public float teleportCooldown = 4f;

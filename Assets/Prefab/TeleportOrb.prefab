@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6276079845134515383}
   - component: {fileID: 1031750176255101096}
   - component: {fileID: 7921135557820458771}
+  - component: {fileID: -7060553205432578952}
   m_Layer: 10
   m_Name: TeleportOrb
   m_TagString: Untagged
@@ -249,3 +250,15 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-7060553205432578952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5659091714964175152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4adc8c00e0030f747a6fd85329a81783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportOrbDamage

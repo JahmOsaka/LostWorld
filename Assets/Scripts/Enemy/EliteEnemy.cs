@@ -68,7 +68,7 @@ public class EliteEnemy : Enemy
 
             GameObject orbObj = Instantiate(elite.orbPrefab, edgeSpawnPos, Quaternion.identity);
             orbObj.GetComponent<OrbitingDamageOrb>()
-                .Init(orbitCenter, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.damage);
+                .Init(orbitCenter, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.orbDamage);
             activeOrbs.Add(orbObj);
         }
     }
@@ -89,6 +89,15 @@ public class EliteEnemy : Enemy
             if (orb != null) Destroy(orb);
         }
         activeOrbs.Clear();
+    }
+
+    public void SetActiveOrbsVisible(bool active)
+    {
+        activeOrbs.RemoveAll(orb => orb == null);
+        foreach (var orb in activeOrbs)
+        {
+            orb.SetActive(active);
+        }
     }
 
     public bool HasActiveOrbs()

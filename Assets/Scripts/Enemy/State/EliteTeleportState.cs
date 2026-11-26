@@ -86,7 +86,7 @@ public class EliteTeleportState : EnemyState
     public override void Exit()
     {
         base.Exit();
-        elite.SetActiveOrbsCenter(elite.orbitCenter);
+        elite.SetActiveOrbsVisible(true);
         if (activeTravelOrb != null)
         {
             Object.Destroy(activeTravelOrb);
@@ -99,27 +99,30 @@ public class EliteTeleportState : EnemyState
     private void StartOrbTravel()
     {
         SetVisibleAndHittable(false);
+        elite.SetActiveOrbsVisible(false);
+
         Vector3 bodyOffset = (Vector3)elite.BodyCenter - elite.transform.position;
         targetRootPos = CalculateTargetRootPosition();
         targetOrbPos = targetRootPos + bodyOffset;
         if (eliteData.teleportOrbPrefab != null)
         {
             activeTravelOrb = Object.Instantiate(eliteData.teleportOrbPrefab, elite.BodyCenter, Quaternion.identity);
-            elite.SetActiveOrbsCenter(activeTravelOrb.transform);
+
+            var orbDmg = activeTravelOrb.GetComponent<TeleportOrbDamage>();
+            if (orbDmg != null) orbDmg.Init(eliteData.teleportOrbDamage);
         }
     }
 
     private void FinishOrbTravel()
     {
-        elite.transform.position = targetRootPos;
-        elite.SetActiveOrbsCenter(elite.orbitCenter);
-
         if (activeTravelOrb != null)
         {
             Object.Destroy(activeTravelOrb);
             activeTravelOrb = null;
         }
 
+        elite.transform.position = targetRootPos;
+        elite.SetActiveOrbsVisible(true); 
         elite.FacePlayer();
         SetVisibleAndHittable(true);
         SpawnTeleportVFX(eliteData.teleportReappearVfxPrefab, elite.BodyCenter);

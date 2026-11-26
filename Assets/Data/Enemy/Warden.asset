@@ -33,10 +33,10 @@ MonoBehaviour:
   orbHpPercent: 0.5
   orbCount: 2
   orbitRadius: {x: 6, y: 3.5}
-  orbitSpeed: 250
+  orbitSpeed: 150
   orbDuration: 6
   teleportMinRange: 8
-  teleportMaxRange: 12
+  teleportMaxRange: 14
   teleportCooldown: 4
   frontOffset: 1.6
   vanishDuration: 0.85
