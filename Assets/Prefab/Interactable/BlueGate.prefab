@@ -99,7 +99,7 @@ MonoBehaviour:
   gateID: 
   isUnlocked: 0
   highlightEffect: {fileID: 6434679169720782862}
-  gateVisual: {fileID: 1986252296078443226}
+  gateVisual: {fileID: 874962859824448360}
   solidCollider: {fileID: 6337254644473518722}
   promptKey: F
   showLockedFeedback: 1
