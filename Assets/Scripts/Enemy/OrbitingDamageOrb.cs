@@ -48,4 +48,8 @@ public class OrbitingDamageOrb : MonoBehaviour
             }
         }
     }
+    public void SetCenter(Transform newCenter)
+    {
+        center = newCenter;
+    }
 }

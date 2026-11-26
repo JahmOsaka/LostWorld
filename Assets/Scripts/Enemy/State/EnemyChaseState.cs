@@ -42,6 +42,17 @@ public class EnemyChaseState : EnemyState
         {
             stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.ReturnState);
         }
+
+        if (enemy is EliteEnemy elite && elite.CanTeleportToPlayer())
+        {
+            stateMachine.ChangeState(elite.TeleportState);
+            return;
+        }
+
+        if (dist > enemyData.chaseRange * 1.5f)
+        {
+            stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.ReturnState);
+        }
     }
 
     public override void PhysicsUpdate()

@@ -937,7 +937,7 @@ MonoBehaviour:
     prefab: {fileID: 8580689045994596581, guid: 14e79a24387b88c46bafe6349548650d, type: 3}
     spawnPoint: {fileID: 0}
   edgeCheckDistance: 1
-  edgeCheckForwardOffset: 1.95
+  edgeCheckForwardOffset: 2
   wallCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2
@@ -950,6 +950,7 @@ MonoBehaviour:
   - {fileID: 5002869283504580029}
   - {fileID: 3653174891277814227}
   orbitCenter: {fileID: 3372696692760516044}
+  nextTeleportTime: 0
 --- !u!114 &5883250956192072963
 MonoBehaviour:
   m_ObjectHideFlags: 0
