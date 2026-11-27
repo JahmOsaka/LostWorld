@@ -4,15 +4,11 @@ using UnityEngine;
 public class PlayerColliderController : MonoBehaviour
 {
     [Header("Auto-Detected References")]
-    [Tooltip("Automatically assigns the taller BoxCollider2D on this object.")]
     public BoxCollider2D standingCollider;
-    [Tooltip("Automatically assigns the shorter BoxCollider2D on this object.")]
     public BoxCollider2D jumpRollCollider;
-    [Tooltip("Automatically finds PlayerHurtbox in children.")]
     public PlayerHurtbox playerHurtbox;
 
     [Header("Ceiling Check Layer (Unity 6)")]
-    [Tooltip("Solid ground/ceiling layer (Do NOT include OneWayPlatform).")]
     public LayerMask solidGroundLayer;
 
     private Player player;
@@ -100,7 +96,7 @@ public class PlayerColliderController : MonoBehaviour
             return true;
         }
 
-        Vector2 standCenter = (Vector2)standingCollider.transform.position + standingCollider.offset;
+        Vector2 standCenter = standingCollider.transform.TransformPoint(standingCollider.offset);
         float checkHeight = standingCollider.size.y * 0.5f;
         Vector2 targetCenter = new Vector2(standCenter.x, standCenter.y + (standingCollider.size.y * 0.25f));
         Vector2 checkSize = new Vector2(standingCollider.size.x * 0.85f, checkHeight * 0.95f);
@@ -123,7 +119,7 @@ public class PlayerColliderController : MonoBehaviour
     {
         if (!IsStuckUnderCeiling || jumpRollCollider == null) return;
 
-        Vector2 origin = (Vector2)jumpRollCollider.transform.position + jumpRollCollider.offset;
+        Vector2 origin = jumpRollCollider.transform.TransformPoint(jumpRollCollider.offset);
         RaycastHit2D wallHit = Physics2D.Raycast(
             origin,
             Vector2.right * facingDirection,
@@ -152,7 +148,7 @@ public class PlayerColliderController : MonoBehaviour
         if (standingCollider == null) return;
         Gizmos.color = IsStuckUnderCeiling ? Color.red : Color.cyan;
 
-        Vector2 standCenter = (Vector2)standingCollider.transform.position + standingCollider.offset;
+        Vector2 standCenter = standingCollider.transform.TransformPoint(standingCollider.offset);
         float checkHeight = standingCollider.size.y * 0.5f;
         Vector2 targetCenter = new Vector2(standCenter.x, standCenter.y + (standingCollider.size.y * 0.25f));
         Vector2 checkSize = new Vector2(standingCollider.size.x * 0.85f, checkHeight * 0.95f);

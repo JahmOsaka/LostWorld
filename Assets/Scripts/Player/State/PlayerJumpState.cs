@@ -57,7 +57,7 @@ public class PlayerJumpState : PlayerState
             return;
         }
 
-        if (player.InputHandler.JumpInput && player.SkillController.hasDoubleJump && player.JumpsRemaining > 0)
+        if (player.InputHandler.JumpInput && player.SkillController != null && player.SkillController.hasDoubleJump && player.JumpsRemaining > 0)
         {
             player.InputHandler.UseJumpInput();
             bufferedDoubleJump = true;
@@ -76,6 +76,12 @@ public class PlayerJumpState : PlayerState
             return;
         }
 
+        if (player.Sensor.CheckIfTouchingCeiling() && player.RB.linearVelocity.y > 0f)
+        {
+            player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, 0f);
+            player.RB.gravityScale = playerData.defaultGravity;
+        }
+
         if (timer < 0.12f) return;
 
         if (player.CheckIfGrounded() && player.RB.linearVelocity.y <= 0.01f)
@@ -92,10 +98,15 @@ public class PlayerJumpState : PlayerState
     {
         base.PhysicsUpdate();
 
-        if (!bufferedDoubleJump && !hasAppliedJumpCut && !player.InputHandler.IsJumpHolding && player.RB.linearVelocity.y > 0 && timer > playerData.minJumpHoldTime)
+        if (!bufferedDoubleJump && !hasAppliedJumpCut && !player.InputHandler.IsJumpHolding && player.RB.linearVelocity.y > 0f && timer > playerData.minJumpHoldTime)
         {
             player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, player.RB.linearVelocity.y * playerData.minJumpMultiplier);
             hasAppliedJumpCut = true;
+        }
+
+        if (player.RB.linearVelocity.y <= 0f)
+        {
+            player.RB.gravityScale = playerData.defaultGravity;
         }
 
         float inputX = player.InputHandler.RawMovementInput.x;

@@ -10,8 +10,8 @@ public class PlayerFallState : PlayerState
         base.Enter();
         player.FallDuration = 0f;
         player.Anim.Play("Jump_Air", 0, 0f);
-
     }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();
@@ -24,15 +24,7 @@ public class PlayerFallState : PlayerState
             return;
         }
 
-        if (player.RB.linearVelocity.y < 0)
-        {
-            player.RB.linearVelocity = new Vector2(
-                player.RB.linearVelocity.x,
-                Mathf.Max(player.RB.linearVelocity.y, -playerData.maxFallSpeed)
-            );
-        }
-
-        if (player.InputHandler.SuperDashInput && player.SkillController.hasSuperDash)
+        if (player.InputHandler.SuperDashInput && player.SkillController != null && player.SkillController.hasSuperDash)
         {
             stateMachine.ChangeState(player.SuperDashState);
             return;
@@ -63,13 +55,23 @@ public class PlayerFallState : PlayerState
             }
         }
 
+        float velocityY = player.RB.linearVelocity.y;
+        if (velocityY < 0f)
+        {
+            velocityY = Mathf.Max(velocityY, -playerData.maxFallSpeed);
+        }
+
         if (!isStuck)
         {
             float inputX = player.InputHandler.RawMovementInput.x;
             float moveDirection = inputX == 0 ? 0 : Mathf.Sign(inputX);
 
-            player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, player.RB.linearVelocity.y);
+            player.RB.linearVelocity = new Vector2(moveDirection * playerData.moveSpeed, velocityY);
             player.CheckIfShouldFlip(moveDirection);
+        }
+        else
+        {
+            player.RB.linearVelocity = new Vector2(player.RB.linearVelocity.x, velocityY);
         }
     }
 }

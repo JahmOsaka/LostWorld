@@ -13,12 +13,6 @@ public class PlayerLandState : PlayerState
         base.Enter();
         timer = 0f;
 
-        bool restored = player.ColliderController != null && player.ColliderController.TryRestoreStandingCollider();
-        if (restored)
-        {
-            player.RB.linearVelocity = Vector2.zero;
-        }
-
         if (player.FallDuration >= playerData.hardLandingThreshold)
         {
             isHardLanding = true;
@@ -31,6 +25,15 @@ public class PlayerLandState : PlayerState
         }
 
         player.FallDuration = 0f;
+
+        bool restored = player.ColliderController != null && player.ColliderController.TryRestoreStandingCollider();
+        if (restored)
+        {
+            bool keepMomentum = !isHardLanding && player.InputHandler.RawMovementInput.x != 0f;
+            player.RB.linearVelocity = keepMomentum
+                ? new Vector2(player.RB.linearVelocity.x, 0f)
+                : Vector2.zero;
+        }
     }
 
     public override void LogicUpdate()

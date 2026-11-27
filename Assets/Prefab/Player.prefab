@@ -362,6 +362,8 @@ MonoBehaviour:
   whipHitbox: {fileID: 4142366149432382527}
   whipSpriteRenderer: {fileID: 4526257046166525584}
   vfxSpriteRenderer: {fileID: 1580456119929361600}
+  oneWayDropDuration: 0.15
+  oneWayDropMaxDuration: 0.6
 --- !u!114 &7760232690829060984
 MonoBehaviour:
   m_ObjectHideFlags: 0

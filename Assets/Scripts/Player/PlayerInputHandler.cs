@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PlayerInputHandler : MonoBehaviour
 {
     [Header("Action Buffer Settings")]
-    [Tooltip("Auto-expire time for Interact, Potion, Skill, and SuperDash inputs so they never stay stuck.")]
     [SerializeField] private float actionBufferTime = 0.1f;
 
     private Player player;
@@ -42,10 +41,17 @@ public class PlayerInputHandler : MonoBehaviour
     private void Start()
     {
         int playerLayer = LayerMask.NameToLayer("Player");
+        int passThroughLayer = LayerMask.NameToLayer("PlayerPassThrough");
         int enemyLayer = LayerMask.NameToLayer("Enemy");
+
         if (playerLayer != -1 && enemyLayer != -1)
         {
             Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+        }
+
+        if (passThroughLayer != -1 && enemyLayer != -1)
+        {
+            Physics2D.IgnoreLayerCollision(passThroughLayer, enemyLayer, true);
         }
     }
 

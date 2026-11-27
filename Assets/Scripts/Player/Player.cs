@@ -14,9 +14,16 @@ public class Player : MonoBehaviour
     [SerializeField] private SpriteRenderer whipSpriteRenderer;
     [SerializeField] private SpriteRenderer vfxSpriteRenderer;
 
+    [Header("One-Way Platform Drop")]
+    [SerializeField] private float oneWayDropDuration = 0.15f;
+    [SerializeField] private float oneWayDropMaxDuration = 0.6f;
+
+    private bool isDroppingThrough;
+    private float dropDownTimer;
+    private float dropElapsedTime;
     private int originalLayer;
     private int passThroughLayer;
-    private float dropDownTimer;
+    private Collider2D[] allPlayerColliders;
 
     public Rigidbody2D RB { get; private set; }
     public BoxCollider2D Collider { get; private set; }
@@ -26,7 +33,7 @@ public class Player : MonoBehaviour
     public CoreHealth Health { get; private set; }
     public PlayerSkillController SkillController { get; private set; }
     public PlayerSensor Sensor { get; private set; }
-    public bool IsInsideOneWay { get; private set; }
+    public bool IsInsideOneWay => isDroppingThrough;
 
     public PlayerCombatData CombatData { get; private set; } = new PlayerCombatData();
 
@@ -56,6 +63,7 @@ public class Player : MonoBehaviour
         ColliderController = GetComponent<PlayerColliderController>();
         SkillController = GetComponentInChildren<PlayerSkillController>();
         Sensor = GetComponent<PlayerSensor>();
+        allPlayerColliders = GetComponentsInChildren<Collider2D>(true);
 
         StateMachine = new PlayerStateMachine();
         RB.freezeRotation = true;
@@ -77,6 +85,14 @@ public class Player : MonoBehaviour
     {
         HideWhipVisual();
         StateMachine.Initialize(IdleState);
+    }
+
+    private void OnDisable()
+    {
+        isDroppingThrough = false;
+        dropDownTimer = 0f;
+        dropElapsedTime = 0f;
+        SetOneWayExcluded(false);
     }
 
     private void Update()
@@ -102,19 +118,19 @@ public class Player : MonoBehaviour
         {
             CoyoteTimeCounter -= Time.deltaTime;
         }
-
-        HandleOneWayPlatforms();
     }
 
-    private void FixedUpdate() => StateMachine.CurrentState.PhysicsUpdate();
+    private void FixedUpdate()
+    {
+        UpdateOneWayDropDown();
+        StateMachine.CurrentState.PhysicsUpdate();
+    }
 
     public bool CheckIfGrounded()
     {
         if (StateMachine.CurrentState == JumpState && RB.linearVelocity.y > 0.05f) return false;
 
-        if (dropDownTimer > 0f) return false;
-
-        if (IsInsideOneWay)
+        if (isDroppingThrough || RB.linearVelocity.y > 0.05f)
         {
             return Sensor.CheckIfSolidGrounded();
         }
@@ -193,44 +209,91 @@ public class Player : MonoBehaviour
 
     public void PassThroughPlatformUpwards()
     {
-        dropDownTimer = 0.2f;
     }
 
     public void DropThroughPlatform()
     {
-        if (Sensor.IsStandingOnOneWay())
+        if (!Sensor.IsStandingOnOneWay()) return;
+
+        isDroppingThrough = true;
+        dropDownTimer = oneWayDropDuration;
+        dropElapsedTime = 0f;
+        SetOneWayExcluded(true);
+
+        RB.WakeUp();
+        RB.position += Vector2.down * 0.05f;
+        if (RB.linearVelocity.y > -4f)
         {
-            dropDownTimer = 0.25f;
-            ResetCoyoteTime();
-            StateMachine.ChangeState(FallState);
+            RB.linearVelocity = new Vector2(RB.linearVelocity.x, -4f);
         }
+
+        ResetCoyoteTime();
+        StateMachine.ChangeState(FallState);
     }
 
-    private void HandleOneWayPlatforms()
+    private void UpdateOneWayDropDown()
     {
-        if (dropDownTimer > 0)
-        {
-            dropDownTimer -= Time.deltaTime;
-            gameObject.layer = passThroughLayer;
-            return;
-        }
+        if (!isDroppingThrough) return;
 
-        if (RB.linearVelocity.y > 0.05f)
-        {
-            gameObject.layer = passThroughLayer;
-            return;
-        }
+        dropDownTimer -= Time.fixedDeltaTime;
+        dropElapsedTime += Time.fixedDeltaTime;
 
-        IsInsideOneWay = Sensor.IsInsideOneWayPlatform(ActiveCollider);
-        if (IsInsideOneWay)
-        {
-            gameObject.layer = passThroughLayer;
-            return;
-        }
+        bool minTimePassed = dropDownTimer <= 0f;
+        bool stillOverlapping = IsColliderOverlappingOneWay();
+        bool maxTimeExceeded = dropElapsedTime >= oneWayDropMaxDuration;
 
-        gameObject.layer = originalLayer;
+        if ((minTimePassed && !stillOverlapping) || maxTimeExceeded)
+        {
+            isDroppingThrough = false;
+            dropDownTimer = 0f;
+            dropElapsedTime = 0f;
+            SetOneWayExcluded(false);
+        }
     }
+    private bool IsColliderOverlappingOneWay()
+    {
+        BoxCollider2D col = ActiveCollider;
+        if (col == null || Sensor == null) return false;
 
+        Bounds b = col.bounds;
+        return Physics2D.OverlapBox(b.center, b.size, 0f, Sensor.OneWayPlatformLayer) != null;
+    }
+    private void SetOneWayExcluded(bool exclude)
+    {
+        if (passThroughLayer != -1)
+        {
+            gameObject.layer = exclude ? passThroughLayer : originalLayer;
+        }
+
+        if (Sensor == null) return;
+        int mask = Sensor.OneWayPlatformLayer.value;
+
+        if (RB != null)
+        {
+            if (exclude)
+                RB.excludeLayers |= mask;
+            else
+                RB.excludeLayers &= ~mask;
+        }
+
+        if (allPlayerColliders == null) return;
+        for (int i = 0; i < allPlayerColliders.Length; i++)
+        {
+            Collider2D col = allPlayerColliders[i];
+            if (col == null || col.isTrigger) continue;
+
+            if (exclude)
+                col.excludeLayers |= mask;
+            else
+                col.excludeLayers &= ~mask;
+
+            if (exclude && col.enabled)
+            {
+                col.enabled = false;
+                col.enabled = true;
+            }
+        }
+    }
     public BoxCollider2D ActiveCollider
     {
         get
