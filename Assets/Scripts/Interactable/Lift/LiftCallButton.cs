@@ -67,7 +67,7 @@ public class LiftCallButton : MonoBehaviour, IInteractable
 
     private bool CanCall()
     {
-        if (targetLift == null || targetLift.IsMoving) return false;
+        if (targetLift == null || !targetLift.IsActivated || targetLift.IsMoving) return false;
 
         return (floor == TargetFloor.PointA && targetLift.CurrentState != LiftController.LiftState.AtA) ||
                (floor == TargetFloor.PointB && targetLift.CurrentState != LiftController.LiftState.AtB);

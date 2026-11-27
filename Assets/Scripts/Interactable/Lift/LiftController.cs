@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-public class LiftController : MonoBehaviour
+public class LiftController : MonoBehaviour, IActivatable
 {
     [Header("Waypoints")]
     [Tooltip("Bottom or starting floor waypoint.")]
@@ -55,9 +54,22 @@ public class LiftController : MonoBehaviour
     [SerializeField] private Animator gear1Animator;
     [SerializeField] private Animator gear2Animator;
 
+    [Header("Power / Lever Unlock")]
+    [Tooltip("If false, the lift is locked until activated by a LeverInteractable. Defaults to true so existing lifts still work.")]
+    [SerializeField] private bool startPowered = true;
+    [Tooltip("If true, stepping on an unpowered lift shows an inspect prompt and plays a reaction line.")]
+    [SerializeField] private bool showLockedFeedback = true;
+    [SerializeField] private string lockedPromptLabel = "Examine";
+    [TextArea(2, 3)]
+    [SerializeField] private string lockedReactionText = "It's not powered yet...";
+    [SerializeField] private float reactionDuration = 2.5f;
+    [Tooltip("(Optional) Overrides the player's default portrait for this reaction.")]
+    [SerializeField] private Sprite reactionOverridePortrait;
+
     public enum LiftState { AtA, Starting, Moving, AtB }
     public LiftState CurrentState { get; private set; } = LiftState.AtA;
     public bool IsMoving => CurrentState == LiftState.Starting || CurrentState == LiftState.Moving;
+    public bool IsActivated { get; private set; }
 
     private Rigidbody2D rb;
     private Collider2D liftCollider;
@@ -65,7 +77,6 @@ public class LiftController : MonoBehaviour
     private bool isPlayerStandingOnTop;
 
     private Vector3 visualBaseLocalPos;
-    private Vector3 promptBaseScale = Vector3.one;
     private Coroutine moveCoroutine;
 
     private void Awake()
@@ -77,12 +88,12 @@ public class LiftController : MonoBehaviour
         liftCollider = GetComponent<Collider2D>();
 
         SetGearsSpinning(false);
+        IsActivated = startPowered;
 
         if (visualTransform != null)
         {
             visualBaseLocalPos = visualTransform.localPosition;
         }
-
     }
 
     private void OnEnable()
@@ -123,11 +134,12 @@ public class LiftController : MonoBehaviour
     {
         if (InteractPromptUI.Instance == null) return;
 
-        bool canInteract = isPlayerStandingOnTop && !IsMoving;
+        bool canInteract = isPlayerStandingOnTop && !IsMoving && (IsActivated || showLockedFeedback);
         if (canInteract)
         {
             Transform anchor = promptAnchor != null ? promptAnchor : transform;
-            InteractPromptUI.Instance.Show(this, anchor, GetCurrentActionLabel(), promptKey, promptOffset);
+            string label = IsActivated ? GetCurrentActionLabel() : lockedPromptLabel;
+            InteractPromptUI.Instance.Show(this, anchor, label, promptKey, promptOffset);
         }
         else
         {
@@ -169,15 +181,32 @@ public class LiftController : MonoBehaviour
 
     private void OnInteractPerformed(InputAction.CallbackContext context)
     {
-        if (isPlayerStandingOnTop && !IsMoving)
+        if (!isPlayerStandingOnTop || IsMoving) return;
+
+        if (IsActivated)
         {
             ToggleLift();
         }
+        else if (showLockedFeedback && !string.IsNullOrEmpty(lockedReactionText))
+        {
+            DialogueUI.Instance?.ShowPlayerReaction(lockedReactionText, reactionDuration, reactionOverridePortrait);
+            TriggerCameraShake(0.08f, 0.04f);
+        }
+    }
+
+    public void Activate()
+    {
+        IsActivated = true;
+    }
+
+    public void Deactivate()
+    {
+        IsActivated = false;
     }
 
     public void ToggleLift()
     {
-        if (IsMoving || pointA == null || pointB == null) return;
+        if (!IsActivated || IsMoving || pointA == null || pointB == null) return;
 
         bool goToB = (CurrentState == LiftState.AtA);
         StartTravel(goToB);
@@ -185,13 +214,13 @@ public class LiftController : MonoBehaviour
 
     public void CallToPointA()
     {
-        if (IsMoving || CurrentState == LiftState.AtA || pointA == null) return;
+        if (!IsActivated || IsMoving || CurrentState == LiftState.AtA || pointA == null) return;
         StartTravel(false);
     }
 
     public void CallToPointB()
     {
-        if (IsMoving || CurrentState == LiftState.AtB || pointB == null) return;
+        if (!IsActivated || IsMoving || CurrentState == LiftState.AtB || pointB == null) return;
         StartTravel(true);
     }
 
@@ -297,7 +326,7 @@ public class LiftController : MonoBehaviour
     {
         float animSpeed = spinning ? 1f : 0f;
         if (gear1Animator != null) gear1Animator.speed = animSpeed;
-        if (gear2Animator != null) gear2Animator.speed = (float)(animSpeed * 0.5);
+        if (gear2Animator != null) gear2Animator.speed = animSpeed * 0.5f;
     }
 
     private void TriggerCameraShake(float duration, float magnitude)

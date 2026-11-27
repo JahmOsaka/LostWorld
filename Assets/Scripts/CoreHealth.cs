@@ -95,8 +95,7 @@ public class CoreHealth : MonoBehaviour, IDamageable
         }
         else if (invincibilityDuration > 0f)
         {
-            if (invincibilityCoroutine != null) StopCoroutine(invincibilityCoroutine);
-            invincibilityCoroutine = StartCoroutine(InvincibilityRoutine());
+            StartInvincibility(invincibilityDuration);
         }
 
         Player player = GetComponentInParent<Player>();
@@ -106,12 +105,50 @@ public class CoreHealth : MonoBehaviour, IDamageable
         }
         OnHealthChanged?.Invoke();
     }
+    private void StartInvincibility(float duration)
+    {
+        if (duration <= 0f) return;
 
-    private IEnumerator InvincibilityRoutine()
+        if (invincibilityCoroutine != null) StopCoroutine(invincibilityCoroutine);
+        invincibilityCoroutine = StartCoroutine(InvincibilityRoutine(duration));
+    }
+    private IEnumerator InvincibilityRoutine(float duration)
     {
         isInvincible = true;
-        yield return new WaitForSeconds(invincibilityDuration);
+
+        Transform visual = transform.Find("PlayerVisual") ?? transform.Find("Visual") ?? transform;
+        SpriteRenderer[] renderers = visual.GetComponentsInChildren<SpriteRenderer>(true);
+
+        float elapsed = 0f;
+        const float blinkInterval = 0.08f;
+        bool dim = false;
+
+        while (elapsed < duration)
+        {
+            dim = !dim;
+            float alpha = dim ? 0.4f : 1f;
+            foreach (SpriteRenderer sr in renderers)
+            {
+                if (sr == null) continue;
+                Color c = sr.color;
+                c.a = alpha;
+                sr.color = c;
+            }
+
+            yield return new WaitForSeconds(blinkInterval);
+            elapsed += blinkInterval;
+        }
+
+        foreach (SpriteRenderer sr in renderers)
+        {
+            if (sr == null) continue;
+            Color c = sr.color;
+            c.a = 1f;
+            sr.color = c;
+        }
+
         isInvincible = false;
+        invincibilityCoroutine = null;
     }
 
     public void Die()
@@ -198,5 +235,31 @@ public class CoreHealth : MonoBehaviour, IDamageable
     public void SetHealth(int amount)
     {
         currentHealth = Mathf.Clamp(amount, 0, maxHealth);
+        OnHealthChanged?.Invoke();
+    }
+
+    public bool TakeHazardDamage(int damage, float newIFrameDuration = 1.0f)
+    {
+        if (isDead || currentHealth <= 0) return true;
+
+        currentHealth = Mathf.Max(0, currentHealth - damage);
+        OnTakDamage?.Invoke();
+
+        Player player = GetComponentInParent<Player>();
+        if (player != null)
+        {
+            player.TriggerCombatState();
+        }
+
+        OnHealthChanged?.Invoke();
+
+        if (currentHealth <= 0)
+        {
+            Die();
+            return true;
+        }
+
+        StartInvincibility(newIFrameDuration);
+        return false;
     }
 }
