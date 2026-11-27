@@ -96,22 +96,9 @@ public class LiftController : MonoBehaviour, IActivatable
         }
     }
 
-    private void OnEnable()
-    {
-        if (interactAction != null && interactAction.action != null)
-        {
-            interactAction.action.Enable();
-            interactAction.action.performed += OnInteractPerformed;
-        }
-    }
-
     private void OnDisable()
     {
-        if (interactAction != null && interactAction.action != null)
-        {
-            interactAction.action.performed -= OnInteractPerformed;
-        }
-        InteractPromptUI.Instance?.Hide(this);
+        InteractPromptUI.Instance?.Unregister(this);
         SetGearsSpinning(false);
     }
 
@@ -137,13 +124,12 @@ public class LiftController : MonoBehaviour, IActivatable
         bool canInteract = isPlayerStandingOnTop && !IsMoving && (IsActivated || showLockedFeedback);
         if (canInteract)
         {
-            Transform anchor = promptAnchor != null ? promptAnchor : transform;
             string label = IsActivated ? GetCurrentActionLabel() : lockedPromptLabel;
-            InteractPromptUI.Instance.Show(this, anchor, label, promptKey, promptOffset);
+            InteractPromptUI.Instance.Register(this, label, HandlePromptInteract, null, promptKey);
         }
         else
         {
-            InteractPromptUI.Instance.Hide(this);
+            InteractPromptUI.Instance.Unregister(this);
         }
     }
 
@@ -179,7 +165,7 @@ public class LiftController : MonoBehaviour, IActivatable
         isPlayerStandingOnTop = false;
     }
 
-    private void OnInteractPerformed(InputAction.CallbackContext context)
+    private void HandlePromptInteract()
     {
         if (!isPlayerStandingOnTop || IsMoving) return;
 
