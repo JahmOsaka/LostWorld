@@ -174,7 +174,6 @@ GameObject:
   - component: {fileID: 8596653904048946542}
   - component: {fileID: 3173419442666312354}
   - component: {fileID: 831591605139798008}
-  - component: {fileID: 3178139596531164579}
   - component: {fileID: 623172838006189565}
   - component: {fileID: 9195372920028026612}
   - component: {fileID: 6042447391893694125}
@@ -763,41 +762,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   activeWheelIndex: 0
---- !u!114 &3178139596531164579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3255730908677199951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e424d4af5c85b41a86898c8b9bb289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  currentState: 0
-  player: {fileID: 8815986915462865779}
-  inputHandler: {fileID: 2202049385663698167}
-  playerRb: {fileID: 2463019285508519511}
-  defaultZoom: 5
-  combatZoomMultiplier: 1.4
-  zoomOutTime: 0.3
-  zoomInTime: 1.5
-  lookAheadDistanceX: 2.5
-  lookAheadSmoothTimeX: 0.5
-  idleLookAheadRatio: 0.75
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  combatDetectionRadius: 10
-  enemyWeight: 0.4
-  maxCombatOffset: {x: 4, y: 2.5}
-  combatOffsetSpeed: 5
-  combatExitDelay: 1.5
-  groundedDampingY: 0.3
-  airborneDampingY: 2.5
-  fallDampingY: 0.1
-  fallVelocityThreshold: -10
 --- !u!114 &623172838006189565
 MonoBehaviour:
   m_ObjectHideFlags: 0
