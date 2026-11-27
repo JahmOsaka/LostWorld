@@ -54,15 +54,22 @@ public class PlayerSkillController : MonoBehaviour
         if (inputHandler.SkillInput)
         {
             inputHandler.UseSkillInput();
-            if (cooldownTimer <= 0 && CurrentCombatSkill != null && HasEnoughEnergy())
+            if (cooldownTimer <= 0 && CurrentCombatSkill != null)
             {
-                player.SkillState.SetSkill(CurrentCombatSkill);
-                player.StateMachine.ChangeState(player.SkillState);
-
-                if (CurrentCombatSkill is ActiveSkillData activeSkill)
+                if (HasEnoughEnergy())
                 {
-                    cooldownTimer = activeSkill.cooldownTime;
-                    playerStats?.ConsumeEnergy(activeSkill.mpCost);
+                    player.SkillState.SetSkill(CurrentCombatSkill);
+                    player.StateMachine.ChangeState(player.SkillState);
+
+                    if (CurrentCombatSkill is ActiveSkillData activeSkill)
+                    {
+                        cooldownTimer = activeSkill.cooldownTime;
+                        playerStats?.ConsumeEnergy(activeSkill.mpCost);
+                    }
+                }
+                else if (CurrentCombatSkill is ActiveSkillData)
+                {
+                    UIManager.Instance?.PlayNotEnoughEnergyFeedback();
                 }
             }
         }

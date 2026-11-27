@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaxHealthUpgrade
   bonusMaxHP: 20
+  pickupIcon: {fileID: 3736392351301745261, guid: c9bffde6c39f87145b61abc98f4002a4, type: 3}
+  accentColor: {r: 1, g: 0.35, b: 0.35, a: 1}
+  notificationDuration: 2.5
   collectVFX: {fileID: 0}
 --- !u!1 &6257637531942029521
 GameObject:
