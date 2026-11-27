@@ -149,39 +149,88 @@ public class EliteTeleportState : EnemyState
     {
         if (TryGetValidSpot(playerPos, dir, out Vector2 frontSpot)) return frontSpot;
         if (TryGetValidSpot(playerPos, -dir, out Vector2 backSpot)) return backSpot;
-        return new Vector2(playerPos.x, elite.transform.position.y);
+        return elite.transform.position;
+    }
+
+    public bool HasValidTeleportSpot()
+    {
+        if (elite.playerTransform == null) return false;
+
+        Player player = elite.playerTransform.GetComponent<Player>();
+        int playerFacing = (player != null)
+            ? player.FacingDirection
+            : (elite.playerTransform.localScale.x < 0f ? -1 : 1);
+
+        Vector2 playerPos = elite.playerTransform.position;
+        return TryGetValidSpot(playerPos, playerFacing, out _)
+            || TryGetValidSpot(playerPos, -playerFacing, out _);
     }
 
     private bool TryGetValidSpot(Vector2 playerPos, int dir, out Vector2 result)
     {
+        BoxCollider2D col = elite.GetComponent<BoxCollider2D>();
+        Vector2 fullSize = col != null ? col.size : new Vector2(2f, 4f);
+        Vector2 boxOffset = col != null ? col.offset : new Vector2(0f, 2f);
+
+        Vector2 checkSize = fullSize * 0.8f;
+        float halfWidth = fullSize.x * 0.5f;
+
         Vector2 desired = playerPos + new Vector2(dir * eliteData.frontOffset, 0f);
 
-        RaycastHit2D wallHit = Physics2D.Linecast(
+        RaycastHit2D wallFromPlayer = Physics2D.Linecast(
             playerPos + Vector2.up * 0.5f,
             desired + Vector2.up * 0.5f,
             elite.groundLayer
         );
 
-        float targetX = wallHit.collider != null
-            ? wallHit.point.x - (dir * 0.6f)
+        float targetX = wallFromPlayer.collider != null
+            ? wallFromPlayer.point.x - (dir * (halfWidth + 0.2f))
             : desired.x;
 
         LayerMask walkable = elite.groundLayer | elite.oneWayPlatformLayer;
         RaycastHit2D groundHit = Physics2D.Raycast(
-            new Vector2(targetX, playerPos.y + 0.5f),
+            new Vector2(targetX, elite.transform.position.y + 0.5f),
             Vector2.down,
-            3f,
+            1.5f,
             walkable
         );
 
-        if (groundHit.collider != null)
+        if (groundHit.collider == null)
         {
-            result = new Vector2(targetX, elite.transform.position.y);
-            return true;
+            result = Vector2.zero;
+            return false;
         }
 
-        result = Vector2.zero;
-        return false;
+        float pivotToBottom = -(boxOffset.y - fullSize.y * 0.5f);
+        Vector2 candidatePos = new Vector2(targetX, groundHit.point.y + pivotToBottom);
+
+        if (Mathf.Abs(candidatePos.y - elite.transform.position.y) > 0.5f)
+        {
+            result = Vector2.zero;
+            return false;
+        }
+
+        Vector2 checkCenter = new Vector2(targetX, groundHit.point.y + (checkSize.y * 0.5f) + 0.2f);
+        if (Physics2D.OverlapBox(checkCenter, checkSize, 0f, elite.groundLayer) != null)
+        {
+            result = Vector2.zero;
+            return false;
+        }
+
+        RaycastHit2D wallBetween = Physics2D.Linecast(
+            elite.BodyCenter,
+            checkCenter,
+            elite.groundLayer
+        );
+
+        if (wallBetween.collider != null)
+        {
+            result = Vector2.zero;
+            return false;
+        }
+
+        result = candidatePos;
+        return true;
     }
 
     private void SetVisibleAndHittable(bool active)
