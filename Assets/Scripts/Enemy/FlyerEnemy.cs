@@ -14,6 +14,8 @@ public class FlyerEnemy : Enemy
     {
         base.Awake();
         rb.gravityScale = 0f;
+        rb.excludeLayers |= oneWayPlatformLayer;
+
         FlyPatrol = new FlyPatrolState(this, stateMachine, enemyData, "idle");
         FlyFollow = new FlyFollowState(this, stateMachine, enemyData, "idle");
         FlyCharge = new FlyChargeState(this, stateMachine, enemyData, "charge");
@@ -81,6 +83,19 @@ public class FlyerEnemy : Enemy
         if (hit.collider == null) return target;
 
         return hit.centroid - dir * 0.05f;
+    }
+
+    public override void ResetEnemyState()
+    {
+        base.ResetEnemyState();
+
+        burstSpawned = false;
+        nextChargeTime = 0f;
+
+        if (stateMachine != null)
+        {
+            stateMachine.ChangeState(FlyPatrol);
+        }
     }
 
     protected override void OnDrawGizmosSelected()

@@ -448,7 +448,7 @@ Transform:
   m_GameObject: {fileID: 7903230117575039196}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.03, z: 0}
+  m_LocalPosition: {x: 0, y: 3.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -934,19 +934,23 @@ MonoBehaviour:
     prefab: {fileID: 835921327678327072, guid: ee1da44e844f7664494a98aabdab17d2, type: 3}
     spawnPoint: {fileID: 3337830158844772715}
   - vfxName: WardenOrbSpawn
-    prefab: {fileID: 835921327678327072, guid: ee1da44e844f7664494a98aabdab17d2, type: 3}
-    spawnPoint: {fileID: 3372696692760516044}
+    prefab: {fileID: 8580689045994596581, guid: 14e79a24387b88c46bafe6349548650d, type: 3}
+    spawnPoint: {fileID: 0}
   edgeCheckDistance: 1
-  edgeCheckForwardOffset: 1.95
-  wallCheckDistance: 0.1
+  edgeCheckForwardOffset: 2
+  wallCheckDistance: 0.3
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  oneWayPlatformLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   spawnPosition: {x: 0, y: 0, z: 0}
   patrolPoints:
   - {fileID: 5002869283504580029}
   - {fileID: 3653174891277814227}
   orbitCenter: {fileID: 3372696692760516044}
+  nextTeleportTime: 0
 --- !u!114 &5883250956192072963
 MonoBehaviour:
   m_ObjectHideFlags: 0

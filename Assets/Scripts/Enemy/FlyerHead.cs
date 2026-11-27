@@ -43,7 +43,17 @@ public class FlyerHead : MonoBehaviour
         }
 
         if (burstEffect != null)
-            Instantiate(burstEffect, transform.position, Quaternion.identity);
+        {
+            GameObject vfx = Instantiate(burstEffect, transform.position, Quaternion.identity);
+
+            BombExplosionVFX bombVfx = vfx.GetComponent<BombExplosionVFX>();
+            if (bombVfx != null)
+            {
+                bombVfx.Initialize(radius);
+            }
+
+            Destroy(vfx, 1f);
+        }
 
         Destroy(gameObject);
     }

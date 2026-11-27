@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public float edgeCheckForwardOffset = 0.4f;
     public float wallCheckDistance = 0.1f;
     public LayerMask groundLayer;
+    public LayerMask oneWayPlatformLayer;
 
     protected CoreHealth health;
     public Vector3 spawnPosition;
@@ -233,7 +234,9 @@ public class Enemy : MonoBehaviour
         BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
         Vector2 feetPos = col != null ? new Vector2(col.bounds.center.x, col.bounds.min.y) : (Vector2)transform.position;
         Vector2 origin = feetPos + new Vector2(Mathf.Sign(dirX) * edgeCheckForwardOffset, 0.1f);
-        return Physics2D.Raycast(origin, Vector2.down, edgeCheckDistance, groundLayer);
+
+        LayerMask walkableLayer = groundLayer | oneWayPlatformLayer;
+        return Physics2D.Raycast(origin, Vector2.down, edgeCheckDistance, walkableLayer);
     }
 
     public bool IsWallAheadOf(float dirX)
@@ -241,12 +244,13 @@ public class Enemy : MonoBehaviour
         if (Mathf.Approximately(dirX, 0f)) return false;
         BoxCollider2D col = physicsCollider != null ? physicsCollider : GetComponent<BoxCollider2D>();
         if (col == null) return false;
+
         Bounds b = col.bounds;
         Vector2 dir = new Vector2(Mathf.Sign(dirX), 0f);
-        float dist = b.extents.x + wallCheckDistance;
-        Vector2 mid = b.center;
-        Vector2 low = new Vector2(b.center.x, b.min.y + 0.1f);
-        return Physics2D.Raycast(mid, dir, dist, groundLayer) || Physics2D.Raycast(low, dir, dist, groundLayer);
+        Vector2 checkCenter = (Vector2)b.center + dir * wallCheckDistance;
+        Vector2 castSize = new Vector2(b.size.x, Mathf.Max(0.1f, b.size.y - 0.2f));
+
+        return Physics2D.OverlapBox(checkCenter, castSize, 0f, groundLayer | oneWayPlatformLayer) != null;
     }
 
     public virtual void ResetEnemyState()
@@ -323,20 +327,18 @@ public class Enemy : MonoBehaviour
     protected void DrawWallCheckGizmos()
     {
         Bounds b = GetBodyBounds();
-        float dist = b.extents.x + wallCheckDistance;
-        Vector2 mid = b.center;
-        Vector2 low = new Vector2(b.center.x, b.min.y + 0.1f);
+        Vector2 castSize = new Vector2(b.size.x, Mathf.Max(0.1f, b.size.y - 0.2f));
+        LayerMask wallMask = groundLayer | oneWayPlatformLayer;
+
         Gizmos.color = new Color(1f, 1f, 1f, 0.5f);
         Gizmos.DrawWireCube(b.center, b.size);
+
         foreach (float dirX in new[] { -1f, 1f })
         {
             Vector2 dir = new Vector2(dirX, 0f);
-            bool hitMid = Physics2D.Raycast(mid, dir, dist, groundLayer);
-            bool hitLow = Physics2D.Raycast(low, dir, dist, groundLayer);
-            Gizmos.color = hitMid ? Color.red : new Color(1f, 0.6f, 0.1f);
-            Gizmos.DrawLine(mid, mid + dir * dist);
-            Gizmos.color = hitLow ? Color.red : new Color(1f, 0.6f, 0.1f);
-            Gizmos.DrawLine(low, low + dir * dist);
+            bool hit = Physics2D.BoxCast(b.center, castSize, 0f, dir, wallCheckDistance, wallMask);
+            Gizmos.color = hit ? Color.red : new Color(1f, 0.6f, 0.1f);
+            Gizmos.DrawWireCube((Vector2)b.center + dir * wallCheckDistance, castSize);
         }
     }
 

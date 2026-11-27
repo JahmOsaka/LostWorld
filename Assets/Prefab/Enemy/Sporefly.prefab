@@ -230,6 +230,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  oneWayPlatformLayer:
+    serializedVersion: 2
+    m_Bits: 0
   spawnPosition: {x: 0, y: 0, z: 0}
   patrolPoints: []
   nextChargeTime: 0

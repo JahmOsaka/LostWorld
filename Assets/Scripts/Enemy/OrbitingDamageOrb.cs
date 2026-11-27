@@ -3,7 +3,7 @@ using UnityEngine;
 public class OrbitingDamageOrb : MonoBehaviour
 {
     private Transform center;
-    private float radius;
+    private Vector2 radius;
     private float angularSpeed;
     private float currentAngle;
     private float duration;
@@ -11,7 +11,7 @@ public class OrbitingDamageOrb : MonoBehaviour
     private float hitCooldown;
     private const float HitInterval = 0.5f;
 
-    public void Init(Transform centerTransform, float orbitRadius, float speedDeg, float startAngleDeg, float lifeDuration, int dmg)
+    public void Init(Transform centerTransform, Vector2 orbitRadius, float speedDeg, float startAngleDeg, float lifeDuration, int dmg)
     {
         center = centerTransform;
         radius = orbitRadius;
@@ -27,7 +27,7 @@ public class OrbitingDamageOrb : MonoBehaviour
 
         currentAngle += angularSpeed * Time.deltaTime;
         float rad = currentAngle * Mathf.Deg2Rad;
-        Vector2 offset = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * radius;
+        Vector2 offset = new Vector2(Mathf.Cos(rad) * radius.x, Mathf.Sin(rad) * radius.y);
         transform.position = center.position + (Vector3)offset;
 
         duration -= Time.deltaTime;
@@ -47,5 +47,9 @@ public class OrbitingDamageOrb : MonoBehaviour
                 hitCooldown = HitInterval;
             }
         }
+    }
+    public void SetCenter(Transform newCenter)
+    {
+        center = newCenter;
     }
 }

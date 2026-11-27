@@ -30,10 +30,19 @@ MonoBehaviour:
   attackCooldown: 0.5
   comboInterval: 0.1
   orbPrefab: {fileID: 5659091714964175152, guid: 281ef193d8640f148a80dda5136b4931, type: 3}
-  orbCastVfxPrefab: {fileID: 0}
-  orbCastVfxLifetime: 3
   orbHpPercent: 0.5
   orbCount: 2
-  orbitRadius: 4.5
-  orbitSpeed: 100
+  orbitRadius: {x: 6, y: 3.5}
+  orbitSpeed: 150
   orbDuration: 6
+  teleportMinRange: 8
+  teleportMaxRange: 14
+  teleportCooldown: 4
+  frontOffset: 1.6
+  vanishDuration: 0.85
+  orbTravelSpeed: 18
+  reappearDelay: 0.2
+  teleportOrbPrefab: {fileID: 5659091714964175152, guid: c0a7a944874db104e8c0136b0c696ac7, type: 3}
+  teleportVfxPrefab: {fileID: 8580689045994596581, guid: a8f6d5d0ff9416b4b91325cde4012b33, type: 3}
+  teleportVanishVfxPrefab: {fileID: 8580689045994596581, guid: a8f6d5d0ff9416b4b91325cde4012b33, type: 3}
+  teleportReappearVfxPrefab: {fileID: 0}

@@ -7,6 +7,28 @@ public class EliteEnemy : Enemy
     public Transform orbitCenter;
     private List<GameObject> activeOrbs = new List<GameObject>();
 
+    public EliteTeleportState TeleportState { get; private set; }
+    [HideInInspector] public float nextTeleportTime;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        TeleportState = new EliteTeleportState(this, stateMachine, enemyData, "teleport");
+    }
+
+    public bool CanTeleportToPlayer()
+    {
+        var elite = enemyData as EliteEnemyData;
+        if (elite == null || Time.time < nextTeleportTime) return false;
+        if (!CanSeePlayer()) return false;
+        if (Mathf.Abs(playerTransform.position.y - transform.position.y) > 1.0f) return false;
+
+        float dist = DistanceToPlayer();
+        if (dist < elite.teleportMinRange || dist > elite.teleportMaxRange) return false;
+
+        return TeleportState.HasValidTeleportSpot();
+    }
+
     public void NotifyComboCheck()
     {
         if (stateMachine.CurrentState != attackState) return;
@@ -22,7 +44,7 @@ public class EliteEnemy : Enemy
         {
             float startAngle = (360f / elite.orbCount) * i;
             float rad = startAngle * Mathf.Deg2Rad;
-            Vector2 offset = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * elite.orbitRadius;
+            Vector2 offset = new Vector2(Mathf.Cos(rad) * elite.orbitRadius.x, Mathf.Sin(rad) * elite.orbitRadius.y);
             Vector3 edgeSpawnPos = orbitCenter.position + (Vector3)offset;
 
             if (vfxList != null && vfxList.Length > 2 && vfxList[2].prefab != null)
@@ -33,6 +55,7 @@ public class EliteEnemy : Enemy
             }
         }
     }
+
     public void NotifySpawnOrbs()
     {
         var elite = enemyData as EliteEnemyData;
@@ -44,14 +67,22 @@ public class EliteEnemy : Enemy
         {
             float startAngle = (360f / elite.orbCount) * i;
             float rad = startAngle * Mathf.Deg2Rad;
-            Vector2 offset = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * elite.orbitRadius;
+            Vector2 offset = new Vector2(Mathf.Cos(rad) * elite.orbitRadius.x, Mathf.Sin(rad) * elite.orbitRadius.y);
             Vector3 edgeSpawnPos = orbitCenter.position + (Vector3)offset;
 
-            // เสกแค่ลูกแก้วจริงอย่างเดียว
             GameObject orbObj = Instantiate(elite.orbPrefab, edgeSpawnPos, Quaternion.identity);
             orbObj.GetComponent<OrbitingDamageOrb>()
-                .Init(orbitCenter, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.damage);
+                .Init(orbitCenter, elite.orbitRadius, elite.orbitSpeed, startAngle, elite.orbDuration, elite.orbDamage);
             activeOrbs.Add(orbObj);
+        }
+    }
+    public void SetActiveOrbsCenter(Transform newCenter)
+    {
+        activeOrbs.RemoveAll(orb => orb == null);
+        foreach (var orb in activeOrbs)
+        {
+            var damageOrb = orb.GetComponent<OrbitingDamageOrb>();
+            if (damageOrb != null) damageOrb.SetCenter(newCenter);
         }
     }
 
@@ -64,6 +95,15 @@ public class EliteEnemy : Enemy
         activeOrbs.Clear();
     }
 
+    public void SetActiveOrbsVisible(bool active)
+    {
+        activeOrbs.RemoveAll(orb => orb == null);
+        foreach (var orb in activeOrbs)
+        {
+            orb.SetActive(active);
+        }
+    }
+
     public bool HasActiveOrbs()
     {
         activeOrbs.RemoveAll(orb => orb == null);
@@ -74,6 +114,7 @@ public class EliteEnemy : Enemy
     {
         base.ResetEnemyState();
         ClearActiveOrbs();
+        nextTeleportTime = 0f;
     }
 
     protected override void DrawRangeGizmos()
@@ -88,5 +129,13 @@ public class EliteEnemy : Enemy
 
         DrawRange(center, melee.attackRange, new Color(1f, 0.2f, 0.2f), "Attack");
         DrawRange(center, melee.attackRange * melee.attackExitRange, new Color(1f, 0.2f, 0.2f, 0.35f), "Attack exit");
+
+        var elite = enemyData as EliteEnemyData;
+        if (elite != null)
+        {
+            DrawRange(center, elite.teleportMinRange, new Color(0.6f, 0.2f, 1f, 0.6f), "TP Min");
+            DrawRange(center, elite.teleportMaxRange, new Color(0.6f, 0.2f, 1f, 1f), "TP Max");
+        }
     }
+
 }
