@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 3178139596531164579}
   - component: {fileID: 623172838006189565}
   - component: {fileID: 9195372920028026612}
+  - component: {fileID: 6042447391893694125}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -602,6 +603,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 862efd45-b955-4afb-9799-da60dd96b462
     m_ActionName: Player/SuperDash
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2202049385663698167}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnCycleSkillPrevInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b188bfa2-a9b2-427d-95bd-d63119f9042e
+    m_ActionName: 'Player/CycleSkillPrev[/Keyboard/leftBracket]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2202049385663698167}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnCycleSkillNextInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d37e2b5a-9ec7-4efd-b4dd-87f3f8ef0d9d
+    m_ActionName: 'Player/CycleSkillNext[/Keyboard/rightBracket]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -726,7 +759,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   activeWheelIndex: 0
-  activeSkillIconUI: {fileID: 0}
 --- !u!114 &3178139596531164579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,6 +837,27 @@ MonoBehaviour:
   blinkMinAlpha: 0.3
   vignetteMaxAlpha: 0.45
   vignetteFadeDuration: 0.3
+--- !u!114 &6042447391893694125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255730908677199951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13aa293838e44fe46a7b0399a0598161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCastFeedback
+  visualTransform: {fileID: 8070273964345352837}
+  castBurstPrefab: {fileID: 0}
+  throwTiltAngle: 12
+  throwScale: {x: 1.18, y: 0.86}
+  throwRecoveryDuration: 0.14
+  pulseScale: {x: 0.84, y: 1.22}
+  pulseRecoveryDuration: 0.18
+  pulseShakeDuration: 0.08
+  pulseShakeMagnitude: 0.06
 --- !u!1 &4016599245229063868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1135,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHitbox
   hitSparkPrefab: {fileID: 726700255922521307, guid: 7f3ee958348ca7f448acd6761bc083d3, type: 3}
   sparkLifetime: 0.35
+  onlyRegenFromEnemies: 1
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 1024
   lightKnockbackForce: 6
   heavyKnockbackForce: 12
   lightShakeDurationMult: 0.45

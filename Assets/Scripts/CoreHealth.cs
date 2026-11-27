@@ -194,4 +194,9 @@ public class CoreHealth : MonoBehaviour, IDamageable
 
         OnHealthChanged?.Invoke();
     }
+
+    public void SetHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(amount, 0, maxHealth);
+    }
 }

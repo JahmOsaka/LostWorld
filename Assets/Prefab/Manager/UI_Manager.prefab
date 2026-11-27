@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1500333859342784526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2305136602237736199}
+  - component: {fileID: 5330153645587344857}
+  - component: {fileID: 3004641731834987318}
+  m_Layer: 0
+  m_Name: UI_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &2305136602237736199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500333859342784526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 552.95044, y: 1239.9572, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5330153645587344857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500333859342784526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9224df2360ca81489a96b3609e36bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  playerHealth: {fileID: 0}
+  playerStats: {fileID: 0}
+  healthBarFill: {fileID: 0}
+  energyBarFill: {fileID: 0}
+  energyBarContainer: {fileID: 0}
+  energyText: {fileID: 0}
+  barLerpSpeed: 12
+  characterPortraitImage: {fileID: 0}
+  prevSkillIcon: {fileID: 0}
+  currentSkillIcon: {fileID: 0}
+  nextSkillIcon: {fileID: 0}
+  currentSkillSlotTransform: {fileID: 0}
+  previewSlotAlpha: 0.55
+  switchPunchScale: 1.18
+  switchPunchReturnSpeed: 14
+  potionIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  gemFullSprite: {fileID: -2413806693520163455, guid: f4de7321a78d3a9458ece692cb33cff9, type: 3}
+  gemEmptySprite: {fileID: -2413806693520163455, guid: c7a3b2f61d06f28479f48cddb9b15201, type: 3}
+  currencyText: {fileID: 0}
+  absorbPromptPanel: {fileID: 0}
+  absorbPromptText: {fileID: 0}
+  absorbSkillIcon: {fileID: 0}
+--- !u!114 &3004641731834987318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500333859342784526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b0794a3d398d6418ac261cd6096d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FairyRingMenuUI
+  mainFairyRingPanel: {fileID: 0}
+  saveLoadSlotPanel: {fileID: 0}
+  restButton: {fileID: 0}
+  skillButton: {fileID: 0}
+  saveLoadButton: {fileID: 0}
+  fastTravelButton: {fileID: 0}
+  closeButton: {fileID: 0}

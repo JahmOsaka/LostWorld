@@ -105,6 +105,26 @@
                     "interactions": "",
                     "initialStateCheck": true,
                     "priority": 0
+                },
+                {
+                    "name": "CycleSkillPrev",
+                    "type": "Button",
+                    "id": "b188bfa2-a9b2-427d-95bd-d63119f9042e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "CycleSkillNext",
+                    "type": "Button",
+                    "id": "d37e2b5a-9ec7-4efd-b4dd-87f3f8ef0d9d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -281,6 +301,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "SuperDash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80b42abe-2633-4697-9cbe-4d000374d6ec",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CycleSkillPrev",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f9f9301-c653-479a-aeb9-66f4084b9b3f",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CycleSkillNext",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

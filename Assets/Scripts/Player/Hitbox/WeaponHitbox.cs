@@ -7,6 +7,11 @@ public class WeaponHitbox : MonoBehaviour
     [SerializeField] private GameObject hitSparkPrefab;
     [SerializeField] private float sparkLifetime = 0.35f;
 
+    [Header("Mana Regen on Hit")]
+    [Tooltip("If true, only targets matching enemyLayers grant MP on whip hit.")]
+    [SerializeField] private bool onlyRegenFromEnemies = true;
+    [SerializeField] private LayerMask enemyLayers;
+
     [Header("Micro Knockback")]
     [SerializeField] private float lightKnockbackForce = 3.5f;
     [SerializeField] private float heavyKnockbackForce = 8f;
@@ -16,19 +21,23 @@ public class WeaponHitbox : MonoBehaviour
     [SerializeField] private float lightShakeMagnitudeMult = 0.35f;
 
     private PlayerData playerData;
+    private PlayerStats playerStats;
     private Collider2D myCollider;
     private ContactFilter2D filter;
     private readonly List<IDamageable> alreadyHitTargets = new List<IDamageable>();
     private readonly List<Collider2D> hitResults = new List<Collider2D>();
 
     private Player player;
+    private int enemyLayer = -1;
 
     private void Awake()
     {
         myCollider = GetComponent<Collider2D>();
         filter = ContactFilter2D.noFilter;
+        enemyLayer = LayerMask.NameToLayer("Enemy");
 
         player = GetComponentInParent<Player>();
+        playerStats = GetComponentInParent<PlayerStats>();
         if (player != null)
         {
             playerData = player.playerData;
@@ -71,6 +80,11 @@ public class WeaponHitbox : MonoBehaviour
                 alreadyHitTargets.Add(damageable);
                 hitAnyThisFrame = true;
 
+                if (playerStats != null && CanGrantMana(col))
+                {
+                    playerStats.RestoreEnergy(playerData.energyRegenPerWhipHit);
+                }
+
                 ApplyTargetHitFeel(col, currentCombo, hitstopTime);
                 SpawnHitSpark(col, currentCombo);
             }
@@ -80,6 +94,29 @@ public class WeaponHitbox : MonoBehaviour
         {
             TriggerHitstopAndShake(currentCombo, hitstopTime);
         }
+    }
+
+    private bool CanGrantMana(Collider2D targetCollider)
+    {
+        if (!onlyRegenFromEnemies) return true;
+
+        int targetLayerBit = 1 << targetCollider.gameObject.layer;
+        int rootLayerBit = 1 << targetCollider.transform.root.gameObject.layer;
+
+        if (enemyLayers.value != 0)
+        {
+            return (enemyLayers.value & targetLayerBit) != 0
+                || (enemyLayers.value & rootLayerBit) != 0;
+        }
+
+        int defaultEnemyLayer = LayerMask.NameToLayer("Enemy");
+        if (defaultEnemyLayer != -1)
+        {
+            return targetCollider.gameObject.layer == defaultEnemyLayer
+                || targetCollider.transform.root.gameObject.layer == defaultEnemyLayer;
+        }
+
+        return false;
     }
 
     private float GetHitstopTime(int currentCombo)
