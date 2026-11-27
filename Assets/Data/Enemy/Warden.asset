@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36d33e53ab6a34f82304150d973789, type: 3}
   m_Name: Warden
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHealth: 10
-  damage: 1
+  maxHealth: 20
+  damage: 2
   moveSpeed: 3.5
   patrolSpeed: 1.5
   idleTimeAtPoint: 1.5
@@ -30,11 +30,13 @@ MonoBehaviour:
   attackCooldown: 0.5
   comboInterval: 0.1
   orbPrefab: {fileID: 5659091714964175152, guid: 281ef193d8640f148a80dda5136b4931, type: 3}
+  orbDamage: 1
   orbHpPercent: 0.5
   orbCount: 2
   orbitRadius: {x: 6, y: 3.5}
   orbitSpeed: 150
   orbDuration: 6
+  teleportOrbDamage: 1
   teleportMinRange: 8
   teleportMaxRange: 14
   teleportCooldown: 4

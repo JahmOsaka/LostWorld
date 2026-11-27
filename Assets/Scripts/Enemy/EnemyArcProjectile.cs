@@ -62,9 +62,5 @@ public class EnemyArcProjectile : MonoBehaviour
                 return;
             }
         }
-        else if (((1 << other.gameObject.layer) & groundLayer) != 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }
