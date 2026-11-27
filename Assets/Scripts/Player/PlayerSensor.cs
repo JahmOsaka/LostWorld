@@ -13,11 +13,22 @@ public class PlayerSensor : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private LayerMask oneWayPlatformLayer;
 
+    [Header("Safe Ground Respawn")]
+    [Tooltip("Slight vertical offset applied when respawning to prevent feet from clipping into the ground.")]
+    [SerializeField] private float respawnOffsetY = 0.1f;
+    [Tooltip("Extra horizontal margin from ledge edges when recording a safe ground position.")]
+    [SerializeField] private float safeLedgePadding = 0.25f;
+
+    public Vector3 LastSafePosition { get; private set; }
+    public bool HasSafePosition { get; private set; }
+
     private void Awake()
     {
         player = GetComponent<Player>();
         data = player.playerData;
         OnValidate();
+        LastSafePosition = transform.position;
+        HasSafePosition = true;
     }
 
     private void OnValidate()
@@ -31,6 +42,17 @@ public class PlayerSensor : MonoBehaviour
         {
             Transform found = transform.Find("CeilingCheck") ?? transform.Find("CeilingCheckPoint");
             if (found != null) ceilingCheckPoint = found;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (player != null && player.RB != null && Mathf.Abs(player.RB.linearVelocity.y) > 0.1f)
+            return;
+
+        if (CheckIfFullyOnSolidGround())
+        {
+            LastSafePosition = transform.position + Vector3.up * respawnOffsetY;
+            HasSafePosition = true;
         }
     }
 
@@ -74,6 +96,17 @@ public class PlayerSensor : MonoBehaviour
             Vector3 ceilingCastPos = ceilingCheckPoint.position + (Vector3)(Vector2.up * data.boxCastDistance);
             Gizmos.DrawWireCube(ceilingCastPos, data.ceilingCheckSize);
         }
+
+        if (groundCheckPoint != null)
+        {
+            Gizmos.color = Color.green;
+            float halfWidth = data.groundCheckSize.x * 0.5f;
+            float rayDistance = data.boxCastDistance + (data.groundCheckSize.y * 0.5f) + 0.05f;
+            Vector3 leftOrigin = groundCheckPoint.position + Vector3.left * halfWidth;
+            Vector3 rightOrigin = groundCheckPoint.position + Vector3.right * halfWidth;
+            Gizmos.DrawLine(leftOrigin, leftOrigin + Vector3.down * rayDistance);
+            Gizmos.DrawLine(rightOrigin, rightOrigin + Vector3.down * rayDistance);
+        }
     }
 
     public bool IsStandingOnOneWay()
@@ -106,5 +139,26 @@ public class PlayerSensor : MonoBehaviour
         boxCenter.y += 0.15f;
 
         return Physics2D.OverlapBox(boxCenter, boxSize, 0f, oneWayPlatformLayer) != null;
+    }
+
+    public bool CheckIfFullyOnSolidGround()
+    {
+        if (groundCheckPoint == null || data == null) return false;
+
+        LayerMask solidGroundMask = whatIsGround & ~oneWayPlatformLayer;
+        float halfWidth = (data.groundCheckSize.x * 0.5f) + safeLedgePadding;
+        float rayDistance = data.boxCastDistance + (data.groundCheckSize.y * 0.5f) + 0.05f;
+        Vector2 originCenter = groundCheckPoint.position;
+
+        RaycastHit2D hitLeft = Physics2D.Raycast(originCenter + Vector2.left * halfWidth, Vector2.down, rayDistance, solidGroundMask);
+        RaycastHit2D hitRight = Physics2D.Raycast(originCenter + Vector2.right * halfWidth, Vector2.down, rayDistance, solidGroundMask);
+
+        return hitLeft.collider != null && hitRight.collider != null;
+    }
+
+    public void SetManualSafePosition(Vector3 position)
+    {
+        LastSafePosition = position;
+        HasSafePosition = true;
     }
 }
