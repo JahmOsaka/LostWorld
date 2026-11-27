@@ -260,6 +260,14 @@ MonoBehaviour:
   shakeDuration: 0.1
   arrivalShakeMagnitude: 0.08
   arrivalDustPrefab: {fileID: 0}
+  gear1Animator: {fileID: 0}
+  gear2Animator: {fileID: 0}
+  startPowered: 1
+  showLockedFeedback: 1
+  lockedPromptLabel: Examine
+  lockedReactionText: It's not powered yet...
+  reactionDuration: 2.5
+  reactionOverridePortrait: {fileID: 1276951143863046006, guid: fc688939f861be94da5f2dbebeacc12f, type: 3}
 --- !u!1 &8398155197666083928
 GameObject:
   m_ObjectHideFlags: 0
