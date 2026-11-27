@@ -214,7 +214,7 @@ public class SaveManager : MonoBehaviour
             }
         }
 
-        EnemyRespawnManager respawnManager = FindAnyObjectByType<EnemyRespawnManager>();
+        RespawnManager respawnManager = FindAnyObjectByType<RespawnManager>();
         if (respawnManager != null)
         {
             respawnManager.RespawnAllEnemies();

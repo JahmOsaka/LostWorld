@@ -62,8 +62,6 @@ public class CameraController : MonoBehaviour
     [Range(0f, 6f)][SerializeField] private float lookAheadDistanceX = 1.8f;
     [Tooltip("Smooth time (seconds) for horizontal look-ahead transitions.")]
     [Range(0.1f, 2f)][SerializeField] private float lookAheadSmoothTime = 0.65f;
-    [Tooltip("Fraction of look-ahead distance kept while standing still (0 = centered, 1 = full lead).")]
-    [Range(0f, 1f)][SerializeField] private float idleLookAheadRatio = 0.7f;
     [Tooltip("How long (seconds) you must run in a new direction before look-ahead flips sides.")]
     [Range(0f, 0.8f)][SerializeField] private float turnCommitDelay = 0.22f;
 
