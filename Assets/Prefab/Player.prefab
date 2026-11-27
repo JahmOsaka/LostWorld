@@ -344,6 +344,8 @@ MonoBehaviour:
   oneWayPlatformLayer:
     serializedVersion: 2
     m_Bits: 2048
+  respawnOffsetY: 0.1
+  safeLedgePadding: 0.5
 --- !u!114 &8815986915462865779
 MonoBehaviour:
   m_ObjectHideFlags: 0
