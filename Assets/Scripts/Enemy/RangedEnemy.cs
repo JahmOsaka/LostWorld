@@ -19,6 +19,14 @@ public class RangedEnemy : Enemy
         rangedAttackState = new EnemyRangedAttackState(this, stateMachine, enemyData, "throw");
     }
 
+    public override bool CanSeePlayer()
+    {
+        if (playerTransform == null) return false;
+        Vector2 startPos = BodyCenter;
+        Vector2 targetPos = (Vector2)playerTransform.position + Vector2.up * 1.0f;
+        return Physics2D.Linecast(startPos, targetPos, groundLayer).collider == null;
+    }
+
     public void SpawnProjectile()
     {
         var ranged = enemyData as RangedEnemyData;

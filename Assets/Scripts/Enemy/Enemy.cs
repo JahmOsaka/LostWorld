@@ -220,7 +220,7 @@ public class Enemy : MonoBehaviour
         return Vector2.Distance(BodyCenter, playerTransform.position);
     }
 
-    public bool CanSeePlayer()
+    public virtual bool CanSeePlayer()
     {
         if (playerTransform == null) return false;
         Vector2 startPos = BodyCenter;
