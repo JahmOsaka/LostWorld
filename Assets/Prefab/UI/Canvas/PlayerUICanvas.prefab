@@ -783,6 +783,7 @@ GameObject:
   - component: {fileID: 5122036062716222324}
   - component: {fileID: 2727134751633222089}
   - component: {fileID: 7189645782405319880}
+  - component: {fileID: 2483211837529494685}
   m_Layer: 5
   m_Name: PlayerUICanvas
   m_TagString: Untagged
@@ -855,7 +856,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -878,6 +879,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &2483211837529494685
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062397814310378930}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2286380908623516999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3047,6 +3060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4809078552529163469}
   - component: {fileID: 8458571076912691219}
+  - component: {fileID: 6308919714688725158}
   m_Layer: 5
   m_Name: BottomRight_SkillCarousel
   m_TagString: Untagged
@@ -3102,6 +3116,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &6308919714688725158
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7190662399195583623}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7212272285381722762
 GameObject:
   m_ObjectHideFlags: 0

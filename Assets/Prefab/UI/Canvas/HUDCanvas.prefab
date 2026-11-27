@@ -436,12 +436,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueUI
   playerProfile: {fileID: 11400000, guid: 5da9916bc579be74fb2bb4e713938aff, type: 2}
   canvasGroup: {fileID: 4227486492035933751}
+  dialoguePanelRect: {fileID: 0}
   portraitContainer: {fileID: 7128040476023943043}
   portraitImage: {fileID: 8349229746824027797}
   nameContainer: {fileID: 7725304891053619434}
   speakerNameText: {fileID: 8181241854789546520}
   dialogueText: {fileID: 223852782361576183}
   continueIndicator: {fileID: 8781190983411898842}
+  expandInFullDialogue: 1
+  borderlessPortraitInFullDialogue: 1
+  fullPanelSize: {x: 960, y: 220}
+  fullPanelPosOffset: {x: 180, y: 55}
+  fullPortraitContainerPos: {x: -190, y: -256}
+  fullPortraitScale: 1.65
+  fullPortraitImagePosY: -256
+  fullNameContainerHeight: 42
+  fullSpeakerNameFontSize: 32
+  fullDialogueFontMin: 24
+  fullDialogueFontMax: 30
+  alternateLeftRightSpeakers: 1
+  playerOnLeft: 1
+  flipPortraitOnRightSide: 0
+  portraitSlideDistance: 120
+  portraitSlideDuration: 0.22
+  panelShiftSpeed: 14
+  hudGroupsToFade:
+  - {fileID: 0}
+  hudFadeSpeed: 10
+  hudHiddenAlpha: 0.15
   charsPerSecond: 45
   fadeSpeed: 12
   defaultReactionDuration: 2.5
@@ -861,12 +883,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
