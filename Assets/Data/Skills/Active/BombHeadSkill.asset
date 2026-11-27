@@ -15,7 +15,7 @@ MonoBehaviour:
   skillName: Bomb
   category: 0
   description: 
-  skillIcon: {fileID: 3924596553151034296, guid: 45ccf99517c626b41ac1ebe5021b05a0, type: 3}
+  skillIcon: {fileID: 2060083446, guid: 45ccf99517c626b41ac1ebe5021b05a0, type: 3}
   vfxPrefab: {fileID: 7621492198514110708, guid: 691da83a2a0e2c3418bf6e0cab39a1fc, type: 3}
   cooldownTime: 2.5
   mpCost: 20
@@ -30,5 +30,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
+  hitstopDuration: 0.06
+  enemyFlashDuration: 0.12
   shakeDuration: 0.18
   shakeMagnitude: 0.25

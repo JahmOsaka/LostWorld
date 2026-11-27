@@ -27,6 +27,8 @@ public class EnemySkillDrop : MonoBehaviour
     public Color absorbablePulseColor = new Color(1f, 0.55f, 0.55f, 1f);
 
     [Header("Tech Art: Rubber Band Whip Bind")]
+    [Tooltip("Multiplier applied to the collider width for the whip bands (1.0 = exact collider width).")]
+    public float bandWidthMultiplier = 1.05f;
     [Tooltip("Duration of the whip binding and enemy struggling sequence (in seconds).")]
     public float bindDuration = 1.0f;
     [Tooltip("Line width of the procedural whip.")]
@@ -49,6 +51,8 @@ public class EnemySkillDrop : MonoBehaviour
     public GameObject absorbSuccessVFX;
 
     [Header("References (Auto-assigned if empty)")]
+    [Tooltip("(Optional) Body collider used to size the whip bind. Auto-finds the first non-trigger Collider2D if empty.")]
+    public Collider2D enemyBodyCollider;
     [Tooltip("Reference to the enemy's CoreHealth component.")]
     public CoreHealth enemyHealth;
     private Enemy enemyScript;
@@ -81,6 +85,10 @@ public class EnemySkillDrop : MonoBehaviour
         {
             enemyVisual = (enemySpriteRenderer != null) ? enemySpriteRenderer.transform : transform;
         }
+        if (enemyBodyCollider == null)
+        {
+            enemyBodyCollider = FindBodyCollider();
+        }
     }
 
     private void Start()
@@ -91,7 +99,7 @@ public class EnemySkillDrop : MonoBehaviour
     private void OnDisable()
     {
         SetTargetHighlight(false);
-        RemoveFromCandidates();
+        InteractPromptUI.Instance?.Unregister(this);
     }
 
     private void FindPlayerReferences()
@@ -119,7 +127,7 @@ public class EnemySkillDrop : MonoBehaviour
         if (enemyHealth == null || enemyHealth.currentHealth <= 0 || !playerSkill.hasPerish)
         {
             SetTargetHighlight(false);
-            RemoveFromCandidates();
+            InteractPromptUI.Instance?.Unregister(this);
             return;
         }
 
@@ -137,32 +145,17 @@ public class EnemySkillDrop : MonoBehaviour
 
         if (isLowHP && isInRange)
         {
-            if (!activeCandidates.Contains(this))
-                activeCandidates.Add(this);
+            string skillName = (skillToDrop != null && !string.IsNullOrEmpty(skillToDrop.skillName))
+                ? skillToDrop.skillName
+                : "Essence";
+            string label = $"Absorb <color=#FFD700>{skillName}</color>";
+
+            InteractPromptUI.Instance?.Register(this, label, StartAbsorbFromPrompt, SetTargetHighlight, "F");
         }
         else
         {
             SetTargetHighlight(false);
-            RemoveFromCandidates();
-            return;
-        }
-
-        UpdateClosestCandidate();
-
-        bool isCurrentTarget = (closestCandidate == this);
-        SetTargetHighlight(isCurrentTarget);
-
-        if (isCurrentTarget)
-        {
-            UIManager.Instance?.ShowAbsorbPrompt(this, skillToDrop);
-
-            if (playerInput != null && playerInput.InteractInput)
-            {
-                playerInput.UseInteractInput();
-                SetTargetHighlight(false);
-                RemoveFromCandidates();
-                StartCoroutine(AbsorbBindRoutine());
-            }
+            InteractPromptUI.Instance?.Unregister(this);
         }
     }
 
@@ -178,46 +171,6 @@ public class EnemySkillDrop : MonoBehaviour
         }
     }
 
-    private void UpdateClosestCandidate()
-    {
-        if (playerTransform == null) return;
-
-        float minDist = float.MaxValue;
-        EnemySkillDrop nearest = null;
-
-        for (int i = activeCandidates.Count - 1; i >= 0; i--)
-        {
-            EnemySkillDrop candidate = activeCandidates[i];
-            if (candidate == null || !candidate.isActiveAndEnabled || candidate.isAbsorbing)
-            {
-                activeCandidates.RemoveAt(i);
-                continue;
-            }
-
-            float dist = (candidate.transform.position - playerTransform.position).sqrMagnitude;
-            if (dist < minDist)
-            {
-                minDist = dist;
-                nearest = candidate;
-            }
-        }
-
-        closestCandidate = nearest;
-    }
-
-    private void RemoveFromCandidates()
-    {
-        if (activeCandidates.Contains(this))
-        {
-            activeCandidates.Remove(this);
-        }
-        if (closestCandidate == this)
-        {
-            closestCandidate = null;
-            UIManager.Instance?.HideAbsorbPrompt(this);
-        }
-    }
-
     private Color GetWhipColor()
     {
         if (playerComp != null && playerComp.playerData != null)
@@ -227,10 +180,18 @@ public class EnemySkillDrop : MonoBehaviour
         return DefaultWhipColor;
     }
 
+    private void StartAbsorbFromPrompt()
+    {
+        if (isAbsorbing) return;
+        SetTargetHighlight(false);
+        InteractPromptUI.Instance?.Unregister(this);
+        StartCoroutine(AbsorbBindRoutine());
+    }
+
     private IEnumerator AbsorbBindRoutine()
     {
         isAbsorbing = true;
-        UIManager.Instance?.HideAbsorbPrompt(this);
+        InteractPromptUI.Instance?.Unregister(this);
         if (enemySpriteRenderer != null) enemySpriteRenderer.color = originalSpriteColor;
 
         if (enemyScript != null)
@@ -254,13 +215,11 @@ public class EnemySkillDrop : MonoBehaviour
             playerComp.enabled = false;
         }
 
-        Bounds spriteBounds = (enemySpriteRenderer != null)
-            ? enemySpriteRenderer.bounds
-            : new Bounds(transform.position + Vector3.up * 0.4f, new Vector3(0.8f, 0.8f, 1f));
+        Bounds targetBounds = GetBindBounds();
 
-        Vector3 baseCenterOffset = spriteBounds.center - transform.position;
-        float halfWidth = Mathf.Max(0.25f, spriteBounds.extents.x * 0.85f);
-        float bandSpacing = Mathf.Clamp(spriteBounds.extents.y * 0.25f, 0.04f, 0.12f);
+        Vector3 baseCenterOffset = targetBounds.center - transform.position;
+        float halfWidth = Mathf.Max(0.15f, targetBounds.extents.x * bandWidthMultiplier);
+        float bandSpacing = Mathf.Clamp(targetBounds.extents.y * 0.25f, 0.04f, 0.12f);
 
         Color activeWhipColor = GetWhipColor();
 
@@ -424,5 +383,37 @@ public class EnemySkillDrop : MonoBehaviour
         }
 
         this.enabled = false;
+    }
+
+    private Collider2D FindBodyCollider()
+    {
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (Collider2D col in colliders)
+        {
+            if (col != null && !col.isTrigger) return col;
+        }
+
+        Collider2D[] childColliders = GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D col in childColliders)
+        {
+            if (col != null && !col.isTrigger) return col;
+        }
+
+        return GetComponent<Collider2D>();
+    }
+
+    private Bounds GetBindBounds()
+    {
+        if (enemyBodyCollider != null && enemyBodyCollider.enabled)
+        {
+            return enemyBodyCollider.bounds;
+        }
+
+        if (enemySpriteRenderer != null)
+        {
+            return enemySpriteRenderer.bounds;
+        }
+
+        return new Bounds(transform.position + Vector3.up * 0.4f, new Vector3(0.8f, 0.8f, 1f));
     }
 }

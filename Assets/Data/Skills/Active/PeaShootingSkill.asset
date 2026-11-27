@@ -19,12 +19,12 @@ MonoBehaviour:
   vfxPrefab: {fileID: 1048007954035361359, guid: 2e1f44ae35858e541a6a135f14d11d1b, type: 3}
   cooldownTime: 0.8
   mpCost: 10
-  castDuration: 0
+  castDuration: 0.15
   projectilePrefab: {fileID: 4694563352133518375, guid: d083be78b7dfaa04cbbf9a4c70232b0d, type: 3}
   muzzleVfxPrefab: {fileID: 4470268739109728600, guid: a0b416d4baf62614c9275a0cb3602a71, type: 3}
-  damage: 3
-  launchVelocity: {x: 7, y: 10}
-  gravityScale: 2.5
+  damage: 2
+  launchVelocity: {x: 23.71, y: 0}
+  gravityScale: 2.3
   lifetime: 3
   spawnOffset: {x: 0.6, y: 0.3}
   knockbackForce: 4

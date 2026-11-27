@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82fb16af56cc294493c91ef01204e55, type: 3}
+  m_Name: Dlg_Shroomgirrl_nothing
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - speaker: {fileID: 11400000, guid: f0955679d3381b8429a01019e4e9341e, type: 2}
+    overridePortrait: {fileID: -6408161639362950918, guid: 8c7a79f2bddc902449b5822497c3a053, type: 3}
+    customSpeakerName: 
+    text: Oh! You scared me! I didn't expect to see anyone around here.
+  - speaker: {fileID: 11400000, guid: 5da9916bc579be74fb2bb4e713938aff, type: 2}
+    overridePortrait: {fileID: -8691662421517663747, guid: 23ad7c7588e33b1468bffe801a211099, type: 3}
+    customSpeakerName: 
+    text: Same here! This place is usually completely deserted. What are you doing
+      out here?
+  - speaker: {fileID: 11400000, guid: f0955679d3381b8429a01019e4e9341e, type: 2}
+    overridePortrait: {fileID: -1461387376584009857, guid: bed4225c2717f0743aab0f602d7fafd3, type: 3}
+    customSpeakerName: 
+    text: Um... honestly, I don't have anything to tell you right now.
+  - speaker: {fileID: 11400000, guid: 5da9916bc579be74fb2bb4e713938aff, type: 2}
+    overridePortrait: {fileID: -3710432733283266819, guid: e115d2655c38842479e674bebf164f42, type: 3}
+    customSpeakerName: 
+    text: Fair enough. To be honest, I don't have anything to share either.
+  - speaker: {fileID: 11400000, guid: f0955679d3381b8429a01019e4e9341e, type: 2}
+    overridePortrait: {fileID: 4064571133658835122, guid: 4f50880dd487909468c3b184448cbb5b, type: 3}
+    customSpeakerName: 
+    text: Guess we both have our reasons for being here, huh?
+  - speaker: {fileID: 11400000, guid: 5da9916bc579be74fb2bb4e713938aff, type: 2}
+    overridePortrait: {fileID: -4579390025302292990, guid: 4a07dc62e42b5e449a75cfe940571217, type: 3}
+    customSpeakerName: 
+    text: Yeah, looks like it.

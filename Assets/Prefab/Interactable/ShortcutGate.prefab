@@ -95,52 +95,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c97551789f2054fb5f89a205d373b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShortcutGate
-  gateType: 0
   gateID: 
   isUnlocked: 0
-  unlockableSide: 0
-  showLockedFeedbackOnWrongSide: 1
   highlightEffect: {fileID: 6434679169720782862}
   gateVisual: {fileID: 1986252296078443226}
   solidCollider: {fileID: 7991052577055412868}
-  promptAnchor: {fileID: 5198338948439551785}
-  promptOffset: {x: 0, y: 1.5, z: 0}
   promptKey: F
-  unlockLabel: Unlock Shortcut
-  lockedLabel: Lock from the other side.
-  perishUnlockLabel: Absorb
-  perishMissingLabel: Blocked
-  requirePerishSkill: 1
-  absorbTintColor: {r: 0.35, g: 0.85, b: 1, a: 1}
-  absorbWindupDuration: 0.16
-  absorbPullDuration: 0.45
-  absorbPullCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0.2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2.8
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  absorbStretchAmount: 0.45
-  absorbSpinDegrees: 180
-  absorbImpactVfxPrefab: {fileID: 0}
+  showLockedFeedback: 1
+  lockedReactionText: It's locked from the other side.
+  reactionDuration: 2.5
+  reactionOverridePortrait: {fileID: 6234319306620685494, guid: 65e5b7c425db2c84f83ab55831bbe96a, type: 3}
+  rattleMagnitude: 0.06
+  lockedRattleDuration: 0.18
+  unlockShakeDuration: 0.14
+  unlockShakeMagnitude: 0.1
+  unlockVfxPrefab: {fileID: 0}
+  unlockableSide: 0
+  openGateLabel: Open Gate
   openSlideOffset: {x: 0, y: 3.5, z: 0}
   unlockRattleDuration: 0.14
   openSlideDuration: 0.45
@@ -168,11 +139,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rattleMagnitude: 0.06
-  lockedRattleDuration: 0.18
-  unlockShakeDuration: 0.14
-  unlockShakeMagnitude: 0.1
-  unlockVfxPrefab: {fileID: 0}
 --- !u!114 &6434679169720782862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +223,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 4.00918}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -267,7 +233,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 8.020521}
   m_EdgeRadius: 0
 --- !u!1 &1760245486849116092
 GameObject:

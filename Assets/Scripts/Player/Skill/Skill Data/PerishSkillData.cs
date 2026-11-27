@@ -27,11 +27,9 @@ public class PerishSkillData : SkillData
 
         foreach (Collider2D obstacle in obstacles)
         {
-            ShortcutGate gate = obstacle.GetComponentInParent<ShortcutGate>();
-
-            if (gate != null)
+            PerishBlueGate gate = obstacle.GetComponentInParent<PerishBlueGate>();
+            if (gate != null && gate.AbsorbByPerish(playerTransform))
             {
-                gate.Interact();
                 Debug.Log($"Cleared Obstacle (Perish): {obstacle.name}");
             }
         }
