@@ -938,7 +938,7 @@ MonoBehaviour:
     spawnPoint: {fileID: 0}
   edgeCheckDistance: 1
   edgeCheckForwardOffset: 2
-  wallCheckDistance: 0.1
+  wallCheckDistance: 0.3
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

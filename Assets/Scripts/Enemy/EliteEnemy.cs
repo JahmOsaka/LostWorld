@@ -20,9 +20,13 @@ public class EliteEnemy : Enemy
     {
         var elite = enemyData as EliteEnemyData;
         if (elite == null || Time.time < nextTeleportTime) return false;
+        if (!CanSeePlayer()) return false;
+        if (Mathf.Abs(playerTransform.position.y - transform.position.y) > 1.0f) return false;
 
         float dist = DistanceToPlayer();
-        return dist >= elite.teleportMinRange && dist <= elite.teleportMaxRange;
+        if (dist < elite.teleportMinRange || dist > elite.teleportMaxRange) return false;
+
+        return TeleportState.HasValidTeleportSpot();
     }
 
     public void NotifyComboCheck()

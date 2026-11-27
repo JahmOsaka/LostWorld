@@ -30,7 +30,8 @@ public class EnemyChaseState : EnemyState
                            : melee != null ? melee.attackRange
                            : 0f;
 
-        if (dist <= triggerRange && enemy.CanSeePlayer())
+        float yDiff = Mathf.Abs(enemy.playerTransform.position.y - enemy.transform.position.y);
+        if (dist <= triggerRange && yDiff <= 1.5f && enemy.CanSeePlayer())
         {
             if (ranged != null && enemy is RangedEnemy rangedEnemy)
                 stateMachine.ChangeState(rangedEnemy.RangedAttackState);
@@ -43,7 +44,7 @@ public class EnemyChaseState : EnemyState
             stateMachine.ChangeState(enemy.HasPatrolPoints ? enemy.PatrolState : enemy.ReturnState);
         }
 
-        if (enemy is EliteEnemy elite && elite.CanTeleportToPlayer())
+        if (!isBlocked && enemy is EliteEnemy elite && elite.CanTeleportToPlayer())
         {
             stateMachine.ChangeState(elite.TeleportState);
             return;
