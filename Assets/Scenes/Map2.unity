@@ -19679,7 +19679,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.7752, y: 21.49286, z: 0}
+  m_LocalPosition: {x: 13.46, y: -6.388848, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53975,6 +53975,11 @@ MonoBehaviour:
 --- !u!50 &1326512988 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 2463019285508519511, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
+  m_PrefabInstance: {fileID: 1326512986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1326512989 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2952475920657060125, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
   m_PrefabInstance: {fileID: 1326512986}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1327690837
@@ -623838,15 +623843,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 759304479003495763, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.7752
+      value: 13.46
       objectReference: {fileID: 0}
     - target: {fileID: 759304479003495763, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.49286
+      value: -6.388848
       objectReference: {fileID: 0}
     - target: {fileID: 759304479003495763, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 759304479003495763, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
       propertyPath: m_LocalRotation.w
@@ -623876,6 +623881,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 939746191731252652, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
+      propertyPath: BoundingShape2D
+      value: 
+      objectReference: {fileID: 1680390208}
+    - target: {fileID: 3501997204907679317, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 1326512989}
     - target: {fileID: 4799763461101734515, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
       propertyPath: m_Name
       value: CinemachineCamera
