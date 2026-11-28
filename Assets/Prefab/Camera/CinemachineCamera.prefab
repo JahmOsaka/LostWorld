@@ -173,32 +173,34 @@ MonoBehaviour:
   player: {fileID: 0}
   inputHandler: {fileID: 0}
   playerRb: {fileID: 0}
-  baseFramingOffset: {x: 0, y: 1.2}
-  defaultZoom: 5
-  combatZoomMultiplier: 1.4
-  zoomOutTime: 0.3
+  baseFramingOffset: {x: 0, y: 0.8}
+  defaultCameraDistance: 10
+  combatZoomMultiplier: 1.3
+  zoomOutTime: 0.35
   zoomInTime: 1.5
-  verticalDeadzoneUp: 2.6
+  verticalDeadzoneUp: 3.2
   verticalDeadzoneDown: 1.2
-  platformSnapSmoothTime: 0.28
+  platformSnapSmoothTime: 0.3
   verticalFollowSmoothTime: 0.22
   fallVelocityThreshold: -10
   fallLookAheadY: -2
   fallCatchUpSmoothTime: 0.1
-  lookAheadDistanceX: 2.5
-  horizontalSmoothTime: 0.35
-  idleLookAheadRatio: 0.75
-  turnCommitDelay: 0.12
+  horizontalDeadzone: 3.2
+  horizontalFollowSmoothTime: 0.22
+  lookAheadDistanceX: 1.4
+  lookAheadSmoothTime: 0.85
+  turnCommitDelay: 0.15
   enableVerticalPeek: 1
   peekDistanceUp: 2.5
   peekDistanceDown: 3
   peekHoldDelay: 0.35
   peekSmoothTime: 0.25
+  enableCombatMidpoint: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   combatDetectionRadius: 10
-  enemyWeight: 0.4
-  maxCombatOffset: {x: 4, y: 2.5}
-  combatOffsetSmoothTime: 0.25
+  enemyWeight: 0.15
+  maxCombatOffset: {x: 1.6, y: 0.8}
+  combatOffsetSmoothTime: 0.7
   combatExitDelay: 1.5

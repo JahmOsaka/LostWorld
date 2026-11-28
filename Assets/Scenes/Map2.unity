@@ -28497,6 +28497,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &1168492458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1895628774741284012, guid: 9d5a43b51b36dda448271cd4a8e14ba0, type: 3}
+  m_PrefabInstance: {fileID: 1168492455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
 --- !u!1 &1175769612
 GameObject:
   m_ObjectHideFlags: 0
@@ -30831,42 +30842,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 479052066652333555, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: m_Size.x
-      value: 1.5753846
-      objectReference: {fileID: 0}
-    - target: {fileID: 479052066652333555, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: m_Size.y
-      value: 3.1507692
-      objectReference: {fileID: 0}
-    - target: {fileID: 831591605139798008, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: activeSkillIconUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 831591605139798008, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: unlockedCombatSkills.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 831591605139798008, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: 'unlockedCombatSkills.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 09282e56bd307484f8ebdee0c5fec1f6, type: 2}
-    - target: {fileID: 1580456119929361600, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: m_Size.x
-      value: 11.027692
-      objectReference: {fileID: 0}
-    - target: {fileID: 1580456119929361600, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: m_Size.y
-      value: 4.7273083
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873264935103288477, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873264935103288477, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: m_UIInputModule
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2952475920657060125, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.2
@@ -30907,42 +30882,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3173419442666312354, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178139596531164579, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: zoomInTime
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178139596531164579, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: defaultZoom
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178139596531164579, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: combatZoomMultiplier
-      value: 1.05
-      objectReference: {fileID: 0}
     - target: {fileID: 3255730908677199951, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4526257046166525584, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: m_Size.x
-      value: 11.027692
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526257046166525584, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: m_Size.y
-      value: 4.7273083
-      objectReference: {fileID: 0}
-    - target: {fileID: 8815986915462865779, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
-      propertyPath: velocityText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 9195372920028026612, guid: aa339dd687dcaad41a0cabf8a4c825ce, type: 3}
       propertyPath: redVignetteImage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1168492458}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1194850,77 +1194797,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1732175701}
     - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: enemyWeight
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: zoomOutTime
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
       propertyPath: inputHandler
       value: 
       objectReference: {fileID: 1732175689}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: turnCommitDelay
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: maxCombatOffset.x
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: maxCombatOffset.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: horizontalDeadzone
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: idleLookAheadRatio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: lookAheadDistanceX
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: verticalDeadzoneUp
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: baseFramingOffset.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: lookAheadSmoothTime
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: combatZoomMultiplier
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: enableCombatMidpoint
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: horizontalSmoothTime
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: combatOffsetSmoothTime
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: platformSnapSmoothTime
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130063671519729485, guid: a69fc01bc62855e41ba85eff492c3672, type: 3}
-      propertyPath: horizontalFollowSmoothTime
-      value: 0.22
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
