@@ -171,24 +171,56 @@ public class PlayerSkillController : MonoBehaviour
             return;
         }
 
-        if (!unlockedCombatSkills.Contains(newSkill))
-        {
-            unlockedCombatSkills.Add(newSkill);
-            PickupNotificationUI.Instance?.ShowSkillObtained(newSkill);
+        if (HasUnlockedCombatSkill(newSkill)) return;
 
-            for (int i = 0; i < equippedWheelSkills.Length; i++)
+        unlockedCombatSkills.Add(newSkill);
+        PickupNotificationUI.Instance?.ShowSkillObtained(newSkill);
+
+        if (IsSkillEquippedInWheel(newSkill)) return;
+
+        for (int i = 0; i < equippedWheelSkills.Length; i++)
+        {
+            if (equippedWheelSkills[i] == null)
             {
-                if (equippedWheelSkills[i] == null)
-                {
-                    equippedWheelSkills[i] = newSkill;
-                    if (CurrentCombatSkill == null) activeWheelIndex = i;
-                    UpdateHUD(false);
-                    break;
-                }
+                equippedWheelSkills[i] = newSkill;
+                if (CurrentCombatSkill == null) activeWheelIndex = i;
+                UpdateHUD(false);
+                break;
             }
         }
     }
 
+    private bool HasUnlockedCombatSkill(SkillData targetSkill)
+    {
+        for (int i = 0; i < unlockedCombatSkills.Count; i++)
+        {
+            SkillData existing = unlockedCombatSkills[i];
+            if (existing == null) continue;
+
+            if (existing == targetSkill ||
+                (!string.IsNullOrEmpty(targetSkill.skillName) && existing.skillName == targetSkill.skillName))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool IsSkillEquippedInWheel(SkillData targetSkill)
+    {
+        for (int i = 0; i < equippedWheelSkills.Length; i++)
+        {
+            SkillData equipped = equippedWheelSkills[i];
+            if (equipped == null) continue;
+
+            if (equipped == targetSkill ||
+                (!string.IsNullOrEmpty(targetSkill.skillName) && equipped.skillName == targetSkill.skillName))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public void SelectWheelSlot(int index)
     {
         if (index >= 0 && index < equippedWheelSkills.Length)
