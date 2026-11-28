@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8900346553871879491}
   - component: {fileID: 2734514259359376043}
   m_Layer: 0
-  m_Name: PerishSkillCollect
+  m_Name: SkillCollect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31768c783df4a98418ac4f33d571e728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillPickup
-  skillToGive: {fileID: 11400000, guid: 62a092b13f290b44faa31f8166e42135, type: 2}
+  skillToGive: {fileID: 0}
   promptKey: F
   interactLabel: Absorb Skill
   absorbVFX: {fileID: 0}
@@ -131,13 +131,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5663160303450670862}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.16000366, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9101638615589898722}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2216565528255044475
 SpriteRenderer:
   serializedVersion: 3
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4563522818183123550, guid: 9f6df8abfc965b44a8d07376acdc2491, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ef6e219df7406f4bb023fc1e5546904, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -34,4 +34,8 @@ public class PerishSkillData : SkillData
             }
         }
     }
+    private void OnEnable()
+    {
+        category = SkillCategory.KeyAbility;
+    }
 }

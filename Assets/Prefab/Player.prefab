@@ -752,7 +752,7 @@ MonoBehaviour:
   hasPerish: 0
   perishSkillData: {fileID: 11400000, guid: 62a092b13f290b44faa31f8166e42135, type: 2}
   hasDoubleJump: 0
-  doubleJumpSkillData: {fileID: 0}
+  doubleJumpSkillData: {fileID: 11400000, guid: 518f09ab42af185429e34a3007778aa9, type: 2}
   hasSuperDash: 0
   superDashSkillData: {fileID: 0}
   unlockedCombatSkills: []
