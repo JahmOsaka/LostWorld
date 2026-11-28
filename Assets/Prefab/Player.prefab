@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c8cd3540517ae4182f0f29a0742729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoreHealth
-  maxHealth: 100
+  maxHealth: 10
   designatedHurtbox: {fileID: 219218130790720734}
   invincibilityDuration: 0.8
   OnTakDamage:
